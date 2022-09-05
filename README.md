@@ -1,4 +1,4 @@
-## Welcome Kancio Development
+## Kancio
 
 # Our Team
 
