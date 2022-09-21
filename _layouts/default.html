@@ -16,7 +16,6 @@
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
-
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
@@ -26,6 +25,11 @@
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download Sekarang Juga</a>
       {% endif %}
+      <div class="sidenav">
+        <a href="/terms-conditions">Syarat dan Ketentuan</a>
+        <a href="/privacy-policy">Kebijakan Privasi</a>
+        <a href="/tentang-kami">Tentang kami</a>
+      </div>
     </header>
 
     <main id="content" class="main-content" role="main">
