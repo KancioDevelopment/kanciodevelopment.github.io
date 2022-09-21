@@ -22,21 +22,25 @@ Sehubungan dengan tanggung jawab Kancio Bima Indonesia atas penggunaan aplikasi 
 
 Pada titik tertentu, kami mungkin ingin memperbarui aplikasi. Aplikasi saat ini tersedia di Android – persyaratan untuk sistem (dan untuk sistem tambahan apa pun yang kami putuskan untuk memperpanjang ketersediaan aplikasi) dapat berubah, dan Anda harus mengunduh pembaruan jika ingin tetap menggunakan aplikasi . Kancio Bima Indonesia tidak berjanji akan selalu memperbarui aplikasi agar relevan dengan Anda dan/atau bekerja dengan versi Android yang telah Anda instal di perangkat Anda. Namun, Anda berjanji untuk selalu menerima pembaruan aplikasi saat ditawarkan kepada Anda, Kami mungkin juga ingin berhenti menyediakan aplikasi, dan dapat menghentikan penggunaannya kapan saja tanpa memberikan pemberitahuan penghentian kepada Anda. Kecuali jika kami memberi tahu Anda sebaliknya, setelah penghentian apa pun, (a) hak dan lisensi yang diberikan kepada Anda dalam persyaratan ini akan berakhir; (b) Anda harus berhenti menggunakan aplikasi, dan (jika perlu) menghapusnya dari perangkat Anda.
 
-**Perubahan Syarat dan Ketentuan Ini**
+## Perubahan Syarat dan Ketentuan Ini
 
 Kami dapat memperbarui Syarat dan Ketentuan kami dari waktu ke waktu. Oleh karena itu, Anda disarankan untuk meninjau halaman ini secara berkala untuk setiap perubahan. Kami akan memberi tahu Anda tentang perubahan apa pun dengan memposting Syarat dan Ketentuan baru di halaman ini.
 
 Syarat dan ketentuan ini berlaku mulai 2022-09-02
 
 
-**Berikut syarat & ketentuan transaksi pulsa **
-
-- Setiap transaksi selalu menggunakan pin, sidik jari, atau face detection(tergantung keamanan yang di pakai oleh handphone anda).
+## Berikut syarat & ketentuan transaksi
 - Transaksi dengan produk dan nomor yang sama dalam sehari, harus diberi jeda minimal 5 menit untuk melakukan transaksi selanjutnya.
 - Komplain transaksi maksimal 7 hari dihitung dari tanggal transaksi.
 - Kami tidak bertanggung jawab terhadap kesalahan pengisian pulsa dikarenakan kesalahan input nomor tujuan oleh pengguna.
-- Harga pulsa dapat berubah sewaktu-waktu tanpa pemberitahuan
+- Harga pulsa dapat berubah sewaktu-waktu tanpa pemberitahuan.
 
-**Hubungi kami**
+## Syarat dan ketentuan kirim saldo ke pengguna lain.
+- email tujuan harus terdaftar sebagai member kancio.
+- nominal untuk minimal pengiriman Rp10.000
+- nominal untuk maksimal pengiriman Rp2.000.000
+- tidak boleh menggunakan email yang sama.
+
+## Hubungi kami
 
 Jika Anda memiliki pertanyaan atau saran tentang Syarat dan Ketentuan kami, jangan ragu email ke kancio.indonesia@gmail.com
