@@ -37,9 +37,13 @@
 - BRI
 - Permata
 - BSI
+- BNI
 
 Tata cara deposit dapat mengikuti langkah-langkah berikut [disini](http://kancio.com/deposit-saldo-kancio)
 
 ## Cepat dan Realtime.
 
 Aplikasi kancio sangat cepat di didukung dengan teknologi realtime yang sangat stabil. selain itu kami menyediakan lebih dari satu server untuk melayani Pembayaran tagihan dan Isi ulang kamu, dan kami pastikan itu sangat cepat.
+
+## Catatan Rilis
+- [disini](https://kancio.com/changelog)
