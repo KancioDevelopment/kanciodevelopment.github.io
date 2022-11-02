@@ -46,7 +46,7 @@ Tata cara deposit dapat mengikuti langkah-langkah berikut [disini](http://kancio
 Aplikasi kancio sangat cepat di didukung dengan teknologi realtime yang sangat stabil. selain itu kami menyediakan lebih dari satu server untuk melayani Pembayaran tagihan dan Isi ulang kamu, dan kami pastikan itu sangat cepat.
 
 ## Ide dan Feature
-- [issue](https://github.com/KancioDevelopment/kanciodevelopment.github.io/issues)
+- [issue](https://kancio.com/ide-dan-fitur)
 
 ## Catatan Rilis
 - [disini](https://kancio.com/changelog)
