@@ -2,6 +2,18 @@
 
 ## Layanan kami saat ini.
 
+## Pengembagan Aplikasi
+
+Mulai konsultasikan Ide dan Bisnis kamu bersama [TLab](https://tlab.co.id) dengan layanan sebagai berikut.
+
+ - Web
+ - Mobile
+ - Big Data
+ - AI (Artificial Intelligence)
+ - [Lain-lain](https://tlab.co.id/services)
+ 
+ 
+
 ### PPOB dan Isi Ulang ?
 
 PPOB & Isi Ulang, Ini adalah kebutuhan dasar dan hampir 98% warga indonesia membutuhkannya, dengan itu kami hadirkan layanan ini sebagai solusi utama dalam langkah pertama kami dalam mengembangkan layanan Kancio.
@@ -41,7 +53,8 @@ fitur ini hadir untuk memberikan semangat dan motivasi dari orang-orang hebat, a
 
 ## Saldo
 
-### Menerima deposit saldo melalui transfer Bank
+Menerima deposit saldo melalui transfer Bank
+
 - BCA
 - Mandiri
 - BRI
@@ -55,8 +68,8 @@ fitur ini hadir untuk memberikan semangat dan motivasi dari orang-orang hebat, a
 
 Aplikasi kancio sangat cepat di didukung dengan teknologi realtime yang sangat stabil. selain itu kami menyediakan lebih dari satu server untuk melayani Pembayaran tagihan dan Isi ulang kamu, dan kami pastikan itu sangat cepat.
 
-## Ide dan Feature
-- [issue](https://kancio.com/ide-dan-fitur)
+## Ide dan fitur
+- [ide dan fitur dari kancio](https://kancio.com/ide-dan-fitur)
 
 ## Catatan Rilis
-- [disini](https://kancio.com/changelog)
+- [catatan rilis kancio](https://kancio.com/changelog)
