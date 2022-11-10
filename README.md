@@ -2,22 +2,11 @@
 
 ## Layanan kami saat ini.
 
-## Pengembagan Aplikasi
 
-Mulai konsultasikan Ide dan Bisnis kamu bersama [TLab](https://tlab.co.id) dengan layanan sebagai berikut.
-
- - Web
- - Mobile
- - Big Data
- - AI (Artificial Intelligence)
- - [Lain-lain](https://tlab.co.id/services)
- 
- 
-
-### PPOB dan Isi Ulang ?
+### PPOB dan Isi Ulang
 
 PPOB & Isi Ulang, Ini adalah kebutuhan dasar dan hampir 98% warga indonesia membutuhkannya, dengan itu kami hadirkan layanan ini sebagai solusi utama dalam langkah pertama kami dalam mengembangkan layanan Kancio.
-- Hampir memenuhi semua kebutuhan Isi Ulang, Voucher Game, E-Money, dan Token Listrik PLN tersedia di kancio dengan harga terbaik dan pilihan yang beragam.
+
 - banyak pilihan produk isi ulang, mulai dari pulsa, paket internet, telpon, sms, aktivasi, dan transfer pulsa mulai dari 1k.
 - isi ulang e-money seperti gopay, shopeepay, dana, ovo, maxim mulai dari 10k.
 - isi ulang token listrik PLN mulai dari 5k.
