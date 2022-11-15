@@ -24,19 +24,12 @@ dihadirkan oleh Kancio untuk membantu meningkatkan iman dan takwa kepada Allah S
 
 ### NjajiYuk
 
-fitur ini hadir agar kita senantiasa membaca Al-Quran dan selalu mengingat atas perintah dan larangan dari Allah SWT agar kita menjadi orang-orang yang selamat baik di dunia maupuan di akhirat.
-
-![image](https://user-images.githubusercontent.com/21150538/200746449-ec8cb501-5373-40b1-af9e-204855d59702.png)
-
+fitur ini hadir agar kita senantiasa membaca Al-Quran dan selalu mengingat atas perintah dan larangan dari Allah SWT agar kita menjadi orang-orang yang selamat baik di dunia maupun di akhirat.
 
 
 ### Kutipan
 
-fitur ini hadir untuk memberikan semangat dan motivasi dari orang-orang hebat, agar kita lebih bijak dalam mengambil keputusan disetiap langkah-langkah kehidupan.
-
-![image](https://user-images.githubusercontent.com/21150538/200747206-c9ebd8fd-efe4-439e-8ed6-8c04d831fbc8.png)
-
-
+fitur ini hadir untuk memberikan semangat dan motivasi dari orang-orang hebat, agar kita lebih bijak dalam mengambil keputusan.
 
 - menggunakan layanan pihak ketiga yaitu [quotable](https://github.com/lukePeavey/quotable) dan gambar [unsplash.com](https://unsplash.com/)
 
@@ -51,7 +44,7 @@ Menerima deposit saldo melalui transfer Bank
 - BSI
 - BNI
 
-[cara deposit saldo di kancio](http://kancio.com/deposit-saldo-kancio)
+[cara isi saldo di kancio](http://kancio.com/deposit-saldo-kancio)
 
 ## Cepat dan Realtime.
 
