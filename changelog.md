@@ -1,3 +1,7 @@
+# 2.1.1 - 2.1.6
+- Meningkatkan fitur [#Kutipan](), [#NgajiYuk]()
+- Menambahkan fitur Kancio Points
+
 # 2.1.1
 - Penambahan fitur islamic (kiblat, quran, salah, hadis)
 - Quran harian
