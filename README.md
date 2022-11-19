@@ -33,9 +33,10 @@ fitur ini hadir untuk memberikan semangat dan motivasi dari orang-orang hebat, a
 
 - menggunakan layanan pihak ketiga yaitu [quotable](https://github.com/lukePeavey/quotable) dan gambar [unsplash.com](https://unsplash.com/)
 
-## Saldo
+## KancioPay
+Merupakan uang elektronik yang bisa kamu pakai untuk melakukan transaksi pembayaran dan keuangan melalui aplikasi Kancio.
 
-Menerima deposit saldo melalui transfer Bank
+Isi saldo bisa melalui transfer Bank
 
 - BCA
 - Mandiri
@@ -45,6 +46,10 @@ Menerima deposit saldo melalui transfer Bank
 - BNI
 
 [cara isi saldo di kancio](http://kancio.com/deposit-saldo-kancio)
+
+## [Points](https://kancio.com/kancio-points)
+
+Merupakan loyalty reward yang ditujukan ke pengguna Kancio.
 
 ## Cepat dan Realtime.
 
