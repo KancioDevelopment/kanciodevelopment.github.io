@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kancio.indonesia",
+      "sha256_cert_fingerprints":
+        ["4B:E3:0A:05:94:4A:F4:48:B8:A5:73:41:0F:46:22:63:D1:EB:55:44:E1:9B:EC:75:A8:12:B4:4E:94:4F:B8:38"]
+    }
+  }
+]
