@@ -6,11 +6,11 @@ Kancio points adalah loyalty reward yang ditujukan bagi Pengguna Kancio yang ket
 - Kancio points pada fitur [Kutipan](https://kancio.page.link/kutipan)  efektif jalan di versi minimal v2.1.6
 - klaim points setelah transaksi berlaku di versi v2.1.7
 
-# Cara mendapatkan Kancio Points
+## Cara memperoleh point
 
 - Melalui fitur [Kutipan](https://kancio.page.link/kutipan) dimana setiap kali kamu geser kekanan atau kekiri akan di arahkan ke iklan, setiap kali kamu selesai menonton iklan kamu akan memperoleh poin yang sudah di tentukan oleh pihak kancio.
 - Dapat diklaim setelah selesai transaksi pembelian.
 
-# Cara mencairkan Kancio Points
+## Cara menukarkan point
 
-- Kancio points dapat dicairkan setiap bulan ke Saldo kancio, setelah dilakukan tahap verifikasi oleh tim Kancio.
+- Point dapat ditukarkan dengan hadiah yang sudah di tentukan oleh pihak kancio, setelah point dilakukan tahap verifikasi oleh tim Kancio.
