@@ -12,7 +12,8 @@ Kancio points adalah loyalty reward yang ditujukan bagi Pengguna Kancio yang ket
 - Dapat diklaim setelah selesai transaksi pembelian.
 
 ## Cara menukarkan point
-
+- Pastikan total point kamu sudah memenuhi syarat.
+- Hubungi admin melalui menu `WA Admin` di aplikasi Kancio
 - Point dapat ditukarkan dengan hadiah yang sudah di tentukan oleh pihak kancio, setelah point dilakukan tahap verifikasi oleh tim Kancio.
 
 ## Hadiah
