@@ -14,3 +14,8 @@ Kancio points adalah loyalty reward yang ditujukan bagi Pengguna Kancio yang ket
 ## Cara menukarkan point
 
 - Point dapat ditukarkan dengan hadiah yang sudah di tentukan oleh pihak kancio, setelah point dilakukan tahap verifikasi oleh tim Kancio.
+
+## Hadiah
+
+
+![rewards](https://user-images.githubusercontent.com/21150538/206946423-00e3c8f4-c0d6-4b9d-9218-ad6820f4e106.png)
