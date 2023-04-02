@@ -1,3 +1,10 @@
+---
+permalink: /privacy-policy/
+title: "Privacy Policy"
+last_modified_at: 2023-04-02T12:42:38-04:00
+toc: true
+---
+
 **Kebijakan Privasi**
 
 Kancio Bima Indonesia membangun aplikasi Kancio sebagai aplikasi Gratis. LAYANAN ini disediakan oleh Kancio Bima Indonesia tanpa biaya dan dimaksudkan untuk digunakan apa adanya.

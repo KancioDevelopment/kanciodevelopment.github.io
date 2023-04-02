@@ -1,8 +1,15 @@
-# Kancio Points
+---
+permalink: /kancio-points/
+title: "Kancio Points"
+last_modified_at: 2023-04-02T12:42:38-04:00
+toc: true
+---
+
+## Kancio Points
 
 Kancio points adalah loyalty reward yang ditujukan bagi Pengguna Kancio yang ketentuan pemberian, perhitungan, dan penggunaannya berbeda dengan Saldo Kancio. Nilai Kancio Points dijamin dengan suatu dana yang memadai sesuai dengan nilai Kancio Points yang Anda terima.
 
-# Versi yang mendukung kancio Points
+## Versi yang mendukung kancio Points
 - Kancio points pada fitur [Kutipan](https://kancio.page.link/kutipan)  efektif jalan di versi minimal v2.1.6
 - klaim points setelah transaksi berlaku di versi v2.1.7
 

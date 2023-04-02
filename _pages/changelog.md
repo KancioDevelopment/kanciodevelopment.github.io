@@ -1,3 +1,10 @@
+---
+permalink: /changelog/
+title: "Riwayar Perubahan"
+last_modified_at: 2023-04-02T12:42:38-04:00
+toc: true
+---
+
 # 2.1.6 - 2.1.9
 - Meningkatkan fitur Arah Kiblat.
 - Meningkatkan fitur Ngaji Yuk.

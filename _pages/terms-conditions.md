@@ -1,3 +1,10 @@
+---
+permalink: /terms-conditions/
+title: "Terms and Conditions"
+last_modified_at: 2023-04-02T12:42:38-04:00
+toc: true
+---
+
 **Syarat & Ketentuan**
 
 Dengan mengunduh atau menggunakan aplikasi, persyaratan ini akan berlaku secara otomatis untuk Anda – karena itu Anda harus memastikan bahwa Anda membacanya dengan cermat sebelum menggunakan aplikasi. Anda tidak diizinkan untuk menyalin atau memodifikasi aplikasi, bagian mana pun dari aplikasi, atau merek dagang kami dengan cara apa pun. Anda tidak boleh mencoba mengekstrak kode sumber aplikasi, dan Anda juga tidak boleh mencoba menerjemahkan aplikasi ke bahasa lain atau membuat versi turunan. Aplikasi itu sendiri, dan semua merek dagang, hak cipta, hak basis data, dan hak kekayaan intelektual lainnya yang terkait dengannya, masih milik Kancio Bima Indonesia.
