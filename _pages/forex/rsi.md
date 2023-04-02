@@ -1,0 +1,10 @@
+# Cara membaca indikator Relative Strength Index
+
+Indikator Relative Strength Index (RSI) adalah alat analisis teknikal yang digunakan dalam trading forex untuk mengukur kekuatan atau kelemahan momentum harga pada grafik harga. Berikut adalah cara membaca indikator RSI:
+
+- Rentang waktu yang digunakan: Indikator RSI dapat diterapkan pada berbagai rentang waktu, tetapi umumnya digunakan pada rentang waktu harian (daily) atau lebih rendah.
+- Rentang nilai RSI: Indikator RSI memiliki rentang nilai antara 0 hingga 100. Jika nilai RSI berada di atas 70, itu menunjukkan overbought (terlalu banyak dibeli) dan kemungkinan akan terjadi koreksi harga atau reversal. Sebaliknya, jika nilai RSI berada di bawah 30, itu menunjukkan oversold (terlalu banyak dijual) dan kemungkinan akan terjadi koreksi harga atau reversal.
+- Divergensi: Indikator RSI juga dapat digunakan untuk mengidentifikasi divergensi antara momentum harga dan nilai RSI. Jika harga membuat higher high (puncak yang lebih tinggi) tetapi nilai RSI tidak, itu menunjukkan kelemahan momentum dan kemungkinan akan terjadi koreksi harga atau reversal. Sebaliknya, jika harga membuat lower low (lembah yang lebih rendah) tetapi nilai RSI tidak, itu menunjukkan kekuatan momentum dan kemungkinan akan terjadi kenaikan harga.
+- Signal Line: Beberapa trader menggunakan garis signal pada nilai RSI. Garis signal pada umumnya ditarik pada nilai 50 dan dapat digunakan sebagai indikator tren naik atau turun.
+
+Cara membaca indikator RSI adalah dengan memperhatikan level-level overbought dan oversold, serta divergensi antara momentum harga dan nilai RSI. Namun, seperti halnya dengan alat analisis teknikal lainnya, trader harus selalu menggunakan analisis teknikal dan fundamental yang komprehensif untuk membuat keputusan tradingnya.

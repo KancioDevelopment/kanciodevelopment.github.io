@@ -1,0 +1,15 @@
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
+- jekyll-feed
+- jekyll-seo-tag
+
+title: Kancio
+description: Maju dan berkembangan bersama
+show_downloads: true
+github:
+  zip_url: https://play.google.com/store/apps/details?id=com.kancio.indonesia&hl=in&gl=US
+
+google_analytics: 329029579
+
+include: [".well-known", "pages", "posts"]
