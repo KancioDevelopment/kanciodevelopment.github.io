@@ -1,9 +1,7 @@
 ---
 permalink: /about/
 title: "Tentang Kami"
-excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
-last_modified_at: 2022-05-27T11:59:26-04:00
 toc: true
 ---
 
-Kancio adalah wadah untuk kami berkembang dan beradaptasi dengan kemajuan peradaban teknologi saat ini, kami belajar, beradapatasi, dan membuat solusi terhadap permasalahan umum dengan teknologi. kami sangat mendukung ide-ide yang unik dan menarik dan dapat menyelesaikan masalah tentu untuk kepentingan umum dan terbatas.
+Kancio.com merupakan sebuah wadah yang mendorong dan mendukung kemajuan teknologi dan inovasi di Indonesia. Dalam upaya untuk memberikan solusi terhadap berbagai masalah yang dihadapi masyarakat, Kancio mengembangkan berbagai aplikasi seperti PulsaApp, KasirApp, dan QuizApp. Dengan fokus pada kemudahan penggunaan, keamanan, dan efisiensi, aplikasi-aplikasi Kancio bertujuan untuk memudahkan masyarakat dalam melakukan transaksi, mengelola bisnis, dan meningkatkan pengetahuan melalui platform edukasi. Selain itu, Kancio juga mendukung ide-ide unik dan kreatif yang dapat memberikan manfaat bagi masyarakat secara luas.

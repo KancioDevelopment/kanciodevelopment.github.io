@@ -5,13 +5,13 @@ last_modified_at: 2023-04-02T12:42:38-04:00
 toc: true
 ---
 
-**Syarat & Ketentuan**
+## Syarat & Ketentuan
 
 Dengan mengunduh atau menggunakan aplikasi, persyaratan ini akan berlaku secara otomatis untuk Anda – karena itu Anda harus memastikan bahwa Anda membacanya dengan cermat sebelum menggunakan aplikasi. Anda tidak diizinkan untuk menyalin atau memodifikasi aplikasi, bagian mana pun dari aplikasi, atau merek dagang kami dengan cara apa pun. Anda tidak boleh mencoba mengekstrak kode sumber aplikasi, dan Anda juga tidak boleh mencoba menerjemahkan aplikasi ke bahasa lain atau membuat versi turunan. Aplikasi itu sendiri, dan semua merek dagang, hak cipta, hak basis data, dan hak kekayaan intelektual lainnya yang terkait dengannya, masih milik Kancio Bima Indonesia.
 
 Kancio Bima Indonesia berkomitmen untuk memastikan bahwa aplikasi ini berguna dan seefisien mungkin. Untuk alasan itu, kami berhak untuk membuat perubahan pada aplikasi atau membebankan biaya untuk layanannya, kapan saja dan untuk alasan apa pun. Kami tidak akan pernah menagih Anda untuk aplikasi atau layanannya tanpa menjelaskan dengan jelas kepada Anda apa yang Anda bayar.
 
-Aplikasi Kancio menyimpan dan memproses data pribadi yang telah Anda berikan kepada kami, untuk menyediakan Layanan kami. Anda bertanggung jawab untuk menjaga keamanan ponsel dan akses ke aplikasi. Oleh karena itu, kami menyarankan Anda untuk tidak melakukan jailbreak atau root pada ponsel Anda, yang merupakan proses menghilangkan batasan dan batasan perangkat lunak yang diberlakukan oleh sistem operasi resmi perangkat Anda. Itu bisa membuat ponsel Anda rentan terhadap malware/virus/program jahat, membahayakan fitur keamanan ponsel Anda dan itu bisa berarti bahwa aplikasi Kancio tidak akan berfungsi dengan baik atau tidak berfungsi sama sekali.
+Aplikasi Kami menyimpan dan memproses data pribadi yang telah Anda berikan kepada kami, untuk menyediakan Layanan kami. Anda bertanggung jawab untuk menjaga keamanan ponsel dan akses ke aplikasi. Oleh karena itu, kami menyarankan Anda untuk tidak melakukan jailbreak atau root pada ponsel Anda, yang merupakan proses menghilangkan batasan dan batasan perangkat lunak yang diberlakukan oleh sistem operasi resmi perangkat Anda. Itu bisa membuat ponsel Anda rentan terhadap malware/virus/program jahat, membahayakan fitur keamanan ponsel Anda dan itu bisa berarti bahwa aplikasi Kancio tidak akan berfungsi dengan baik atau tidak berfungsi sama sekali.
 
 Aplikasi ini menggunakan layanan pihak ketiga yang menyatakan Syarat dan Ketentuan mereka.
 
@@ -33,8 +33,6 @@ Pada titik tertentu, kami mungkin ingin memperbarui aplikasi. Aplikasi saat ini 
 
 Kami dapat memperbarui Syarat dan Ketentuan kami dari waktu ke waktu. Oleh karena itu, Anda disarankan untuk meninjau halaman ini secara berkala untuk setiap perubahan. Kami akan memberi tahu Anda tentang perubahan apa pun dengan memposting Syarat dan Ketentuan baru di halaman ini.
 
-Syarat dan ketentuan ini berlaku mulai 2022-09-02
-
 
 ## Berikut syarat & ketentuan transaksi
 - Transaksi dengan produk dan nomor yang sama dalam sehari, harus diberi jeda minimal 5 menit untuk melakukan transaksi selanjutnya.
@@ -43,7 +41,7 @@ Syarat dan ketentuan ini berlaku mulai 2022-09-02
 - Harga pulsa dapat berubah sewaktu-waktu tanpa pemberitahuan.
 
 ## Syarat dan ketentuan kirim saldo ke pengguna lain.
-- email tujuan harus terdaftar sebagai member kancio.
+- email tujuan harus terdaftar sebagai pengguna.
 - nominal untuk minimal pengiriman Rp10.000
 - nominal untuk maksimal pengiriman Rp2.000.000
 - tidak boleh menggunakan email yang sama.
