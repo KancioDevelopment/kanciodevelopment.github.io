@@ -1,5 +1,4 @@
 ---
-permalink: /pulsaapp-points/
 title: "Nikmati Keuntungan Menggunakan PulsaPoints di PulsaApp"
 tags:
   - points

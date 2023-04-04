@@ -1,5 +1,4 @@
 ---
-permalink: /deposit-saldo-pulsaapp/
 title: "Panduan Deposit Saldo di Aplikasi PulsaApp"
 categories:
   - KancioApp

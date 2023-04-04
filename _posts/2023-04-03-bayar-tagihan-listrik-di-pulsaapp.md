@@ -1,5 +1,4 @@
 ---
-permalink: /pulsaapp-points/
 title: " Bayar Tagihan Listrik Mudah dan Praktis di PulsaApp"
 tags:
   - points
