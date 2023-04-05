@@ -15,7 +15,7 @@ Jika Anda memilih untuk menggunakan Layanan kami, maka Anda menyetujui pengumpul
 
 Istilah yang digunakan dalam Kebijakan Privasi ini memiliki arti yang sama seperti dalam Syarat dan Ketentuan kami, yang dapat diakses di Kancio kecuali ditentukan lain dalam Kebijakan Privasi ini.
 
-## Pengumpulan dan Penggunaan Informasi**
+## Pengumpulan dan Penggunaan Informasi
 
 Untuk pengalaman yang lebih baik, saat menggunakan Layanan kami, kami mungkin meminta Anda untuk memberikan kami informasi pengenal pribadi tertentu, termasuk namun tidak terbatas pada email, nama. Informasi yang kami minta akan disimpan oleh kami dan digunakan seperti yang dijelaskan dalam kebijakan privasi ini.
 

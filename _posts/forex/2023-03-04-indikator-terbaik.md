@@ -1,5 +1,6 @@
 ---
 title: "Indikator terbaik untuk tranding di forex"
+toc: true
 categories:
   - forex
   - forex
