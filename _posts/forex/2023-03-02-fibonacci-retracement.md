@@ -1,4 +1,14 @@
-# Cara membaca indikator Fibonacci Retracement
+---
+title: "Cara membaca indikator Fibonacci Retracement"
+categories:
+  - forex
+  - forex
+tags:
+  - kancio
+  - forex
+  - fibonacci
+  - edukasi
+---
 
 Fibonacci Retracement adalah salah satu alat analisis teknikal yang digunakan dalam trading forex untuk membantu trader mengidentifikasi level-level support dan resistance pada grafik harga. Berikut adalah cara membaca Fibonacci Retracement:
 

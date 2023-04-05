@@ -1,5 +1,14 @@
-
-# Indikator terbaik untuk tranding di forex
+---
+title: "Indikator terbaik untuk tranding di forex"
+categories:
+  - forex
+  - forex
+tags:
+  - kancio
+  - forex
+  - indikator
+  - edukasi
+---
 
 Tidak ada indikator yang bisa dikatakan sebagai indikator terbaik untuk trading forex, karena setiap indikator memiliki kelebihan dan kekurangan masing-masing. Indikator yang cocok untuk Anda tergantung pada gaya trading Anda, preferensi Anda, dan kondisi pasar yang sedang terjadi.
 

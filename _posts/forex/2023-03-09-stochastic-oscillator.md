@@ -1,4 +1,14 @@
-# Cara membaca indikator Stochastic Oscillator
+---
+title: "Cara membaca indikator Stochastic Oscillator"
+categories:
+  - forex
+  - forex
+tags:
+  - kancio
+  - forex
+  - stochastic
+  - edukasi
+---
 
 Indikator Stochastic Oscillator adalah salah satu alat analisis teknikal yang dapat membantu trader forex mengukur momentum harga dan mengidentifikasi kondisi overbought atau oversold. Berikut adalah cara membaca indikator Stochastic Oscillator:
 

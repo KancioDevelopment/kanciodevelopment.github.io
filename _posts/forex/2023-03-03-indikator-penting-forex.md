@@ -1,4 +1,14 @@
-# Indikator-indikator paling penting di Forex
+---
+title: "Indikator-indikator paling penting di Forex"
+categories:
+  - forex
+  - forex
+tags:
+  - kancio
+  - forex
+  - indikator
+  - edukasi
+---
 
 Ada banyak indikator ekonomi dan teknikal yang digunakan oleh trader forex untuk membantu memprediksi pergerakan harga di pasar forex. Berikut adalah beberapa indikator yang dianggap penting oleh sebagian besar trader forex:
 

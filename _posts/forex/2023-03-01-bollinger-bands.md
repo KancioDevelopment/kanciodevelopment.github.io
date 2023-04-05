@@ -1,4 +1,14 @@
-# Cara membaca indikator Bollinger Bands
+---
+title: "Cara membaca indikator Bollinger Bands"
+categories:
+  - forex
+  - forex
+tags:
+  - kancio
+  - forex
+  - BollingerBands
+  - edukasi
+---
 
 Indikator Bollinger Bands adalah salah satu alat analisis teknikal yang digunakan dalam trading forex untuk membantu trader mengidentifikasi volatilitas pasar dan menentukan level-level support dan resistance pada grafik harga. Berikut adalah cara membaca indikator Bollinger Bands:
 
