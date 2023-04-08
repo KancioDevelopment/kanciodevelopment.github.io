@@ -32,4 +32,5 @@ Salah satu keunggulan lain dari fitur Nota adalah adanya fitur Share Nota. Denga
 
 Itulah beberapa keunggulan yang dapat Anda dapatkan dengan menggunakan fitur Nota. Dalam era digital ini, penggunaan teknologi dalam bisnis menjadi sangat penting. Dengan fitur Nota, bisnis Anda dapat terus berkembang dengan lebih cepat dan efisien. Jangan lewatkan kesempatan Anda untuk memaksimalkan potensi bisnis Anda dengan fitur Nota.
 
-~ Kancio Tim
+Salam hangat,
+Tim PulsaApp.

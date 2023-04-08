@@ -13,3 +13,6 @@ Anda bisa memperoleh PulsaPoints dengan mudah melalui fitur Kutipan di aplikasi 
 Bagi Anda yang tertarik untuk menukarkan poin PulsaPoints, pastikan total poin yang Anda miliki telah mencapai syarat yang ditetapkan oleh PulsaApp. Setelah itu, Anda dapat menghubungi admin melalui menu WA Admin yang tersedia di aplikasi PulsaApp. Poin yang Anda miliki dapat ditukarkan dengan hadiah yang telah ditentukan oleh pihak Kancio.com setelah melalui tahap verifikasi oleh tim PulsaApp.
 
 Manfaatkan PulsaPoints Anda untuk mendapatkan berbagai hadiah menarik seperti voucher belanja, voucher makan, gadget, hingga pulsa gratis. Dengan PulsaPoints, Anda bisa mendapatkan keuntungan lebih ketika melakukan transaksi di PulsaApp. Jangan ragu untuk memanfaatkan PulsaPoints Anda dan nikmati keuntungannya sekarang juga!
+
+Salam hangat,
+Tim PulsaApp.

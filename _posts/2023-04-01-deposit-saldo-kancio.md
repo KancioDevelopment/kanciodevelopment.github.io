@@ -22,3 +22,6 @@ Jika Anda ingin melakukan pembelian pulsa atau paket data menggunakan aplikasi P
 7. Tunggu selama 1-15 menit sembari admin melakukan verifikasi deposit saldo yang telah Anda transfer.
 
 Dengan melakukan deposit saldo di aplikasi PulsaApp, Anda dapat dengan mudah melakukan pembelian pulsa atau paket data dengan harga yang lebih murah. Selain itu, PulsaApp juga menawarkan berbagai keuntungan dan kemudahan dalam melakukan transaksi, seperti akses yang mudah, proses transaksi yang cepat, dan pilihan pembayaran yang fleksibel. Yuk, mulai gunakan aplikasi PulsaApp sekarang juga dan nikmati kemudahan bertransaksi yang diberikan!
+
+Salam hangat,
+Tim PulsaApp.
