@@ -1,5 +1,6 @@
 ---
 title: "Aplikasi Top Up Game Paling Lengkap dengan Harga Paling Murah!"
+excerpt: "PulsaApp hadir sebagai solusi terbaik untuk memenuhi kebutuhanmu dalam top up game."
 toc: true
 categories:
   - KancioApp

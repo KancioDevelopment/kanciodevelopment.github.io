@@ -1,6 +1,7 @@
 ---
 title: "Fitur Nota: Bagikan Harga dan Catatan Tambahan dengan Pelanggan Anda!"
 toc: true
+excerpt: "Dengan fitur Nota, Anda dapat mengatur transaksi dengan mudah dan cepat"
 categories:
   - KancioApp
   - PulsaApp

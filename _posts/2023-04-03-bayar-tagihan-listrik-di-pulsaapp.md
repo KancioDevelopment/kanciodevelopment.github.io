@@ -1,5 +1,6 @@
 ---
-title: " Bayar Tagihan Listrik Mudah dan Praktis di PulsaApp"
+title: "Bayar Tagihan Listrik Mudah dan Praktis di PulsaApp"
+excerpt: "Fitur Tagihan Listrik PulsaApp ini hadir dengan berbagai keunggulan yang membuat proses pembayaran menjadi lebih mudah, cepat, dan praktis."
 tags:
   - points
   - pulsapp

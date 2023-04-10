@@ -1,5 +1,6 @@
 ---
 title: "Kancio Resmi Mengubah Nama Aplikasinya Menjadi PulsaApp"
+excerpt: "Kami juga ingin mengumumkan bahwa aplikasi kami yang telah dikenal sebagai Kancio, kini berubah nama menjadi PulsaApp!"
 categories:
   - KancioApp
   - PulsaApp

@@ -1,6 +1,6 @@
 ---
 title: "Aplikasi Pembelian Token Listrik Paling Murah!"
-toc: true
+excerpt: "PulsaApp menawarkan harga pembelian token listrik yang paling murah di bandingkan dengan aplikasi lainnya"
 categories:
   - KancioApp
   - PulsaApp

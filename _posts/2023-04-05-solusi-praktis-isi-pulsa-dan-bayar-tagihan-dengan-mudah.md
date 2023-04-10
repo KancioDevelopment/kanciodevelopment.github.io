@@ -1,5 +1,6 @@
 ---
 title: "Beberapa alasan mengapa Anda harus memilih PulsaApp"
+excerpt: "Kami hadirkan aplikasi PulsaApp, yang dapat memudahkan Anda dalam melakukan pembelian dan pengisian ulang pulsa, paket data, voucher game, dan e-money"
 toc: true
 categories:
   - KancioApp

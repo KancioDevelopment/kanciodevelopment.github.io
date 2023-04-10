@@ -1,5 +1,6 @@
 ---
 title: "Nikmati Keuntungan Menggunakan PulsaPoints di PulsaApp"
+excerpt: "Manfaatkan PulsaPoints Anda untuk mendapatkan berbagai hadiah menarik"
 tags:
   - points
   - pulsapp

@@ -1,5 +1,6 @@
 ---
 title: "Aplikasi Penjualan Pulsa Paling Murah!"
+excerpt: "Dengan menggunakan PulsaApp, pelanggan dapat menikmati harga pulsa yang paling murah dan kemudahan transaksi yang belum pernah ada sebelumnya"
 toc: true
 categories:
   - KancioApp
@@ -8,6 +9,8 @@ tags:
   - Pulsa
   - Transaksi
   - PulsaMurah
+header:
+  image: /assets/images/headers/pulsa-murah.png
 ---
 
 PulsaApp memberikan kemudahan dan kecepatan dalam melakukan pembelian pulsa. Pengguna dapat dengan mudah melakukan transaksi kapan saja dan di mana saja dengan harga yang sangat terjangkau. Dengan fitur-fitur terbaru dan tampilan yang intuitif, aplikasi ini mudah digunakan oleh siapa saja, bahkan oleh pengguna baru sekalipun.

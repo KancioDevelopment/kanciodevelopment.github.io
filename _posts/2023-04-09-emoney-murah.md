@@ -1,6 +1,6 @@
 ---
 title: "Aplikasi Pengisian E-Money dengan Harga Terbaik di Pasaran!"
-toc: true
+excerpt: "Sekarang kamu bisa mengisi saldo E-Money kamu dengan harga yang paling terjangkau di pasaran dengan menggunakan aplikasi PulsaApp."
 categories:
   - KancioApp
   - PulsaApp

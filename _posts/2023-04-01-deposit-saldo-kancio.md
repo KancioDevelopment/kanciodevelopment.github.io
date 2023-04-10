@@ -1,5 +1,6 @@
 ---
 title: "Panduan Deposit Saldo di Aplikasi PulsaApp"
+excerpt: "Berikut ini adalah panduan untuk melakukan deposit saldo di aplikasi PulsaApp"
 categories:
   - KancioApp
   - PulsaApp
