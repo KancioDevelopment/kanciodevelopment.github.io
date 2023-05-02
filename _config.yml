@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "id-ID"
-title                    : "Kancio.com"
+title                    : "kancio.com"
 title_separator          : "-"
 subtitle                 : "Menghadirkan Solusi Digital Terbaik untuk Masa Depan yang Lebih Baik" # site tagline that appears below site title in masthead
 name                     : "Kancio.com"
