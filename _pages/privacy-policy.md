@@ -7,7 +7,7 @@ toc: true
 
 ## Kebijakan Privasi
 
-Kancio Bima Indonesia membangun aplikasi PulsaApp, KasirApp, QuizApp sebagai aplikasi Gratis. LAYANAN ini disediakan oleh Kancio Bima Indonesia tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
+Kancio Bima Indonesia membangun aplikasi PulsaApp, KasirApp, QuizApp, dan Undangan Nikah Silvia & Jihar sebagai aplikasi Gratis. LAYANAN ini disediakan oleh Kancio Bima Indonesia tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
 
 Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami dengan pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.
 
