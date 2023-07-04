@@ -34,13 +34,13 @@ Pada titik tertentu, kami mungkin ingin memperbarui aplikasi. Aplikasi saat ini 
 Kami dapat memperbarui Syarat dan Ketentuan kami dari waktu ke waktu. Oleh karena itu, Anda disarankan untuk meninjau halaman ini secara berkala untuk setiap perubahan. Kami akan memberi tahu Anda tentang perubahan apa pun dengan memposting Syarat dan Ketentuan baru di halaman ini.
 
 
-## Berikut syarat & ketentuan transaksi
-- Transaksi dengan produk dan nomor yang sama dalam sehari, harus diberi jeda minimal 5 menit untuk melakukan transaksi selanjutnya.
+## Berikut syarat & ketentuan transaksi di Aplikasi PulsaApp
+- Transaksi dengan produk dan nomor yang sama dalam sehari hanya 1 kali.
 - Komplain transaksi maksimal 7 hari dihitung dari tanggal transaksi.
 - Kami tidak bertanggung jawab terhadap kesalahan pengisian pulsa dikarenakan kesalahan input nomor tujuan oleh pengguna.
 - Harga pulsa dapat berubah sewaktu-waktu tanpa pemberitahuan.
 
-## Syarat dan ketentuan kirim saldo ke pengguna lain.
+## Syarat dan ketentuan kirim saldo ke pengguna lain di Aplikasi PulsaApp.
 - email tujuan harus terdaftar sebagai pengguna.
 - nominal untuk minimal pengiriman Rp10.000
 - nominal untuk maksimal pengiriman Rp2.000.000

@@ -4,7 +4,7 @@ toc: true
 excerpt: "Dengan fitur Nota, Anda dapat mengatur transaksi dengan mudah dan cepat"
 categories:
   - KancioApp
-  - PulsaApp
+  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
 tags:
   - Pulsa
   - Nota
@@ -34,4 +34,4 @@ Salah satu keunggulan lain dari fitur Nota adalah adanya fitur Share Nota. Denga
 Itulah beberapa keunggulan yang dapat Anda dapatkan dengan menggunakan fitur Nota. Dalam era digital ini, penggunaan teknologi dalam bisnis menjadi sangat penting. Dengan fitur Nota, bisnis Anda dapat terus berkembang dengan lebih cepat dan efisien. Jangan lewatkan kesempatan Anda untuk memaksimalkan potensi bisnis Anda dengan fitur Nota.
 
 Salam hangat,
-Tim PulsaApp.
+Tim [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia).

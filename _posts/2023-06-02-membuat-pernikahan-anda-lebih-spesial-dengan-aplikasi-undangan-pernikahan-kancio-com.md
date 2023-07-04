@@ -68,5 +68,5 @@ Dengan fitur-fitur yang lengkap dan menarik ini, Aplikasi Undangan Pernikahan Ka
 
 ## Aplikasi yang sudah rilis
 
-Web: https://silviajihar-undangan.web.app/#/
-Android: https://play.google.com/store/apps/details?id=com.silviajihar.undangan.silviajihar
+- [Versi Web](https://silviajihar-undangan.web.app/#/)
+- [Versi Android](https://play.google.com/store/apps/details?id=com.silviajihar.undangan.silviajihar)
