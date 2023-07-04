@@ -1,10 +1,9 @@
 ---
 title: "Aplikasi Top Up Game Paling Lengkap dengan Harga Paling Murah!"
-excerpt: "[PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) hadir sebagai solusi terbaik untuk memenuhi kebutuhanmu dalam top up game."
 toc: true
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
 tags:
   - Topup Game Murah
   - Transaksi

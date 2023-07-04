@@ -1,9 +1,8 @@
 ---
 title: "Aplikasi Pengisian E-Money dengan Harga Terbaik di Pasaran!"
-excerpt: "Sekarang kamu bisa mengisi saldo E-Money kamu dengan harga yang paling terjangkau di pasaran dengan menggunakan aplikasi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)."
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
 tags:
   - E-Money
   - Transaksi

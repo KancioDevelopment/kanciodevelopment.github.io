@@ -1,9 +1,8 @@
 ---
-title: "Kancio Resmi Mengubah Nama Aplikasinya Menjadi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
-excerpt: "Kami juga ingin mengumumkan bahwa aplikasi kami yang telah dikenal sebagai Kancio, kini berubah nama menjadi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)!"
+title: "Kancio Resmi Mengubah Nama Aplikasinya Menjadi PulsaApp"
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
 tags:
   - kancio
   - pulsapp

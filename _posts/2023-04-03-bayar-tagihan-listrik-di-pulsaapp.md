@@ -1,6 +1,5 @@
 ---
-title: "Bayar Tagihan Listrik Mudah dan Praktis di [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
-excerpt: "Fitur Tagihan Listrik [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) ini hadir dengan berbagai keunggulan yang membuat proses pembayaran menjadi lebih mudah, cepat, dan praktis."
+title: "Bayar Tagihan Listrik Mudah dan Praktis di PulsaApp"
 tags:
   - points
   - pulsapp

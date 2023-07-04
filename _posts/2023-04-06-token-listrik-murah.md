@@ -1,9 +1,8 @@
 ---
 title: "Aplikasi Pembelian Token Listrik Paling Murah!"
-excerpt: "[PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) menawarkan harga pembelian token listrik yang paling murah di bandingkan dengan aplikasi lainnya"
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
 tags:
   - Pulsa
   - Transaksi

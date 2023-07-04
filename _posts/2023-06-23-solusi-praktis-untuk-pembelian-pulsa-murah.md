@@ -1,5 +1,5 @@
 ---
-title: "[PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia): Solusi Praktis untuk Pembelian Pulsa Murah"
+title: "PulsaApp: Solusi Praktis untuk Pembelian Pulsa Murah"
 toc: true
 categories:
     - pulsamurah

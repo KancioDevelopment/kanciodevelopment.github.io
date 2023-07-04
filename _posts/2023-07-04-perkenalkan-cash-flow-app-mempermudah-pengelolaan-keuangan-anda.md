@@ -1,5 +1,5 @@
 ---
-title: "Perkenalkan [CashFlowApp](https://play.google.com/store/apps/details?id=com.kancio.cashflow): Mempermudah Pengelolaan Keuangan Anda"
+title: "Perkenalkan CashFlowApp: Mempermudah Pengelolaan Keuangan Anda"
 toc: true
 categories:
     - finance

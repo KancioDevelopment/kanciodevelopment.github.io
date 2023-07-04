@@ -1,10 +1,9 @@
 ---
 title: "Aplikasi Penjualan Pulsa Paling Murah!"
-excerpt: "Dengan menggunakan [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia), pelanggan dapat menikmati harga pulsa yang paling murah dan kemudahan transaksi yang belum pernah ada sebelumnya"
 toc: true
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
 tags:
   - Pulsa
   - Transaksi

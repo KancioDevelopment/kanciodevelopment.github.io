@@ -4,7 +4,6 @@ toc: true
 excerpt: "Dengan fitur Nota, Anda dapat mengatur transaksi dengan mudah dan cepat"
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
 tags:
   - Pulsa
   - Nota

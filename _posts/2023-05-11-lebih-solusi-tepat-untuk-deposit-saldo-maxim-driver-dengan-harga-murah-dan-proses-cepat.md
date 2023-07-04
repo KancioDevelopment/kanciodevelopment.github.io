@@ -1,6 +1,5 @@
 ---
-title : "[PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) - Solusi Tepat untuk Deposit Saldo Maxim Driver dengan Harga Murah dan Proses Cepat"
-excerpt: "Ingin melakukan deposit saldo Maxim Driver dengan mudah, cepat, dan harga yang terjangkau? [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) adalah solusinya! Dengan [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia), Anda dapat menikmati berbagai kemudahan dan keuntungan saat melakukan deposit saldo Maxim Driver. Mari simak artikel ini untuk mengetahui lebih lanjut!."
+title : "PulsaApp - Solusi Tepat untuk Deposit Saldo Maxim Driver dengan Harga Murah dan Proses Cepat"
 toc: true
 categories:
   - maxim

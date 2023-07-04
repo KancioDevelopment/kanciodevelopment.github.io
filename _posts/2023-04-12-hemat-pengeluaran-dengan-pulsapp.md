@@ -1,6 +1,5 @@
 ---
-title: "Hemat Pengeluaran dengan Aplikasi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
-excerpt: "Siapa yang tidak ingin memperoleh penghasilan tambahan atau menghemat pengeluaran bulanan? Bagi ibu rumah tangga, mahasiswa, atau karyawan, hal tersebut bisa menjadi sebuah impian yang sulit diwujudkan. Namun, dengan hadirnya aplikasi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia), impian tersebut bisa terwujud."
+title: "Hemat Pengeluaran dengan Aplikasi PulsaApp"
 toc: true
 categories:
   - pulsa

@@ -1,6 +1,5 @@
 ---
-title: "Nikmati Keuntungan Menggunakan PulsaPoints di [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
-excerpt: "Manfaatkan PulsaPoints Anda untuk mendapatkan berbagai hadiah menarik"
+title: "Nikmati Keuntungan Menggunakan PulsaPoints di PulsaApp"
 tags:
   - points
   - pulsapp

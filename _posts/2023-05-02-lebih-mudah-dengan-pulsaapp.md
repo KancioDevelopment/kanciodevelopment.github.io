@@ -1,8 +1,7 @@
 ---
-title : "Hemat Waktu dan Cegah Kesalahan dengan Fitur Akses Kontak Otomatis di [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
-excerpt: "Fitur akses kontak otomatis di [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) sangat mudah digunakan. Pengguna hanya perlu memperbolehkan aplikasi untuk mengakses kontak pada saat pertama kali menggunakan fitur ini. Setelah itu, aplikasi akan secara otomatis menampilkan daftar kontak yang tersedia saat pengguna akan mengisi pulsa."
+title : "Hemat Waktu dan Cegah Kesalahan dengan Fitur Akses Kontak Otomatis di PulsaApp"
 categories:
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
   - kontak
 tags:
   - akseskontak

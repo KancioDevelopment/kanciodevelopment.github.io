@@ -3,7 +3,7 @@ title: "Panduan Deposit Saldo di Aplikasi [PulsaApp](https://play.google.com/sto
 excerpt: "Berikut ini adalah panduan untuk melakukan deposit saldo di aplikasi [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)"
 categories:
   - KancioApp
-  - [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia)
+  - PulsaApp
   - Deposit Saldo
 tags:
   - kancio

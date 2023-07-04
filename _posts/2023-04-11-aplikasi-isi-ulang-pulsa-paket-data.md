@@ -1,6 +1,5 @@
 ---
 title: "Aplikasi Isi Ulang Pulsa dan Paket Data yang Mudah dan Cepat"
-excerpt: " Dengan [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia), kita dapat melakukan isi ulang pulsa dan paket data tanpa harus repot-repot pergi ke gerai penjual pulsa. Selain itu, [PulsaApp](https://play.google.com/store/apps/details?id=com.kancio.indonesia) juga menawarkan harga yang lebih murah dibandingkan dengan gerai penjual pulsa konvensional."
 categories:
   - pulsa
   - paket data
