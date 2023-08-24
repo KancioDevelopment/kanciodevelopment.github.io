@@ -19,7 +19,7 @@ locale                   : "id-ID"
 title                    : "kancio.com"
 title_separator          : "-"
 subtitle                 : "Menghadirkan Solusi Digital Terbaik untuk Masa Depan yang Lebih Baik" # site tagline that appears below site title in masthead
-name                     : "Kancio.com"
+name                     : "PT Kancio Bima Indonesia"
 description              : "Menghadirkan Solusi Digital Terbaik untuk Masa Depan yang Lebih Baik"
 url                      : "https://kancio.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
