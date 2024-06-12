@@ -7,7 +7,7 @@ toc: true
 
 ## Kebijakan Privasi
 
-PT Kancio Bima Indonesia membangun aplikasi PulsaApp, KasirApp, QuizApp, NetCashflow dan Apotek Mitra Syifa sebagai aplikasi Gratis. LAYANAN ini disediakan oleh PT Kancio Bima Indonesia tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
+PT Kancio Bima Indonesia membangun  PulsaplikasiaApp, KasirApp, QuizApp, NetCashflow, ApotekApp dan Padel Pub sebagai aplikasi Gratis. LAYANAN ini disediakan oleh PT Kancio Bima Indonesia tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
 
 Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami dengan pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.
 
