@@ -8,34 +8,48 @@
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
+<html lang="{{ site.locale | slice: 0,2 | default: " en" }}" class="no-js">
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached masthead.html %}
+<head>
+  <!-- Meta Tags for Responsiveness -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="initial-content">
-      {{ content }}
+  <!-- Include Head Files -->
+  {% include head.html %}
+  {% include head/custom.html %}
+</head>
+
+<body
+  class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+
+  <!-- Skip Links and Masthead -->
+  {% include_cached skip-links.html %}
+  {% include_cached masthead.html %}
+
+  <!-- Main Content Area -->
+  <main class="initial-content" style="min-height: 100vh;">
+    {{ content }}
+  </main>
+
+  <!-- Search Form -->
+  {% if site.search == true %}
+  <div class="search-content">
+    {% include_cached search/search_form.html %}
+  </div>
+  {% endif %}
+
+  <!-- Footer Section -->
+  <footer id="footer" class="page__footer">
+    <div class="container">
+      {% include footer/custom.html %}
+      {% include_cached footer.html %}
     </div>
+  </footer>
 
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include_cached search/search_form.html %}
-      </div>
-    {% endif %}
+  <!-- Include Scripts -->
+  {% include scripts.html %}
 
-    <div id="footer" class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
+</body>
 
-    {% include scripts.html %}
-
-  </body>
 </html>

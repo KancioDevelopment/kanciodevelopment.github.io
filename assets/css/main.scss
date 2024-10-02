@@ -7,3 +7,66 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+
+.landing-hero {
+  background: linear-gradient(180deg, #c73b9f, #FFF);
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  // background-color: #878094;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+}
+
+.products-list {
+  padding: 60px 0;
+}
+
+.product-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.testimonials {
+  background: #f1f1f1;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  width: 30%;
+}

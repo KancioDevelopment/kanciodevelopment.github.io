@@ -3,24 +3,74 @@ layout: default
 ---
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
+{% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
+{% include page__hero_video.html %}
 {% endif %}
 
 {% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
 {% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
 
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 id="page-title" class="page__title">{{ page.title }}</h1>
-    {% endunless %}
-    {{ content }}
+<section class="landing-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Selamat Datang di Kancio</h1>
+      <p>Tempat berkembangnya inovasi digital, dari PulsaApp hingga ApotekApp.</p>
+      <a href="#products" class="btn btn-primary">Lihat Produk Kami</a>
+    </div>
   </div>
+</section>
+
+<section id="products" class="products-list">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h2>Produk Kami</h2>
+    </div>
+    <div class="product-cards-container">
+      <div class="product-cards">
+        <div class="product-card">
+          <h3>PulsaApp</h3>
+          <p>Aplikasi manajemen pulsa yang memudahkan operasional penjualan pulsa dengan teknologi canggih dan ringan.
+          </p>
+          <a href="https://play.google.com/store/apps/details?id=com.kancio.indonesia" class="btn btn-secondary">Unduh
+            Sekarang</a>
+        </div>
+        <div class="product-card">
+          <h3>ApotekApp</h3>
+          <p>Platform untuk mengelola apotek dengan fitur lengkap, mulai dari pengelolaan stok obat hingga pelaporan
+            keuangan.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.kancio.apotikapp" class="btn btn-secondary">Unduh
+            Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Apa Kata Pengguna Kami?</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>“PulsaApp telah membuat bisnis pulsa saya semakin mudah dan efisien.”</p>
+        <span>- Rafa</span>
+      </div>
+      <div class="testimonial-card">
+        <p>“Dengan ApotekApp, saya bisa mengelola stok obat dengan lebih baik dan teratur.”</p>
+        <span>- Owner Apotek Mitra Syifa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="archive">
+  {% unless page.header.overlay_color or page.header.overlay_image %}
+  <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+  {% endunless %}
+  {{ content }}
 </div>

@@ -1,3 +1,12 @@
+/* Resetting body margins and padding */
+body {
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+}
+
+
 .page-header {
     color: #fff;
     text-align: center;
@@ -5,7 +14,12 @@
     background-image: linear-gradient(180deg, #c73b9f, #FFF);
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
@@ -18,4 +32,448 @@ h1.project-name {
 
 a {
     color: #c73b9f;
+}
+
+.archive__item {
+    background-color: #ffffff;
+    /* White background for the post item */
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Inner spacing */
+    margin: 15px 0;
+    /* Spacing between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Slight shadow for depth */
+    transition: box-shadow 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.archive__item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow on hover */
+}
+
+.teaser-image {
+    width: 100%;
+    /* Make the image responsive */
+    border-radius: 8px;
+    /* Rounded corners for the image */
+    margin-bottom: 15px;
+    /* Spacing below the image */
+}
+
+.archive__item-title {
+    font-size: 1.5rem;
+    /* Adjusted font size for the title */
+    color: #333;
+    /* Dark grey color for the title */
+    margin-bottom: 10px;
+    /* Spacing below the title */
+}
+
+.permalink-link {
+    color: #007bff;
+    /* Primary color for the permalink link */
+    font-size: 0.9rem;
+    /* Smaller font size for the link */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.permalink-link:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+.archive__item-excerpt {
+    color: #555;
+    /* Grey color for the excerpt */
+    font-size: 1rem;
+    /* Font size for the excerpt */
+    line-height: 1.5;
+    /* Improved line height for readability */
+}
+
+/* Navigation container styles */
+.nav__list {
+    background-color: #f8f9fa;
+    /* Light background */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    padding: 20px;
+    /* Padding around the nav */
+}
+
+/* Title styles */
+.nav__title {
+    font-size: 1.5rem;
+    /* Larger title font */
+    margin-bottom: 10px;
+    /* Space below title */
+}
+
+/* Navigation item styles */
+.nav__items {
+    list-style: none;
+    /* Remove default list styles */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+}
+
+/* Individual nav item styles */
+.nav__item {
+    margin-bottom: 10px;
+    /* Space between items */
+}
+
+/* Link styles */
+.nav__link {
+    text-decoration: none;
+    /* Remove underline */
+    color: #007bff;
+    /* Primary link color */
+    padding: 10px 15px;
+    /* Padding for clickable area */
+    border-radius: 4px;
+    /* Rounded corners */
+    transition: background-color 0.3s;
+    /* Smooth background change */
+}
+
+/* Active link styles */
+.nav__link.active {
+    background-color: #007bff;
+    /* Highlight color for active link */
+    color: #fff;
+    /* White text for active link */
+}
+
+/* Hover effects */
+.nav__link:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    /* Light background on hover */
+}
+
+/* Child menu styles */
+.nav__children {
+    list-style: none;
+    /* Remove default list styles */
+    padding-left: 20px;
+    /* Indent for child items */
+    margin: 10px 0 0;
+    /* Space above child items */
+    display: none;
+    /* Hide by default */
+}
+
+/* Show child items when parent has children */
+.nav__item.has-children:hover .nav__children {
+    display: block;
+    /* Show on hover */
+}
+
+/* Styles for accordion toggle */
+.accordion-toggle {
+    display: none;
+    /* Hide checkbox */
+}
+
+.accordion-label {
+    cursor: pointer;
+    /* Change cursor to pointer */
+    padding: 10px;
+    /* Padding for label */
+    background-color: #007bff;
+    /* Background color for the toggle */
+    color: white;
+    /* Text color */
+    border-radius: 4px;
+    /* Rounded corners */
+    display: inline-block;
+    /* Make it an inline-block element */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav__list {
+        padding: 10px;
+        /* Reduce padding on smaller screens */
+    }
+}
+
+/* Masthead styles */
+.masthead {
+    background-color: #ffffff;
+    /* Light background for the masthead */
+    border-bottom: 2px solid #eaeaea;
+    /* Subtle bottom border */
+    width: 100%;
+    /* Full width */
+    padding: 15px 20px;
+    /* Adjust padding as needed */
+    box-sizing: border-box;
+    /* Include padding in width calculations */
+}
+
+/* Inner wrap for alignment */
+.masthead__inner-wrap {
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space out elements */
+    align-items: center;
+    /* Center items vertically */
+    width: 100%;
+    /* Ensure it takes full width */
+}
+
+/* Site logo */
+.site-logo img {
+    max-height: 60px;
+    /* Set a maximum height for the logo */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Site title styles */
+.site-title {
+    font-size: 1.8rem;
+    /* Larger font size for title */
+    color: #333;
+    /* Dark text color for better readability */
+    text-decoration: none;
+    /* Remove underline */
+    margin-left: 10px;
+    /* Space between logo and title */
+}
+
+/* Subtitle styles */
+.site-subtitle {
+    display: block;
+    /* Make subtitle block level */
+    font-size: 1rem;
+    /* Smaller font for subtitle */
+    color: #666;
+    /* Lighter color for subtitle */
+}
+
+/* Navigation links styles */
+.visible-links {
+    list-style: none;
+    /* Remove default list styles */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+    display: flex;
+    /* Flex layout for horizontal alignment */
+}
+
+.masthead__menu-item {
+    margin-left: 20px;
+    /* Space between menu items */
+}
+
+.masthead__menu-item a {
+    text-decoration: none;
+    /* Remove underline */
+    color: #007bff;
+    /* Primary link color */
+    padding: 8px 15px;
+    /* Padding for clickable area */
+    border-radius: 4px;
+    /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transitions */
+}
+
+/* Hover and active states for links */
+.masthead__menu-item a:hover,
+.masthead__menu-item a.active {
+    background-color: rgba(0, 123, 255, 0.1);
+    /* Light background on hover */
+    color: #0056b3;
+    /* Darker color for active link */
+}
+
+/* Search toggle button */
+.search__toggle {
+    background: none;
+    /* No background */
+    border: none;
+    /* No border */
+    cursor: pointer;
+    /* Pointer cursor */
+    margin-left: 20px;
+    /* Space from other items */
+}
+
+/* Navigation toggle button */
+.greedy-nav__toggle {
+    background: none;
+    /* No background */
+    border: none;
+    /* No border */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+/* Navicon for mobile toggle */
+.navicon {
+    width: 30px;
+    /* Width for navicon */
+    height: 2px;
+    /* Height for navicon bars */
+    background-color: #333;
+    /* Color for navicon */
+    position: relative;
+    /* Position for stacking */
+}
+
+.navicon::before,
+.navicon::after {
+    content: '';
+    width: 30px;
+    /* Width for navicon bars */
+    height: 2px;
+    /* Height for navicon bars */
+    background-color: #333;
+    /* Color for navicon bars */
+    position: absolute;
+    /* Position relative to navicon */
+}
+
+.navicon::before {
+    top: -8px;
+    /* Position above */
+}
+
+.navicon::after {
+    top: 8px;
+    /* Position below */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .masthead__inner-wrap {
+        flex-direction: column;
+        /* Stack items vertically */
+    }
+
+    .visible-links {
+        flex-direction: column;
+        /* Stack links vertically on small screens */
+        display: none;
+        /* Hide links by default */
+    }
+
+    .greedy-nav__toggle {
+        display: block;
+        /* Show toggle button */
+    }
+
+    .greedy-nav__toggle.active+.visible-links {
+        display: flex;
+        /* Show links when active */
+    }
+}
+
+/* General styles for the products section */
+.products-list {
+    padding: 40px 0;
+    /* Add padding for spacing */
+    background-color: #f9f9f9;
+    /* Light background for contrast */
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    /* Adjust the size of the heading */
+    margin-bottom: 20px;
+    /* Space below the heading */
+}
+
+/* Container for horizontal scrolling */
+.product-cards-container {
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    padding: 10px;
+    /* Add padding */
+    scroll-snap-type: x mandatory;
+    /* Enable snap scrolling */
+}
+
+.product-cards {
+    display: flex;
+    /* Use flexbox for layout */
+    gap: 20px;
+    /* Space between cards */
+}
+
+/* Individual product card styles */
+.product-card {
+    flex: 0 0 100%;
+    /* Make each card take the full width */
+    max-width: 300px;
+    /* Optional maximum width for larger screens */
+    background-color: #ffffff;
+    /* White background for cards */
+    border: 1px solid #eaeaea;
+    /* Subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Inner padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Slight shadow for depth */
+    transition: transform 0.3s;
+    /* Smooth hover effect */
+    scroll-snap-align: start;
+    /* Snap alignment for scrolling */
+}
+
+/* Hover effect for cards */
+.product-card:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+}
+
+/* Button styles */
+.btn-secondary {
+    background-color: #007bff;
+    /* Button color */
+    color: #ffffff;
+    /* Text color */
+    padding: 10px 15px;
+    /* Padding */
+    border-radius: 4px;
+    /* Rounded corners */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;
+    /* Darker shade on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product-card {
+        flex: 0 0 100%;
+        /* Full width on mobile */
+    }
+
+    .product-cards {
+        /* To keep only one card visible */
+        min-width: 100vw;
+        /* Set the minimum width to viewport width */
+    }
 }
