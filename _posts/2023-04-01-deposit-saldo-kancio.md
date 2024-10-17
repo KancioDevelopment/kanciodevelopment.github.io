@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Cara Isi Saldo di PulsaApp"
 date: 2024-10-17
 categories: [PulsaApp, Tutorial]
