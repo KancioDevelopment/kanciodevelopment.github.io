@@ -7,7 +7,7 @@ toc: true
 
 ## Kebijakan Privasi
 
-Kancio.com membangun PulsaApp, NetCashflow, ApotekApp dan QuranMind sebagai aplikasi Gratis. LAYANAN ini disediakan oleh kancio.com tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
+Kancio.com membangun PulsaApp, Catet Uang, ApotekApp dan QuranMind sebagai aplikasi Gratis. LAYANAN ini disediakan oleh kancio.com tanpa biaya dan dimaksudkan untuk digunakan apa adanya.
 
 Halaman ini digunakan untuk memberi tahu pengunjung mengenai kebijakan kami dengan pengumpulan, penggunaan, dan pengungkapan Informasi Pribadi jika ada yang memutuskan untuk menggunakan Layanan kami.
 

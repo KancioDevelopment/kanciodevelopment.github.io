@@ -1,0 +1,490 @@
+.quranmind-showcase {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0f9ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.quranmind-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(20, 184, 166, 0.05));
+  pointer-events: none;
+}
+
+.showcase__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-3xl);
+  position: relative;
+  z-index: 2;
+}
+
+.showcase__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.showcase__title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.showcase__title-highlight {
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.showcase__subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.showcase__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+}
+
+.showcase__hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.showcase__hero-text h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.showcase__hero-text p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+.showcase__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid #d1fae5;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.highlight-icon {
+  font-size: 1.25rem;
+}
+
+.download-btn--quranmind {
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+}
+
+.download-btn--quranmind:hover {
+  background: linear-gradient(135deg, #059669, #0d9488);
+}
+
+.phone-mockup--quran {
+  background: linear-gradient(135deg, #065f46, #047857);
+}
+
+.quran-app-preview {
+  padding: var(--spacing-lg);
+  height: 100%;
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  color: var(--text-primary);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid #d1fae5;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.app-icon {
+  font-size: 1.5rem;
+}
+
+.app-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 1.25rem;
+}
+
+.surah-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid #d1fae5;
+}
+
+.surah-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.surah-info {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.verse-container {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid #d1fae5;
+  margin-bottom: var(--spacing-lg);
+}
+
+.arabic-text {
+  font-size: 1.5rem;
+  text-align: right;
+  line-height: 2;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-family: 'Amiri', serif;
+}
+
+.translation {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  font-style: italic;
+}
+
+.ai-analysis {
+  background: #f0fdf4;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid #10b981;
+}
+
+.ai-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #065f46;
+  margin-bottom: var(--spacing-xs);
+}
+
+.analysis-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid #d1fae5;
+}
+
+.play-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.audio-progress {
+  flex: 1;
+  height: 4px;
+  background: #d1fae5;
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-bar {
+  width: 30%;
+  height: 100%;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.qori-name {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.showcase__features h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.benefits-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.benefits-header h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.benefits-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.benefit-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid #d1fae5;
+  transition: all var(--transition-normal);
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #10b981;
+}
+
+.benefit-card__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.benefit-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.benefit-card__description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+.showcase__cta {
+  background: linear-gradient(135deg, white, #f0fdf4);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  text-align: center;
+  border: 1px solid #d1fae5;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content h3 {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+}
+
+.cta-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  color: white;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #059669, #0d9488);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  color: white;
+}
+
+.cta-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .showcase__hero {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+  
+  .showcase__highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .quranmind-showcase {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .showcase__title {
+    font-size: 2.25rem;
+  }
+  
+  .showcase__subtitle {
+    font-size: 1rem;
+  }
+  
+  .showcase__hero-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .showcase__hero-text p {
+    font-size: 1rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefit-card {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+  
+  .cta-stats {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .cta-content h3 {
+    font-size: 1.75rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
