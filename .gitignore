@@ -27,3 +27,23 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# Environment variables - NEVER commit these
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Firebase files - Contains sensitive configuration
+FIREBASE_SETUP.md
+firestore.rules
+firebase.json
+.firebaserc
+
+# Build artifacts
+dist/
+build/
+
+# Deployment logs
+*.log

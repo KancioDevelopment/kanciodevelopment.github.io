@@ -74,6 +74,11 @@ const Header: React.FC = () => {
                 </a>
               </li>
               <li className="nav__item">
+                <a href="#blog" className="nav__link" onClick={(e) => handleNavClick(e, '#blog')}>
+                  Blog
+                </a>
+              </li>
+              <li className="nav__item">
                 <a href="#contact" className="nav__link" onClick={(e) => handleNavClick(e, '.footer')}>
                   Contact
                 </a>

@@ -100,8 +100,8 @@ const CustomAppsShowcase: React.FC = () => {
             <span className="showcase__title-highlight"> Based on Proven Success</span>
           </h2>
           <p className="showcase__subtitle">
-            Leverage the success of our flagship applications to create tailored solutions 
-            for your specific industry needs. Get the benefits of proven architecture with 
+            Leverage the success of our flagship applications to create tailored solutions
+            for your specific industry needs. Get the benefits of proven architecture with
             custom features designed for your business.
           </p>
         </div>
@@ -111,9 +111,9 @@ const CustomAppsShowcase: React.FC = () => {
             <div className="hero-text">
               <h3>Why Build from Scratch When You Can Build on Success?</h3>
               <p>
-                Our flagship applications - PulsaApp, QuranMind, ApotekApp, and Catet Uang - 
-                represent thousands of hours of development, testing, and real-world validation. 
-                Instead of starting from zero, we can adapt these proven solutions to create 
+                Our flagship applications - PulsaApp, QuranMind, ApotekApp, and Catet Uang -
+                represent thousands of hours of development, testing, and real-world validation.
+                Instead of starting from zero, we can adapt these proven solutions to create
                 custom applications tailored to your specific industry and requirements.
               </p>
               <div className="hero-stats">
@@ -125,10 +125,10 @@ const CustomAppsShowcase: React.FC = () => {
                   <span className="stat-number">10+</span>
                   <span className="stat-label">Business Clients</span>
                 </div>
-                <div className="stat-item">
+                {/* <div className="stat-item">
                   <span className="stat-number">50k+</span>
                   <span className="stat-label">Total Users</span>
-                </div>
+                </div> */}
                 <div className="stat-item">
                   <span className="stat-number">40-60%</span>
                   <span className="stat-label">Time Savings</span>
@@ -220,7 +220,7 @@ const CustomAppsShowcase: React.FC = () => {
             <div className="cta-content">
               <h3>Ready to Build Your Custom Application?</h3>
               <p>
-                Let's discuss how we can adapt our proven successful applications to create 
+                Let's discuss how we can adapt our proven successful applications to create
                 the perfect solution for your business needs.
               </p>
               <div className="cta-buttons">

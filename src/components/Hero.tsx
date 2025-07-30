@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setReducedMotion(mediaQuery.matches)
-    
+
     const handleChange = () => setReducedMotion(mediaQuery.matches)
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
@@ -42,11 +42,11 @@ const Hero: React.FC = () => {
   // Auto-cycling through featured apps for better engagement
   useEffect(() => {
     if (reducedMotion) return
-    
+
     const interval = setInterval(() => {
       setActiveApp((prev) => (prev + 1) % apps.length)
     }, 4000)
-    
+
     return () => clearInterval(interval)
   }, [reducedMotion])
 
@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
   ]
 
   const stats = [
-    { number: '50K+', label: 'Active Users', icon: '👥' },
+    { number: '5K+', label: 'Active Users', icon: '👥' },
     { number: '4', label: 'Live Apps', icon: '📱' },
     { number: '99.9%', label: 'Uptime', icon: '⚡' },
     { number: '10+', label: 'Business Clients', icon: '🏢' }
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
           </div>
         )}
       </div>
-      
+
       <div className="container">
         <div className="hero__content">
           {/* Enhanced hero text section */}
@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
               <span className="hero__badge-icon">🚀</span>
               <span>Building the Future</span>
             </div>
-            
+
             <h1 className="hero__title">
               <span className="hero__title-line">
                 <span className="hero__title-word">Innovative</span>
@@ -143,9 +143,9 @@ const Hero: React.FC = () => {
                 <span className="hero__title-accent">for Growth</span>
               </span>
             </h1>
-            
+
             <p className="hero__subtitle">
-              Transforming businesses with cutting-edge mobile applications and web platforms. 
+              Transforming businesses with cutting-edge mobile applications and web platforms.
               We create digital experiences that drive success and simplify complex processes.
             </p>
 
@@ -163,16 +163,16 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="hero__cta">
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 className="btn btn--primary btn--large"
                 onClick={(e) => handleScrollToSection(e, '#services')}
               >
                 <span>Explore Our Work</span>
                 <span className="btn__icon">→</span>
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="btn btn--secondary btn--large"
                 onClick={(e) => handleScrollToSection(e, '#about')}
               >
@@ -180,14 +180,14 @@ const Hero: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Enhanced apps showcase */}
           <div className={`hero__showcase ${isVisible ? 'hero__showcase--visible' : ''}`}>
             <div className="hero__showcase-header">
               <h3>Featured Applications</h3>
               <p>Trusted by thousands of users worldwide</p>
             </div>
-            
+
             {/* Featured app display */}
             <div className="hero__featured-app">
               <div className="featured-app">
@@ -197,11 +197,11 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="featured-app__category">{apps[activeApp].category}</div>
                 </div>
-                
+
                 <div className="featured-app__content">
                   <h4 className="featured-app__title">{apps[activeApp].name}</h4>
                   <p className="featured-app__description">{apps[activeApp].shortDesc}</p>
-                  
+
                   <div className="featured-app__features">
                     {apps[activeApp].features.slice(0, 2).map((feature, index) => (
                       <span key={index} className="featured-app__feature">
@@ -209,8 +209,8 @@ const Hero: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <a 
+
+                  <a
                     href={apps[activeApp].playStoreLink}
                     target="_blank"
                     rel="noopener noreferrer"

@@ -4,7 +4,7 @@ import './About.css'
 const About: React.FC = () => {
   const stats = [
     { number: '50+', label: 'Projects Completed' },
-    { number: '10k+', label: 'Active Users' },
+    { number: '5k+', label: 'Active Users' },
     { number: '4.8', label: 'Average Rating' },
     { number: '24/7', label: 'Support Available' }
   ]
@@ -42,7 +42,7 @@ const About: React.FC = () => {
             <span className="about__title-highlight"> Digital Innovation</span>
           </h2>
           <p className="about__subtitle">
-            We are a passionate team of developers and designers dedicated to creating 
+            We are a passionate team of developers and designers dedicated to creating
             digital solutions that make a real difference in people's lives and businesses.
           </p>
         </div>
@@ -52,17 +52,17 @@ const About: React.FC = () => {
             <div className="about__story-text">
               <h3>Our Story</h3>
               <p>
-                Founded with a vision to bridge the gap between technology and everyday needs, 
-                Kancio Development has grown from a small startup to a trusted partner for 
+                Founded with a vision to bridge the gap between technology and everyday needs,
+                Kancio Development has grown from a small startup to a trusted partner for
                 businesses seeking digital transformation.
               </p>
               <p>
-                Our flagship products demonstrate our versatility across diverse industries and user needs. 
-                PulsaApp revolutionizes digital payments with cheaper prices and secure transactions, 
-                QuranMind combines AI technology with traditional Islamic scholarship for deeper understanding, 
-                ApotekApp streamlines pharmacy operations with comprehensive management tools trusted by 10+ clients, 
-                and Catet Uang empowers personal financial management with intelligent tracking and planning tools. 
-                Each application addresses specific market needs with user-centric design, advanced functionality, 
+                Our flagship products demonstrate our versatility across diverse industries and user needs.
+                PulsaApp revolutionizes digital payments with cheaper prices and secure transactions,
+                QuranMind combines AI technology with traditional Islamic scholarship for deeper understanding,
+                ApotekApp streamlines pharmacy operations with comprehensive management tools trusted by 10+ clients,
+                and Catet Uang empowers personal financial management with intelligent tracking and planning tools.
+                Each application addresses specific market needs with user-centric design, advanced functionality,
                 and industry expertise at its core.
               </p>
             </div>

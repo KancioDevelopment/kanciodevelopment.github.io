@@ -47,13 +47,13 @@ const Services: React.FC = () => {
       features: ['Payment Gateway', 'Digital Wallet', 'Transaction Security', 'Multi-currency Support'],
       color: 'from-purple-500 to-pink-600'
     },
-    {
-      icon: '🎨',
-      title: 'UI/UX Design',
-      description: 'User-centered design that creates engaging and intuitive digital experiences.',
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
-      color: 'from-indigo-500 to-blue-600'
-    }
+    // {
+    //   icon: '🎨',
+    //   title: 'UI/UX Design',
+    //   description: 'User-centered design that creates engaging and intuitive digital experiences.',
+    //   features: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
+    //   color: 'from-indigo-500 to-blue-600'
+    // }
   ]
 
   return (
@@ -66,7 +66,7 @@ const Services: React.FC = () => {
             <span className="services__title-highlight"> For Your Business</span>
           </h2>
           <p className="services__subtitle">
-            From concept to deployment, we provide end-to-end digital services 
+            From concept to deployment, we provide end-to-end digital services
             that drive growth and innovation for your business.
           </p>
         </div>
@@ -88,11 +88,11 @@ const Services: React.FC = () => {
                   <div className="service-card__badge service-card__badge--new">New</div>
                 )}
               </div>
-              
+
               <div className="service-card__content">
                 <h3 className="service-card__title">{service.title}</h3>
                 <p className="service-card__description">{service.description}</p>
-                
+
                 <ul className="service-card__features">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="service-card__feature">
@@ -102,7 +102,7 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="service-card__footer">
                 <button className="service-card__cta">
                   Learn More
@@ -112,7 +112,7 @@ const Services: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="services__cta">
           <div className="services__cta-content">
             <h3>Ready to Start Your Project?</h3>
