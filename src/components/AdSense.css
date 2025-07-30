@@ -1,0 +1,364 @@
+/* Enhanced AdSense container styles for optimal UX */
+.adsense-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.adsense-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.adsense-container::before {
+    content: 'Advertisement';
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 0.65em;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3px 8px;
+    border-radius: 6px;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optimized Home page ad styles */
+.home-middle-ad.optimized-home-ad {
+    margin: 50px auto;
+    max-width: 728px;
+    padding: 30px 20px;
+}
+
+.content-break-ad {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(147, 51, 234, 0.02) 100%);
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.ad-wrapper {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Enhanced Blog page ad styles */
+.ad-in-grid-wrapper {
+    grid-column: 1 / -1;
+    margin: 40px 0;
+    padding: 30px 0;
+}
+
+.ad-separator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.ad-separator-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
+}
+
+.ad-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.optimized-grid-ad {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced footer ad section */
+.footer-ad-section {
+    margin: 60px 0 40px 0;
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(147, 51, 234, 0.03) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.content-separator {
+    margin-bottom: 30px;
+}
+
+.content-separator h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content-separator p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.optimized-footer-ad {
+    border-radius: 16px;
+}
+
+/* Enhanced post detail ad styles */
+.post-end-ad-section {
+    margin: 50px 0;
+    padding: 30px 0;
+}
+
+.separator-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.4) 50%, transparent 100%);
+    border-radius: 1px;
+}
+
+.separator-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.optimized-post-ad {
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+/* Legacy blog ad styles (for compatibility) */
+.blog-grid-ad {
+    margin: 20px auto;
+    max-width: 728px;
+    padding: 20px 0;
+}
+
+.blog-footer-ad {
+    margin: 40px auto;
+    max-width: 300px;
+}
+
+/* Post detail ad styles */
+.post-header-ad {
+    margin: 30px auto;
+    max-width: 728px;
+    background: transparent;
+    border: none;
+}
+
+.post-content-ad {
+    margin: 40px auto;
+    max-width: 300px;
+    background: transparent;
+    border: none;
+}
+
+/* Grid ad integration */
+.ad-in-grid {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Responsive design - Enhanced mobile experience */
+@media (max-width: 768px) {
+    .adsense-container {
+        margin: 15px 10px;
+        border-radius: 8px;
+    }
+
+    .content-break-ad {
+        margin: 40px 0;
+        padding: 20px 10px;
+    }
+
+    .ad-in-grid-wrapper {
+        margin: 25px 0;
+        padding: 20px 0;
+    }
+
+    .footer-ad-section {
+        margin: 40px 0 30px 0;
+        padding: 25px 15px;
+        border-radius: 12px;
+    }
+
+    .post-end-ad-section {
+        margin: 30px 0;
+        padding: 20px 0;
+    }
+
+    /* Smaller ad formats for mobile */
+    .home-middle-ad.optimized-home-ad,
+    .optimized-grid-ad,
+    .optimized-footer-ad,
+    .optimized-post-ad {
+        max-width: 320px;
+    }
+
+    .content-separator h3 {
+        font-size: 1.2rem;
+    }
+
+    .content-separator p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .adsense-container {
+        margin: 10px 5px;
+        border-radius: 6px;
+    }
+
+    .adsense-container::before {
+        font-size: 0.55em;
+        top: 4px;
+        right: 6px;
+        padding: 2px 6px;
+    }
+
+    .ad-separator {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .ad-label {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    .separator-text {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    /* Ultra-compact mobile ads */
+    .home-middle-ad.optimized-home-ad,
+    .optimized-grid-ad,
+    .optimized-footer-ad,
+    .optimized-post-ad {
+        max-width: 280px;
+    }
+
+    .content-break-ad {
+        margin: 30px 0;
+        padding: 15px 5px;
+    }
+
+    .footer-ad-section {
+        margin: 30px 0 20px 0;
+        padding: 20px 10px;
+    }
+}
+
+/* Loading placeholder and error states */
+.ad-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.loading-animation {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e9ecef;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.adsense-loading {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.adsense-error .ad-placeholder {
+    background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    color: #6b7280;
+}
+
+/* Enhanced loading placeholder for ads */
+.adsense-container ins.adsbygoogle {
+    min-height: 100px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Hide ads gracefully when consent is not given */
+.adsense-container[data-consent="false"] {
+    display: none;
+}
+
+/* Ensure ads don't break layout */
+.adsbygoogle {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100px;
+}
