@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './PulsaAppShowcase.css'
 
 const PulsaAppShowcase: React.FC = () => {
@@ -65,7 +66,14 @@ const PulsaAppShowcase: React.FC = () => {
                 Experience the future of digital payments with PulsaApp - designed to make 
                 your life easier with cheaper prices, faster transactions, and complete security.
               </p>
-              <div className="showcase__download">
+              <div className="showcase__actions">
+                <Link to="/products/pulsaapp" className="learn-more-btn">
+                  <span>Learn More</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
                   target="_blank"

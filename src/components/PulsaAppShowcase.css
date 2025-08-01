@@ -88,6 +88,35 @@
   font-size: 1.125rem;
 }
 
+.showcase__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.learn-more-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
+  color: white;
+}
+
 .showcase__download {
   display: flex;
   gap: var(--spacing-md);

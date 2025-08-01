@@ -14,6 +14,9 @@ interface GoogleAdSenseProps {
     style?: React.CSSProperties;
     className?: string;
     userConsent: boolean | null;
+    adLabel?: string;
+    variant?: 'default' | 'minimal' | 'premium' | 'featured';
+    showLoadingAnimation?: boolean;
 }
 
 const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
@@ -21,12 +24,17 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
     adFormat = 'auto',
     style = {},
     className = '',
-    userConsent
+    userConsent,
+    adLabel = 'Advertisement',
+    variant = 'default',
+    showLoadingAnimation = true
 }) => {
     const adRef = useRef<HTMLDivElement>(null);
     const isScriptLoaded = useRef(false);
     const [isVisible, setIsVisible] = useState(false);
     const [hasError, setHasError] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isAdLoaded, setIsAdLoaded] = useState(false);
 
     // Intersection Observer for lazy loading
     useEffect(() => {
@@ -77,12 +85,20 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
                 if (window.adsbygoogle && isVisible) {
                     const adElement = adRef.current?.querySelector('.adsbygoogle');
                     if (adElement) {
+                        setIsLoading(true);
                         (window.adsbygoogle = window.adsbygoogle || []).push({});
+                        
+                        // Simulate ad loading completion
+                        setTimeout(() => {
+                            setIsLoading(false);
+                            setIsAdLoaded(true);
+                        }, 1500);
                     }
                 }
             } catch (error) {
                 console.warn('AdSense initialization error:', error);
                 setHasError(true);
+                setIsLoading(false);
             }
         };
 
@@ -100,9 +116,10 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
     // Show error state gracefully
     if (hasError) {
         return (
-            <div className={`adsense-container adsense-error ${className}`} style={style}>
-                <div className="ad-placeholder">
-                    <p>Content loading...</p>
+            <div className={`adsense-container adsense-error variant-${variant} ${className}`} style={style}>
+                <div className="ad-placeholder error-state">
+                    <div className="error-icon">⚠️</div>
+                    <p>Content temporarily unavailable</p>
                 </div>
             </div>
         );
@@ -113,11 +130,12 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
         return (
             <div
                 ref={adRef}
-                className={`adsense-container adsense-loading ${className}`}
+                className={`adsense-container adsense-loading variant-${variant} ${className}`}
                 style={style}
             >
-                <div className="ad-placeholder">
-                    <div className="loading-animation"></div>
+                <div className="ad-placeholder loading-state">
+                    {showLoadingAnimation && <div className="loading-animation"></div>}
+                    <p className="loading-text">Preparing content...</p>
                 </div>
             </div>
         );
@@ -130,12 +148,28 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
         ...style
     };
 
+    const containerClasses = [
+        'adsense-container',
+        `variant-${variant}`,
+        isLoading && showLoadingAnimation ? 'is-loading' : '',
+        isAdLoaded ? 'ad-loaded' : '',
+        className
+    ].filter(Boolean).join(' ');
+
     return (
         <div
             ref={adRef}
-            className={`adsense-container ${className}`}
+            className={containerClasses}
             style={{ textAlign: 'center', margin: '20px 0', ...style }}
+            data-ad-label={adLabel}
         >
+            {isLoading && showLoadingAnimation && (
+                <div className="ad-loading-overlay">
+                    <div className="loading-spinner"></div>
+                    <span className="loading-message">Loading content...</span>
+                </div>
+            )}
+            
             <ins
                 className="adsbygoogle"
                 style={adStyle}
@@ -144,6 +178,8 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
                 data-ad-format={adFormat}
                 data-full-width-responsive="true"
             />
+            
+            <div className="ad-label-overlay">{adLabel}</div>
         </div>
     );
 };

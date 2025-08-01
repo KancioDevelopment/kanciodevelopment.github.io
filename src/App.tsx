@@ -12,10 +12,17 @@ import AIIntegrationShowcase from './components/AIIntegrationShowcase'
 import About from './components/About'
 import Services from './components/Services'
 import Posts from './components/Posts'
+import Blogs from './components/Blogs'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import AdManager from './components/AdManager'
+import PulsaAppPage from './pages/PulsaAppPage'
+import QuranMindPage from './pages/QuranMindPage'
+import ApotekAppPage from './pages/ApotekAppPage'
+import CatetUangPage from './pages/CatetUangPage'
+import CustomAppsPage from './pages/CustomAppsPage'
+import AIIntegrationPage from './pages/AIIntegrationPage'
 import './App.css'
 
 import GoogleAdSense from './components/GoogleAdSense'
@@ -38,6 +45,9 @@ const HomePage: React.FC = () => {
             adFormat="horizontal"
             style={{ margin: '50px 0' }}
             className="home-middle-ad optimized-home-ad"
+            variant="premium"
+            adLabel="Partnership"
+            showLoadingAnimation={true}
           />
         </div>
       </div>
@@ -49,7 +59,7 @@ const HomePage: React.FC = () => {
 
       <About />
       <Services />
-      <Posts />
+
     </>
   )
 }
@@ -63,6 +73,13 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
+            <Route path="/products/quranmind" element={<QuranMindPage />} />
+            <Route path="/products/apotekapp" element={<ApotekAppPage />} />
+            <Route path="/products/catetUang" element={<CatetUangPage />} />
+            <Route path="/products/custom-apps" element={<CustomAppsPage />} />
+            <Route path="/products/ai-integration" element={<AIIntegrationPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
