@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Blogs.css'
-import PostDetail from './PostDetail'
-import AdminLogin from './AdminLogin'
-import AdminDashboard from './AdminDashboard'
 import GoogleAdSense from './GoogleAdSense'
-import { useAuth } from '../contexts/AuthContext'
 import { useAds } from '../hooks/useAds'
 import { BlogService } from '../services/blogService'
 
@@ -21,16 +18,29 @@ export interface PostData {
 }
 
 const Blogs: React.FC = () => {
-  const [selectedPost, setSelectedPost] = useState<string | null>(null)
+  const navigate = useNavigate()
   const [posts, setPosts] = useState<PostData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-  const [showAdminLogin, setShowAdminLogin] = useState<boolean>(false)
-  const [showAdminDashboard, setShowAdminDashboard] = useState<boolean>(false)
   const [currentPage, setCurrentPage] = useState<number>(1)
   const postsPerPage = 9
 
-  const { isAdmin } = useAuth()
   const { userConsent } = useAds()
+
+  // Create slug from post ID or title
+  const createSlug = useCallback((post: PostData): string => {
+    return post.id
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .substring(0, 50)
+  }, [])
+
+  // Navigate to individual post page
+  const handlePostClick = useCallback((post: PostData) => {
+    const slug = createSlug(post)
+    navigate(`/blog/${slug}`)
+  }, [navigate, createSlug])
 
   // Load posts from Firestore
   useEffect(() => {
@@ -50,13 +60,6 @@ const Blogs: React.FC = () => {
     loadPosts()
   }, [])
 
-  // Auto-open admin dashboard if already authenticated
-  useEffect(() => {
-    if (isAdmin && showAdminLogin) {
-      setShowAdminLogin(false)
-      setShowAdminDashboard(true)
-    }
-  }, [isAdmin, showAdminLogin])
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -72,15 +75,18 @@ const Blogs: React.FC = () => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
 
-  // Pagination logic
-  const totalPages = Math.ceil(sortedPosts.length / postsPerPage)
-  const startIndex = (currentPage - 1) * postsPerPage
-  const currentPosts = sortedPosts.slice(startIndex, startIndex + postsPerPage)
+  // Memoized pagination logic for performance
+  const { totalPages, currentPosts } = useMemo(() => {
+    const total = Math.ceil(sortedPosts.length / postsPerPage)
+    const startIndex = (currentPage - 1) * postsPerPage
+    const current = sortedPosts.slice(startIndex, startIndex + postsPerPage)
+    return { totalPages: total, currentPosts: current }
+  }, [sortedPosts, currentPage, postsPerPage])
 
-  const handlePageChange = (page: number) => {
+  const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, [])
 
   return (
     <div className="blogs-page">
@@ -93,9 +99,9 @@ const Blogs: React.FC = () => {
             </div>
             <h1>Insights & Innovation</h1>
             <p>Discover the latest trends in technology, AI integration, and digital transformation that are shaping the future of business</p>
-            
+
             {/* Blog Stats */}
-            <div className="hero-stats">
+            {/* <div className="hero-stats">
               <div className="stat-item">
                 <span className="stat-number">{posts.length}</span>
                 <span className="stat-label">Articles</span>
@@ -110,35 +116,8 @@ const Blogs: React.FC = () => {
                 <span className="stat-number">{Array.from(new Set(posts.flatMap(p => p.tags))).length}</span>
                 <span className="stat-label">Topics</span>
               </div>
-            </div>
+            </div> */}
 
-            {/* Admin Controls */}
-            <div className="hero-admin-controls">
-              {isAdmin ? (
-                <div className="admin-actions">
-                  <div className="admin-badge">
-                    <span className="admin-icon">👨‍💼</span>
-                    <span>Admin</span>
-                  </div>
-                  <button
-                    onClick={() => setShowAdminDashboard(true)}
-                    className="btn btn-admin"
-                    title="Manage Posts"
-                  >
-                    <span className="btn-icon">⚙️</span>
-                    <span>Manage Posts</span>
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setShowAdminLogin(true)}
-                  className="admin-login-btn"
-                  title="Admin Login"
-                >
-                  <span className="login-icon">🔐</span>
-                </button>
-              )}
-            </div>
           </div>
         </div>
       </div>
@@ -180,19 +159,31 @@ const Blogs: React.FC = () => {
           ) : (
             <>
               {/* Posts Grid */}
-              <div className="blogs-grid">
+              <div className="blogs-grid" role="main" aria-label="Blog posts">
                 {currentPosts.map((post, index) => (
                   <React.Fragment key={post.id}>
-                    <article className="blog-card" data-index={index}>
+                    <article
+                      className="blog-card"
+                      data-index={index}
+                      role="article"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
                       <div className="blog-card-inner">
                         <div className="blog-image-container">
-                          <img src={post.image} alt={post.title} className="blog-image" />
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="blog-image"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <div className="blog-overlay"></div>
                           <div className="blog-category-badge">{post.category}</div>
                           <button
                             className="blog-quick-read"
-                            onClick={() => setSelectedPost(post.id)}
+                            onClick={() => handlePostClick(post)}
                             title="Quick read"
+                            aria-label={`Quick read ${post.title}`}
                           >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -246,8 +237,9 @@ const Blogs: React.FC = () => {
                               <span className="author-name">{post.author}</span>
                             </div>
                             <button
-                              onClick={() => setSelectedPost(post.id)}
+                              onClick={() => handlePostClick(post)}
                               className="read-more-btn"
+                              aria-label={`Read full article: ${post.title}`}
                             >
                               <span>Read More</span>
                               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -365,24 +357,7 @@ const Blogs: React.FC = () => {
         </div>
       </div>
 
-      {selectedPost && (
-        <PostDetail
-          postId={selectedPost}
-          onClose={() => setSelectedPost(null)}
-        />
-      )}
 
-      {showAdminLogin && (
-        <AdminLogin
-          onClose={() => setShowAdminLogin(false)}
-        />
-      )}
-
-      {showAdminDashboard && (
-        <AdminDashboard
-          onClose={() => setShowAdminDashboard(false)}
-        />
-      )}
     </div>
   )
 }

@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Posts.css'
-import PostDetail from './PostDetail'
-import AdminLogin from './AdminLogin'
-import AdminDashboard from './AdminDashboard'
 import GoogleAdSense from './GoogleAdSense'
-import { useAuth } from '../contexts/AuthContext'
 import { useAds } from '../hooks/useAds'
 import { BlogService } from '../services/blogService'
 
@@ -21,17 +18,30 @@ export interface PostData {
 }
 
 const Posts: React.FC = () => {
-  const [selectedPost, setSelectedPost] = useState<string | null>(null)
+  const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [sortBy, setSortBy] = useState<'date' | 'title'>('date')
   const [posts, setPosts] = useState<PostData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-  const [showAdminLogin, setShowAdminLogin] = useState<boolean>(false)
-  const [showAdminDashboard, setShowAdminDashboard] = useState<boolean>(false)
 
-  const { isAdmin } = useAuth()
   const { userConsent } = useAds()
+
+  // Create slug from post ID or title
+  const createSlug = useCallback((post: PostData): string => {
+    return post.id
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .substring(0, 50)
+  }, [])
+
+  // Navigate to individual post page
+  const handlePostClick = useCallback((post: PostData) => {
+    const slug = createSlug(post)
+    navigate(`/blog/${slug}`)
+  }, [navigate, createSlug])
 
   // Load posts from Firestore
   useEffect(() => {
@@ -52,13 +62,6 @@ const Posts: React.FC = () => {
     loadPosts()
   }, [])
 
-  // Auto-open admin dashboard if already authenticated
-  useEffect(() => {
-    if (isAdmin && showAdminLogin) {
-      setShowAdminLogin(false)
-      setShowAdminDashboard(true)
-    }
-  }, [isAdmin, showAdminLogin])
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -72,22 +75,26 @@ const Posts: React.FC = () => {
   // Get unique categories
   const categories = ['All', ...Array.from(new Set(posts.map(post => post.category)))]
 
-  // Filter and sort posts
-  const filteredAndSortedPosts = posts
-    .filter(post => {
-      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory
-      return matchesSearch && matchesCategory
-    })
-    .sort((a, b) => {
-      if (sortBy === 'date') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime()
-      } else {
-        return a.title.localeCompare(b.title)
-      }
-    })
+  // Memoized filter and sort posts for performance
+  const filteredAndSortedPosts = useMemo(() => {
+    return posts
+      .filter(post => {
+        const searchLower = searchTerm.toLowerCase()
+        const matchesSearch = !searchTerm || 
+          post.title.toLowerCase().includes(searchLower) ||
+          post.excerpt.toLowerCase().includes(searchLower) ||
+          post.tags.some(tag => tag.toLowerCase().includes(searchLower))
+        const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory
+        return matchesSearch && matchesCategory
+      })
+      .sort((a, b) => {
+        if (sortBy === 'date') {
+          return new Date(b.date).getTime() - new Date(a.date).getTime()
+        } else {
+          return a.title.localeCompare(b.title)
+        }
+      })
+  }, [posts, searchTerm, selectedCategory, sortBy])
 
   return (
     <section id="blog" className="posts">
@@ -104,7 +111,7 @@ const Posts: React.FC = () => {
           </div>
 
           {/* Enhanced Admin Controls */}
-          <div className="admin-controls">
+          <div className="admin-controls" style={{ display: 'none' }}>
             {isAdmin ? (
               <div className="admin-actions">
                 <div className="admin-badge">
@@ -149,18 +156,64 @@ const Posts: React.FC = () => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="search-input"
+                  aria-label="Search blog posts"
+                  autoComplete="off"
                 />
                 {searchTerm && (
                   <button
                     className="search-clear"
                     onClick={() => setSearchTerm('')}
                     title="Clear search"
+                    aria-label="Clear search"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <line x1="18" y1="6" x2="6" y2="18"></line>
                       <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                   </button>
+                )}
+                
+                {/* Search suggestions */}
+                {searchTerm.length > 0 && (
+                  <div className="search-suggestions">
+                    <div className="search-suggestion-item">
+                      <span className="suggestion-icon">🔍</span>
+                      <span>Search for "{searchTerm}"</span>
+                    </div>
+                    {/* Show matching tags */}
+                    {Array.from(new Set(posts.flatMap(p => p.tags)))
+                      .filter(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+                      .slice(0, 3)
+                      .map(tag => (
+                        <div 
+                          key={tag} 
+                          className="search-suggestion-item clickable"
+                          onClick={() => setSearchTerm(tag)}
+                        >
+                          <span className="suggestion-icon">🏷️</span>
+                          <span>Tag: {tag}</span>
+                        </div>
+                      ))
+                    }
+                    {/* Show matching categories */}
+                    {categories
+                      .filter(cat => cat !== 'All' && cat.toLowerCase().includes(searchTerm.toLowerCase()))
+                      .slice(0, 2)
+                      .map(category => (
+                        <div 
+                          key={category} 
+                          className="search-suggestion-item clickable"
+                          onClick={() => {
+                            setSearchTerm('')
+                            setSelectedCategory(category)
+                          }}
+                        >
+                          <span className="suggestion-icon">📁</span>
+                          <span>Category: {category}</span>
+                        </div>
+                      ))
+                    }
+                  </div>
                 )}
               </div>
 
@@ -263,18 +316,25 @@ const Posts: React.FC = () => {
             </div>
 
             {/* Enhanced Posts Grid */}
-            <div className="posts-grid">{filteredAndSortedPosts.map((post, index) => (
+            <div className="posts-grid" role="main" aria-label="Blog posts">{filteredAndSortedPosts.map((post, index) => (
               <React.Fragment key={post.id}>
-                <article className="post-card" data-index={index}>
+                <article className="post-card" data-index={index} role="article">
                   <div className="post-card-inner">
                     <div className="post-image-container">
-                      <img src={post.image} alt={post.title} className="post-image" />
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        className="post-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="post-overlay"></div>
                       <div className="post-category-badge">{post.category}</div>
                       <button
                         className="post-quick-read"
-                        onClick={() => setSelectedPost(post.id)}
+                        onClick={() => handlePostClick(post)}
                         title="Quick read"
+                        aria-label={`Quick read ${post.title}`}
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -328,8 +388,9 @@ const Posts: React.FC = () => {
                           <span className="author-name">{post.author}</span>
                         </div>
                         <button
-                          onClick={() => setSelectedPost(post.id)}
+                          onClick={() => handlePostClick(post)}
                           className="read-more-btn"
+                          aria-label={`Read full article: ${post.title}`}
                         >
                           <span>Read Article</span>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -398,24 +459,7 @@ const Posts: React.FC = () => {
         )}
       </div>
 
-      {selectedPost && (
-        <PostDetail
-          postId={selectedPost}
-          onClose={() => setSelectedPost(null)}
-        />
-      )}
 
-      {showAdminLogin && (
-        <AdminLogin
-          onClose={() => setShowAdminLogin(false)}
-        />
-      )}
-
-      {showAdminDashboard && (
-        <AdminDashboard
-          onClose={() => setShowAdminDashboard(false)}
-        />
-      )}
     </section>
   )
 }

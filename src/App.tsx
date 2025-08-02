@@ -13,6 +13,7 @@ import About from './components/About'
 import Services from './components/Services'
 import Posts from './components/Posts'
 import Blogs from './components/Blogs'
+import BlogPost from './components/BlogPost'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
@@ -23,6 +24,7 @@ import ApotekAppPage from './pages/ApotekAppPage'
 import CatetUangPage from './pages/CatetUangPage'
 import CustomAppsPage from './pages/CustomAppsPage'
 import AIIntegrationPage from './pages/AIIntegrationPage'
+import AdminPage from './pages/AdminPage'
 import './App.css'
 
 import GoogleAdSense from './components/GoogleAdSense'
@@ -74,6 +76,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
             <Route path="/products/quranmind" element={<QuranMindPage />} />
             <Route path="/products/apotekapp" element={<ApotekAppPage />} />
