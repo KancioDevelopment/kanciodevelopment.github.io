@@ -48,9 +48,17 @@
     "doc": "docs"
   },
   "type": "commonjs",
+  "overrides": {
+    "nth-check": "^2.1.1",
+    "postcss": "^8.4.31",
+    "webpack-dev-server": "^5.2.1"
+  },
   "dependencies": {
+    "@types/dompurify": "^3.0.5",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "dompurify": "^3.2.6",
+    "firebase": "^12.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1",
