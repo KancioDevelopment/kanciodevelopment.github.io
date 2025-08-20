@@ -33,7 +33,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run verify-ads",
+    "build": "vite build && npm run copy-static && npm run verify-ads",
+    "copy-static": "cp -f privacy-policy.html dist/ 2>/dev/null || echo 'No static HTML files to copy'",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
