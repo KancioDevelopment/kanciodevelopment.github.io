@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Kancio.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary-color: #f59e0b;
+            --accent-color: #10b981;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --transition-fast: 0.15s ease-in-out;
+            --transition-normal: 0.3s ease-in-out;
+            --transition-slow: 0.5s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .privacy-policy {
+            min-height: 100vh;
+            padding: var(--spacing-3xl) 0;
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .privacy-policy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .privacy-policy__header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-policy__title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .privacy-policy__subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .privacy-policy__content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .policy-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        .policy-section:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .policy-section h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--border-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .policy-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+
+        .policy-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+        }
+
+        .policy-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .policy-section ul {
+            margin: var(--spacing-lg) 0;
+            padding-left: var(--spacing-xl);
+        }
+
+        .policy-section li {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .policy-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            border-bottom: 1px solid transparent;
+        }
+
+        .policy-section a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .info-collection {
+            margin-top: var(--spacing-xl);
+        }
+
+        .info-collection h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xl);
+            font-size: 1.375rem;
+        }
+
+        .info-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .info-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .info-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .info-item h4::before {
+            content: '📋';
+            font-size: 1rem;
+        }
+
+        .info-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .usage-item {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .usage-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .usage-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .usage-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .usage-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .usage-item:nth-child(1) h4::before { content: '🎯'; }
+        .usage-item:nth-child(2) h4::before { content: '🎨'; }
+        .usage-item:nth-child(3) h4::before { content: '📊'; }
+        .usage-item:nth-child(4) h4::before { content: '🔒'; }
+
+        .usage-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+        }
+
+        .contact-section h2 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            color: white !important;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-bottom-color: transparent !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+
+            .privacy-policy {
+                padding: var(--spacing-2xl) 0;
+            }
+
+            .privacy-policy__title {
+                font-size: 2.25rem;
+            }
+
+            .privacy-policy__subtitle {
+                font-size: 1rem;
+            }
+
+            .policy-section {
+                padding: var(--spacing-xl);
+                margin-bottom: var(--spacing-xl);
+            }
+
+            .policy-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .policy-section h3 {
+                font-size: 1.25rem;
+            }
+
+            .policy-section h4 {
+                font-size: 1.125rem;
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item,
+            .usage-item {
+                padding: var(--spacing-lg);
+            }
+
+            .contact-info {
+                align-items: stretch;
+            }
+
+            .contact-link {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .privacy-policy__title {
+                font-size: 1.875rem;
+            }
+
+            .policy-section {
+                padding: var(--spacing-lg);
+            }
+
+            .policy-section h2 {
+                font-size: 1.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="privacy-policy">
+        <div class="container">
+            <div class="privacy-policy__header">
+                <h1 class="privacy-policy__title">Privacy Policy</h1>
+                <p class="privacy-policy__subtitle">Last updated: April 2, 2023</p>
+            </div>
+
+            <div class="privacy-policy__content">
+                <section class="policy-section">
+                    <h2>Privacy Policy</h2>
+                    <p>
+                        Kancio.com builds PulsaApp, Catet Uang, ApotekApp and QuranMind as Free applications.
+                        These SERVICES are provided by kancio.com at no cost and are intended for use as is.
+                    </p>
+                    <p>
+                        This page is used to inform visitors regarding our policies with the collection, use, and
+                        disclosure of Personal Information if anyone decided to use our Service.
+                    </p>
+                    <p>
+                        If you choose to use our Service, then you agree to the collection and use of information
+                        in relation to this policy. The Personal Information that we collect is used for providing
+                        and improving the Service. We will not use or share your information with anyone except as
+                        described in this Privacy Policy.
+                    </p>
+                    <p>
+                        The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions,
+                        which are accessible at Kancio unless otherwise defined in this Privacy Policy.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Information Collection and Use</h2>
+                    <p>
+                        For a better experience, while using our Service, we may require you to provide us with certain
+                        personally identifiable information, including but not limited to email and name. The information
+                        that we request will be retained by us and used as described in this privacy policy.
+                    </p>
+                    <p>
+                        Our applications use third-party services that may collect information used to identify you,
+                        including:
+                    </p>
+                    <ul>
+                        <li>Google Analytics</li>
+                    </ul>
+                    <p>
+                        Link to the privacy policy of third-party service providers used by our applications:
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">
+                                Google Play Services
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="info-collection">
+                        <h3>Our applications may collect the following information from users:</h3>
+
+                        <div class="info-item">
+                            <h4>Personal Identification Information</h4>
+                            <p>
+                                Such as name, email address, phone number, which you may provide when contacting support
+                                or registering for certain services.
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Device Data</h4>
+                            <p>
+                                Including information about your device such as device type, operating system, software
+                                version, network information, and unique device identifiers.
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Location Data</h4>
+                            <p>
+                                We may collect information about your physical location if you give us permission to do so.
+                                This location information may be used for features that require location information.
+                            </p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Usage Data</h4>
+                            <p>
+                                We may collect information about how you use our applications, including interactions with
+                                features, search history, and your preferences.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Data Usage</h2>
+                    <p>We use the collected data for:</p>
+
+                    <div class="usage-grid">
+                        <div class="usage-item">
+                            <h4>Providing Services</h4>
+                            <p>
+                                User data is used to operate and provide application services, including processing
+                                transactions, sending updates, and responding to user requests.
+                            </p>
+                        </div>
+
+                        <div class="usage-item">
+                            <h4>Personalization</h4>
+                            <p>
+                                We may use data to understand your preferences and interests, so we can provide more
+                                relevant content and customized experiences.
+                            </p>
+                        </div>
+
+                        <div class="usage-item">
+                            <h4>Analytics</h4>
+                            <p>
+                                User data may be used to analyze application performance, understand usage trends,
+                                and improve features and functionality.
+                            </p>
+                        </div>
+
+                        <div class="usage-item">
+                            <h4>Security</h4>
+                            <p>
+                                Information is collected to maintain application security, protect data, and prevent
+                                illegal activities.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Log Data</h2>
+                    <p>
+                        We want to inform you that whenever you use our Service, in case of an error in the app we
+                        collect data and information (through third-party products) on your phone called Log Data.
+                        This Log Data may include information such as your device Internet Protocol ("IP") address,
+                        device name, operating system version, the configuration of the app when utilizing our Service,
+                        the time and date of your use of the Service, and other statistics.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Cookies</h2>
+                    <p>
+                        Cookies are files with a small amount of data that are commonly used as anonymous unique
+                        identifiers. These are sent to your browser from the websites that you visit and are stored
+                        on your device's internal memory.
+                    </p>
+                    <p>
+                        This Service does not use these "cookies" explicitly. However, the app may use third-party
+                        code and libraries that use "cookies" to collect information and improve their services.
+                        You have the option to either accept or refuse these cookies and know when a cookie is being
+                        sent to your device. If you choose to refuse our cookies, you may not be able to use some
+                        portions of this Service.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Service Providers</h2>
+                    <p>We may employ third-party companies and individuals due to the following reasons:</p>
+                    <ul>
+                        <li>To facilitate our Service;</li>
+                        <li>To provide the Service on our behalf;</li>
+                        <li>To perform Service-related services; or</li>
+                        <li>To assist us in analyzing how our Service is used.</li>
+                    </ul>
+                    <p>
+                        We want to inform users of this Service that these third parties have access to their
+                        Personal Information. The reason is to perform the tasks assigned to them on our behalf.
+                        However, they are obligated not to disclose or use the information for any other purpose.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Data Sharing</h2>
+                    <p>
+                        We will not sell, rent, or trade user data with third parties without your permission,
+                        except in situations described in this policy or if required by law.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Security</h2>
+                    <p>
+                        We value your trust in providing us your Personal Information, thus we are striving to use
+                        commercially acceptable means of protecting it. But remember that no method of transmission
+                        over the internet, or method of electronic storage is 100% secure and reliable, and we cannot
+                        guarantee its absolute security.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Links to Other Sites</h2>
+                    <p>
+                        This Service may contain links to other sites. If you click on a third-party link, you will
+                        be directed to that site. Note that these external sites are not operated by us. Therefore,
+                        we strongly advise you to review the Privacy Policy of these websites. We have no control over
+                        and assume no responsibility for the content, privacy policies, or practices of any third-party
+                        sites or services.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Children's Privacy</h2>
+                    <p>
+                        These Services do not address anyone under the age of 13. We do not knowingly collect
+                        personally identifiable information from children under 13 years of age. In the case we
+                        discover that a child under 13 has provided us with personal information, we immediately
+                        delete this from our servers. If you are a parent or guardian and you are aware that your
+                        child has provided us with personal information, please contact us so that we will be able
+                        to do the necessary actions.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>User Privacy Rights</h2>
+                    <p>
+                        Users have the right to access, update, or delete their personal information from our
+                        applications. If you want to access or delete your data, please contact us through the
+                        information provided at the end of this policy.
+                    </p>
+                </section>
+
+                <section class="policy-section">
+                    <h2>Changes to This Privacy Policy</h2>
+                    <p>
+                        We may update our Privacy Policy from time to time. Thus, you are advised to review this
+                        page periodically for any changes. We will notify you of any changes by posting the new
+                        Privacy Policy on this page.
+                    </p>
+                    <p>
+                        <strong>This policy is effective as of 2022-09-02</strong>
+                    </p>
+                </section>
+
+                <section class="policy-section contact-section">
+                    <h2>Contact Us</h2>
+                    <p>
+                        If you have any questions or suggestions about our Privacy Policy, do not hesitate to
+                        contact us at:
+                    </p>
+                    <div class="contact-info">
+                        <a href="mailto:kancio.indonesia@gmail.com" class="contact-link">
+                            📧 kancio.indonesia@gmail.com
+                        </a>
+                        <a href="tel:+6282325600996" class="contact-link">
+                            📞 +62 823-2560-0996
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
