@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 import './BlogPost.css'
 import GoogleAdSense from './GoogleAdSense'
 import { useAds } from '../hooks/useAds'
-import { BlogService } from '../services/blogService'
+import { BlogService, BlogPost as BlogPostType } from '../services/blogService'
 import { PostData } from './Blogs'
 
-interface BlogPostContent extends PostData {
-  content: string
-  relatedPosts: string[]
+interface BlogPostContent extends BlogPostType {
+  // content is already string in BlogPostType
 }
 
 const BlogPost: React.FC = () => {
@@ -26,47 +26,26 @@ const BlogPost: React.FC = () => {
       try {
         setLoading(true)
 
-        // Try to get published post from Firestore
-        const firestorePost = await BlogService.getPublishedPostBySlug(slug) || await BlogService.getPostById(slug)
+        // Try to get published post from local file system
+        const filePost = await BlogService.getPublishedPostBySlug(slug)
 
-        if (firestorePost && firestorePost.status === 'published') {
-          // Convert Firestore post to expected format
-          const postContent: BlogPostContent = {
-            id: firestorePost.id,
-            title: firestorePost.title,
-            date: firestorePost.publishedAt ? firestorePost.publishedAt.toDate().toISOString().split('T')[0] :
-              firestorePost.createdAt.toDate().toISOString().split('T')[0],
-            content: firestorePost.content,
-            excerpt: firestorePost.excerpt,
-            image: firestorePost.image || `/assets/images/${firestorePost.category.toLowerCase().replace(' ', '')}.png`,
-            category: firestorePost.category,
-            readTime: firestorePost.readTime,
-            author: firestorePost.author,
-            tags: firestorePost.tags,
-            relatedPosts: [] // We'll implement related posts later
-          }
-          setPost(postContent)
-          
+        if (filePost) {
+          setPost(filePost as BlogPostContent) // Type assertion safe here
+
           // Load related posts
           const allPosts = await BlogService.getPublishedPosts()
           const related = allPosts
-            .filter(p => p.id !== postContent.id && p.category === postContent.category)
+            .filter(p => p.id !== filePost.id && p.category === filePost.category)
             .slice(0, 3)
           setRelatedPosts(related)
 
         } else {
-          // Fallback to mock data if Firestore post not found
-          const mockPost = getMockPostContent(slug)
-          setPost(mockPost)
-          
-          // Mock related posts
-          const mockRelated = mockPost.relatedPosts.map(id => getMockPostData(id)).filter(Boolean)
-          setRelatedPosts(mockRelated)
+          // Handle 404 or fallback
+          setPost(null)
         }
       } catch (error) {
         console.error('Error loading post:', error)
-        const mockPost = getMockPostContent(slug)
-        setPost(mockPost)
+        setPost(null)
       } finally {
         setLoading(false)
       }
@@ -79,7 +58,7 @@ const BlogPost: React.FC = () => {
   useEffect(() => {
     if (post) {
       document.title = `${post.title} | Kancio Development Blog`
-      
+
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {
@@ -97,7 +76,7 @@ const BlogPost: React.FC = () => {
         if (meta) {
           meta.setAttribute('content', content)
         } else {
-          meta = document.createElement('meta')
+          const meta = document.createElement('meta')
           meta.setAttribute('property', property)
           meta.setAttribute('content', content)
           document.head.appendChild(meta)
@@ -109,14 +88,14 @@ const BlogPost: React.FC = () => {
       updateOrCreateMeta('og:image', post.image)
       updateOrCreateMeta('og:url', window.location.href)
       updateOrCreateMeta('og:type', 'article')
-      
+
       // Twitter Card tags
       const updateOrCreateTwitterMeta = (name: string, content: string) => {
         let meta = document.querySelector(`meta[name="${name}"]`)
         if (meta) {
           meta.setAttribute('content', content)
         } else {
-          meta = document.createElement('meta')
+          const meta = document.createElement('meta')
           meta.setAttribute('name', name)
           meta.setAttribute('content', content)
           document.head.appendChild(meta)
@@ -178,165 +157,6 @@ const BlogPost: React.FC = () => {
       }
     }
   }, [post])
-
-  // Fallback mock data for posts not in Firestore
-  const getMockPostContent = (id: string): BlogPostContent => {
-    const posts: { [key: string]: BlogPostContent } = {
-      "pulsa-app-solution": {
-        id: "pulsa-app-solution",
-        title: "Solusi Praktis Isi Pulsa dan Bayar Tagihan dengan Mudah",
-        date: "2023-04-05",
-        excerpt: "PulsaApp hadir sebagai solusi terdepan untuk memenuhi berbagai kebutuhan digital Anda dengan cara yang praktis dan efisien.",
-        content: `
-          <h2>Mengapa Memilih PulsaApp?</h2>
-          <p>Di era digital saat ini, kemudahan dalam melakukan transaksi digital menjadi kebutuhan utama. PulsaApp hadir sebagai solusi terdepan untuk memenuhi berbagai kebutuhan digital Anda dengan cara yang praktis dan efisien.</p>
-          
-          <h3>Fitur Unggulan PulsaApp</h3>
-          <ul>
-            <li><strong>Isi Pulsa & Paket Data</strong> - Tersedia untuk semua operator dengan harga terjangkau</li>
-            <li><strong>Pembayaran Tagihan</strong> - PLN, PDAM, Internet, TV berlangganan</li>
-            <li><strong>Top Up E-Money</strong> - OVO, GoPay, DANA, LinkAja, dan lainnya</li>
-            <li><strong>Voucher Game</strong> - Mobile Legends, Free Fire, PUBG, dan game populer lainnya</li>
-          </ul>
-          
-          <h3>Keunggulan yang Membedakan</h3>
-          <p>PulsaApp tidak hanya menawarkan layanan lengkap, tetapi juga memberikan pengalaman terbaik melalui:</p>
-          
-          <blockquote>
-            "Harga kompetitif, proses cepat, dan layanan 24/7 membuat PulsaApp menjadi pilihan utama untuk semua kebutuhan digital Anda."
-          </blockquote>
-          
-          <h3>Cara Mudah Memulai</h3>
-          <ol>
-            <li>Download aplikasi PulsaApp di Play Store atau App Store</li>
-            <li>Daftar dengan nomor telepon Anda</li>
-            <li>Verifikasi akun melalui SMS</li>
-            <li>Mulai bertransaksi dengan deposit saldo</li>
-          </ol>
-          
-          <p>Dengan PulsaApp, semua kebutuhan digital Anda dapat diselesaikan dalam satu aplikasi. Hemat waktu, hemat biaya, dan dapatkan kemudahan maksimal dalam setiap transaksi.</p>
-        `,
-        image: "/assets/images/pulsaapp.png",
-        category: "Mobile App",
-        readTime: "3 min read",
-        author: "Kancio Team",
-        tags: ["PulsaApp", "Digital Payment", "Mobile"],
-        relatedPosts: ["kasir-app-umkm", "quiz-learning-platform"]
-      },
-      "kasir-app-umkm": {
-        id: "kasir-app-umkm",
-        title: "Aplikasi Kasir untuk UMKM",
-        date: "2023-04-18",
-        excerpt: "KasirApp hadir sebagai solusi digital yang mengubah cara UMKM mengelola bisnis mereka.",
-        content: `
-          <h2>Revolusi Digital untuk UMKM</h2>
-          <p>KasirApp hadir sebagai solusi digital yang mengubah cara UMKM mengelola bisnis mereka. Dengan teknologi modern dan antarmuka yang user-friendly, KasirApp membantu meningkatkan efisiensi operasional bisnis Anda.</p>
-          
-          <h3>Fitur Lengkap untuk Bisnis Modern</h3>
-          <ul>
-            <li><strong>Point of Sale (POS)</strong> - Sistem kasir digital yang mudah digunakan</li>
-            <li><strong>Inventory Management</strong> - Kelola stok barang secara real-time</li>
-            <li><strong>Laporan Penjualan</strong> - Analisis lengkap performa bisnis</li>
-            <li><strong>Multi Payment</strong> - Terima berbagai metode pembayaran</li>
-          </ul>
-          
-          <h3>Manfaat untuk UMKM</h3>
-          <p>KasirApp dirancang khusus untuk memahami kebutuhan UMKM Indonesia:</p>
-          
-          <ul>
-            <li>Meningkatkan akurasi transaksi</li>
-            <li>Menghemat waktu proses penjualan</li>
-            <li>Memberikan insight bisnis yang berharga</li>
-            <li>Memudahkan pelaporan keuangan</li>
-          </ul>
-          
-          <h3>Testimoni Pengguna</h3>
-          <blockquote>
-            "Sejak menggunakan KasirApp, penjualan toko saya meningkat 30% karena proses yang lebih cepat dan data yang akurat."
-            <cite>- Ibu Sari, Pemilik Toko Sembako</cite>
-          </blockquote>
-          
-          <p>Bergabunglah dengan ribuan UMKM yang telah merasakan manfaat KasirApp dalam mengembangkan bisnis mereka.</p>
-        `,
-        image: "/assets/images/kasirapp.png",
-        category: "Business Solution",
-        readTime: "4 min read",
-        author: "Kancio Team",
-        tags: ["KasirApp", "UMKM", "POS System"],
-        relatedPosts: ["pulsa-app-solution", "quiz-learning-platform"]
-      },
-      "quiz-learning-platform": {
-        id: "quiz-learning-platform",
-        title: "Platform Quiz dan Learning",
-        date: "2023-05-02",
-        excerpt: "QuizApp menghadirkan pengalaman belajar yang interaktif dan menyenangkan melalui sistem quiz yang komprehensif.",
-        content: `
-          <h2>Belajar dengan Cara yang Menyenangkan</h2>
-          <p>QuizApp menghadirkan pengalaman belajar yang interaktif dan menyenangkan melalui sistem quiz yang komprehensif. Platform ini dirancang untuk meningkatkan pengetahuan pengguna di berbagai bidang.</p>
-          
-          <h3>Kategori Pembelajaran</h3>
-          <ul>
-            <li><strong>Pengetahuan Umum</strong> - Wawasan dan informasi terkini</li>
-            <li><strong>Bahasa</strong> - Bahasa Indonesia, Inggris, dan bahasa asing lainnya</li>
-            <li><strong>Matematika</strong> - Dari dasar hingga tingkat lanjut</li>
-            <li><strong>Sains</strong> - Fisika, Kimia, Biologi</li>
-            <li><strong>Sejarah</strong> - Sejarah Indonesia dan dunia</li>
-          </ul>
-          
-          <h3>Fitur Pembelajaran Interaktif</h3>
-          <p>QuizApp menawarkan berbagai fitur yang membuat belajar menjadi lebih efektif:</p>
-          
-          <ul>
-            <li>Quiz adaptif yang menyesuaikan tingkat kesulitan</li>
-            <li>Sistem poin dan leaderboard</li>
-            <li>Progress tracking dan analisis kemajuan</li>
-            <li>Mode kompetisi dengan pengguna lain</li>
-          </ul>
-          
-          <h3>Manfaat untuk Pendidikan</h3>
-          <blockquote>
-            "QuizApp terbukti meningkatkan motivasi belajar siswa hingga 40% melalui gamifikasi yang menarik."
-            <cite>- Pak Budi, Guru SMA</cite>
-          </blockquote>
-          
-          <h3>Teknologi di Balik QuizApp</h3>
-          <p>Platform ini dibangun dengan teknologi terdepan untuk memberikan pengalaman belajar yang optimal:</p>
-          
-          <ul>
-            <li>Algoritma machine learning untuk personalisasi</li>
-            <li>Real-time synchronization</li>
-            <li>Responsive design untuk semua perangkat</li>
-            <li>Offline capability untuk belajar tanpa internet</li>
-          </ul>
-          
-          <p>Mulai perjalanan belajar Anda bersama QuizApp dan rasakan perbedaan cara belajar yang lebih efektif dan menyenangkan.</p>
-        `,
-        image: "/assets/images/quizapp.png",
-        category: "Education",
-        readTime: "5 min read",
-        author: "Kancio Team",
-        tags: ["QuizApp", "Learning", "Education"],
-        relatedPosts: ["pulsa-app-solution", "kasir-app-umkm"]
-      }
-    }
-
-    return posts[id] || posts["pulsa-app-solution"]
-  }
-
-  const getMockPostData = (id: string): PostData => {
-    const mockPost = getMockPostContent(id)
-    return {
-      id: mockPost.id,
-      title: mockPost.title,
-      date: mockPost.date,
-      excerpt: mockPost.excerpt,
-      image: mockPost.image,
-      category: mockPost.category,
-      readTime: mockPost.readTime,
-      author: mockPost.author,
-      tags: mockPost.tags
-    }
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -517,8 +337,8 @@ const BlogPost: React.FC = () => {
 
           {/* Article Content */}
           <div className="post-content">
-            <div className="content-wrapper">
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div className="content-wrapper markdown-body">
+              <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
 
             {/* Mid-content Ad */}
@@ -578,7 +398,7 @@ const BlogPost: React.FC = () => {
                     <div className="related-post-category">{relatedPost.category}</div>
                   </div>
                   <div className="related-post-content">
-                    <h3 
+                    <h3
                       className="related-post-title"
                       onClick={() => navigate(`/blog/${relatedPost.id}`)}
                     >

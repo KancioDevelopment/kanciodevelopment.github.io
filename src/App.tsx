@@ -25,6 +25,7 @@ import CatetUangPage from './pages/CatetUangPage'
 import CustomAppsPage from './pages/CustomAppsPage'
 import AIIntegrationPage from './pages/AIIntegrationPage'
 import AdminPage from './pages/AdminPage'
+import NewsEditorPage from './pages/NewsEditorPage'
 import './App.css'
 
 import GoogleAdSense from './components/GoogleAdSense'
@@ -77,6 +78,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/news-editor" element={<NewsEditorPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
             <Route path="/products/quranmind" element={<QuranMindPage />} />
