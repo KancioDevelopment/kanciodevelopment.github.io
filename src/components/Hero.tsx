@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './Hero.css'
 
 const Hero: React.FC = () => {
@@ -6,257 +7,184 @@ const Hero: React.FC = () => {
   const [activeApp, setActiveApp] = useState(0)
   const [reducedMotion, setReducedMotion] = useState(false)
 
-  // Check for reduced motion preference for better accessibility
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setReducedMotion(mediaQuery.matches)
-
-    const handleChange = () => setReducedMotion(mediaQuery.matches)
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReducedMotion(mq.matches)
+    const handler = () => setReducedMotion(mq.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
   }, [])
 
-  // Intersection Observer for scroll animations
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const heroElement = document.getElementById('home')
-    if (heroElement) {
-      observer.observe(heroElement)
-    }
-
-    return () => {
-      if (heroElement) {
-        observer.unobserve(heroElement)
-      }
-    }
+    const timer = setTimeout(() => setIsVisible(true), 100)
+    return () => clearTimeout(timer)
   }, [])
 
-  // Auto-cycling through featured apps for better engagement
   useEffect(() => {
     if (reducedMotion) return
-
     const interval = setInterval(() => {
       setActiveApp((prev) => (prev + 1) % apps.length)
-    }, 4000)
-
+    }, 3500)
     return () => clearInterval(interval)
   }, [reducedMotion])
-
-  // Smooth scroll handler
-  const handleScrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault()
-    const element = document.querySelector(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, [])
 
   const apps = [
     {
       name: 'PulsaApp',
-      description: 'Complete digital payment solution for credit, data packages, game vouchers & e-money',
-      shortDesc: 'Digital payment solution',
+      shortDesc: 'Digital payment & top-up',
       icon: '📱',
       gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-      features: ['Cheaper Prices', 'Fast Transactions', 'Secure Payment', 'Complete Products'],
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.kancio.indonesia',
-      category: 'FinTech'
+      category: 'FinTech',
+      path: '/products/pulsaapp',
+      stat: '1M+ Downloads',
     },
     {
       name: 'QuranMind',
-      description: 'AI-powered digital Quran app combining modern technology with traditional understanding',
       shortDesc: 'AI-powered Quran learning',
       icon: '📖',
       gradient: 'linear-gradient(135deg, #10b981, #14b8a6)',
-      features: ['AI Analysis', 'Audio Murottal', 'Deep Understanding', 'Indonesian Translation'],
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.kancio.quranapp',
-      category: 'Education'
+      category: 'Education',
+      path: '/products/quranmind',
+      stat: 'AI-Powered',
     },
     {
       name: 'ApotekApp',
-      description: 'Complete pharmacy management system for drug stock, sales records, and financial tracking',
       shortDesc: 'Pharmacy management system',
       icon: '💊',
       gradient: 'linear-gradient(135deg, #ef4444, #ec4899)',
-      features: ['Stock Management', 'Sales Recording', 'Financial Reports', 'Intuitive Interface'],
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.kancio.apotikapp',
-      category: 'Healthcare'
+      category: 'Healthcare',
+      path: '/products/apotekapp',
+      stat: '10+ Clients',
     },
     {
       name: 'Catet Uang',
-      description: 'Personal finance management app for tracking income, expenses, and building healthy financial habits',
       shortDesc: 'Personal finance manager',
       icon: '💰',
       gradient: 'linear-gradient(135deg, #eab308, #ea580c)',
-      features: ['Income & Expense Tracking', 'Financial Analytics', 'Budget Management', 'Financial Planning'],
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.kancio.cashflow',
-      category: 'Finance'
-    }
+      category: 'Finance',
+      path: '/products/catetUang',
+      stat: 'Smart Budgeting',
+    },
   ]
 
   const stats = [
+    { number: '4', label: 'Live Products', icon: '📱' },
     { number: '5K+', label: 'Active Users', icon: '👥' },
-    { number: '4', label: 'Live Apps', icon: '📱' },
     { number: '99.9%', label: 'Uptime', icon: '⚡' },
-    { number: '10+', label: 'Business Clients', icon: '🏢' }
+    { number: '10+', label: 'B2B Clients', icon: '🏢' },
   ]
 
   return (
     <section id="home" className="hero">
-      {/* Optimized background with CSS-only animations for better performance */}
-      <div className="hero__background" aria-hidden="true">
-        <div className="hero__gradient"></div>
+      {/* Background */}
+      <div className="hero__bg" aria-hidden="true">
+        <div className="hero__bg-gradient" />
         {!reducedMotion && (
-          <div className="hero__particles">
-            <div className="particle particle--1"></div>
-            <div className="particle particle--2"></div>
-            <div className="particle particle--3"></div>
-            <div className="particle particle--4"></div>
-          </div>
+          <>
+            <div className="hero__orb hero__orb--1" />
+            <div className="hero__orb hero__orb--2" />
+            <div className="hero__orb hero__orb--3" />
+          </>
         )}
       </div>
 
       <div className="container">
-        <div className="hero__content">
-          {/* Enhanced hero text section */}
-          <div className={`hero__text ${isVisible ? 'hero__text--visible' : ''}`}>
-            <div className="hero__badge">
-              <span className="hero__badge-icon">🚀</span>
-              <span>Building the Future</span>
+        <div className={`hero__content ${isVisible ? 'hero__content--visible' : ''}`}>
+          {/* LEFT: Text */}
+          <div className="hero__text">
+            <div className="badge">
+              <span>🚀</span> Digital Solution Partner
             </div>
 
             <h1 className="hero__title">
-              <span className="hero__title-line">
-                <span className="hero__title-word">Innovative</span>
-                <span className="hero__title-highlight">Digital</span>
-              </span>
-              <span className="hero__title-line">
-                <span className="hero__title-word">Solutions</span>
-                <span className="hero__title-accent">for Growth</span>
-              </span>
+              Build Smarter,{' '}
+              <span className="hero__title-highlight">Grow Faster</span>
+              <br />
+              with Kancio
             </h1>
 
             <p className="hero__subtitle">
-              Transforming businesses with cutting-edge mobile applications and web platforms.
-              We create digital experiences that drive success and simplify complex processes.
+              We craft premium digital applications and integrate AI into your systems —
+              driving real growth for businesses across Indonesia.
             </p>
 
-            {/* Stats section */}
+            {/* Stats row */}
             <div className="hero__stats">
-              {stats.map((stat, index) => (
-                <div key={index} className="hero__stat">
+              {stats.map((stat, i) => (
+                <div key={i} className="hero__stat">
                   <span className="hero__stat-icon">{stat.icon}</span>
-                  <div className="hero__stat-content">
-                    <span className="hero__stat-number">{stat.number}</span>
-                    <span className="hero__stat-label">{stat.label}</span>
+                  <div>
+                    <div className="hero__stat-number">{stat.number}</div>
+                    <div className="hero__stat-label">{stat.label}</div>
                   </div>
                 </div>
               ))}
             </div>
 
+            {/* CTAs */}
             <div className="hero__cta">
-              <a
-                href="#services"
-                className="btn btn--primary btn--large"
-                onClick={(e) => handleScrollToSection(e, '#services')}
-              >
-                <span>Explore Our Work</span>
+              <Link to="/products/pulsaapp" className="btn btn--primary btn--large">
+                Explore Products
                 <span className="btn__icon">→</span>
-              </a>
+              </Link>
               <a
                 href="#about"
                 className="btn btn--secondary btn--large"
-                onClick={(e) => handleScrollToSection(e, '#about')}
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
+                }}
               >
-                <span>Learn More</span>
+                About Us
               </a>
             </div>
           </div>
 
-          {/* Enhanced apps showcase */}
-          <div className={`hero__showcase ${isVisible ? 'hero__showcase--visible' : ''}`}>
-            <div className="hero__showcase-header">
-              <h3>Featured Applications</h3>
-              <p>Trusted by thousands of users worldwide</p>
-            </div>
-
-            {/* Featured app display */}
-            <div className="hero__featured-app">
-              <div className="featured-app">
-                <div className="featured-app__visual">
-                  <div className="featured-app__icon" style={{ background: apps[activeApp].gradient }}>
-                    {apps[activeApp].icon}
-                  </div>
-                  <div className="featured-app__category">{apps[activeApp].category}</div>
+          {/* RIGHT: App Showcase Card */}
+          <div className="hero__showcase">
+            {/* Featured App */}
+            <div className="hero__app-card glass-panel">
+              <div className="hero__app-header">
+                <div className="hero__app-icon" style={{ background: apps[activeApp].gradient }}>
+                  {apps[activeApp].icon}
                 </div>
-
-                <div className="featured-app__content">
-                  <h4 className="featured-app__title">{apps[activeApp].name}</h4>
-                  <p className="featured-app__description">{apps[activeApp].shortDesc}</p>
-
-                  <div className="featured-app__features">
-                    {apps[activeApp].features.slice(0, 2).map((feature, index) => (
-                      <span key={index} className="featured-app__feature">
-                        ✓ {feature}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={apps[activeApp].playStoreLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="featured-app__cta"
-                  >
-                    <span>Download Now</span>
-                    <span className="featured-app__cta-icon">↗</span>
-                  </a>
+                <div>
+                  <div className="hero__app-name">{apps[activeApp].name}</div>
+                  <div className="hero__app-category">{apps[activeApp].category}</div>
                 </div>
+                <div className="hero__app-stat">{apps[activeApp].stat}</div>
               </div>
+              <p className="hero__app-desc">{apps[activeApp].shortDesc}</p>
+              <Link to={apps[activeApp].path} className="hero__app-link">
+                View Details <span>→</span>
+              </Link>
             </div>
 
-            {/* App navigation dots */}
-            <div className="hero__app-nav">
-              {apps.map((app, index) => (
+            {/* App Selector Tabs */}
+            <div className="hero__app-tabs">
+              {apps.map((app, i) => (
                 <button
-                  key={index}
-                  className={`app-nav-dot ${index === activeApp ? 'app-nav-dot--active' : ''}`}
-                  onClick={() => setActiveApp(index)}
+                  key={i}
+                  className={`hero__app-tab ${i === activeApp ? 'hero__app-tab--active' : ''}`}
+                  onClick={() => setActiveApp(i)}
                   aria-label={`View ${app.name}`}
                 >
-                  <span className="app-nav-dot__icon">{app.icon}</span>
-                  <span className="app-nav-dot__name">{app.name}</span>
+                  <span className="hero__app-tab-icon">{app.icon}</span>
+                  <span className="hero__app-tab-name">{app.name}</span>
                 </button>
               ))}
             </div>
 
-            {/* Quick access grid */}
-            <div className="hero__quick-access">
-              <h4>All Applications</h4>
-              <div className="quick-access-grid">
-                {apps.map((app, index) => (
-                  <a
-                    key={index}
-                    href={app.playStoreLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="quick-access-item"
-                  >
-                    <div className="quick-access-item__icon" style={{ background: app.gradient }}>
-                      {app.icon}
-                    </div>
-                    <span className="quick-access-item__name">{app.name}</span>
-                  </a>
-                ))}
-              </div>
+            {/* Mini service cards */}
+            <div className="hero__services-mini">
+              <Link to="/services/custom-solution" className="hero__service-mini glass-panel">
+                <span>🚀</span>
+                <span>Custom Solution</span>
+              </Link>
+              <Link to="/services/ai-integration" className="hero__service-mini glass-panel">
+                <span>🤖</span>
+                <span>AI Integration</span>
+              </Link>
             </div>
           </div>
         </div>

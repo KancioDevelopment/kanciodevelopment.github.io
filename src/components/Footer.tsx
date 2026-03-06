@@ -1,52 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('')
-  const [isSubscribed, setIsSubscribed] = useState(false)
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email.trim()) {
-      // Simulate newsletter subscription
-      setIsSubscribed(true)
-      setEmail('')
-      setTimeout(() => setIsSubscribed(false), 3000)
-    }
-  }
-
   const currentYear = new Date().getFullYear()
 
   const products = [
-    {
-      name: 'PulsaApp',
-      description: 'Digital Payment Solution',
-      icon: '📱',
-      link: 'https://play.google.com/store/apps/details?id=com.kancio.indonesia',
-      category: 'FinTech'
-    },
-    {
-      name: 'QuranMind',
-      description: 'AI-Powered Quran Learning',
-      icon: '📖',
-      link: 'https://play.google.com/store/apps/details?id=com.kancio.quranapp',
-      category: 'Education'
-    },
-    {
-      name: 'ApotekApp',
-      description: 'Pharmacy Management',
-      icon: '💊',
-      link: 'https://play.google.com/store/apps/details?id=com.kancio.apotikapp',
-      category: 'Healthcare'
-    },
-    {
-      name: 'Catet Uang',
-      description: 'Personal Finance Manager',
-      icon: '💰',
-      link: 'https://play.google.com/store/apps/details?id=com.kancio.cashflow',
-      category: 'Finance'
-    }
+    { name: 'PulsaApp', description: 'Digital Payment Solution', icon: '📱', link: '/products/pulsaapp', category: 'FinTech' },
+    { name: 'QuranMind', description: 'AI-Powered Quran Learning', icon: '📖', link: '/products/quranmind', category: 'Education' },
+    { name: 'ApotekApp', description: 'Pharmacy Management', icon: '💊', link: '/products/apotekapp', category: 'Healthcare' },
+    { name: 'Catet Uang', description: 'Personal Finance Manager', icon: '💰', link: '/products/catetUang', category: 'Finance' },
+  ]
+
+  const servicesList = [
+    { name: 'Custom Solution', path: '/services/custom-solution', icon: '🚀' },
+    { name: 'AI Integration', path: '/services/ai-integration', icon: '🤖' },
+    { name: 'Digital Consulting', path: '/services/consulting', icon: '💡' },
   ]
 
   const socialLinks = [
@@ -78,12 +47,10 @@ const Footer: React.FC = () => {
   ]
 
   const quickLinks = [
-    { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Careers', path: '/careers' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blogs' },
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms of Service', path: '/terms-of-service' },
   ]
 
   return (
@@ -163,11 +130,9 @@ const Footer: React.FC = () => {
             <h4 className="footer__section-title">Our Products</h4>
             <div className="footer__products-grid">
               {products.map((product, index) => (
-                <a
+                <Link
                   key={index}
-                  href={product.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  to={product.link}
                   className="footer__product-item"
                 >
                   <div className="footer__product-icon">{product.icon}</div>
@@ -176,7 +141,19 @@ const Footer: React.FC = () => {
                     <span className="footer__product-category">{product.category}</span>
                   </div>
                   <span className="footer__product-arrow">→</span>
-                </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Services Section */}
+          <div className="footer__section">
+            <h4 className="footer__section-title">Services</h4>
+            <div className="footer__nav-grid">
+              {servicesList.map((s, i) => (
+                <Link key={i} to={s.path} className="footer__nav-link">
+                  {s.icon} {s.name}
+                </Link>
               ))}
             </div>
           </div>
