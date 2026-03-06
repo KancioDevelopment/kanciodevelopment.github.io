@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
       gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
       category: 'FinTech',
       path: '/products/pulsaapp',
-      stat: '1M+ Downloads',
+      stat: '5K+ Downloads',
     },
     {
       name: 'QuranMind',
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
       gradient: 'linear-gradient(135deg, #ef4444, #ec4899)',
       category: 'Healthcare',
       path: '/products/apotekapp',
-      stat: '10+ Clients',
+      stat: '2+ Clients',
     },
     {
       name: 'Catet Uang',
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
     { number: '4', label: 'Live Products', icon: '📱' },
     { number: '5K+', label: 'Active Users', icon: '👥' },
     { number: '99.9%', label: 'Uptime', icon: '⚡' },
-    { number: '10+', label: 'B2B Clients', icon: '🏢' },
+    { number: '2+', label: 'B2B Clients', icon: '🏢' },
   ]
 
   return (
