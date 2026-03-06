@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const articlesDir = path.join(__dirname, '../public/articles');
-const outputFile = path.join(__dirname, '../public/articles.json');
+const articlesDir = path.join(__dirname, '../src/public/articles');
+const outputFile = path.join(__dirname, '../src/public/articles.json');
 
 // Ensure articles directory exists
 if (!fs.existsSync(articlesDir)) {
