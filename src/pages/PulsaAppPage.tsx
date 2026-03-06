@@ -1,122 +1,202 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import './ProductPage.css'
+// Reuse some styles if possible or define inline/dedicated
+import './ApotekAppPage.css'
 
 const PulsaAppPage: React.FC = () => {
   const { userConsent } = useAds()
+  const [activeFeature, setActiveFeature] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.05 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   const features = [
     {
       icon: '💰',
-      title: 'Cheaper Purchases',
-      description: 'Get better prices compared to physical outlets or other apps. Save money on regular purchases of credit, data packages, and more.'
+      title: 'Harga Kompetitif',
+      badge: 'Hemat Biaya',
+      badgeColor: 'green',
+      description: 'Dapatkan harga pulsa, paket data, dan voucher game yang lebih murah dibandingkan outlet fisik atau aplikasi lainnya.',
+      details: [
+        'Harga distributor langsung',
+        'Tanpa biaya admin tersembunyi',
+        'Promo cashback PulsaPay berkala',
+        'Hemat untuk pemakaian pribadi atau bisnis'
+      ],
+      gradient: 'linear-gradient(135deg, #10b981, #059669)'
     },
     {
       icon: '⚡',
-      title: 'Fast Transactions',
-      description: 'Complete your purchases in seconds with our automated online transaction system. Products are delivered instantly after payment.'
-    },
-    {
-      icon: '📱',
-      title: 'Easy to Use',
-      description: 'Simple and intuitive interface with purchase history and payment reminders to make your buying process more efficient.'
-    },
-    {
-      icon: '🛡️',
-      title: 'Secure & Safe',
-      description: 'Advanced security technology protects your data with secure payment methods including bank transfers and PulsaPay digital wallet.'
+      title: 'Transaksi Otomatis',
+      badge: 'Super Cepat',
+      badgeColor: 'blue',
+      description: 'Sistem online 24 jam yang memproses transaksi Anda secara instan. Produk digital langsung masuk ke nomor tujuan.',
+      details: [
+        'Proses real-time 24/7',
+        'Status transaksi transparan',
+        'Notifikasi instan via aplikasi',
+        'Sistem otomatis tanpa campur tangan manual'
+      ],
+      gradient: 'linear-gradient(135deg, #3b82f6, #2563eb)'
     },
     {
       icon: '🎯',
-      title: 'Complete Products',
-      description: 'Wide variety of products from different providers - credit, data packages, game vouchers, and e-money all in one place.'
+      title: 'Produk Terlengkap',
+      badge: 'Semua Ada',
+      badgeColor: 'indigo',
+      description: 'Satu aplikasi untuk semua kebutuhan digital Anda. Dari semua operator seluler hingga berbagai macam voucher game.',
+      details: [
+        'Semua operator (Telkomsel, XL, dll)',
+        'Voucher Game (ML, PUBG, FF, dll)',
+        'Top-up E-Money (GoPay, OVO, DANA)',
+        'Token Listrik & Pembayaran PPOB'
+      ],
+      gradient: 'linear-gradient(135deg, #6366f1, #4f46e5)'
+    },
+    {
+      icon: '🛡️',
+      title: 'Keamanan Terjamin',
+      badge: 'Audit Aman',
+      badgeColor: 'teal',
+      description: 'Keamanan data dan transaksi adalah prioritas kami. Menggunakan enkripsi SSL terbaru dan metode verifikasi aman.',
+      details: [
+        'Enkripsi data tingkat tinggi',
+        'Verifikasi OTP untuk keamanan ganda',
+        'Audit transaksi yang dapat dilacak',
+        'Proteksi saldo PulsaPay'
+      ],
+      gradient: 'linear-gradient(135deg, #14b8a6, #0d9488)'
+    },
+    {
+      icon: '💳',
+      title: 'PulsaPay Wallet',
+      badge: 'E-Wallet',
+      badgeColor: 'yellow',
+      description: 'Dompet digital terintegrasi untuk memudahkan transaksi Anda tanpa perlu berulang kali melakukan transfer bank.',
+      details: [
+        'Top-up saldo mudah (Bank Transfer/QRIS)',
+        'Pembayaran satu klik belanja cepat',
+        'History saldo yang sangat rinci',
+        'Transfer saldo antar pengguna PulsaApp'
+      ],
+      gradient: 'linear-gradient(135deg, #eab308, #d97706)'
     },
     {
       icon: '🎧',
-      title: '24/7 Support',
-      description: 'Professional customer support team available via phone, email, or chat to help with any issues during your purchase process.'
+      title: 'Dukungan Responsif',
+      badge: 'Siap Bantu',
+      badgeColor: 'pink',
+      description: 'Tim customer support kami siap membantu kendala transaksi Anda melalui berbagai kanal komunikasi.',
+      details: [
+        'Support via WhatsApp & Live Chat',
+        'Respon cepat terhadap kelalaian input',
+        'Bantuan teknis 7 hari seminggu',
+        'Solusi refund atau re-send otomatis'
+      ],
+      gradient: 'linear-gradient(135deg, #ec4899, #db2777)'
     }
   ]
 
-  const products = [
-    { name: 'Mobile Credit', icon: '📞', providers: '10+ Providers', description: 'Top-up your mobile credit instantly from all major Indonesian networks' },
-    { name: 'Data Packages', icon: '📶', providers: 'All Networks', description: 'Internet data packages for Telkomsel, Indosat, XL, Tri, and more' },
-    { name: 'Game Vouchers', icon: '🎮', providers: '50+ Games', description: 'Gaming credits for Mobile Legends, PUBG, Free Fire, and other popular games' },
-    { name: 'E-Money', icon: '💳', providers: 'GoPay, OVO, DANA', description: 'Top-up your digital wallet for seamless cashless transactions' }
+  const productStats = [
+    { number: '5.000+', label: 'Unduhan Play Store', icon: '📥' },
+    { number: '24/7', label: 'Layanan Otomatis', icon: '⚡' },
+    { number: '50+', label: 'Varian Produk', icon: '📱' },
+    { number: 'Secure', label: 'Keamanan Berlapis', icon: '🛡️' }
   ]
 
-  const screenshots = [
-    { title: 'Dashboard', description: 'Clean and intuitive main interface' },
-    { title: 'Product Selection', description: 'Easy product browsing and selection' },
-    { title: 'Payment Process', description: 'Secure and fast payment methods' },
-    { title: 'Transaction History', description: 'Complete purchase tracking' }
-  ]
-
-  const specifications = [
-    { label: 'Platform', value: 'Android & iOS' },
-    { label: 'Size', value: '25 MB' },
-    { label: 'Languages', value: 'Indonesian, English' },
-    { label: 'Payment Methods', value: 'Bank Transfer, E-wallet, Credit Card' },
-    { label: 'Supported Networks', value: 'Telkomsel, Indosat, XL, Tri, Smartfren' },
-    { label: 'Security', value: 'SSL Encryption, OTP Verification' }
+  const technicalSpecs = [
+    { label: 'Versi Aplikasi', value: '2.4.6' },
+    { label: 'Ukuran Download', value: '50 MB' },
+    { label: 'OS Minimum', value: 'Android 7.0 (Nougat) atau lebih tinggi' },
+    { label: 'Kategori', value: 'Shopping / Belanja (PPOB)' },
+    { label: 'Developer', value: 'Kancio.com' },
+    { label: 'Bahasa', value: 'Indonesia' }
   ]
 
   return (
-    <div className="product-page">
+    <div className="product-page apotek-page pulsaapp-page">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="product-hero">
+      <section className="apotek-hero pulsaapp-hero">
+        <div className="apotek-hero__bg" style={{ background: 'linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 0) 100%)' }} />
         <div className="container">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <span className="badge-icon">📱</span>
-              <span>PulsaApp</span>
+          <div className="apotek-hero__content">
+            <div className="apotek-hero__eyebrow">
+              <span className="badge">📱 PulsaApp</span>
+              <span className="apotek-hero__tag">Top-up & PPOB Terpercaya</span>
             </div>
-            <h1>Smart Mobile Credit & Digital Payment Solution</h1>
-            <p className="hero-description">
-              Indonesia's leading mobile app for purchasing credit, data packages, game vouchers, and e-money top-ups. 
-              Experience faster, cheaper, and more secure digital transactions.
+            <h1 className="apotek-hero__title">
+              Transaksi Digital <br />
+              <span className="text-gradient">Murah & Instan</span>
+            </h1>
+            <p className="apotek-hero__desc">
+              Solusi cerdas pengisian pulsa, paket data, voucher game, dan pembayaran tagihan
+              dalam satu genggaman. Nikmati harga agen dan kecepatan transaksi otomatis 24 jam.
             </p>
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-number">1M+</span>
-                <span className="stat-label">Downloads</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">4.8</span>
-                <span className="stat-label">Rating</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Products</span>
-              </div>
+            <div className="apotek-hero__stats">
+              {productStats.map((s, i) => (
+                <div key={i} className="apotek-hero__stat">
+                  <span className="apotek-hero__stat-icon">{s.icon}</span>
+                  <strong>{s.number}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
             </div>
-            <div className="hero-actions">
-              <button className="btn btn-primary">
-                <span>Download Now</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7,10 12,15 17,10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </button>
-              <button className="btn btn-secondary">
-                <span>View Demo</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polygon points="5,3 19,12 5,21"></polygon>
-                </svg>
-              </button>
+            <div className="apotek-hero__cta">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--large"
+              >
+                Download di Play Store <span className="btn__icon">→</span>
+              </a>
+              <a href="#features" className="btn btn--secondary btn--large">
+                Lihat Keunggulan
+              </a>
             </div>
           </div>
-          <div className="hero-image">
-            <div className="phone-mockup">
-              <img src="/assets/images/pulsaapp-hero.png" alt="PulsaApp Interface" />
+          <div className="apotek-hero__visual">
+            <div className="apotek-hero__card-stack">
+              <div className="apotek-stat-card apotek-stat-card--top">
+                <span className="apotek-stat-card__icon">💰</span>
+                <div>
+                  <div className="apotek-stat-card__label">Hemat Transaksi</div>
+                  <div className="apotek-stat-card__value">Harga Agen</div>
+                </div>
+                <span className="apotek-stat-card__badge" style={{ background: '#10b981' }}>Best</span>
+              </div>
+              <div className="apotek-hero__dashboard pulsaapp-preview-card">
+                <div className="apotek-dashboard__row">
+                  <span>📱 Pulsa Telkomsel</span>
+                  <strong className="text-green">Berhasil</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>🎮 Voucher MLBB</span>
+                  <strong>Instan</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>💳 Saldo PulsaPay</span>
+                  <strong className="text-gradient">Aktif</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>⚡ Token PLN</span>
+                  <strong>24 Jam</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,78 +215,104 @@ const PulsaAppPage: React.FC = () => {
       </div>
 
       {/* Features Section */}
-      <section className="product-features">
+      <section
+        id="features"
+        ref={sectionRef}
+        className={`section apotek-modules ${visible ? 'apotek-modules--visible' : ''}`}
+      >
         <div className="container">
           <div className="section-header">
-            <h2>Why Choose PulsaApp?</h2>
-            <p>Discover the features that make PulsaApp the preferred choice for millions of users</p>
+            <div className="badge">Keunggulan PulsaApp</div>
+            <h2>
+              Solusi Transaksi Digital{' '}
+              <span className="text-gradient">Tanpa Hambatan</span>
+            </h2>
+            <p>
+              Dirancang untuk memberikan pengalaman bertransaksi yang paling efisien,
+              aman, dan menguntungkan bagi setiap pengguna.
+            </p>
           </div>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
+
+          {/* Feature Tabs */}
+          <div className="apotek-modules__tabs">
+            {features.map((f, i) => (
+              <button
+                key={i}
+                className={`apotek-module-tab ${activeFeature === i ? 'apotek-module-tab--active' : ''}`}
+                onClick={() => setActiveFeature(i)}
+                style={activeFeature === i ? { background: features[i].gradient } : {}}
+              >
+                <span>{f.icon}</span>
+                <span className="apotek-module-tab__name">{f.title.split(' ')[0]}</span>
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Products Section */}
-      <section className="product-categories">
-        <div className="container">
-          <div className="section-header">
-            <h2>Available Products</h2>
-            <p>Complete range of digital products for all your needs</p>
-          </div>
-          <div className="products-grid">
-            {products.map((product, index) => (
-              <div key={index} className="product-card">
-                <div className="product-icon">{product.icon}</div>
-                <h3>{product.name}</h3>
-                <p className="product-providers">{product.providers}</p>
-                <p className="product-description">{product.description}</p>
-                <button className="btn btn-outline">Learn More</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Screenshots Section */}
-      <section className="product-screenshots">
-        <div className="container">
-          <div className="section-header">
-            <h2>App Screenshots</h2>
-            <p>Take a look at PulsaApp's beautiful and intuitive interface</p>
-          </div>
-          <div className="screenshots-grid">
-            {screenshots.map((screenshot, index) => (
-              <div key={index} className="screenshot-card">
-                <div className="screenshot-image">
-                  <img src={`/assets/images/pulsaapp-screen-${index + 1}.png`} alt={screenshot.title} />
+          {/* Active Feature Detail */}
+          <div className="apotek-module-detail card">
+            <div className="apotek-module-detail__left">
+              <div className="apotek-module-detail__header">
+                <div
+                  className="apotek-module-detail__icon"
+                  style={{ background: features[activeFeature].gradient }}
+                >
+                  {features[activeFeature].icon}
                 </div>
-                <h4>{screenshot.title}</h4>
-                <p>{screenshot.description}</p>
+                <span className={`apotek-badge apotek-badge--${features[activeFeature].badgeColor}`}>
+                  {features[activeFeature].badge}
+                </span>
               </div>
-            ))}
+              <h3 className="apotek-module-detail__title">{features[activeFeature].title}</h3>
+              <p className="apotek-module-detail__desc">{features[activeFeature].description}</p>
+              <ul className="apotek-module-detail__features">
+                {features[activeFeature].details.map((d, i) => (
+                  <li key={i}>
+                    <span className="apotek-check">✓</span>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="apotek-module-detail__right">
+              <div className="apotek-module-preview" style={{ borderColor: `rgba(99,102,241,0.2)` }}>
+                <div
+                  className="apotek-module-preview__header"
+                  style={{ background: features[activeFeature].gradient }}
+                >
+                  <span>PulsaApp — {features[activeFeature].title}</span>
+                </div>
+                <div className="apotek-module-preview__body">
+                  {features[activeFeature].details.map((d, i) => (
+                    <div key={i} className="apotek-preview-row">
+                      <span className="apotek-preview-row__icon">✓</span>
+                      <span>{d}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Specifications Section */}
-      <section className="product-specs">
+      <section className="section" style={{ background: 'rgba(99,102,241,0.03)' }}>
         <div className="container">
           <div className="section-header">
-            <h2>Technical Specifications</h2>
-            <p>Detailed information about PulsaApp's technical requirements and features</p>
+            <div className="badge badge--accent">Informasi Teknis</div>
+            <h2>
+              Detail Spesifikasi <span className="text-gradient">Aplikasi</span>
+            </h2>
           </div>
-          <div className="specs-grid">
-            {specifications.map((spec, index) => (
-              <div key={index} className="spec-item">
-                <span className="spec-label">{spec.label}</span>
-                <span className="spec-value">{spec.value}</span>
+          <div className="apotek-why-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+            {technicalSpecs.map((spec, index) => (
+              <div key={index} className="apotek-why-card card" style={{ padding: '1.5rem', textAlign: 'center' }}>
+                <div style={{ color: '#6366f1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+                  {spec.label}
+                </div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#111827' }}>
+                  {spec.value}
+                </div>
               </div>
             ))}
           </div>
@@ -226,20 +332,27 @@ const PulsaAppPage: React.FC = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="product-cta">
+      <section className="section">
         <div className="container">
-          <div className="cta-content">
-            <h2>Ready to Start Saving?</h2>
-            <p>Join millions of users who trust PulsaApp for their digital payment needs</p>
-            <div className="cta-actions">
-              <button className="btn btn-primary btn-large">
-                <span>Download PulsaApp</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7,10 12,15 17,10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </button>
+          <div className="apotek-cta-banner">
+            <div className="apotek-cta-banner__bg" style={{ background: 'linear-gradient(135deg, #4f46e5, #8b5cf6)' }} />
+            <div className="apotek-cta-banner__content">
+              <div className="badge badge--accent">Mulai Pakai</div>
+              <h2>Siap Transaksi Lebih Hemat?</h2>
+              <p>
+                Bergabunglah dengan ribuan pengguna yang telah mempercayakan PulsaApp
+                untuk kebutuhan digital harian mereka. Mudah, murah, dan aman.
+              </p>
+              <div className="apotek-cta-banner__actions">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--large"
+                >
+                  Download Gratis Sekarang <span className="btn__icon">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
