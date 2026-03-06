@@ -1,171 +1,256 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import './ProductPage.css'
+import './ApotekAppPage.css'
+
+const modules = [
+  {
+    icon: '🧠',
+    title: 'AI-Powered HPP Intelligence',
+    badge: 'Keunggulan Utama',
+    badgeColor: 'indigo',
+    description:
+      'Satu-satunya sistem ERP Apotek yang secara otomatis mendeteksi anomali Harga Pokok Pembelian (HPP). Lindungi apotek Anda dari markup supplier yang berlebih sebelum terlambat.',
+    features: [
+      'Deteksi markup berlebih secara real-time',
+      'Audit harga supplier otomatis',
+      'Manager Intelligence Dashboard',
+      'Hemat rata-rata Rp 12,4jt+ per periode',
+    ],
+    gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  },
+  {
+    icon: '🛒',
+    title: 'Kasir (Point of Sale)',
+    badge: 'Inti Operasional',
+    badgeColor: 'green',
+    description:
+      'POS responsif yang dirancang khusus untuk alur kerja apotek. Dari transaksi biasa hingga resep dokter — semua tertangani dengan cepat dan tepat.',
+    features: [
+      'Pencarian obat super cepat',
+      'Otomasi FEFO/FIFO stok',
+      'Mode Resep & Racikan khusus',
+      'Fungsi Hold & Recall transaksi',
+    ],
+    gradient: 'linear-gradient(135deg, #10b981, #14b8a6)',
+  },
+  {
+    icon: '🔄',
+    title: 'Transfer Obat Antar Apotek',
+    badge: 'Multi-Cabang',
+    badgeColor: 'blue',
+    description:
+      'Kelola peminjaman dan transfer stok obat antar cabang dengan sistem pelacakan hutang otomatis. Tidak ada lagi stok menumpuk di satu cabang sementara cabang lain kehabisan.',
+    features: [
+      'Transfer & pinjam stok antar cabang',
+      'Pelacakan hutang stok otomatis',
+      'Mekanisme retur fleksibel',
+      'Riwayat transfer lengkap',
+    ],
+    gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+  },
+  {
+    icon: '💳',
+    title: 'Manajemen Metode Pembayaran',
+    badge: 'Multi-Payment',
+    badgeColor: 'yellow',
+    description:
+      'Terima pembayaran dengan berbagai metode dalam satu sistem. Lacak biaya admin, saldo, dan buat audit trail yang bersih untuk laporan keuangan Anda.',
+    features: [
+      'Tunai, QRIS, Transfer, Tempo',
+      'Pelacakan biaya admin & saldo',
+      'Audit trail lengkap per transaksi',
+      'Rekonsiliasi pembayaran otomatis',
+    ],
+    gradient: 'linear-gradient(135deg, #eab308, #f97316)',
+  },
+  {
+    icon: '👥',
+    title: 'Manajemen Staff & KPI',
+    badge: 'SDM Apotek',
+    badgeColor: 'pink',
+    description:
+      'Monitor produktivitas seluruh staf dengan sistem target dan bonus yang transparan. Leaderboard real-time membuat tim termotivasi untuk mencapai target bulanan.',
+    features: [
+      'Monitor produktivitas individual',
+      'Target penjualan bulanan',
+      'Bonus tiering otomatis (Bronze → Diamond)',
+      'Leaderboard tim real-time',
+    ],
+    gradient: 'linear-gradient(135deg, #ec4899, #f97316)',
+  },
+  {
+    icon: '🏥',
+    title: 'BPJS Kapitasi',
+    badge: 'Layanan Khusus',
+    badgeColor: 'teal',
+    description:
+      'Modul terintegrasi khusus untuk melayani transaksi BPJS dengan akurasi tinggi. Settlement bulanan, upload PDF resep, dan pelacakan komisi negatif — semua otomatis.',
+    features: [
+      'Transaksi BPJS terintegrasi',
+      'Upload & kelola PDF resep',
+      'Pelacakan komisi negatif',
+      'Settlement bulanan otomatis',
+    ],
+    gradient: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+  },
+]
+
+const stats = [
+  { number: '50%+', label: 'Efisiensi Admin', icon: '⚡' },
+  { number: '99.9%', label: 'Akurasi Stok', icon: '🎯' },
+  { number: 'Rp 12,4jt+', label: 'Profit Terlindungi', icon: '💰' },
+  { number: 'Multi', label: 'Cabang Apotek', icon: '🏪' },
+]
+
+const testimonials = [
+  {
+    name: 'Apotek Mitra Syifa',
+    quote:
+      'HPP Intelligence menyelamatkan kami dari markup supplier. Dalam sebulan pertama saja kami sudah terhindar dari kerugian jutaan rupiah.',
+    role: 'Apotek Mitra',
+  },
+  {
+    name: 'Apotek E Tiga 2',
+    quote:
+      'Transfer stok antar cabang jadi sangat mudah. Tidak ada lagi cabang yang kekurangan obat sementara cabang lain overstock.',
+    role: 'Apotek Mitra',
+  },
+]
+
+const whyChoose = [
+  {
+    icon: '🔐',
+    title: 'Satu-satunya HPP Intelligence',
+    desc: 'Tidak ada ERP apotek lain yang mampu mendeteksi anomali harga supplier secara otomatis seperti ApotekApp.',
+  },
+  {
+    icon: '🚀',
+    title: 'Siap Pakai Hari Ini',
+    desc: 'Demo gratis tersedia. Tim onboarding kami siap membantu migrasi data dan pelatihan staf Anda.',
+  },
+  {
+    icon: '🏢',
+    title: 'Skalabel Multi-Cabang',
+    desc: 'Dari apotek tunggal hingga jaringan multi-cabang — sistem kami tumbuh bersama bisnis Anda.',
+  },
+  {
+    icon: '📊',
+    title: 'Laporan Mendalam',
+    desc: 'Laporan Laba/Rugi, analitik stok, KPI staf, dan dashboard manajerial dalam satu platform.',
+  },
+]
 
 const ApotekAppPage: React.FC = () => {
   const { userConsent } = useAds()
+  const [activeModule, setActiveModule] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
-  const features = [
-    {
-      icon: '💊',
-      title: 'Medicine Search',
-      description: 'Comprehensive database of medications with detailed information, dosage instructions, and side effects.'
-    },
-    {
-      icon: '🏥',
-      title: 'Pharmacy Locator',
-      description: 'Find nearby pharmacies with real-time availability, opening hours, and contact information.'
-    },
-    {
-      icon: '📱',
-      title: 'Digital Prescription',
-      description: 'Upload and manage your prescriptions digitally with secure cloud storage and easy access.'
-    },
-    {
-      icon: '💳',
-      title: 'Easy Payment',
-      description: 'Multiple payment options including cash, credit card, and digital wallets for convenient transactions.'
-    },
-    {
-      icon: '🚚',
-      title: 'Home Delivery',
-      description: 'Get your medications delivered to your doorstep with fast and reliable delivery service.'
-    },
-    {
-      icon: '⏰',
-      title: 'Medication Reminder',
-      description: 'Smart reminder system to help you take medications on time with customizable notifications.'
-    }
-  ]
-
-  const services = [
-    {
-      title: 'Prescription Drugs',
-      description: 'Wide range of prescription medications from trusted pharmaceutical companies',
-      icon: '💊',
-      availability: 'Available'
-    },
-    {
-      title: 'Over-the-Counter',
-      description: 'Common OTC medications for everyday health needs and minor ailments',
-      icon: '🩹',
-      availability: 'In Stock'
-    },
-    {
-      title: 'Health Supplements',
-      description: 'Vitamins, minerals, and dietary supplements for optimal health',
-      icon: '💪',
-      availability: 'Available'
-    },
-    {
-      title: 'Medical Devices',
-      description: 'Essential medical equipment and devices for home healthcare',
-      icon: '🩺',
-      availability: 'Available'
-    }
-  ]
-
-  const benefits = [
-    {
-      title: 'Save Time',
-      description: 'Skip the queues and order medications from the comfort of your home',
-      icon: '⏱️'
-    },
-    {
-      title: 'Better Prices',
-      description: 'Competitive pricing with regular discounts and promotional offers',
-      icon: '💰'
-    },
-    {
-      title: 'Professional Support',
-      description: '24/7 pharmacist consultation and medication guidance',
-      icon: '👨‍⚕️'
-    },
-    {
-      title: 'Secure & Safe',
-      description: 'Licensed pharmacies with authentic medications and secure transactions',
-      icon: '🔒'
-    }
-  ]
-
-  const screenshots = [
-    { title: 'Home Dashboard', description: 'Easy navigation and quick access to services' },
-    { title: 'Medicine Search', description: 'Comprehensive drug database and information' },
-    { title: 'Pharmacy Map', description: 'Find nearest pharmacies with live updates' },
-    { title: 'Order Tracking', description: 'Real-time delivery tracking and updates' }
-  ]
-
-  const specifications = [
-    { label: 'Platform', value: 'Android & iOS' },
-    { label: 'Size', value: '35 MB' },
-    { label: 'Languages', value: 'Indonesian, English' },
-    { label: 'Pharmacy Partners', value: '500+ Registered Pharmacies' },
-    { label: 'Payment Methods', value: 'Cash, Card, E-wallet, Bank Transfer' },
-    { label: 'Delivery Areas', value: 'Jakarta, Surabaya, Bandung, Medan' }
-  ]
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.05 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="product-page">
+    <div className="product-page apotek-page">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="product-hero apotekapp-hero">
+
+      {/* ===== HERO ===== */}
+      <section className="apotek-hero">
+        <div className="apotek-hero__bg" />
         <div className="container">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <span className="badge-icon">🏥</span>
-              <span>ApotekApp</span>
+          <div className="apotek-hero__content">
+            <div className="apotek-hero__eyebrow">
+              <span className="badge">💊 ApotekApp</span>
+              <span className="apotek-hero__tag">ERP Apotek Generasi Terbaru</span>
             </div>
-            <h1>Your Digital Pharmacy Companion</h1>
-            <p className="hero-description">
-              Complete pharmacy solution in your pocket. Find medications, locate pharmacies, 
-              manage prescriptions, and get medicines delivered to your door with Indonesia's most trusted pharmacy app.
+            <h1 className="apotek-hero__title">
+              Tingkatkan Profit <br />
+              <span className="text-gradient">Apotek Anda</span>
+            </h1>
+            <p className="apotek-hero__desc">
+              Platform manajemen apotek terpadu yang menggabungkan kecerdasan inventori,
+              otomasi pengadaan, dan analitik mendalam dalam satu dashboard premium.
+              Satu-satunya ERP apotek dengan AI HPP Intelligence.
             </p>
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-number">250K+</span>
-                <span className="stat-label">Users</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Pharmacies</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-number">4.7</span>
-                <span className="stat-label">Rating</span>
-              </div>
+            <div className="apotek-hero__stats">
+              {stats.map((s, i) => (
+                <div key={i} className="apotek-hero__stat">
+                  <span className="apotek-hero__stat-icon">{s.icon}</span>
+                  <strong>{s.number}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
             </div>
-            <div className="hero-actions">
-              <button className="btn btn-primary">
-                <span>Download Now</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7,10 12,15 17,10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </button>
-              <button className="btn btn-secondary">
-                <span>View Demo</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polygon points="5,3 19,12 5,21"></polygon>
-                </svg>
-              </button>
+            <div className="apotek-hero__cta">
+              <a
+                href="https://apotek.kancio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--large"
+              >
+                Coba Demo Gratis <span className="btn__icon">→</span>
+              </a>
+              <a
+                href="https://apotek.kancio.com/#solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--secondary btn--large"
+              >
+                Lihat Fitur Lengkap
+              </a>
             </div>
           </div>
-          <div className="hero-image">
-            <div className="phone-mockup">
-              <img src="/assets/images/apotekapp-hero.png" alt="ApotekApp Interface" />
+          <div className="apotek-hero__visual">
+            <div className="apotek-hero__card-stack">
+              <div className="apotek-stat-card apotek-stat-card--top">
+                <span className="apotek-stat-card__icon">🧠</span>
+                <div>
+                  <div className="apotek-stat-card__label">HPP Intelligence</div>
+                  <div className="apotek-stat-card__value">Anomali Terdeteksi</div>
+                </div>
+                <span className="apotek-stat-card__badge">AI</span>
+              </div>
+              <div className="apotek-hero__dashboard">
+                <div className="apotek-dashboard__row">
+                  <span>💰 Profit Hari Ini</span>
+                  <strong className="text-green">+Rp 4,2jt</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>📦 Stok Akurasi</span>
+                  <strong>99.9%</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>⚡ Admin Efisiensi</span>
+                  <strong className="text-gradient">50%+</strong>
+                </div>
+                <div className="apotek-dashboard__row">
+                  <span>🛒 Transaksi Hari Ini</span>
+                  <strong>247</strong>
+                </div>
+              </div>
+              <div className="apotek-stat-card apotek-stat-card--bottom">
+                <span className="apotek-stat-card__icon">✅</span>
+                <div>
+                  <div className="apotek-stat-card__label">BPJS Settlement</div>
+                  <div className="apotek-stat-card__value">Bulan ini selesai</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* ===== AD ===== */}
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
@@ -177,105 +262,155 @@ const ApotekAppPage: React.FC = () => {
         />
       </div>
 
-      {/* Features Section */}
-      <section className="product-features">
+      {/* ===== 6 MODULES ===== */}
+      <section
+        ref={sectionRef}
+        className={`section apotek-modules ${visible ? 'apotek-modules--visible' : ''}`}
+      >
         <div className="container">
           <div className="section-header">
-            <h2>Complete Pharmacy Solutions</h2>
-            <p>Everything you need for convenient and safe medication management</p>
+            <div className="badge">6 Modul Terintegrasi</div>
+            <h2>
+              Semua yang Dibutuhkan Apotek,{' '}
+              <span className="text-gradient">Dalam Satu Platform</span>
+            </h2>
+            <p>
+              Dari kasir harian hingga analitik manajerial — ApotekApp mengelola
+              seluruh operasional apotek Anda tanpa kompleksitas sistem terpisah.
+            </p>
           </div>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
+
+          {/* Module Tabs */}
+          <div className="apotek-modules__tabs">
+            {modules.map((m, i) => (
+              <button
+                key={i}
+                className={`apotek-module-tab ${activeModule === i ? 'apotek-module-tab--active' : ''}`}
+                onClick={() => setActiveModule(i)}
+                style={activeModule === i ? { background: modules[i].gradient } : {}}
+              >
+                <span>{m.icon}</span>
+                <span className="apotek-module-tab__name">{m.title.split(' ')[0]}</span>
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Services Section */}
-      <section className="product-categories">
-        <div className="container">
-          <div className="section-header">
-            <h2>Available Products & Services</h2>
-            <p>Comprehensive range of pharmaceutical products and healthcare services</p>
-          </div>
-          <div className="products-grid">
-            {services.map((service, index) => (
-              <div key={index} className="product-card">
-                <div className="product-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p className="product-providers">Status: {service.availability}</p>
-                <p className="product-description">{service.description}</p>
-                <button className="btn btn-outline">Browse Products</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="product-benefits">
-        <div className="container">
-          <div className="section-header">
-            <h2>Why Choose ApotekApp?</h2>
-            <p>Experience the advantages of digital pharmacy services</p>
-          </div>
-          <div className="benefits-grid">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="benefit-card">
-                <div className="benefit-icon">{benefit.icon}</div>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Screenshots Section */}
-      <section className="product-screenshots">
-        <div className="container">
-          <div className="section-header">
-            <h2>App Screenshots</h2>
-            <p>Explore ApotekApp's user-friendly interface and features</p>
-          </div>
-          <div className="screenshots-grid">
-            {screenshots.map((screenshot, index) => (
-              <div key={index} className="screenshot-card">
-                <div className="screenshot-image">
-                  <img src={`/assets/images/apotekapp-screen-${index + 1}.png`} alt={screenshot.title} />
+          {/* Active Module Detail */}
+          <div className="apotek-module-detail card">
+            <div className="apotek-module-detail__left">
+              <div className="apotek-module-detail__header">
+                <div
+                  className="apotek-module-detail__icon"
+                  style={{ background: modules[activeModule].gradient }}
+                >
+                  {modules[activeModule].icon}
                 </div>
-                <h4>{screenshot.title}</h4>
-                <p>{screenshot.description}</p>
+                <span className={`apotek-badge apotek-badge--${modules[activeModule].badgeColor}`}>
+                  {modules[activeModule].badge}
+                </span>
+              </div>
+              <h3 className="apotek-module-detail__title">{modules[activeModule].title}</h3>
+              <p className="apotek-module-detail__desc">{modules[activeModule].description}</p>
+              <ul className="apotek-module-detail__features">
+                {modules[activeModule].features.map((f, i) => (
+                  <li key={i}>
+                    <span className="apotek-check">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="apotek-module-detail__right">
+              <div className="apotek-module-preview" style={{ borderColor: `rgba(99,102,241,0.2)` }}>
+                <div
+                  className="apotek-module-preview__header"
+                  style={{ background: modules[activeModule].gradient }}
+                >
+                  <span>ApotekApp — {modules[activeModule].title}</span>
+                </div>
+                <div className="apotek-module-preview__body">
+                  {modules[activeModule].features.map((f, i) => (
+                    <div key={i} className="apotek-preview-row">
+                      <span className="apotek-preview-row__icon">✓</span>
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Module Cards Grid (all 6) */}
+          <div className="apotek-modules-grid">
+            {modules.map((mod, i) => (
+              <div
+                key={i}
+                className={`apotek-mod-card card ${activeModule === i ? 'apotek-mod-card--active' : ''}`}
+                onClick={() => setActiveModule(i)}
+                style={{ cursor: 'pointer', animationDelay: `${i * 0.08}s` }}
+              >
+                <div className="apotek-mod-card__top">
+                  <div className="apotek-mod-card__icon" style={{ background: mod.gradient }}>
+                    {mod.icon}
+                  </div>
+                  <span className={`apotek-badge apotek-badge--${mod.badgeColor}`}>{mod.badge}</span>
+                </div>
+                <h4 className="apotek-mod-card__name">{mod.title}</h4>
+                <p className="apotek-mod-card__desc">{mod.description.split('.')[0]}.</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Specifications Section */}
-      <section className="product-specs">
+      {/* ===== WHY CHOOSE ===== */}
+      <section className="section" style={{ background: 'rgba(99,102,241,0.03)' }}>
         <div className="container">
           <div className="section-header">
-            <h2>Technical Specifications</h2>
-            <p>Detailed information about ApotekApp's features and coverage</p>
+            <div className="badge badge--accent">Mengapa ApotekApp?</div>
+            <h2>
+              Keunggulan yang <span className="text-gradient">Tidak Ada Duanya</span>
+            </h2>
           </div>
-          <div className="specs-grid">
-            {specifications.map((spec, index) => (
-              <div key={index} className="spec-item">
-                <span className="spec-label">{spec.label}</span>
-                <span className="spec-value">{spec.value}</span>
+          <div className="apotek-why-grid">
+            {whyChoose.map((w, i) => (
+              <div key={i} className="apotek-why-card card">
+                <div className="apotek-why-card__icon">{w.icon}</div>
+                <h4>{w.title}</h4>
+                <p>{w.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <div className="badge">Apotek Mitra</div>
+            <h2>
+              Dipercaya Apotek-Apotek <span className="text-gradient">Terkemuka</span>
+            </h2>
+          </div>
+          <div className="apotek-testimonials">
+            {testimonials.map((t, i) => (
+              <div key={i} className="apotek-testimonial card">
+                <div className="apotek-testimonial__quote">"{t.quote}"</div>
+                <div className="apotek-testimonial__author">
+                  <div className="apotek-testimonial__avatar">💊</div>
+                  <div>
+                    <strong>{t.name}</strong>
+                    <span>{t.role}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== AD ===== */}
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
@@ -287,21 +422,31 @@ const ApotekAppPage: React.FC = () => {
         />
       </div>
 
-      {/* CTA Section */}
-      <section className="product-cta">
+      {/* ===== CTA ===== */}
+      <section className="section">
         <div className="container">
-          <div className="cta-content">
-            <h2>Get Your Medications Delivered Today</h2>
-            <p>Join thousands of users who trust ApotekApp for their pharmacy needs</p>
-            <div className="cta-actions">
-              <button className="btn btn-primary btn-large">
-                <span>Download ApotekApp</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7,10 12,15 17,10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </button>
+          <div className="apotek-cta-banner">
+            <div className="apotek-cta-banner__bg" />
+            <div className="apotek-cta-banner__content">
+              <div className="badge badge--accent">Mulai Sekarang</div>
+              <h2>Jadwalkan Demo Gratis Hari Ini</h2>
+              <p>
+                Lihat sendiri bagaimana ApotekApp mengubah cara Anda mengelola apotek.
+                Demo gratis, tanpa komitmen, dipandu tim ahli kami.
+              </p>
+              <div className="apotek-cta-banner__actions">
+                <a
+                  href="https://apotek.kancio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--large"
+                >
+                  Coba Demo Gratis <span className="btn__icon">→</span>
+                </a>
+                <Link to="/services/consulting" className="btn btn--secondary btn--large">
+                  Konsultasi Dulu
+                </Link>
+              </div>
             </div>
           </div>
         </div>
