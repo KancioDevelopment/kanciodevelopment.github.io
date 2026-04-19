@@ -116,15 +116,6 @@ const PulsaAppPage: React.FC = () => {
     { number: 'Secure', label: 'Keamanan Berlapis', icon: '🛡️' }
   ]
 
-  const technicalSpecs = [
-    { label: 'Versi Aplikasi', value: '2.4.6' },
-    { label: 'Ukuran Download', value: '50 MB' },
-    { label: 'OS Minimum', value: 'Android 7.0 (Nougat) atau lebih tinggi' },
-    { label: 'Kategori', value: 'Shopping / Belanja (PPOB)' },
-    { label: 'Developer', value: 'Kancio.com' },
-    { label: 'Bahasa', value: 'Indonesia' }
-  ]
-
   return (
     <div className="product-page apotek-page pulsaapp-page">
       <Header />
@@ -317,29 +308,6 @@ const PulsaAppPage: React.FC = () => {
               <h2>Siap Transaksi Lebih Hemat?</h2>
               <p>
                 Bergabunglah dengan ribuan pengguna yang telah mempercayakan PulsaApp
-                untuk kebutuhan digital harian mereka. Mudah, murah, dan aman.
-              </p>
-              <div className="apotek-cta-banner__actions">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--primary btn--large"
-                >
-                  Download Gratis Sekarang <span className="btn__icon">→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-}
-
-export default PulsaAppPageBergabunglah dengan ribuan pengguna yang telah mempercayakan PulsaApp
                 untuk kebutuhan digital harian mereka. Mudah, murah, dan aman.
               </p>
               <div className="apotek-cta-banner__actions">

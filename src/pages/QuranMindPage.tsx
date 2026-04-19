@@ -123,15 +123,6 @@ const QuranMindPage: React.FC = () => {
     { number: 'Free', label: 'Selamanya Gratis', icon: '🎁' }
   ]
 
-  const technicalSpecs = [
-    { label: 'OS Minimum', value: 'Android 7.0+', icon: '🤖' },
-    { label: 'Ukuran', value: '50 MB', icon: '💾' },
-    { label: 'Kategori', value: 'Education', icon: '📚' },
-    { label: 'Metode', value: 'AI Ruku', icon: '🧠' },
-    { label: 'Bahasa', value: 'Indonesian', icon: '🇮🇩' },
-    { label: 'Font', value: 'KFGQPC', icon: '🖋️' }
-  ]
-
   return (
     <div className={`product-page apotek-page quranmind-page ${scrolled ? 'page--scrolled' : ''}`}>
       <Header />
@@ -160,7 +151,7 @@ const QuranMindPage: React.FC = () => {
 
             <p className="apotek-hero__desc" style={{ color: '#374151' }}>
               Gabungan harmonis antara <strong>Sains Data</strong> dan <strong>Tafsir Klasik</strong>.
-              QuranMind membantu Anda tadabbur lebih dalam dengan analisis Ruku cerdas
+              QuranMind membantu Anda tadabbur lebih dalam with analisis Ruku cerdas
               untuk pemahaman spiritual yang modern.
             </p>
 
@@ -368,26 +359,6 @@ const QuranMindPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TECHNICAL SPECS 2.0 ===== */}
-      <section className="section specs-v2">
-        <div className="container">
-          <div className="section-header">
-            <h2>Spesifikasi <span className="text-gradient">Teknis</span></h2>
-          </div>
-          <div className="specs-grid-v2">
-            {technicalSpecs.map((spec, i) => (
-              <div key={i} className="spec-card-v2 glass-card">
-                <span className="spec-icon-v2">{spec.icon}</span>
-                <div className="spec-meta">
-                  <span className="spec-label-v2">{spec.label}</span>
-                  <strong className="spec-value-v2">{spec.value}</strong>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -609,10 +580,6 @@ const QuranMindPage: React.FC = () => {
         }
       `}</style>
     </div>
-  )
-}
-
-export default QuranMindPage</div>
   )
 }
 
