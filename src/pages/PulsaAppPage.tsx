@@ -295,30 +295,6 @@ const PulsaAppPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Specifications Section */}
-      <section className="section" style={{ background: 'rgba(99,102,241,0.03)' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="badge badge--accent">Informasi Teknis</div>
-            <h2>
-              Detail Spesifikasi <span className="text-gradient">Aplikasi</span>
-            </h2>
-          </div>
-          <div className="apotek-why-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-            {technicalSpecs.map((spec, index) => (
-              <div key={index} className="apotek-why-card card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ color: '#6366f1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
-                  {spec.label}
-                </div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#111827' }}>
-                  {spec.value}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Ad Placement */}
       <div className="content-break-ad">
         <GoogleAdSense
@@ -341,6 +317,29 @@ const PulsaAppPage: React.FC = () => {
               <h2>Siap Transaksi Lebih Hemat?</h2>
               <p>
                 Bergabunglah dengan ribuan pengguna yang telah mempercayakan PulsaApp
+                untuk kebutuhan digital harian mereka. Mudah, murah, dan aman.
+              </p>
+              <div className="apotek-cta-banner__actions">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--large"
+                >
+                  Download Gratis Sekarang <span className="btn__icon">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  )
+}
+
+export default PulsaAppPageBergabunglah dengan ribuan pengguna yang telah mempercayakan PulsaApp
                 untuk kebutuhan digital harian mereka. Mudah, murah, dan aman.
               </p>
               <div className="apotek-cta-banner__actions">

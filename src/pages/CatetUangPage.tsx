@@ -719,27 +719,6 @@ const CatetUangPage: React.FC = () => {
           letter-spacing: 0.1em;
         }
 
-        /* Specs Grid */
-        .specs-grid-tu {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
-
-        .spec-card-tu {
-          background: white;
-          padding: 30px;
-          border-radius: 24px;
-          text-align: center;
-          border: 1px solid #f1f5f9;
-          transition: 0.3s;
-        }
-
-        .spec-card-tu:hover { transform: translateY(-5px); border-color: #dbeafe; }
-        .spec-icon-tu { font-size: 2rem; margin-bottom: 20px; }
-        .spec-info-tu strong { display: block; color: #1e293b; margin-bottom: 5px; }
-        .spec-info-tu span { color: #64748b; font-size: 0.9rem; }
-
         /* CTA Premium */
         .cta-premium-tu {
           position: relative;

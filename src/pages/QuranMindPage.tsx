@@ -520,12 +520,6 @@ const QuranMindPage: React.FC = () => {
         .demo-message { padding: 12px 18px; border-radius: 12px; font-size: 0.85rem; color: white; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); }
         .demo-message--result { background: #10b981; border: 1px solid rgba(255,255,255,0.3); }
 
-        .specs-grid-v2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .spec-card-v2 { padding: 20px; display: flex; align-items: center; gap: 15px; border-radius: 20px; }
-        .spec-icon-v2 { font-size: 1.8rem; }
-        .spec-label-v2 { display: block; font-size: 0.75rem; color: #6b7280; font-weight: 600; text-transform: uppercase; }
-        .spec-value-v2 { font-size: 1.1rem; color: #111827; }
-
         .premium-cta { background: #064e3b !important; color: white !important; border: none !important; }
         .glass-btn-primary { background: white !important; color: #064e3b !important; font-weight: 700 !important; border-radius: 100px !important; }
 
@@ -615,6 +609,10 @@ const QuranMindPage: React.FC = () => {
         }
       `}</style>
     </div>
+  )
+}
+
+export default QuranMindPage</div>
   )
 }
 
