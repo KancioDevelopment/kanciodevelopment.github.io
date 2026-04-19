@@ -3,11 +3,22 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-// Export as nullable or with a check to prevent "supabaseUrl is required" crash
-export const supabase = (supabaseUrl && supabaseAnonKey) 
+// Extra robust check to prevent "supabaseUrl is required" crash
+const isConfigValid = 
+  supabaseUrl && 
+  supabaseAnonKey && 
+  supabaseUrl !== 'your_supabase_url_here' && 
+  supabaseAnonKey !== 'your_supabase_anon_key_here' &&
+  typeof supabaseUrl === 'string' &&
+  typeof supabaseAnonKey === 'string'
+
+export const supabase = isConfigValid
   ? createClient(supabaseUrl, supabaseAnonKey) 
   : null
 
 if (!supabase) {
-  console.warn('Supabase credentials missing. Blog system will use local fallback.')
+  // Silent in production, but keeps the app stable
+  if (import.meta.env.DEV) {
+    console.warn('Supabase credentials missing or invalid. Using local fallback.')
+  }
 }
