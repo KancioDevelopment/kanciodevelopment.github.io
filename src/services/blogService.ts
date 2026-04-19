@@ -4,6 +4,20 @@ import { supabase } from '../config/supabase'
 export interface BlogPost extends PostData {
   content: string
   relatedPosts: string[]
+  status: 'published' | 'draft'
+  updatedAt?: any
+  metaDescription?: string
+}
+
+export interface BlogPostInput {
+  title: string
+  content: string
+  excerpt: string
+  category: string
+  tags: string[]
+  status: 'published' | 'draft'
+  image: string
+  metaDescription?: string
 }
 
 export class BlogService {
@@ -17,6 +31,7 @@ export class BlogService {
       const { data, error } = await supabase
         .from('posts')
         .select('*')
+        .eq('status', 'published')
         .order('date', { ascending: false });
 
       if (!error && data && data.length > 0) {
@@ -27,7 +42,7 @@ export class BlogService {
           excerpt: post.excerpt,
           image: post.image,
           category: post.category,
-          readTime: post.read_time || post.readTime,
+          readTime: post.read_time || post.readTime || '5 min read',
           author: post.author,
           tags: post.tags || []
         }));
@@ -56,6 +71,7 @@ export class BlogService {
         .from('posts')
         .select('*')
         .or(`id.eq.${slug},slug.eq.${slug}`)
+        .eq('status', 'published')
         .single();
 
       if (!error && data) {
@@ -66,11 +82,13 @@ export class BlogService {
           excerpt: data.excerpt,
           image: data.image,
           category: data.category,
-          readTime: data.read_time || data.readTime,
+          readTime: data.read_time || data.readTime || '5 min read',
           author: data.author,
           tags: data.tags || [],
           content: data.content,
-          relatedPosts: data.related_posts || []
+          relatedPosts: data.related_posts || [],
+          status: data.status,
+          metaDescription: data.meta_description
         };
       }
 
@@ -93,7 +111,8 @@ export class BlogService {
       return {
         ...postMeta,
         content,
-        relatedPosts: []
+        relatedPosts: [],
+        status: 'published'
       };
     } catch (error) {
       console.error('Error loading post:', error);
@@ -103,5 +122,90 @@ export class BlogService {
 
   static async getPostById(id: string): Promise<BlogPost | null> {
     return this.getPublishedPostBySlug(id);
+  }
+
+  /* ===== ADMIN OPERATIONS (Supabase) ===== */
+
+  static async getAllPosts(): Promise<BlogPost[]> {
+    try {
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .order('date', { ascending: false });
+
+      if (error) throw error;
+
+      return (data || []).map(post => ({
+        id: post.id,
+        title: post.title,
+        date: post.date,
+        excerpt: post.excerpt,
+        image: post.image,
+        category: post.category,
+        readTime: post.read_time || '5 min read',
+        author: post.author,
+        tags: post.tags || [],
+        content: post.content,
+        relatedPosts: post.related_posts || [],
+        status: post.status,
+        updatedAt: { toDate: () => new Date(post.created_at) } // Mock Firestore timestamp
+      }));
+    } catch (error) {
+      console.error('Error fetching all posts:', error);
+      return [];
+    }
+  }
+
+  static async createPost(input: BlogPostInput, author: string): Promise<void> {
+    const slug = input.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+
+    const { error } = await supabase
+      .from('posts')
+      .insert([{
+        title: input.title,
+        slug: slug,
+        content: input.content,
+        excerpt: input.excerpt,
+        category: input.category,
+        tags: input.tags,
+        status: input.status,
+        image: input.image,
+        author: author,
+        meta_description: input.metaDescription,
+        read_time: `${Math.ceil(input.content.split(/\s+/).length / 200)} min read`
+      }]);
+
+    if (error) throw error;
+    this.articlesCache = null; // Invalidate cache
+  }
+
+  static async updatePost(postId: string, input: BlogPostInput, author: string): Promise<void> {
+    const { error } = await supabase
+      .from('posts')
+      .update({
+        title: input.title,
+        content: input.content,
+        excerpt: input.excerpt,
+        category: input.category,
+        tags: input.tags,
+        status: input.status,
+        image: input.image,
+        meta_description: input.metaDescription,
+        read_time: `${Math.ceil(input.content.split(/\s+/).length / 200)} min read`
+      })
+      .eq('id', postId);
+
+    if (error) throw error;
+    this.articlesCache = null; // Invalidate cache
+  }
+
+  static async deletePost(postId: string): Promise<void> {
+    const { error } = await supabase
+      .from('posts')
+      .delete()
+      .eq('id', postId);
+
+    if (error) throw error;
+    this.articlesCache = null; // Invalidate cache
   }
 }
