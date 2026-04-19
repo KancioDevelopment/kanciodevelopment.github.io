@@ -95,7 +95,8 @@
   color: #fff;
   margin: 0 0 var(--spacing-lg);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
 }
 
 .footer__social-links {
@@ -108,24 +109,70 @@
 .footer__social-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+  gap: 10px;
+  padding: 10px 18px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
+.footer__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.footer__social-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* Individual Social Hover Effects */
 .footer__social-link:hover {
-  background: rgba(99, 102, 241, 0.1);
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.footer__social-link:hover .footer__social-icon {
+  transform: scale(1.1);
+}
+
+/* Brand specific glow on hover */
+.footer__social-link[aria-label*="Facebook"]:hover {
+  background: rgba(24, 119, 242, 0.15);
+  border-color: rgba(24, 119, 242, 0.4);
+  box-shadow: 0 10px 20px -5px rgba(24, 119, 242, 0.3);
+}
+
+.footer__social-link[aria-label*="Instagram"]:hover {
+  background: rgba(225, 48, 108, 0.15);
+  border-color: rgba(225, 48, 108, 0.4);
+  box-shadow: 0 10px 20px -5px rgba(225, 48, 108, 0.3);
+}
+
+.footer__social-link[aria-label*="LinkedIn"]:hover {
+  background: rgba(10, 102, 194, 0.15);
+  border-color: rgba(10, 102, 194, 0.4);
+  box-shadow: 0 10px 20px -5px rgba(10, 102, 194, 0.3);
+}
+
+.footer__social-link[aria-label*="GitHub"]:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================================================
