@@ -28,26 +28,28 @@ export class BlogService {
 
     try {
       // Try Supabase first
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .eq('status', 'published')
-        .order('date', { ascending: false });
+      if (supabase) {
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('status', 'published')
+          .order('date', { ascending: false });
 
-      if (!error && data && data.length > 0) {
-        const posts = data.map(post => ({
-          id: post.id || post.slug,
-          title: post.title,
-          date: post.date,
-          excerpt: post.excerpt,
-          image: post.image,
-          category: post.category,
-          readTime: post.read_time || post.readTime || '5 min read',
-          author: post.author,
-          tags: post.tags || []
-        }));
-        this.articlesCache = posts;
-        return posts;
+        if (!error && data && data.length > 0) {
+          const posts = data.map(post => ({
+            id: post.id || post.slug,
+            title: post.title,
+            date: post.date,
+            excerpt: post.excerpt,
+            image: post.image,
+            category: post.category,
+            readTime: post.read_time || post.readTime || '5 min read',
+            author: post.author,
+            tags: post.tags || []
+          }));
+          this.articlesCache = posts;
+          return posts;
+        }
       }
 
       // Fallback to local JSON
@@ -67,29 +69,31 @@ export class BlogService {
   static async getPublishedPostBySlug(slug: string): Promise<BlogPost | null> {
     try {
       // 1. Try Supabase first
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .or(`id.eq.${slug},slug.eq.${slug}`)
-        .eq('status', 'published')
-        .single();
+      if (supabase) {
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .or(`id.eq.${slug},slug.eq.${slug}`)
+          .eq('status', 'published')
+          .single();
 
-      if (!error && data) {
-        return {
-          id: data.id || data.slug,
-          title: data.title,
-          date: data.date,
-          excerpt: data.excerpt,
-          image: data.image,
-          category: data.category,
-          readTime: data.read_time || data.readTime || '5 min read',
-          author: data.author,
-          tags: data.tags || [],
-          content: data.content,
-          relatedPosts: data.related_posts || [],
-          status: data.status,
-          metaDescription: data.meta_description
-        };
+        if (!error && data) {
+          return {
+            id: data.id || data.slug,
+            title: data.title,
+            date: data.date,
+            excerpt: data.excerpt,
+            image: data.image,
+            category: data.category,
+            readTime: data.read_time || data.readTime || '5 min read',
+            author: data.author,
+            tags: data.tags || [],
+            content: data.content,
+            relatedPosts: data.related_posts || [],
+            status: data.status,
+            metaDescription: data.meta_description
+          };
+        }
       }
 
       // 2. Fallback to metadata from index
@@ -128,6 +132,11 @@ export class BlogService {
 
   static async getAllPosts(): Promise<BlogPost[]> {
     try {
+      if (!supabase) {
+        console.warn('Supabase not initialized. Admin operations unavailable.');
+        return [];
+      }
+
       const { data, error } = await supabase
         .from('posts')
         .select('*')
@@ -157,6 +166,8 @@ export class BlogService {
   }
 
   static async createPost(input: BlogPostInput, author: string): Promise<void> {
+    if (!supabase) throw new Error('Supabase client not initialized');
+
     const slug = input.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
 
     const { error } = await supabase
@@ -180,6 +191,8 @@ export class BlogService {
   }
 
   static async updatePost(postId: string, input: BlogPostInput, author: string): Promise<void> {
+    if (!supabase) throw new Error('Supabase client not initialized');
+
     const { error } = await supabase
       .from('posts')
       .update({
@@ -200,6 +213,8 @@ export class BlogService {
   }
 
   static async deletePost(postId: string): Promise<void> {
+    if (!supabase) throw new Error('Supabase client not initialized');
+
     const { error } = await supabase
       .from('posts')
       .delete()
