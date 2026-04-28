@@ -1,0 +1,20 @@
+# Standard Rules
+User-agent: *
+Allow: /
+
+# Specific rules for Google Ads bot to ensure no obstacles in ad serving
+User-agent: Mediapartners-Google
+Allow: /
+
+# Disallow admin and editor pages
+Disallow: /admin
+Disallow: /news-editor
+
+# Disallow private or temporary paths
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+
+# Host and Sitemap
+Host: https://kancio.com
+Sitemap: https://kancio.com/sitemap.xml
