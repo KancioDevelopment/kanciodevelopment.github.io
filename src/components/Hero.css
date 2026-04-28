@@ -1,10 +1,10 @@
 /* ===== Hero Section ===== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh; /* Use small viewport height for mobile browser bars */
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 80px;
   overflow: hidden;
   background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15), transparent 70%);
 }
@@ -351,8 +351,8 @@
 @media (max-width: 1200px) {
   .hero__content {
     grid-template-columns: 1fr;
-    gap: 60px;
-    padding: 80px 0;
+    gap: 48px;
+    padding: 60px 0;
   }
   
   .hero__text {
@@ -372,38 +372,105 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 70px;
+    min-height: 100svh;
+  }
+
+  .hero__content {
+    padding: 48px 0;
+    gap: 40px;
   }
   
   .hero__title {
-    font-size: 2.8rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
   }
   
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+    padding: 20px;
   }
   
   .hero__app-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hero__app-card {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero__content {
+    padding: 36px 0 48px;
+    gap: 32px;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+    letter-spacing: -0.03em;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
   .hero__cta {
     flex-direction: column;
     width: 100%;
+    gap: var(--spacing-md);
   }
   
   .hero__cta .btn {
     width: 100%;
+    justify-content: center;
   }
   
   .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
     padding: 16px;
+    gap: var(--spacing-md);
+    border-radius: var(--radius-lg);
   }
   
   .hero__stat-number {
     font-size: 1.25rem;
   }
+
+  .hero__stat-label {
+    font-size: 0.7rem;
+  }
+
+  .hero__app-card {
+    padding: 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero__app-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+  }
+
+  .hero__app-name {
+    font-size: 1.2rem;
+  }
+
+  .hero__services-mini {
+    grid-template-columns: 1fr;
+  }
+
+  /* Orbs use less resources on low-end mobile */
+  .hero__orb--1 { width: 250px; height: 250px; }
+  .hero__orb--2 { width: 200px; height: 200px; }
+  .hero__orb--3 { display: none; }
 }

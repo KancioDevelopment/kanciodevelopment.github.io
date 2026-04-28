@@ -143,15 +143,15 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.03em;
 }
 
-h1 { font-size: 4rem; font-weight: 800; }
-h2 { font-size: 3rem; font-weight: 800; }
-h3 { font-size: 2.25rem; }
-h4 { font-size: 1.75rem; }
+h1 { font-size: clamp(2.25rem, 8vw, 4rem); font-weight: 800; }
+h2 { font-size: clamp(1.75rem, 6vw, 3rem); font-weight: 800; }
+h3 { font-size: clamp(1.4rem, 4.5vw, 2.25rem); }
+h4 { font-size: clamp(1.15rem, 3.5vw, 1.75rem); }
 
 @media (max-width: 768px) {
-  h1 { font-size: 2.75rem; }
-  h2 { font-size: 2.25rem; }
-  h3 { font-size: 1.75rem; }
+  h1 { font-size: clamp(2rem, 7vw, 2.75rem); }
+  h2 { font-size: clamp(1.5rem, 5.5vw, 2.25rem); }
+  h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
 }
 
 /* Gradient Text - Refined */
@@ -189,8 +189,16 @@ a:hover {
   padding: 0 var(--spacing-xl);
 }
 
+@media (max-width: 1024px) {
+  .container { padding: 0 var(--spacing-xl); }
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 var(--spacing-lg); }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 var(--spacing-md); }
 }
 
 /* Custom Scrollbar - Refined */
@@ -258,6 +266,15 @@ a:hover {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  /* Ensure min touch target 48px for accessibility */
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+  .btn { padding: 13px 24px; font-size: 0.95rem; }
+  .btn--large { padding: 15px 28px; font-size: 1rem; }
 }
 
 .btn--primary {
@@ -338,3 +355,37 @@ a:hover {
 
 .animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 .animate-float { animation: float 6s ease-in-out infinite; }
+
+/* ===== Performance: Reduce motion for low-end devices ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize will-change for GPU acceleration only when needed */
+@media (max-width: 480px) {
+  body::before { display: none; } /* Disable complex bg on very small screens */
+}
+
+/* ===== Touch-friendly interaction improvements ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover-triggered transforms on touch devices */
+  .card:hover { transform: none; }
+  .btn--primary:hover { transform: none; }
+  .btn--secondary:hover { transform: none; }
+}
+
+/* ===== Section spacing - mobile optimized ===== */
+@media (max-width: 768px) {
+  .section { padding: var(--spacing-2xl) 0; }
+  .section-header { margin-bottom: var(--spacing-2xl); }
+  .section-header p { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: calc(var(--spacing-xl) * 1.5) 0; }
+  .section-header { margin-bottom: var(--spacing-xl); }
+}

@@ -197,6 +197,7 @@
 @media (max-width: 600px) {
   .services-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 
   .services__cta-actions {
@@ -207,5 +208,13 @@
   .services__cta-actions .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .services__cta-banner {
+    padding: var(--spacing-xl);
+  }
+
+  .service-card__body {
+    padding: var(--spacing-lg);
   }
 }

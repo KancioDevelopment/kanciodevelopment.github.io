@@ -251,7 +251,8 @@
 
 @media (max-width: 768px) {
     .products-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
     }
 
     .service-highlights__grid {
@@ -260,5 +261,46 @@
     
     .product-card, .service-highlight-card {
         padding: 24px;
+    }
+
+    .service-highlight-card {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .product-card {
+        padding: 20px;
+        gap: var(--spacing-md);
+    }
+
+    .product-card__icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+    }
+
+    .product-card__name {
+        font-size: 1.25rem;
+    }
+
+    .service-highlight-card {
+        padding: 20px;
+        gap: var(--spacing-md);
+    }
+
+    .service-highlight-card__icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+    }
+
+    .service-highlight-card__content h4 {
+        font-size: 1.1rem;
     }
 }
