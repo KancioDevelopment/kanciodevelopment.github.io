@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import './ProductPage.css'
+import Header from '../../../components/Header'
+import Footer from '../../../components/Footer'
+import GoogleAdSense from '../../../components/GoogleAdSense'
+import { useAds } from '../../../hooks/useAds'
+import '../../ProductPage.css'
 import './ApotekAppBpjsGuidePage.css'
 
 interface BpjsStep {
@@ -64,9 +66,19 @@ const bpjsFaqs: BpjsFaq[] = [
 ]
 
 const ApotekAppBpjsGuidePage: React.FC = () => {
+  const { userConsent } = useAds()
   const [activeTab, setActiveTab] = useState<'steps' | 'faq'>('steps')
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [copied, setCopied] = useState<boolean>(false)
+
+  // Lightbox & Zoom State
+  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false)
+  const [lightboxImage, setLightboxImage] = useState<string>('')
+  const [lightboxAlt, setLightboxAlt] = useState<string>('')
+  const [zoomScale, setZoomScale] = useState<number>(1)
+  const [panOffset, setPanOffset] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+  const [isDragging, setIsDragging] = useState<boolean>(false)
+  const [dragStart, setDragStart] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
   useEffect(() => {
     document.title = 'Panduan Fitur Review & Lengkapi BPJS ApotekApp | Kancio';
@@ -81,6 +93,18 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
     window.scrollTo(0, 0);
   }, [])
 
+  // Lock body scroll when Lightbox is open
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [lightboxOpen])
+
   const handleCopyLink = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
@@ -90,6 +114,93 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index)
+  }
+
+  const handleOpenLightbox = (src: string, alt: string) => {
+    setLightboxImage(src)
+    setLightboxAlt(alt)
+    setZoomScale(1)
+    setPanOffset({ x: 0, y: 0 })
+    setLightboxOpen(true)
+  }
+
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false)
+  }
+
+  const handleZoomIn = () => {
+    setZoomScale(prev => Math.min(prev + 0.25, 4))
+  }
+
+  const handleZoomOut = () => {
+    setZoomScale(prev => {
+      const next = Math.max(prev - 0.25, 1)
+      if (next === 1) {
+        setPanOffset({ x: 0, y: 0 })
+      }
+      return next
+    })
+  }
+
+  const handleResetZoom = () => {
+    setZoomScale(1)
+    setPanOffset({ x: 0, y: 0 })
+  }
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (zoomScale <= 1) return
+    setIsDragging(true)
+    setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y })
+  }
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) return
+    setPanOffset({
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y
+    })
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (zoomScale <= 1 || e.touches.length !== 1) return
+    setIsDragging(true)
+    const touch = e.touches[0]
+    setDragStart({ x: touch.clientX - panOffset.x, y: touch.clientY - panOffset.y })
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging || e.touches.length !== 1) return
+    const touch = e.touches[0]
+    setPanOffset({
+      x: touch.clientX - dragStart.x,
+      y: touch.clientY - dragStart.y
+    })
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const zoomIntensity = 0.08
+    const delta = e.deltaY < 0 ? 1 : -1
+    setZoomScale(prev => {
+      const next = Math.max(1, Math.min(prev + delta * zoomIntensity, 4))
+      if (next === 1) {
+        setPanOffset({ x: 0, y: 0 })
+      }
+      return next
+    })
+  }
+
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      handleCloseLightbox()
+    }
   }
 
   return (
@@ -183,6 +294,18 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
               </p>
             </div>
 
+            {/* Google AdSense Content Break Ad */}
+            <div className="content-break-ad" style={{ margin: '20px 0' }}>
+              <GoogleAdSense
+                userConsent={userConsent}
+                adFormat="horizontal"
+                variant="premium"
+                adLabel="Advertisement"
+                showLoadingAnimation={true}
+                className="docs-inline-ad"
+              />
+            </div>
+
             {/* Content Tabs */}
             <div className="docs-tabs-container" id="panduan">
               <button
@@ -223,7 +346,7 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
                         </div>
                       )}
                     </div>
-                    <div className="docs-step-visual">
+                    <div className="docs-step-visual" onClick={() => handleOpenLightbox(step.imageUrl, step.imageAlt)}>
                       <img
                         src={step.imageUrl}
                         alt={step.imageAlt}
@@ -269,6 +392,18 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
               </div>
             )}
 
+            {/* Google AdSense Footer Context Ad */}
+            <div className="content-break-ad" style={{ margin: '30px 0 10px' }}>
+              <GoogleAdSense
+                userConsent={userConsent}
+                adFormat="horizontal"
+                variant="minimal"
+                adLabel="Advertisement"
+                showLoadingAnimation={true}
+                className="docs-footer-ad"
+              />
+            </div>
+
             {/* Footer Internal Links Card */}
             <div className="docs-footer-links-card" id="konsultasi-section">
               <h4>🔍 Artikel &amp; Informasi Relevan Lainnya</h4>
@@ -286,6 +421,65 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Zoomable Lightbox Modal */}
+      {lightboxOpen && (
+        <div 
+          className="docs-lightbox-overlay" 
+          onClick={handleOverlayClick}
+          onWheel={handleWheel}
+        >
+          {/* Top Instruction Badge */}
+          <div className="docs-lightbox-instruction">
+            Seret gambar untuk menggeser • Klik dua kali untuk reset
+          </div>
+
+          {/* Close Button */}
+          <button className="docs-lightbox-close" onClick={handleCloseLightbox} aria-label="Tutup">
+            &times;
+          </button>
+
+          {/* Draggable Viewport */}
+          <div 
+            className="docs-lightbox-content"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onDoubleClick={handleResetZoom}
+            onClick={handleOverlayClick}
+          >
+            <img 
+              src={lightboxImage} 
+              alt={lightboxAlt} 
+              className="docs-lightbox-img"
+              style={{
+                transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomScale})`,
+                transition: isDragging ? 'none' : 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            />
+          </div>
+
+          {/* Control Bar */}
+          <div className="docs-lightbox-controls">
+            <span className="docs-control-indicator">
+              {Math.round(zoomScale * 100)}%
+            </span>
+            <button className="docs-control-btn" onClick={handleZoomOut} title="Perkecil">
+              &minus;
+            </button>
+            <button className="docs-control-btn" onClick={handleZoomIn} title="Perbesar">
+              &#43;
+            </button>
+            <button className="docs-control-btn docs-control-btn--text" onClick={handleResetZoom}>
+              🔄 Reset
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
