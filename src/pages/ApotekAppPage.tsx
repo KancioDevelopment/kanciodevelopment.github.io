@@ -145,11 +145,153 @@ const whyChoose = [
   },
 ]
 
+const automations = [
+  {
+    icon: '⏱️',
+    title: 'Absensi Otomatis',
+    schedule: 'Setiap Jam',
+    category: 'SDM',
+    description: 'Karyawan yang lupa mencatat waktu pulang kerja akan otomatis dicatat keluar (check-out) secara adil setelah 7 jam kerja oleh sistem.',
+    impact: 'Mencegah data absensi tidak valid & menggantung secara 100% otomatis.',
+    gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
+  },
+  {
+    icon: '📦',
+    title: 'Pemesanan Stok Otomatis',
+    schedule: 'Setiap Jam',
+    category: 'Inventori',
+    description: 'Memantau tingkat stok secara live. Menghasilkan draft Purchase Order (PO) otomatis saat stok obat vital mendekati batas minimum.',
+    impact: 'Menjaga persediaan tetap aman tanpa harus melakukan pengecekan gudang secara manual.',
+    gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+  },
+  {
+    icon: '💰',
+    title: 'Penggajian Otomatis',
+    schedule: 'Bulanan (Tgl 21)',
+    category: 'Keuangan',
+    description: 'Mengkalkulasi seluruh komponen gaji karyawan, termasuk bonus tiering penjualan staf, potongan terlambat, dan cicilan hutang secara otomatis.',
+    impact: 'Proses payroll sekali klik persetujuan oleh manager, menghemat waktu administrasi bulanan.',
+    gradient: 'linear-gradient(135deg, #10b981, #059669)',
+  },
+  {
+    icon: '📱',
+    title: 'Pengingat Tagihan Pasien',
+    schedule: 'Harian (09:00 WIB)',
+    category: 'Piutang',
+    description: 'Memantau jatuh tempo tempo pembayaran pasien. Membuat log pengingat pembayaran pada hari ke-7, 14, dan 30 secara mandiri.',
+    impact: 'Meningkatkan kelancaran cash flow & meminimalisir risiko piutang macet terabaikan.',
+    gradient: 'linear-gradient(135deg, #eab308, #ca8a04)',
+  },
+  {
+    icon: '📈',
+    title: 'Klasifikasi ABC Terlaris',
+    schedule: 'Mingguan (Senin)',
+    category: 'Analitik',
+    description: 'Menganalisis volume transaksi mingguan untuk mengelompokkan obat ke kelas A (terlaris), B, dan C secara matematis.',
+    impact: 'Membantu manager mengambil keputusan restock produk bernilai tinggi secara presisi.',
+    gradient: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
+  },
+  {
+    icon: '📅',
+    title: 'Jadwal Shift Mingguan',
+    schedule: 'Mingguan (Minggu)',
+    category: 'SDM',
+    description: 'Menyusun slot kosong secara otomatis berdasarkan ketersediaan staf dan mengunci jadwal sebelum hari Senin dimulai.',
+    impact: 'Distribusi shift kerja staf yang adil, merata, dan terjadwal otomatis di latar belakang.',
+    gradient: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
+  },
+  {
+    icon: '🔍',
+    title: 'Deteksi HPP Anomali',
+    schedule: 'Harian (03:00 WIB)',
+    category: 'Keamanan',
+    description: 'Memindai database HPP setiap dini hari untuk mendeteksi ketidakwajaran harga beli, markup supplier nakal, dan ketidakcocokan konversi satuan.',
+    impact: 'Melindungi margin profit apotek secara proaktif saat Anda tertidur.',
+    gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
+  },
+  {
+    icon: '🧹',
+    title: 'Pembersihan Data Otomatis',
+    schedule: 'Harian & Bulanan',
+    category: 'Database',
+    description: 'Konsolidasi batch stok duplikat secara cerdas, menonaktifkan master item usang, dan membersihkan rekam data kosong di sistem.',
+    impact: 'Menjaga kinerja database ERP tetap kencang dan akurasi stok tetap 99.9%.',
+    gradient: 'linear-gradient(135deg, #64748b, #475569)',
+  },
+]
+
+const roles = [
+  {
+    role: 'owner',
+    title: 'Pimpinan & Pemilik Apotek',
+    icon: '👑',
+    tagline: 'Manajemen & Pemantauan',
+    benefits: [
+      'Akses laporan bisnis & laba rugi real-time di ujung jari tanpa perlu meminta laporan manual dari admin.',
+      'Mendapatkan notifikasi instan HPP Anomali jika terdeteksi supplier menaikkan harga secara tidak wajar.',
+      'Sistem payroll bulanan terhitung otomatis, siap bayar hanya dengan persetujuan akhir sekali klik.',
+    ],
+    gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  },
+  {
+    role: 'staff',
+    title: 'Staf Apoteker & Kasir',
+    icon: '🧑‍⚕️',
+    tagline: 'Kemudahan Kerja Harian',
+    benefits: [
+      'Pencatatan absensi yang transparan dengan fitur auto-checkout jika lupa checkout saat pulang.',
+      'Kalkulasi komisi bonus tiering (Bronze → Diamond) yang adil dan dapat dipantau langsung di dashboard.',
+      'Jadwal shift mingguan terbit otomatis dan rapi, meminimalisir konflik jam kerja antar staf.',
+    ],
+    gradient: 'linear-gradient(135deg, #10b981, #14b8a6)',
+  },
+  {
+    role: 'warehouse',
+    title: 'Staf Gudang & Logistik',
+    icon: '📦',
+    tagline: 'Logistik & Persediaan',
+    benefits: [
+      'Mendapatkan notifikasi persediaan kritis sebelum obat benar-benar habis di rak penyimpanan.',
+      'Draft Purchase Order (PO) terisi otomatis ke supplier resmi terpilih untuk disetujui manager.',
+      'Batch stok terkelola rapi dengan otomasi FEFO/FIFO, bebas dari penumpukan obat kedaluwarsa.',
+    ],
+    gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+  },
+]
+
+const faqs = [
+  {
+    question: 'Apakah saya perlu melakukan sesuatu agar fitur otomatis ini berjalan?',
+    answer: 'Tidak. Seluruh 18+ otomatisasi berjalan 24/7 di latar belakang server cloud ApotekApp. Pengguna hanya perlu melakukan tindakan bernilai tinggi seperti konfirmasi akhir draft PO atau persetujuan penggajian bulanan.',
+  },
+  {
+    question: 'Apakah sistem bisa salah mengambil keputusan pembelian?',
+    answer: 'Sistem dirancang dengan keamanan berlapis. Untuk tindakan krusial (seperti kirim PO atau transfer uang), sistem TIDAK melakukannya langsung, melainkan menyiapkannya dalam bentuk DRAFT untuk ditinjau dan disetujui terlebih dahulu oleh Manager.',
+  },
+  {
+    question: 'Di mana saya bisa melihat hasil kerja sistem otomatisasi ini?',
+    answer: 'Seluruh log aktivitas otomatisasi tercatat sangat transparan di panel admin. Anda bisa melihat riwayat draft PO yang dibuat, log komisi staf, deteksi anomali HPP, dan log perapian database kapan saja.',
+  },
+  {
+    question: 'Apakah semua cabang apotek mendapatkan fitur otomatisasi yang sama?',
+    answer: 'Ya. Sistem multi-cabang kami mendukung otomatisasi di setiap cabang secara independen. Data stok, shift staf, dan profitabilitas cabang diisolasi dengan aman demi kerahasiaan bisnis Anda.',
+  },
+  {
+    question: 'Bagaimana HPP Intelligence mendeteksi kecurangan supplier?',
+    answer: 'Sistem secara berkala membandingkan harga beli obat saat ini dengan riwayat pembelian sebelumnya serta master referensi harga pasar. Jika terdeteksi kenaikan harga di luar batas wajar (anomali markup), sistem langsung menandai transaksi tersebut untuk ditinjau.',
+  },
+]
+
 const ApotekAppPage: React.FC = () => {
   const { userConsent } = useAds()
   const [activeModule, setActiveModule] = useState(0)
   const [visible, setVisible] = useState(false)
+  const [activeDocTab, setActiveDocTab] = useState<'automation' | 'role' | 'faq'>('automation')
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+  
   const sectionRef = useRef<HTMLElement>(null)
+  const docSectionRef = useRef<HTMLElement>(null)
+  const [docVisible, setDocVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -158,6 +300,26 @@ const ApotekAppPage: React.FC = () => {
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setDocVisible(true) },
+      { threshold: 0.05 }
+    )
+    if (docSectionRef.current) observer.observe(docSectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    document.title = 'ApotekApp: Software Apotek Terbaik & Aplikasi Kasir Apotek | Kancio';
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Aplikasi kasir apotek terbaik & sistem inventori ERP apotek multi-cabang dengan kecerdasan AI HPP Intelligence, pengelolaan FEFO/FIFO, serta sinkronisasi data BPJS.');
   }, [])
 
   return (
@@ -201,12 +363,10 @@ const ApotekAppPage: React.FC = () => {
                 Coba Demo Gratis <span className="btn__icon">→</span>
               </a>
               <a
-                href="https://apotek.kancio.com/#solutions"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#dokumentasi-otomatisasi"
                 className="btn btn--secondary btn--large"
               >
-                Lihat Fitur Lengkap
+                Dokumentasi Fitur
               </a>
             </div>
           </div>
@@ -359,6 +519,134 @@ const ApotekAppPage: React.FC = () => {
                 <p className="apotek-mod-card__desc">{mod.description.split('.')[0]}.</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== INTERACTIVE DOCUMENTATION SECTION ===== */}
+      <section
+        ref={docSectionRef}
+        className={`section apotek-docs-section ${docVisible ? 'apotek-docs-section--visible' : ''}`}
+        id="dokumentasi-otomatisasi"
+      >
+        <div className="container">
+          <div className="section-header">
+            <div className="badge">Dokumentasi & Otomatisasi</div>
+            <h2>
+              Sistem Cerdas Bekerja <span className="text-gradient">24/7 Tanpa Henti</span>
+            </h2>
+            <p>
+              Pelajari bagaimana ApotekApp memangkas intervensi manual dengan mengotomatisasi
+              18+ proses operasional harian di latar belakang apotek Anda.
+            </p>
+          </div>
+
+          {/* Doc Tabs */}
+          <div className="apotek-docs-tabs glass-panel">
+            <button
+              className={`apotek-docs-tab ${activeDocTab === 'automation' ? 'apotek-docs-tab--active' : ''}`}
+              onClick={() => setActiveDocTab('automation')}
+            >
+              <span className="tab-icon">⏱️</span> 8 Otomatisasi Latar Belakang
+            </button>
+            <button
+              className={`apotek-docs-tab ${activeDocTab === 'role' ? 'apotek-docs-tab--active' : ''}`}
+              onClick={() => setActiveDocTab('role')}
+            >
+              <span className="tab-icon">👥</span> Alur Kerja Peran
+            </button>
+            <button
+              className={`apotek-docs-tab ${activeDocTab === 'faq' ? 'apotek-docs-tab--active' : ''}`}
+              onClick={() => setActiveDocTab('faq')}
+            >
+              <span className="tab-icon">❓</span> FAQ Otomatisasi
+            </button>
+          </div>
+
+          {/* Doc Content Area */}
+          <div className="apotek-docs-content">
+            {activeDocTab === 'automation' && (
+              <div className="apotek-auto-grid">
+                {automations.map((auto, i) => (
+                  <div
+                    key={i}
+                    className="apotek-auto-card glass-panel"
+                    style={{ animationDelay: `${i * 0.05}s` }}
+                  >
+                    <div className="apotek-auto-card__top">
+                      <div className="apotek-auto-card__icon" style={{ background: auto.gradient }}>
+                        {auto.icon}
+                      </div>
+                      <div className="apotek-auto-card__badges">
+                        <span className="auto-badge auto-badge--schedule">{auto.schedule}</span>
+                        <span className="auto-badge auto-badge--category">{auto.category}</span>
+                      </div>
+                    </div>
+                    <h3 className="apotek-auto-card__title">{auto.title}</h3>
+                    <p className="apotek-auto-card__desc">{auto.description}</p>
+                    <div className="apotek-auto-card__impact">
+                      <span className="impact-label">🔑 Dampak Utama:</span>
+                      <p className="impact-text">{auto.impact}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {activeDocTab === 'role' && (
+              <div className="apotek-roles-grid">
+                {roles.map((r, i) => (
+                  <div
+                    key={i}
+                    className="apotek-role-card glass-panel"
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    <div className="apotek-role-card__header">
+                      <div className="apotek-role-card__icon" style={{ background: r.gradient }}>
+                        {r.icon}
+                      </div>
+                      <div>
+                        <h3 className="apotek-role-card__title">{r.title}</h3>
+                        <span className="apotek-role-card__tagline">{r.tagline}</span>
+                      </div>
+                    </div>
+                    <ul className="apotek-role-card__benefits">
+                      {r.benefits.map((b, idx) => (
+                        <li key={idx} className="role-benefit-item">
+                          <span className="check-icon">✓</span>
+                          <span className="benefit-text">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {activeDocTab === 'faq' && (
+              <div className="apotek-faq-accordion">
+                {faqs.map((faq, i) => {
+                  const isOpen = openFaqIndex === i
+                  return (
+                    <div
+                      key={i}
+                      className={`apotek-faq-item glass-panel ${isOpen ? 'apotek-faq-item--open' : ''}`}
+                    >
+                      <button
+                        className="apotek-faq-question"
+                        onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                      >
+                        <span className="faq-q-text">{faq.question}</span>
+                        <span className="faq-chevron">{isOpen ? '−' : '+'}</span>
+                      </button>
+                      <div className="apotek-faq-answer">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
         </div>
       </section>
