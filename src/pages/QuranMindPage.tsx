@@ -271,6 +271,18 @@ const QuranMindPage: React.FC = () => {
         </div>
       </section>
 
+      {/* ===== AD ===== */}
+      <div className="content-break-ad container">
+        <GoogleAdSense
+          userConsent={userConsent}
+          adFormat="horizontal"
+          variant="minimal"
+          adLabel="Advertisement"
+          showLoadingAnimation={true}
+          className="product-page-ad"
+        />
+      </div>
+
       {/* ===== FEATURES TABBED SECTION ===== */}
       <section
         id="features"
@@ -362,6 +374,18 @@ const QuranMindPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== AD ===== */}
+      <div className="content-break-ad container">
+        <GoogleAdSense
+          userConsent={userConsent}
+          adFormat="rectangle"
+          variant="premium"
+          adLabel="Sponsored"
+          showLoadingAnimation={true}
+          className="product-page-ad-footer"
+        />
+      </div>
 
       {/* ===== CTA SECTION ===== */}
       <section className="section">
