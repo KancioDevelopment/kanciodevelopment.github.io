@@ -48,3 +48,4 @@ build/
 # Deployment logs
 *.log
 .agents/
+konten/

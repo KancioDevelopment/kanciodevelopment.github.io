@@ -479,6 +479,22 @@ const ApotekAppPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              {modules[activeModule].title === 'BPJS Kapitasi' && (
+                <div style={{ marginTop: '24px' }}>
+                  <Link 
+                    to="/products/apotekapp/bpjs-guide" 
+                    className="btn btn-primary" 
+                    style={{ 
+                      padding: '10px 20px', 
+                      fontSize: '0.9rem',
+                      background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                      boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)'
+                    }}
+                  >
+                    📖 Buka Panduan BPJS &raquo;
+                  </Link>
+                </div>
+              )}
             </div>
             <div className="apotek-module-detail__right">
               <div className="apotek-module-preview" style={{ borderColor: `rgba(99,102,241,0.2)` }}>

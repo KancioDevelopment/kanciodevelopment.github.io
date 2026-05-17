@@ -17,6 +17,7 @@ import AdManager from './components/AdManager'
 import PulsaAppPage from './pages/PulsaAppPage'
 import QuranMindPage from './pages/QuranMindPage'
 import ApotekAppPage from './pages/ApotekAppPage'
+import ApotekAppBpjsGuidePage from './pages/ApotekAppBpjsGuidePage'
 import CatetUangPage from './pages/CatetUangPage'
 import CustomAppsPage from './pages/CustomAppsPage'
 import AIIntegrationPage from './pages/AIIntegrationPage'
@@ -98,6 +99,7 @@ function App() {
             <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
             <Route path="/products/quranmind" element={<QuranMindPage />} />
             <Route path="/products/apotekapp" element={<ApotekAppPage />} />
+            <Route path="/products/apotekapp/bpjs-guide" element={<ApotekAppBpjsGuidePage />} />
             <Route path="/products/catetUang" element={<CatetUangPage />} />
             <Route path="/products/custom-apps" element={<CustomAppsPage />} />
             <Route path="/products/ai-integration" element={<AIIntegrationPage />} />
