@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './PostDetail.css'
 import GoogleAdSense from './GoogleAdSense'
-import { useAds } from '../hooks/useAds'
+import { useAds, ADSENSE_ARTICLE_SLOT_ID } from '../hooks/useAds'
 import { BlogService } from '../services/blogService'
 
 interface PostDetailProps {
@@ -324,7 +324,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ postId, onClose }) => {
             </div>
             <GoogleAdSense
               userConsent={userConsent}
-              adFormat="rectangle"
+              adSlot={ADSENSE_ARTICLE_SLOT_ID}
+              adFormat="fluid"
+              adLayout="in-article"
               style={{ margin: '30px 0' }}
               className="post-content-ad optimized-post-ad"
             />

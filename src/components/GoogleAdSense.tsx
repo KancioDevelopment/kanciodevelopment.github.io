@@ -10,7 +10,8 @@ declare global {
 
 interface GoogleAdSenseProps {
     adSlot?: string;
-    adFormat?: 'auto' | 'rectangle' | 'vertical' | 'horizontal';
+    adFormat?: 'auto' | 'rectangle' | 'vertical' | 'horizontal' | 'fluid';
+    adLayout?: string;
     style?: React.CSSProperties;
     className?: string;
     userConsent: boolean | null;
@@ -22,6 +23,7 @@ interface GoogleAdSenseProps {
 const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
     adSlot = ADSENSE_SLOT_ID,
     adFormat = 'auto',
+    adLayout,
     style = {},
     className = '',
     userConsent,
@@ -176,7 +178,8 @@ const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
                 data-ad-client={ADSENSE_CLIENT_ID}
                 data-ad-slot={adSlot}
                 data-ad-format={adFormat}
-                data-full-width-responsive="true"
+                data-ad-layout={adLayout}
+                data-full-width-responsive={adFormat === 'fluid' ? undefined : "true"}
             />
             
             <div className="ad-label-overlay">{adLabel}</div>

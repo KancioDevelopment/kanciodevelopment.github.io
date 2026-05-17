@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import './BlogPost.css'
 import GoogleAdSense from './GoogleAdSense'
-import { useAds } from '../hooks/useAds'
+import { useAds, ADSENSE_ARTICLE_SLOT_ID } from '../hooks/useAds'
 import { BlogService, BlogPost as BlogPostType } from '../services/blogService'
 import { PostData } from './Blogs'
 
@@ -350,7 +350,9 @@ const BlogPost: React.FC = () => {
               </div>
               <GoogleAdSense
                 userConsent={userConsent}
-                adFormat="rectangle"
+                adSlot={ADSENSE_ARTICLE_SLOT_ID}
+                adFormat="fluid"
+                adLayout="in-article"
                 style={{ margin: '30px 0' }}
                 className="post-content-ad"
               />
