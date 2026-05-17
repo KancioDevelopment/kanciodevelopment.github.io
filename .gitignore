@@ -47,4 +47,4 @@ build/
 
 # Deployment logs
 *.log
-.agent/
+.agents/
