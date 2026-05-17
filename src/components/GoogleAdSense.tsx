@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ADSENSE_CLIENT_ID } from '../hooks/useAds';
+import { ADSENSE_CLIENT_ID, ADSENSE_SLOT_ID } from '../hooks/useAds';
 import './AdSense.css';
 
 declare global {
@@ -20,7 +20,7 @@ interface GoogleAdSenseProps {
 }
 
 const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
-    adSlot = 'auto',
+    adSlot = ADSENSE_SLOT_ID,
     adFormat = 'auto',
     style = {},
     className = '',
