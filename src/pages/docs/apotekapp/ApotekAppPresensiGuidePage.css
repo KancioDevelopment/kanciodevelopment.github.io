@@ -1,0 +1,850 @@
+/* ApotekApp Attendance Terminal Feature Documentation Page Styles */
+
+.apotek-presensi-docs-page {
+    --primary-color: #4F3232; /* Warm Burgundy */
+    --primary-dark: #321e1e;
+    --primary-light: #f3e8ff;
+    --accent-color: #D4AF37; /* Golden Elegance */
+    --accent-glow: rgba(212, 175, 55, 0.35);
+    --primary-glow: rgba(79, 50, 50, 0.5);
+
+    padding: 140px 0 80px;
+    background: linear-gradient(135deg, #140d0d 0%, #080505 100%);
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar Override for this page */
+.apotek-presensi-docs-page ::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+.apotek-presensi-docs-page ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+.docs-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.docs-breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.docs-breadcrumb a:hover {
+    color: var(--accent-color);
+}
+
+.docs-breadcrumb-separator {
+    opacity: 0.5;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+/* Sidebar Nav */
+.docs-sidebar {
+    position: sticky;
+    top: 100px;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    background: rgba(79, 50, 50, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.docs-sidebar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.docs-sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.docs-sidebar-item {
+    width: 100%;
+}
+
+.docs-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.docs-sidebar-link:hover {
+    color: var(--accent-color);
+    background: rgba(212, 175, 55, 0.05);
+    border-color: rgba(212, 175, 55, 0.1);
+    transform: translateX(4px);
+}
+
+.docs-sidebar-link--active {
+    color: white !important;
+    background: linear-gradient(135deg, rgba(79, 50, 50, 0.25), rgba(212, 175, 55, 0.15));
+    border-color: rgba(212, 175, 55, 0.25);
+    font-weight: 600;
+}
+
+/* Content Area */
+.docs-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.docs-header-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    background: rgba(79, 50, 50, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.docs-header-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.docs-header-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.docs-badge-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: var(--accent-color);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-md);
+}
+
+.docs-header-card h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, #fff, #ffeaa7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+}
+
+.docs-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tabs Bar */
+.docs-tabs-container {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-lg);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.docs-tab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.docs-tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.docs-tab-btn--active {
+    color: white !important;
+    background: linear-gradient(135deg, var(--primary-color), #6e3f3f);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(79, 50, 50, 0.4);
+}
+
+/* Flowchart Visual */
+.docs-flowchart-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    background: rgba(79, 50, 50, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    margin-bottom: var(--spacing-lg);
+}
+
+.docs-flowchart-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.docs-flowchart-visual {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-lg);
+    overflow-x: auto;
+}
+
+/* Step Card */
+.docs-presensi-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.docs-presensi-step-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    background: rgba(79, 50, 50, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all var(--transition-normal);
+}
+
+.docs-presensi-step-card:hover {
+    border-color: rgba(212, 175, 55, 0.25);
+    background: rgba(79, 50, 50, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.docs-step-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.docs-step-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.docs-step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6e3f3f, var(--primary-color));
+    border: 1px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.25);
+    flex-shrink: 0;
+}
+
+.docs-step-badge h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.docs-step-info p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.docs-step-info ul {
+    padding-left: var(--spacing-lg);
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.docs-step-info li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Copy Action Card */
+.docs-copy-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-md);
+}
+
+.docs-copy-url {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.docs-copy-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.docs-copy-btn:hover {
+    background: var(--accent-color);
+    border-color: #fff;
+    color: #000;
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.docs-copy-btn--copied {
+    background: #10b981 !important;
+    border-color: #34d399 !important;
+    color: white !important;
+}
+
+/* Step Image */
+.docs-step-visual {
+    width: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-height: 320px;
+    cursor: zoom-in;
+}
+
+.docs-step-visual::after {
+    content: '🔍 Klik untuk memperbesar';
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(24, 16, 16, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 30px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.docs-step-visual:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.docs-step-img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.docs-presensi-step-card:hover .docs-step-img {
+    transform: scale(1.03);
+}
+
+/* Pro Tip Panel */
+.docs-tip-panel {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(79, 50, 50, 0.1), rgba(212, 175, 55, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    align-items: flex-start;
+}
+
+.docs-tip-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.docs-tip-content h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.docs-tip-content p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* FAQ Accordion */
+.docs-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.docs-faq-card {
+    border-radius: var(--radius-lg);
+    background: rgba(79, 50, 50, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.docs-faq-card:hover {
+    border-color: rgba(212, 175, 55, 0.15);
+    background: rgba(79, 50, 50, 0.03);
+}
+
+.docs-faq-card--open {
+    border-color: rgba(212, 175, 55, 0.25);
+    background: rgba(79, 50, 50, 0.04);
+}
+
+.docs-faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: var(--spacing-md);
+}
+
+.docs-faq-question {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.docs-faq-chevron {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    transition: transform var(--transition-normal);
+}
+
+.docs-faq-card--open .docs-faq-chevron {
+    transform: rotate(45deg);
+    color: var(--accent-color);
+}
+
+.docs-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.docs-faq-card--open .docs-faq-content {
+    max-height: 350px;
+}
+
+.docs-faq-answer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Footer Internal Links Card */
+.docs-footer-links-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(79, 50, 50, 0.02) 0%, rgba(79, 50, 50, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.docs-footer-links-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.docs-internal-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.docs-internal-link-item {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.docs-internal-link-item a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.docs-internal-link-item a:hover {
+    color: white;
+}
+
+/* Lightbox Modal CSS */
+.docs-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 8, 8, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.docs-lightbox-content {
+    position: relative;
+    width: 90vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    overflow: hidden;
+}
+
+.docs-lightbox-content:active {
+    cursor: grabbing;
+}
+
+.docs-lightbox-img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.docs-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10002;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.docs-lightbox-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+    transform: rotate(90deg);
+}
+
+.docs-lightbox-instruction {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    z-index: 10001;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.docs-lightbox-instruction::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.docs-lightbox-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 8px 16px;
+    border-radius: 100px;
+    background: rgba(24, 16, 16, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    z-index: 10001;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.docs-control-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.docs-control-btn:hover {
+    background: var(--accent-color);
+    border-color: #fff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.docs-control-btn:active {
+    transform: scale(0.95);
+}
+
+.docs-control-btn--text {
+    width: auto;
+    border-radius: 50px;
+    padding: 0 16px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.docs-control-indicator {
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0 var(--spacing-sm);
+    min-width: 60px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-right: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .docs-sidebar {
+        position: relative;
+        top: 0;
+    }
+    
+    .docs-sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .docs-sidebar-item {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .apotek-presensi-docs-page {
+        padding: 100px 0 60px;
+    }
+    
+    .docs-presensi-step-card {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+    
+    .docs-step-visual {
+        max-height: 250px;
+    }
+    
+    .docs-step-img {
+        max-height: 250px;
+    }
+
+    .docs-lightbox-instruction {
+        display: none;
+    }
+    
+    .docs-lightbox-close {
+        top: 16px;
+        right: 16px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.25rem;
+    }
+    
+    .docs-lightbox-controls {
+        bottom: 20px;
+        gap: 6px;
+        padding: 6px 12px;
+    }
+    
+    .docs-control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .docs-control-btn--text {
+        padding: 0 12px;
+        font-size: 0.75rem;
+    }
+    
+    .docs-control-indicator {
+        font-size: 0.78rem;
+        min-width: 50px;
+        padding: 0 4px;
+    }
+}

@@ -479,6 +479,22 @@ const ApotekAppPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              {modules[activeModule].title === 'Manajemen Staff & KPI' && (
+                <div style={{ marginTop: '24px' }}>
+                  <Link 
+                    to="/products/apotekapp/presensi-guide" 
+                    className="btn btn-primary" 
+                    style={{ 
+                      padding: '10px 20px', 
+                      fontSize: '0.9rem',
+                      background: 'linear-gradient(135deg, #ec4899, #f97316)',
+                      boxShadow: '0 4px 15px rgba(236, 72, 153, 0.3)'
+                    }}
+                  >
+                    📖 Buka Panduan Presensi Staff &raquo;
+                  </Link>
+                </div>
+              )}
               {modules[activeModule].title === 'BPJS Kapitasi' && (
                 <div style={{ marginTop: '24px' }}>
                   <Link 
