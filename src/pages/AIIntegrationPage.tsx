@@ -3,10 +3,16 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
 
 const AIIntegrationPage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'Integrasi AI Bisnis & Implementasi Machine Learning Indonesia',
+    description: 'Layanan integrasi AI bisnis tingkat lanjut dan implementasi machine learning di Indonesia. Hubungkan sistem Anda dengan model OpenAI GPT, Gemini, NLP, dan Computer Vision.',
+  })
 
   const aiServices = [
     {

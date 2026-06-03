@@ -3,11 +3,38 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
 import './ApotekAppPage.css'
+import './QuranMindPage.css'
 
 const QuranMindPage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'QuranMind: Aplikasi Tafsir Al-Quran AI & Murottal Sheikh Mishary',
+    description: 'Aplikasi tafsir Al-Quran tematis berbasis kecerdasan buatan (AI) per Ruku, dilengkapi murottal berkualitas tinggi oleh Sheikh Mishary Rashid Al-Afasy.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "QuranMind",
+      "operatingSystem": "Android",
+      "applicationCategory": "ReferenceApplication",
+      "description": "Aplikasi Tafsir Al-Quran AI & Audio Murottal",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR",
+        "description": "Free Download"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kancio Development",
+        "url": "https://kancio.com"
+      }
+    }
+  })
+
   const [activeFeature, setActiveFeature] = useState(0)
   const [visible, setVisible] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -413,196 +440,7 @@ const QuranMindPage: React.FC = () => {
 
       <Footer />
 
-      {/* ===== CUSTOM PREMIUM STYLES (Inline to avoid CSS overhead) ===== */}
-      <style>{`
-        .quranmind-page {
-          --q-emerald: #059669;
-          --q-gold: #d97706;
-          --q-glass: rgba(255, 255, 255, 0.7);
-        }
-        
-        .glass-badge {
-          backdrop-filter: blur(8px);
-          font-weight: 700;
-        }
-        
-        .pulse-dot {
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          background: #10b981;
-          border-radius: 50%;
-          margin-right: 8px;
-          box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
-          animation: pulse 2s infinite;
-        }
 
-        .hero-stats-glass {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 15px;
-          margin-bottom: 30px;
-        }
-
-        .stat-glass-card {
-          padding: 15px;
-          background: rgba(255, 255, 255, 0.4);
-          border: 1px solid rgba(255, 255, 255, 0.6);
-          border-radius: 16px;
-          backdrop-filter: blur(10px);
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          transition: transform 0.3s ease;
-        }
-
-        .stat-glass-card:hover { transform: translateY(-3px); }
-
-        .stat-glass-icon { font-size: 1.5rem; }
-        .stat-glass-info strong { display: block; font-size: 1.1rem; color: #064e3b; }
-        .stat-glass-info span { font-size: 0.75rem; color: #6b7280; }
-
-        .glass-card {
-          background: rgba(255, 255, 255, 0.65);
-          backdrop-filter: blur(15px);
-          border: 1px solid rgba(255, 255, 255, 0.8);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-        }
-
-        .quran-preview-card {
-          padding: 0;
-          overflow: hidden;
-          animation: float 5s ease-in-out infinite alternate;
-        }
-
-        .card-header-quran {
-          background: #f8fafc;
-          padding: 10px 15px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 0.75rem;
-          color: #94a3b8;
-          border-bottom: 1px solid #e2e8f0;
-        }
-
-        .quran-dots span { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; background: #e2e8f0; }
-
-        .quran-preview-content { padding: 25px; }
-        .arabic-line { font-size: 1.5rem; color: #064e3b; margin-bottom: 10px; font-weight: 500; }
-        .translation-line { font-size: 0.85rem; color: #64748b; font-style: italic; margin-bottom: 20px; }
-        .ai-insight-snip { background: #f0fdf4; border-radius: 12px; padding: 15px; border-left: 3px solid #10b981; }
-        .badge-ai { font-size: 0.6rem; font-weight: 800; color: #10b981; }
-        .ai-insight-snip p { font-size: 0.75rem; color: #065f46; margin: 5px 0 10px; }
-        
-        .interactive-ai-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-          align-items: center;
-        }
-
-        .ai-demo-visual {
-          position: relative;
-          height: 300px;
-          background: #064e3b;
-          border-radius: 30px;
-          overflow: hidden;
-          box-shadow: 0 30px 60px rgba(6, 78, 59, 0.2);
-        }
-
-        .demo-message-stack { position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
-        .demo-message { padding: 12px 18px; border-radius: 12px; font-size: 0.85rem; color: white; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); }
-        .demo-message--result { background: #10b981; border: 1px solid rgba(255,255,255,0.3); }
-
-        .premium-cta { background: #064e3b !important; color: white !important; border: none !important; }
-        .glass-btn-primary { background: white !important; color: #064e3b !important; font-weight: 700 !important; border-radius: 100px !important; }
-
-        /* Philosophy Redesign Styles */
-        .philosophy-section {
-          background: #064e3b;
-          position: relative;
-          overflow: hidden;
-          padding: 100px 0;
-        }
-
-        .philosophy-bg-pattern {
-          position: absolute;
-          inset: 0;
-          opacity: 0.05;
-          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
-          background-size: 60px 60px;
-        }
-
-        .philosophy-card-v2 {
-          position: relative;
-          z-index: 1;
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: center;
-        }
-
-        .glass-card-emerald {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          padding: 60px 40px;
-          border-radius: 40px;
-          box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
-        }
-
-        .philosophy-badge {
-          background: rgba(16, 185, 129, 0.15) !important;
-          color: #6ee7b7 !important;
-          border: 1px solid rgba(16, 185, 129, 0.2) !important;
-          margin-bottom: 24px;
-        }
-
-        .philosophy-title {
-          font-size: clamp(2rem, 4vw, 3rem);
-          color: #ffffff;
-          margin-bottom: 24px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-        }
-
-        .philosophy-text {
-          font-size: 1.25rem;
-          line-height: 1.8;
-          color: rgba(255, 255, 255, 0.85);
-          margin-bottom: 40px;
-          font-weight: 400;
-        }
-
-        .philosophy-signature-v2 {
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 16px;
-        }
-
-        .sig-line {
-          width: 60px;
-          height: 2px;
-          background: #d97706;
-          border-radius: 2px;
-        }
-
-        .sig-text strong {
-          display: block;
-          font-size: 1.1rem;
-          color: #ffffff;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-        }
-
-        .sig-text span {
-          font-size: 0.9rem;
-          color: #d97706;
-          font-weight: 600;
-          font-style: italic;
-        }
-      `}</style>
     </div>
   )
 }

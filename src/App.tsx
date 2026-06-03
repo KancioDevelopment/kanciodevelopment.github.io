@@ -36,9 +36,43 @@ import NewsEditorPage from './pages/NewsEditorPage'
 import './App.css'
 import GoogleAdSense from './components/GoogleAdSense'
 import { useAds } from './hooks/useAds'
+import { useSEO } from './hooks/useSEO'
 
 const HomePage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'Kancio Development - Digital Solutions & AI Integration',
+    description: 'Kancio Development menyediakan layanan pembuatan aplikasi kustom, website profesional, dan integrasi kecerdasan buatan (AI) tingkat lanjut untuk mengotomatisasi operasional bisnis Anda.',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://kancio.com/#organization",
+          "name": "Kancio Development",
+          "url": "https://kancio.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://kancio.com/favicon.ico"
+          },
+          "sameAs": [
+            "https://github.com/kanciodevelopment"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kancio.com/#website",
+          "url": "https://kancio.com",
+          "name": "Kancio Development",
+          "description": "Digital Solutions & AI Integration Services",
+          "publisher": {
+            "@id": "https://kancio.com/#organization"
+          }
+        }
+      ]
+    }
+  })
 
   return (
     <>

@@ -3,10 +3,16 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
 
 const CustomAppsPage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'Jasa Pembuatan Aplikasi Kustom & Web Enterprise',
+    description: 'Jasa pembuatan aplikasi kustom (iOS/Android) dan web aplikasi enterprise. Kancio Development membangun software skalabel dengan tim ahli dedicated.',
+  })
 
   const services = [
     {

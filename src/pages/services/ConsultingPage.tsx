@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../components/Footer'
+import { useSEO } from '../../hooks/useSEO'
 import '../ProductPage.css'
 import './ServicePage.css'
 
@@ -21,6 +22,11 @@ const processSteps = [
 ]
 
 const ConsultingPage: React.FC = () => {
+    useSEO({
+        title: 'Konsultan Transformasi Digital & Audit Teknologi',
+        description: 'Layanan konsultasi transformasi digital, pembuatan roadmap digital bisnis, audit teknologi, dan perencanaan arsitektur sistem enterprise oleh Kancio.',
+    })
+
     return (
         <div className="service-page">
             {/* Hero */}

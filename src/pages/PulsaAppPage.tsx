@@ -3,12 +3,37 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
-// Reuse some styles if possible or define inline/dedicated
 import './ApotekAppPage.css'
 
 const PulsaAppPage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'PulsaApp: Agen Pulsa Murah Terpercaya & Aplikasi PPOB Terlengkap',
+    description: 'Aplikasi agen pulsa murah terpercaya dan layanan PPOB terlengkap di Indonesia. Transaksi otomatis 24 jam dengan harga distributor langsung dan sistem aman.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PulsaApp",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "description": "Aplikasi Agen Pulsa & PPOB Terpercaya",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR",
+        "description": "Free Download"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kancio Development",
+        "url": "https://kancio.com"
+      }
+    }
+  })
+
   const [activeFeature, setActiveFeature] = useState(0)
   const [visible, setVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)

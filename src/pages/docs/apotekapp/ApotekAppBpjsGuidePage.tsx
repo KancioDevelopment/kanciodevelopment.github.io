@@ -4,6 +4,7 @@ import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import GoogleAdSense from '../../../components/GoogleAdSense'
 import { useAds } from '../../../hooks/useAds'
+import { useSEO } from '../../../hooks/useSEO'
 import '../../ProductPage.css'
 import './ApotekAppBpjsGuidePage.css'
 
@@ -80,16 +81,12 @@ const ApotekAppBpjsGuidePage: React.FC = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false)
   const [dragStart, setDragStart] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
+  useSEO({
+    title: 'Panduan Fitur Review & Lengkapi BPJS ApotekApp',
+    description: 'Panduan langkah demi langkah memvalidasi klaim BPJS Kapitasi di ApotekApp. Pelajari pengisian rujukan FKTP, unggah berkas resep, dan verifikasi kuantitas obat.',
+  })
+
   useEffect(() => {
-    document.title = 'Panduan Fitur Review & Lengkapi BPJS ApotekApp | Kancio';
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Panduan langkah demi langkah memvalidasi klaim BPJS Kapitasi di ApotekApp. Pelajari pengisian rujukan FKTP, unggah berkas resep, dan verifikasi kuantitas obat.');
-    
     window.scrollTo(0, 0);
   }, [])
 

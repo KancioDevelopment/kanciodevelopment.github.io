@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../components/Footer'
+import { useSEO } from '../../hooks/useSEO'
 import '../ProductPage.css'
 import './ServicePage.css'
 
@@ -25,6 +26,11 @@ const benefits = [
 ]
 
 const AIServicePage: React.FC = () => {
+    useSEO({
+        title: 'Layanan Integrasi AI & Implementasi Machine Learning',
+        description: 'Layanan integrasi AI untuk sistem bisnis Anda. Kancio Development mengintegrasikan model OpenAI, Gemini, NLP, LLM, dan Computer Vision secara scalable.',
+    })
+
     return (
         <div className="service-page">
             {/* Hero */}

@@ -4,6 +4,7 @@ import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import GoogleAdSense from '../../../components/GoogleAdSense'
 import { useAds } from '../../../hooks/useAds'
+import { useSEO } from '../../../hooks/useSEO'
 import '../../ProductPage.css'
 import './ApotekAppPresensiGuidePage.css'
 
@@ -91,16 +92,12 @@ const ApotekAppPresensiGuidePage: React.FC = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false)
   const [dragStart, setDragStart] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
+  useSEO({
+    title: 'Panduan Fitur Terminal Presensi Staff ApotekApp',
+    description: 'Panduan lengkap penggunaan Terminal Presensi Staff di ApotekApp. Pelajari keunggulan geofencing GPS 150m, klaim shift mandiri, mode tugas luar, sinkronisasi NTP server, dan integrasi payroll KPI.',
+  })
+
   useEffect(() => {
-    document.title = 'Panduan Fitur Terminal Presensi Staff ApotekApp | Kancio';
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Panduan lengkap penggunaan Terminal Presensi Staff di ApotekApp. Pelajari keunggulan geofencing GPS 150m, klaim shift mandiri, mode tugas luar, sinkronisasi NTP server, dan integrasi payroll KPI.');
-    
     window.scrollTo(0, 0);
   }, [])
 

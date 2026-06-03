@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../components/Footer'
+import { useSEO } from '../../hooks/useSEO'
 import '../ProductPage.css'
 import './ServicePage.css'
 
@@ -27,6 +28,11 @@ const portfolioItems = [
 ]
 
 const CustomSolutionPage: React.FC = () => {
+    useSEO({
+        title: 'Jasa Pembuatan Website & Aplikasi Kustom Terpercaya',
+        description: 'Layanan jasa pembuatan website profesional, aplikasi mobile (iOS/Android), e-commerce, ERP/CRM kustom, dan solusi digital enterprise oleh Kancio.',
+    })
+
     return (
         <div className="service-page">
             {/* Hero */}

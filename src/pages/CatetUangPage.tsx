@@ -4,10 +4,36 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
 
 const CatetUangPage: React.FC = () => {
   const { userConsent } = useAds()
+
+  useSEO({
+    title: 'Catet Uang: Aplikasi Pencatat Keuangan Harian & Pengatur Keuangan Pribadi',
+    description: 'Aplikasi pencatat keuangan harian gratis dengan grafik analisis otomatis, target saving budget, pengukur kesehatan finansial pribadi, dan privasi data lokal.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Catet Uang",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "description": "Aplikasi Pencatat Keuangan Harian & Pengatur Keuangan Pribadi",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR",
+        "description": "Free Download"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kancio Development",
+        "url": "https://kancio.com"
+      }
+    }
+  })
+
   const [scrolled, setScrolled] = useState(false)
   const [activeTab, setActiveTab] = useState(0)
   const budgetRef = useRef<HTMLDivElement>(null)

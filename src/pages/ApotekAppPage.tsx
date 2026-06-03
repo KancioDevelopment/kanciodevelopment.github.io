@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
+import { useSEO } from '../hooks/useSEO'
 import './ProductPage.css'
 import './ApotekAppPage.css'
 
@@ -85,16 +86,16 @@ const modules = [
   },
   {
     icon: '🏥',
-    title: 'BPJS Kapitasi',
+    title: 'BPJS Kapitasi & PRB (Kronis)',
     badge: 'Layanan Khusus',
     badgeColor: 'teal',
     description:
-      'Modul terintegrasi khusus untuk melayani transaksi BPJS dengan akurasi tinggi. Settlement bulanan, upload PDF resep, dan pelacakan komisi negatif — semua otomatis.',
+      'Modul terintegrasi khusus untuk memproses resep BPJS Kapitasi dan BPJS PRB (Program Rujuk Balik / Chronic Disease) secara presisi. Mendukung impor CSV settlement otomatis dengan spelling-tolerant matching, validasi price freeze, auto-discount, dan penyimpanan dokumen resep PDF di cloud MinIO.',
     features: [
-      'Transaksi BPJS terintegrasi',
-      'Upload & kelola PDF resep',
-      'Pelacakan komisi negatif',
-      'Settlement bulanan otomatis',
+      'Resep BPJS Kapitasi & PRB terintegrasi',
+      'Pencocokan nama pintar (Spelling-Tolerant)',
+      'Auto-Discount & Proteksi Target Klaim',
+      'Unggah resep PDF ke MinIO otomatis',
     ],
     gradient: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
   },
@@ -160,7 +161,7 @@ const automations = [
     title: 'Pemesanan Stok Otomatis',
     schedule: 'Setiap Jam',
     category: 'Inventori',
-    description: 'Memantau tingkat stok secara live. Menghasilkan draft Purchase Order (PO) otomatis saat stok obat vital mendekati batas minimum.',
+    description: 'Memantau tingkat stok secara live. Menghasilkan draft Purchase Order (PO) otomatis dengan status auto_generated sewaktu stok obat vital mendekati reorder point.',
     impact: 'Menjaga persediaan tetap aman tanpa harus melakukan pengecekan gudang secara manual.',
     gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
   },
@@ -169,7 +170,7 @@ const automations = [
     title: 'Penggajian Otomatis',
     schedule: 'Bulanan (Tgl 21)',
     category: 'Keuangan',
-    description: 'Mengkalkulasi seluruh komponen gaji karyawan, termasuk bonus tiering penjualan staf, potongan terlambat, dan cicilan hutang secara otomatis.',
+    description: 'Mengkalkulasi penggajian dua tahap (tahap 1 tanggal 10, tahap 2 tanggal 25) termasuk bonus Balanced Scorecard (BPJS, Umum, Activities), pemotongan presensi pro-rata, denda keterlambatan, dan cicilan hutang staf.',
     impact: 'Proses payroll sekali klik persetujuan oleh manager, menghemat waktu administrasi bulanan.',
     gradient: 'linear-gradient(135deg, #10b981, #059669)',
   },
@@ -196,7 +197,7 @@ const automations = [
     title: 'Jadwal Shift Mingguan',
     schedule: 'Mingguan (Minggu)',
     category: 'SDM',
-    description: 'Menyusun slot kosong secara otomatis berdasarkan ketersediaan staf dan mengunci jadwal sebelum hari Senin dimulai.',
+    description: 'Menyusun slot kosong secara otomatis berdasarkan ketersediaan staf, memfasilitasi tukar shift (swap) secara seret-lepas (drag-and-drop), dan mengunci jadwal sebelum hari Senin.',
     impact: 'Distribusi shift kerja staf yang adil, merata, dan terjadwal otomatis di latar belakang.',
     gradient: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
   },
@@ -214,7 +215,7 @@ const automations = [
     title: 'Pembersihan Data Otomatis',
     schedule: 'Harian & Bulanan',
     category: 'Database',
-    description: 'Konsolidasi batch stok duplikat secara cerdas, menonaktifkan master item usang, dan membersihkan rekam data kosong di sistem.',
+    description: 'Menjalankan program harian untuk melunasi hutang stok minus (debt netting), menyatukan duplikasi batch fisik obat yang identik, dan membersihkan rekam data sampah.',
     impact: 'Menjaga kinerja database ERP tetap kencang dan akurasi stok tetap 99.9%.',
     gradient: 'linear-gradient(135deg, #64748b, #475569)',
   },
@@ -311,16 +312,29 @@ const ApotekAppPage: React.FC = () => {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    document.title = 'ApotekApp: Software Apotek Terbaik & Aplikasi Kasir Apotek | Kancio';
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  useSEO({
+    title: 'ApotekApp: Software Apotek Terbaik & Aplikasi Kasir Apotek',
+    description: 'Aplikasi kasir apotek terbaik & sistem inventori ERP apotek multi-cabang dengan kecerdasan AI HPP Intelligence, pengelolaan FEFO/FIFO, serta sinkronisasi data BPJS.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ApotekApp",
+      "operatingSystem": "Web, Android, iOS",
+      "applicationCategory": "BusinessApplication",
+      "description": "Software Apotek Terbaik & Aplikasi Kasir Apotek dengan AI HPP Intelligence",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR",
+        "description": "Free Demo Available"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kancio Development",
+        "url": "https://kancio.com"
+      }
     }
-    metaDescription.setAttribute('content', 'Aplikasi kasir apotek terbaik & sistem inventori ERP apotek multi-cabang dengan kecerdasan AI HPP Intelligence, pengelolaan FEFO/FIFO, serta sinkronisasi data BPJS.');
-  }, [])
+  })
 
   return (
     <div className="product-page apotek-page">
