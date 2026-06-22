@@ -51,6 +51,8 @@ const Footer: React.FC = () => {
     { name: 'Blog', path: '/blogs' },
     { name: 'Privacy Policy', path: '/privacy-policy' },
     { name: 'Terms of Service', path: '/terms-of-service' },
+    { name: 'Syarat Layanan', path: '/syarat-layanan' },
+    { name: 'Kebijakan Privasi', path: '/kebijakan-privasi' },
   ]
 
   return (
@@ -217,6 +219,12 @@ const Footer: React.FC = () => {
               </Link>
               <Link to="/terms-of-service" className="footer__legal-link">
                 Terms of Service
+              </Link>
+              <Link to="/syarat-layanan" className="footer__legal-link">
+                Syarat Layanan
+              </Link>
+              <Link to="/kebijakan-privasi" className="footer__legal-link">
+                Kebijakan Privasi
               </Link>
               <Link to="/cookie-policy" className="footer__legal-link">
                 Cookie Policy

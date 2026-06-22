@@ -11,6 +11,8 @@ import BlogPost from './components/BlogPost'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
+import SyaratLayanan from './components/SyaratLayanan'
+import KebijakanPrivasi from './components/KebijakanPrivasi'
 import AdManager from './components/AdManager'
 
 // Product Pages
@@ -154,6 +156,8 @@ function App() {
             {/* Legal */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/syarat-layanan" element={<SyaratLayanan />} />
+            <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
           </Routes>
           <Footer />
         </div>
