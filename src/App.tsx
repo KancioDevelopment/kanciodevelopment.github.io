@@ -44,8 +44,10 @@ const HomePage: React.FC = () => {
   const { userConsent } = useAds()
 
   useSEO({
-    title: 'Kancio Development - Digital Solutions & AI Integration',
-    description: 'Kancio Development menyediakan layanan pembuatan aplikasi kustom, website profesional, dan integrasi kecerdasan buatan (AI) tingkat lanjut untuk mengotomatisasi operasional bisnis Anda.',
+    title: 'Kancio Development - Pulsa Murah, Stok Obat & Aplikasi Apotek Terbaik',
+    description: 'Kancio Development menyediakan ekosistem digital terpercaya: PulsaApp (agen pulsa murah 24 jam & PPOB), ApotekApp (aplikasi apotek & cek stok obat online), serta jasa pembuatan aplikasi kustom dan integrasi AI bisnis.',
+    keywords: 'pulsa murah, stok obat, aplikasi apotek, software apotek terbaik, aplikasi kasir apotek, agen pulsa murah, token listrik murah, ppob terlengkap, kancio development, kancio ppob, apotekapp',
+    canonicalUrl: 'https://kancio.com/',
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -59,7 +61,9 @@ const HomePage: React.FC = () => {
             "url": "https://kancio.com/favicon.ico"
           },
           "sameAs": [
-            "https://github.com/kanciodevelopment"
+            "https://github.com/kanciodevelopment",
+            "https://ppob.kancio.com",
+            "https://apotek.kancio.com"
           ]
         },
         {
@@ -67,9 +71,17 @@ const HomePage: React.FC = () => {
           "@id": "https://kancio.com/#website",
           "url": "https://kancio.com",
           "name": "Kancio Development",
-          "description": "Digital Solutions & AI Integration Services",
+          "description": "Platform Solusi Digital: Pulsa Murah, Stok Obat, & Aplikasi Apotek Terbaik",
           "publisher": {
             "@id": "https://kancio.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://kancio.com/blogs?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         }
       ]

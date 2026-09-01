@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 export interface SEOProps {
   title: string
   description: string
+  keywords?: string
+  canonicalUrl?: string
   ogImage?: string
   ogType?: 'website' | 'article' | 'product' | 'software'
   schema?: Record<string, any>
@@ -11,6 +13,8 @@ export interface SEOProps {
 export const useSEO = ({
   title,
   description,
+  keywords,
+  canonicalUrl,
   ogImage = '/favicon.ico',
   ogType = 'website',
   schema,
@@ -20,41 +24,53 @@ export const useSEO = ({
     const brandSuffix = 'Kancio Development'
     document.title = title.includes(brandSuffix) ? title : `${title} | ${brandSuffix}`
 
-    // 2. Update Meta Description
-    let metaDescription = document.querySelector('meta[name="description"]')
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta')
-      metaDescription.setAttribute('name', 'description')
-      document.head.appendChild(metaDescription)
-    }
-    metaDescription.setAttribute('content', description)
-
-    // Helper to update/create meta property
-    const updateOrCreateMeta = (key: string, value: string, isProperty = true) => {
+    // Helper to update/create meta tag
+    const updateOrCreateMeta = (nameOrProperty: string, value: string, isProperty = false) => {
       const attributeName = isProperty ? 'property' : 'name'
-      let meta = document.querySelector(`meta[${attributeName}="${key}"]`)
+      let meta = document.querySelector(`meta[${attributeName}="${nameOrProperty}"]`)
       if (!meta) {
         meta = document.createElement('meta')
-        meta.setAttribute(attributeName, key)
+        meta.setAttribute(attributeName, nameOrProperty)
         document.head.appendChild(meta)
       }
       meta.setAttribute('content', value)
     }
 
-    // 3. Open Graph Metadata
+    // 2. Meta Description
+    updateOrCreateMeta('description', description, false)
+
+    // 3. Meta Keywords
+    if (keywords) {
+      updateOrCreateMeta('keywords', keywords, false)
+    }
+
+    // 4. Canonical URL
+    const canonicalHref = canonicalUrl || window.location.href.split('#')[0].split('?')[0]
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link')
+      canonicalLink.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonicalLink)
+    }
+    canonicalLink.setAttribute('href', canonicalHref)
+
+    // 5. Open Graph Metadata
     updateOrCreateMeta('og:title', title, true)
     updateOrCreateMeta('og:description', description, true)
-    updateOrCreateMeta('og:image', ogImage, true)
-    updateOrCreateMeta('og:url', window.location.href, true)
+    updateOrCreateMeta('og:image', ogImage.startsWith('http') ? ogImage : `https://kancio.com${ogImage.startsWith('/') ? '' : '/'}${ogImage}`, true)
+    updateOrCreateMeta('og:url', canonicalHref, true)
     updateOrCreateMeta('og:type', ogType, true)
+    updateOrCreateMeta('og:locale', 'id_ID', true)
+    updateOrCreateMeta('og:site_name', 'Kancio Development', true)
 
-    // 4. Twitter Metadata
+    // 6. Twitter Metadata
     updateOrCreateMeta('twitter:card', 'summary_large_image', false)
     updateOrCreateMeta('twitter:title', title, false)
     updateOrCreateMeta('twitter:description', description, false)
-    updateOrCreateMeta('twitter:image', ogImage, false)
+    updateOrCreateMeta('twitter:image', ogImage.startsWith('http') ? ogImage : `https://kancio.com${ogImage.startsWith('/') ? '' : '/'}${ogImage}`, false)
+    updateOrCreateMeta('twitter:url', canonicalHref, false)
 
-    // 5. Schema Markup Injection
+    // 7. Schema Markup Injection
     const schemaId = 'json-ld-dynamic-schema'
     const existingSchema = document.getElementById(schemaId)
     if (existingSchema) {
@@ -76,5 +92,5 @@ export const useSEO = ({
         currentSchema.remove()
       }
     }
-  }, [title, description, ogImage, ogType, schema])
+  }, [title, description, keywords, canonicalUrl, ogImage, ogType, schema])
 }

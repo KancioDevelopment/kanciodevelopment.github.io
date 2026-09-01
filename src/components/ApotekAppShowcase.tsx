@@ -1,59 +1,60 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './ApotekAppShowcase.css'
 
 const ApotekAppShowcase: React.FC = () => {
   const features = [
     {
-      icon: '📦',
-      title: 'Drug Stock Management',
-      description: 'Comprehensive inventory control with initial stock setup, real-time tracking, and automated alerts for low stock levels.'
+      icon: '🧠',
+      title: 'AI HPP Intelligence',
+      description: 'Deteksi dini anomali lonjakan harga supplier & markup tidak wajar secara otomatis untuk melindungi profit apotek.'
     },
     {
-      icon: '💳',
-      title: 'Sales Recording',
-      description: 'Efficient sales transaction recording with detailed customer information, prescription management, and receipt generation.'
+      icon: '🛒',
+      title: 'Kasir POS FEFO / FIFO',
+      description: 'Point of Sale cepat dengan alokasi otomatis batch obat berdasarkan tanggal kedaluwarsa terdekat (FEFO).'
     },
     {
-      icon: '📊',
-      title: 'Financial Reports',
-      description: 'Complete financial tracking with daily, weekly, and monthly reports to monitor revenue, expenses, and profitability.'
+      icon: '🏥',
+      title: 'BPJS Kapitasi & PRB',
+      description: 'Modul rekonsiliasi klaim BPJS Kesehatan FKTP dan Program Rujuk Balik kronis dengan spelling-tolerant matching.'
     },
     {
       icon: '📋',
-      title: 'Stock Taking',
-      description: 'Easy stock taking functionality to verify physical inventory against system records and identify discrepancies.'
+      title: 'Resep Racikan & Komisi Dokter',
+      description: 'Kalkulasi otomatis tuslah/embalase sediaan racikan serta buku besar transparan untuk komisi dokter mitra.'
     },
     {
-      icon: '🎯',
-      title: 'Intuitive Interface',
-      description: 'User-friendly and responsive design that provides a comfortable experience for pharmacy staff and management.'
+      icon: '📦',
+      title: 'Defecta & Surat Pesanan PBF',
+      description: 'Buku defecta otomatis dengan Reorder Point (ROP) dan multi-split Surat Pesanan resmi ke berbagai distributor PBF.'
     },
     {
-      icon: '📈',
-      title: 'Business Growth',
-      description: 'Analytics and insights to help optimize operations, track performance, and support pharmacy growth and success.'
+      icon: '🌐',
+      title: 'Click & Collect Online',
+      description: 'Katalog obat publik & reservasi online tanpa antre bagi pasien apotek mitra resmi.'
     }
   ]
 
   const benefits = [
     {
-      title: 'Streamlined Operations',
-      description: 'Automate routine tasks and reduce manual work with integrated systems',
+      title: 'Otomasi 24/7 di Background',
+      description: '18+ proses operasional (defecta, debt netting, absensi, payroll) berjalan otomatis tanpa intervensi manual.',
       icon: '⚡'
     },
     {
-      title: 'Accurate Inventory',
-      description: 'Real-time stock tracking prevents overstocking and stockouts',
+      title: 'Akurasi Stok 99.9% FEFO',
+      description: 'Cegah kerugian obat kedaluwarsa di rak dan lacak selisih fisik via stock opname cepat.',
       icon: '🎯'
     },
     {
-      title: 'Financial Control',
-      description: 'Complete visibility into pharmacy finances and profitability',
+      title: 'Laporan Keuangan Terpadu',
+      description: 'Laba/Rugi, Neraca, Arus Kas, dan Moving Average HPP terhitung otomatis per detik.',
       icon: '💰'
     },
     {
-      title: 'Regulatory Compliance',
-      description: 'Built-in features to help maintain pharmacy regulations and standards',
+      title: 'Standar Regulasi BPOM & BPJS',
+      description: 'Pemisahan SP Prekursor/OOT resmi dan format laporan sesuai standar kefarmasian Indonesia.',
       icon: '✅'
     }
   ]
@@ -61,14 +62,14 @@ const ApotekAppShowcase: React.FC = () => {
   const clientTestimonials = [
     {
       name: 'Apotek Mitra Syifa',
-      location: 'Srengat, Blitar',
-      feedback: 'ApotekApp has revolutionized our pharmacy management. Stock control is now effortless!',
+      location: 'Srengat, Kab. Blitar',
+      feedback: 'ApotekApp merevolusi manajemen farmasi kami. Deteksi HPP Intelligence dan modul BPJS PRB menghemat jutaan rupiah setiap bulan!',
       rating: 5
     },
     {
-      name: 'Apotek E32',
-      location: 'Garum, Blitar',
-      feedback: 'The financial reports feature helps us make better business decisions every day.',
+      name: 'Apotek E 32',
+      location: 'Garum, Kab. Blitar',
+      feedback: 'Fitur alokasi stok FEFO dan reservasi online Click & Collect membuat pelayanan kami jauh lebih cepat dan disukai pasien.',
       rating: 5
     }
   ]
@@ -77,61 +78,66 @@ const ApotekAppShowcase: React.FC = () => {
     <section className="apotekapp-showcase">
       <div className="container">
         <div className="showcase__header">
-          <div className="showcase__badge">Business Solution</div>
+          <div className="showcase__badge">Pharmacy ERP &amp; Healthcare Platform</div>
           <h2 className="showcase__title">
             ApotekApp
-            <span className="showcase__title-highlight"> Pharmacy Management System</span>
+            <span className="showcase__title-highlight"> — Sistem ERP Farmasi Terpadu #1</span>
           </h2>
           <p className="showcase__subtitle">
-            The complete solution for modern pharmacy management. Streamline your operations,
-            track inventory, record sales, and monitor finances - all in one intuitive platform.
+            Solusi terlengkap manajemen apotek modern: Kasir POS FEFO/FIFO, Rekonsiliasi BPJS Kapitasi &amp; PRB,
+            Terminal Resep Dokter, Defecta Multi-PBF, serta Reservasi Obat Online Click &amp; Collect.
           </p>
         </div>
 
         <div className="showcase__content">
           <div className="showcase__hero">
             <div className="showcase__hero-text">
-              <h3>Transform Your Pharmacy Operations</h3>
+              <h3>Transformasi Digital Apotek &amp; Faskes Anda</h3>
               <p>
-                ApotekApp is designed specifically for pharmacy owners and managers who want to
-                optimize their operations, reduce manual work, and focus on growing their business.
-                With over 10+ satisfied clients, we understand what pharmacies need to succeed.
+                ApotekApp dirancang khusus untuk pemilik apotek, apoteker pengelola (APA), dan staf kasir.
+                Menggabungkan kecerdasan inventori, pengadaan otomatis ke PBF, dan kemudahan belanja obat online bagi pasien.
               </p>
               <div className="showcase__highlights">
                 <div className="highlight-item">
-                  <span className="highlight-icon">📦</span>
-                  <span>Smart Inventory</span>
+                  <span className="highlight-icon">🧠</span>
+                  <span>AI HPP Intelligence</span>
                 </div>
                 <div className="highlight-item">
-                  <span className="highlight-icon">💳</span>
-                  <span>Easy Sales</span>
+                  <span className="highlight-icon">🛒</span>
+                  <span>Kasir POS FEFO</span>
                 </div>
                 <div className="highlight-item">
-                  <span className="highlight-icon">📊</span>
-                  <span>Financial Insights</span>
+                  <span className="highlight-icon">🏥</span>
+                  <span>BPJS Kapitasi &amp; PRB</span>
                 </div>
                 <div className="highlight-item">
-                  <span className="highlight-icon">👥</span>
-                  <span>10+ Clients</span>
+                  <span className="highlight-icon">🌐</span>
+                  <span>Click &amp; Collect Pasien</span>
                 </div>
               </div>
-              <div className="showcase__download">
+              <div className="showcase__actions" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.kancio.apotikapp"
+                  href="https://apotek.kancio.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="download-btn download-btn--apotekapp"
                 >
                   <div className="download-btn__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                   </div>
                   <div className="download-btn__text">
-                    <span className="download-btn__label">Download on</span>
-                    <span className="download-btn__store">Google Play</span>
+                    <span className="download-btn__label">Live Demo</span>
+                    <span className="download-btn__store">Buka ApotekApp Web</span>
                   </div>
                 </a>
+                <Link to="/products/apotekapp" className="btn-pulsa-outline">
+                  <span>Detail Modul ERP</span>
+                  <span>→</span>
+                </Link>
               </div>
             </div>
             <div className="showcase__hero-visual">
@@ -141,10 +147,10 @@ const ApotekAppShowcase: React.FC = () => {
                     <div className="app-header">
                       <div className="app-title">
                         <span className="app-icon">💊</span>
-                        <span className="app-name">ApotekApp</span>
+                        <span className="app-name">ApotekApp ERP</span>
                       </div>
                       <div className="app-user">
-                        <span className="user-name">Admin</span>
+                        <span className="user-name">Apoteker PJ</span>
                         <span className="notification-badge">3</span>
                       </div>
                     </div>
@@ -152,15 +158,15 @@ const ApotekAppShowcase: React.FC = () => {
                       <div className="summary-card">
                         <div className="card-icon">💰</div>
                         <div className="card-info">
-                          <div className="card-value">Rp 2.5M</div>
-                          <div className="card-label">Today's Sales</div>
+                          <div className="card-value">Rp 4.250.000</div>
+                          <div className="card-label">Omzet Hari Ini</div>
                         </div>
                       </div>
                       <div className="summary-card">
                         <div className="card-icon">📦</div>
                         <div className="card-info">
-                          <div className="card-value">1,247</div>
-                          <div className="card-label">Items in Stock</div>
+                          <div className="card-value">99.9% FEFO</div>
+                          <div className="card-label">Akurasi Stok</div>
                         </div>
                       </div>
                     </div>
@@ -168,31 +174,31 @@ const ApotekAppShowcase: React.FC = () => {
                       <div className="action-grid">
                         <div className="action-btn">
                           <span className="action-icon">🛒</span>
-                          <span className="action-text">New Sale</span>
+                          <span className="action-text">Kasir POS</span>
+                        </div>
+                        <div className="action-btn">
+                          <span className="action-icon">🏥</span>
+                          <span className="action-text">BPJS PRB</span>
                         </div>
                         <div className="action-btn">
                           <span className="action-icon">📋</span>
-                          <span className="action-text">Stock Take</span>
+                          <span className="action-text">Defecta PBF</span>
                         </div>
                         <div className="action-btn">
-                          <span className="action-icon">📊</span>
-                          <span className="action-text">Reports</span>
-                        </div>
-                        <div className="action-btn">
-                          <span className="action-icon">⚠️</span>
-                          <span className="action-text">Low Stock</span>
+                          <span className="action-icon">🌐</span>
+                          <span className="action-text">Click &amp; Collect</span>
                         </div>
                       </div>
                     </div>
                     <div className="recent-transactions">
-                      <div className="section-title">Recent Sales</div>
+                      <div className="section-title">Status Pesanan Terkini</div>
                       <div className="transaction-item">
-                        <span className="drug-name">Paracetamol 500mg</span>
-                        <span className="transaction-amount">Rp 15,000</span>
+                        <span className="drug-name">Paracetamol 500mg (FEFO)</span>
+                        <span className="transaction-amount">Selesai</span>
                       </div>
                       <div className="transaction-item">
-                        <span className="drug-name">Amoxicillin 250mg</span>
-                        <span className="transaction-amount">Rp 25,000</span>
+                        <span className="drug-name">Amoxicillin (Resep BPJS)</span>
+                        <span className="transaction-amount">Tervalidasi</span>
                       </div>
                     </div>
                   </div>
@@ -202,7 +208,7 @@ const ApotekAppShowcase: React.FC = () => {
           </div>
 
           <div className="showcase__features">
-            <h3>Complete Pharmacy Management Features</h3>
+            <h3>Modul &amp; Fitur Unggulan Farmasi</h3>
             <div className="features-grid">
               {features.map((feature, index) => (
                 <div key={index} className="feature-card">
@@ -216,8 +222,8 @@ const ApotekAppShowcase: React.FC = () => {
 
           <div className="showcase__benefits">
             <div className="benefits-header">
-              <h3>Why Choose ApotekApp for Your Pharmacy?</h3>
-              <p>Join 10+ successful pharmacies that have transformed their operations with ApotekApp</p>
+              <h3>Kenapa Memilih ApotekApp untuk Apotek Anda?</h3>
+              <p>Mendukung pengelolaan apotek tunggal hingga jaringan multi-cabang dengan standar farmasi modern</p>
             </div>
             <div className="benefits-grid">
               {benefits.map((benefit, index) => (
@@ -233,7 +239,7 @@ const ApotekAppShowcase: React.FC = () => {
           </div>
 
           <div className="showcase__testimonials">
-            <h3>What Our Clients Say</h3>
+            <h3>Testimoni Apotek Mitra</h3>
             <div className="testimonials-grid">
               {clientTestimonials.map((testimonial, index) => (
                 <div key={index} className="testimonial-card">
@@ -256,29 +262,29 @@ const ApotekAppShowcase: React.FC = () => {
 
           <div className="showcase__cta">
             <div className="cta-content">
-              <h3>Ready to Optimize Your Pharmacy Operations?</h3>
-              <p>Join successful pharmacy owners who have streamlined their business with ApotekApp</p>
+              <h3>Siap Meningkatkan Profit &amp; Efisiensi Apotek Anda?</h3>
+              <p>Coba langsung live demo ApotekApp atau jadwalkan sesi konsultasi dan migrasi data bersama tim kami</p>
               <div className="cta-stats">
                 <div className="stat-item">
-                  <span className="stat-number">10+</span>
-                  <span className="stat-label">Happy Clients</span>
+                  <span className="stat-number">20+</span>
+                  <span className="stat-label">Modul Siap Pakai</span>
                 </div>
                 <div className="stat-item">
                   <span className="stat-number">24/7</span>
-                  <span className="stat-label">Support</span>
+                  <span className="stat-label">Otomasi Server</span>
                 </div>
                 <div className="stat-item">
                   <span className="stat-number">100%</span>
-                  <span className="stat-label">Reliable</span>
+                  <span className="stat-label">Aman &amp; Terintegrasi</span>
                 </div>
               </div>
               <a
-                href="https://play.google.com/store/apps/details?id=com.kancio.apotikapp"
+                href="https://apotek.kancio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button"
               >
-                Download ApotekApp Now
+                Buka Web App ApotekApp Sekarang
                 <span className="cta-arrow">→</span>
               </a>
             </div>

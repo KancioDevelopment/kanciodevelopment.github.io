@@ -5,74 +5,87 @@ import './PulsaAppShowcase.css'
 const PulsaAppShowcase: React.FC = () => {
   const features = [
     {
-      icon: '💰',
-      title: 'Cheaper Purchases',
-      description: 'Get better prices compared to physical outlets or other apps. Save money on regular purchases of credit, data packages, and more.'
-    },
-    {
       icon: '⚡',
-      title: 'Fast Transactions',
-      description: 'Complete your purchases in seconds with our automated online transaction system. Products are delivered instantly after payment.'
+      title: 'Auto-Routing 1-5 Detik',
+      description: 'Transaksi instan otomatis 24 jam nonstop dengan multi-cluster server langsung ke distributor resmi.'
     },
     {
-      icon: '📱',
-      title: 'Easy to Use',
-      description: 'Simple and intuitive interface with purchase history and payment reminders to make your buying process more efficient.'
+      icon: '💰',
+      title: 'Harga Agen & Bebas Admin',
+      description: 'Dapatkan harga modal termurah untuk pulsa, paket data, dan token PLN tanpa potongan biaya admin terselubung.'
+    },
+    {
+      icon: '🌐',
+      title: 'eSIM Global 50+ Negara',
+      description: 'Internet luar negeri instan scan QR tanpa perlu ganti kartu fisik untuk liburan, bisnis, hingga ibadah Umroh.'
     },
     {
       icon: '🛡️',
-      title: 'Secure & Safe',
-      description: 'Advanced security technology protects your data with secure payment methods including bank transfers and PulsaPay digital wallet.'
+      title: '100% Saldo Aman & Auto-Refund',
+      description: 'Sistem proteksi transaksi otomatis mengembalikan saldo jika terjadi gangguan pada provider pihak ketiga.'
     },
     {
-      icon: '🎯',
-      title: 'Complete Products',
-      description: 'Wide variety of products from different providers - credit, data packages, game vouchers, and e-money all in one place.'
+      icon: '💳',
+      title: 'QRIS & Multi-Virtual Account',
+      description: 'Dukungan pembayaran lengkap via QRIS 24 jam serta Virtual Account BCA, Mandiri, BRI, BNI, dan Permata.'
     },
     {
-      icon: '🎧',
-      title: '24/7 Support',
-      description: 'Professional customer support team available via phone, email, or chat to help with any issues during your purchase process.'
+      icon: '🖨️',
+      title: 'Cetak Struk & Nota Digital',
+      description: 'Fitur cetak nota digital via printer Bluetooth atau bagikan PDF langsung ke WhatsApp pelanggan konter Anda.'
     }
   ]
 
   const products = [
-    { name: 'Mobile Credit', icon: '📞', providers: '10+ Providers' },
-    { name: 'Data Packages', icon: '📶', providers: 'All Networks' },
-    { name: 'Game Vouchers', icon: '🎮', providers: '50+ Games' },
-    { name: 'E-Money', icon: '💳', providers: 'GoPay, OVO, DANA' }
+    { name: 'Pulsa & Kuota Data', icon: '📱', providers: 'Telkomsel, Indosat, XL, Tri, Smartfren' },
+    { name: 'Token Listrik PLN', icon: '⚡', providers: 'Prabayar 24 Jam & Pascabayar' },
+    { name: 'E-Money & Dompet Digital', icon: '💳', providers: 'DANA, GoPay, OVO, ShopeePay, E-Toll' },
+    { name: 'Top-up Voucher Game', icon: '🎮', providers: 'MLBB, Free Fire, PUBG, Genshin, Valorant' },
+    { name: 'eSIM Roaming Global', icon: '🌐', providers: '50+ Negara: Asia, Eropa, Amerika, Arab' },
+    { name: 'PPOB & Tagihan Bulanan', icon: '📄', providers: 'PDAM, BPJS, Telkom/IndiHome, PGN, Samsat' }
   ]
 
   return (
     <section className="pulsaapp-showcase">
       <div className="container">
         <div className="showcase__header">
-          <div className="showcase__badge">Featured Product</div>
+          <div className="showcase__badge">FinTech & PPOB Platform</div>
           <h2 className="showcase__title">
-            PulsaApp
-            <span className="showcase__title-highlight"> Digital Payment Solution</span>
+            PulsaApp &amp; Kancio PPOB
+            <span className="showcase__title-highlight"> — Solusi Transaksi Digital 24 Jam</span>
           </h2>
           <p className="showcase__subtitle">
-            Your trusted companion for all digital payment needs - from mobile credit to game vouchers, 
-            all with guaranteed cheaper prices and instant delivery.
+            Platform pengisian pulsa termurah, kuota data, token listrik, voucher game, eSIM roaming global,
+            dan pembayaran tagihan PPOB terlengkap di Indonesia dengan pemrosesan instan 1-5 detik.
           </p>
         </div>
 
         <div className="showcase__content">
           <div className="showcase__hero">
             <div className="showcase__hero-text">
-              <h3>Why Choose PulsaApp?</h3>
+              <h3>Kenapa Memilih PulsaApp &amp; Kancio PPOB?</h3>
               <p>
-                Experience the future of digital payments with PulsaApp - designed to make 
-                your life easier with cheaper prices, faster transactions, and complete security.
+                Dirancang untuk kebutuhan pribadi hemat biaya maupun pengusaha konter pulsa / agen pembayaran digital.
+                Didukung arsitektur cloud berkecepatan tinggi dengan jaminan keamanan transaksi 100%.
               </p>
               <div className="showcase__actions">
-                <Link to="/products/pulsaapp" className="learn-more-btn">
-                  <span>Learn More</span>
+                <a 
+                  href="https://ppob.kancio.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="learn-more-btn"
+                  style={{ background: 'linear-gradient(135deg, #e6007e, #be185d)' }}
+                >
+                  <span>Buka Web App PPOB</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
+                </a>
+                <Link to="/products/pulsaapp" className="btn-pulsa-outline">
+                  <span>Detail Fitur Lengkap</span>
+                  <span>→</span>
                 </Link>
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
@@ -92,19 +105,22 @@ const PulsaAppShowcase: React.FC = () => {
                 </a>
               </div>
             </div>
+
             <div className="showcase__hero-visual">
               <div className="phone-mockup">
                 <div className="phone-screen">
                   <div className="app-preview">
                     <div className="app-header">
-                      <div className="app-logo">PulsaApp</div>
-                      <div className="app-balance">Saldo: Rp 50.000</div>
+                      <div className="app-logo">Kancio PPOB</div>
+                      <div className="app-balance">Rp 250.000</div>
                     </div>
                     <div className="app-menu">
-                      <div className="menu-item">📞 Pulsa</div>
-                      <div className="menu-item">📶 Data</div>
-                      <div className="menu-item">🎮 Game</div>
+                      <div className="menu-item">📱 Pulsa &amp; Data</div>
+                      <div className="menu-item">⚡ Token PLN</div>
+                      <div className="menu-item">🎮 Top-Up Game</div>
                       <div className="menu-item">💳 E-Money</div>
+                      <div className="menu-item">🌐 eSIM Global</div>
+                      <div className="menu-item">📄 BPJS &amp; PDAM</div>
                     </div>
                   </div>
                 </div>
@@ -113,7 +129,7 @@ const PulsaAppShowcase: React.FC = () => {
           </div>
 
           <div className="showcase__products">
-            <h3>Available Products</h3>
+            <h3>Kategori Produk Lengkap</h3>
             <div className="products-grid">
               {products.map((product, index) => (
                 <div key={index} className="product-card">
@@ -126,7 +142,7 @@ const PulsaAppShowcase: React.FC = () => {
           </div>
 
           <div className="showcase__features">
-            <h3>Key Features & Benefits</h3>
+            <h3>Keunggulan &amp; Standar Layanan</h3>
             <div className="features-grid">
               {features.map((feature, index) => (
                 <div key={index} className="feature-card">

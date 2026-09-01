@@ -12,137 +12,225 @@ const modules = [
   {
     icon: '🧠',
     title: 'AI-Powered HPP Intelligence',
-    badge: 'Keunggulan Utama',
+    badge: 'Keunggulan Eksklusif',
     badgeColor: 'indigo',
     description:
-      'Satu-satunya sistem ERP Apotek yang secara otomatis mendeteksi anomali Harga Pokok Pembelian (HPP). Lindungi apotek Anda dari markup supplier yang berlebih sebelum terlambat.',
+      'Satu-satunya sistem ERP Apotek di Indonesia yang secara otomatis mendeteksi anomali Harga Pokok Pembelian (HPP) dan markup supplier nakal sebelum disetujui.',
     features: [
-      'Deteksi markup berlebih secara real-time',
-      'Audit harga supplier otomatis',
-      'Manager Intelligence Dashboard',
-      'Hemat rata-rata Rp 12,4jt+ per periode',
+      'Deteksi markup berlebih & lonjakan harga beli secara real-time',
+      'Audit otomatis perbandingan harga lintas supplier & distributor',
+      'Manager Intelligence Dashboard untuk verifikasi draft transaksi',
+      'Melindungi margin laba bersih rata-rata Rp 12,4jt+ per periode',
     ],
     gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
   },
   {
     icon: '🛒',
-    title: 'Kasir (Point of Sale)',
+    title: 'Kasir POS & Alokasi FEFO/FIFO',
     badge: 'Inti Operasional',
     badgeColor: 'green',
     description:
-      'POS responsif yang dirancang khusus untuk alur kerja apotek. Dari transaksi biasa hingga resep dokter — semua tertangani dengan cepat dan tepat.',
+      'Point of Sale super cepat yang otomatis mengalokasikan batch obat berdasarkan tanggal kedaluwarsa terdekat (FEFO - First Expired First Out) untuk meminimalisir obat expired.',
     features: [
-      'Pencarian obat super cepat',
-      'Otomasi FEFO/FIFO stok',
-      'Mode Resep & Racikan khusus',
-      'Fungsi Hold & Recall transaksi',
+      'Pencarian obat instan via nama generik, merk & barcode scanner',
+      'Otomasi alokasi batch stok FEFO / FIFO akurat',
+      'Mode Resep Dokter, Racikan Kompound & Obat Bebas (OTC)',
+      'Fungsi multi-kasir, Hold & Recall transaksi tanpa antre',
     ],
     gradient: 'linear-gradient(135deg, #10b981, #14b8a6)',
   },
   {
-    icon: '🔄',
-    title: 'Transfer Obat Antar Apotek',
-    badge: 'Multi-Cabang',
-    badgeColor: 'blue',
+    icon: '🏥',
+    title: 'BPJS Kapitasi & PRB (Kronis)',
+    badge: 'Layanan Faskes',
+    badgeColor: 'teal',
     description:
-      'Kelola peminjaman dan transfer stok obat antar cabang dengan sistem pelacakan hutang otomatis. Tidak ada lagi stok menumpuk di satu cabang sementara cabang lain kehabisan.',
+      'Modul terintegrasi khusus untuk memproses resep BPJS Kapitasi FKTP dan BPJS PRB (Program Rujuk Balik / Chronic Disease) secara presisi tanpa selisih klaim.',
     features: [
-      'Transfer & pinjam stok antar cabang',
-      'Pelacakan hutang stok otomatis',
-      'Mekanisme retur fleksibel',
-      'Riwayat transfer lengkap',
+      'Resep BPJS Kapitasi & PRB terintegrasi',
+      'Pencocokan nama pintar (Spelling-Tolerant Matching)',
+      'Auto-Discount & Proteksi Target Nilai Klaim Faskes',
+      'Sinkronisasi CSV settlement & arsip resep digital',
     ],
-    gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+    gradient: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
   },
   {
-    icon: '💳',
-    title: 'Manajemen Metode Pembayaran',
-    badge: 'Multi-Payment',
-    badgeColor: 'yellow',
-    description:
-      'Terima pembayaran dengan berbagai metode dalam satu sistem. Lacak biaya admin, saldo, dan buat audit trail yang bersih untuk laporan keuangan Anda.',
-    features: [
-      'Tunai, QRIS, Transfer, Tempo',
-      'Pelacakan biaya admin & saldo',
-      'Audit trail lengkap per transaksi',
-      'Rekonsiliasi pembayaran otomatis',
-    ],
-    gradient: 'linear-gradient(135deg, #eab308, #f97316)',
-  },
-  {
-    icon: '👥',
-    title: 'Manajemen Staff & KPI',
-    badge: 'SDM Apotek',
+    icon: '📋',
+    title: 'Terminal Resep & Komisi Dokter',
+    badge: 'Klinis & Kemitraan',
     badgeColor: 'pink',
     description:
-      'Monitor produktivitas seluruh staf dengan sistem target dan bonus yang transparan. Leaderboard real-time membuat tim termotivasi untuk mencapai target bulanan.',
+      'Kelola resep racikan puyer, kapsul, salep, sirup dengan kalkulasi tuslah & embalase otomatis, serta buku besar komisi dokter mitra yang transparan.',
     features: [
-      'Monitor produktivitas individual',
-      'Target penjualan bulanan',
-      'Bonus tiering otomatis (Bronze → Diamond)',
-      'Leaderboard tim real-time',
+      'Kalkulator dosis & konversi sediaan racikan otomatis',
+      'Pencatatan tuslah, embalase, dan jasa apoteker rapi',
+      'Buku besar dan laporan komisi dokter mitra terperinci',
+      'Riwayat resep pasien terpusat untuk monitoring interaksi obat',
     ],
     gradient: 'linear-gradient(135deg, #ec4899, #f97316)',
   },
   {
-    icon: '🏥',
-    title: 'BPJS Kapitasi & PRB (Kronis)',
-    badge: 'Layanan Khusus',
-    badgeColor: 'teal',
+    icon: '📦',
+    title: 'Defecta & Surat Pesanan (SP) ke PBF',
+    badge: 'Pengadaan Cerdas',
+    badgeColor: 'blue',
     description:
-      'Modul terintegrasi khusus untuk memproses resep BPJS Kapitasi dan BPJS PRB (Program Rujuk Balik / Chronic Disease) secara presisi. Mendukung impor CSV settlement otomatis dengan spelling-tolerant matching, validasi price freeze, auto-discount, dan penyimpanan dokumen resep PDF di cloud MinIO.',
+      'Otomasi buku defecta dengan Reorder Point (ROP). Hasilkan draft Surat Pesanan (SP) reguler, prekursor, dan OOT terpisah ke berbagai distributor PBF resmi.',
     features: [
-      'Resep BPJS Kapitasi & PRB terintegrasi',
-      'Pencocokan nama pintar (Spelling-Tolerant)',
-      'Auto-Discount & Proteksi Target Klaim',
-      'Unggah resep PDF ke MinIO otomatis',
+      'Auto-generate defecta saat stok menyentuh minimum safety stock',
+      'Multi-split SP sesuai izin edar & kategori PBF resmi',
+      'Pelacakan status PO (Draft → Terkirim → Faktur Masuk)',
+      'Pencegahan stockout obat vital dan fast-moving',
     ],
-    gradient: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+    gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+  },
+  {
+    icon: '🔍',
+    title: 'Stock Opname & Deteksi Shrinkage',
+    badge: 'Audit & Keamanan',
+    badgeColor: 'yellow',
+    description:
+      'Sistem audit fisik stock opname cepat per rak dengan deteksi dini kehilangan barang (shrinkage) dan pelunasan otomatis hutang stok minus (debt netting).',
+    features: [
+      'Stock opname parsial atau total tanpa perlu menutup apotek',
+      'Peringatan instan anomali selisih fisik vs sistem (shrinkage)',
+      'Kartu stok ledger real-time dengan moving average HPP',
+      'Penyatuan batch fisik identik untuk konsistensi database',
+    ],
+    gradient: 'linear-gradient(135deg, #eab308, #f97316)',
+  },
+  {
+    icon: '🌐',
+    title: 'Reservasi Obat Online (Click & Collect)',
+    badge: 'Omnichannel Pasien',
+    badgeColor: 'indigo',
+    description:
+      'Katalog obat publik terhubung ke apotek mitra. Pasien dapat mencari ketersediaan stok, memesan obat atau upload foto resep, dan mengambil di kasir tanpa antre.',
+    features: [
+      'Katalog indikasi klinis & status stok apotek mitra real-time',
+      'Upload foto resep dokter & validasi oleh apoteker',
+      'Soft-reserve stok otomatis & kode booking instan via WhatsApp',
+      'Pengambilan cepat (Click & Collect) di outlet apotek terdekat',
+    ],
+    gradient: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+  },
+  {
+    icon: '👥',
+    title: 'Presensi GPS & KPI Staf Apotek',
+    badge: 'SDM & Payroll',
+    badgeColor: 'green',
+    description:
+      'Manajemen presensi berbasis geofencing GPS, penjadwalan shift tim otomatis, dan perhitungan komisi Balanced Scorecard (Bronze → Diamond) yang adil.',
+    features: [
+      'Presensi GPS Geofencing dengan auto-checkout 7 jam',
+      'Jadwal shift mingguan otomatis & drag-and-drop shift swap',
+      'Kalkulasi payroll bulanan 2 tahap siap persetujuan manager',
+      'Papan peringkat (Leaderboard) produktivitas tim apotek',
+    ],
+    gradient: 'linear-gradient(135deg, #10b981, #059669)',
   },
 ]
 
+const clickCollectSteps = [
+  {
+    step: '01',
+    icon: '🏪',
+    title: 'Pilih Apotek Mitra Terdekat',
+    desc: 'Buka direktori cabang apotek mitra resmi terdekat di kota Anda (seperti Apotek Mitra Syifa atau Apotek E 32).'
+  },
+  {
+    step: '02',
+    icon: '🔍',
+    title: 'Cari Obat & Cek Ketersediaan',
+    desc: 'Ketik nama obat atau pilih dari kategori indikasi klinis dengan status ketersediaan stok real-time.'
+  },
+  {
+    step: '03',
+    icon: '💊',
+    title: 'Pilih Satuan & Jumlah Sediaan',
+    desc: 'Tentukan satuan sediaan yang dibutuhkan (tablet, strip, botol, sirup, tube) dan masukkan ke keranjang pemesanan.'
+  },
+  {
+    step: '04',
+    icon: '📸',
+    title: 'Isi Data Pasien & Upload Resep',
+    desc: 'Lengkapi identitas pemesan dan lampirkan foto resep dokter jika memesan obat etiket keras / daftar G.'
+  },
+  {
+    step: '05',
+    icon: '🎟️',
+    title: 'Terima Kode Booking WhatsApp',
+    desc: 'Sistem mengunci stok sementara (soft-reserve) dan mengirimkan notifikasi ringkasan pesanan ke WhatsApp Anda.'
+  },
+  {
+    step: '06',
+    icon: '⚡',
+    title: 'Ambil di Kasir Tanpa Antre',
+    desc: 'Tunjukkan kode booking ke kasir apotek, selesaikan pembayaran, dan bawa pulang obat Anda tanpa antre lama.'
+  }
+]
+
+const publicStores = [
+  {
+    name: 'Apotek Mitra Syifa',
+    city: 'Kab. Blitar, Jawa Timur',
+    address: 'Jl. Mastrip, RT.02/RW.01, Togogan, Kec. Srengat',
+    phone: '0856-4200-7123',
+    hours: '07:30 - 21:00 WIB (Buka Setiap Hari)',
+    supportsBpjs: true
+  },
+  {
+    name: 'Apotek E 32',
+    city: 'Kab. Blitar, Jawa Timur',
+    address: 'Jl. Raya Garum No.14, Ngebra, Tawangsari, Kec. Garum',
+    phone: '0882-2616-7200',
+    hours: '07:00 - 21:00 WIB (Buka Setiap Hari)',
+    supportsBpjs: false
+  }
+]
+
 const stats = [
-  { number: '50%+', label: 'Efisiensi Admin', icon: '⚡' },
-  { number: '99.9%', label: 'Akurasi Stok', icon: '🎯' },
+  { number: '20+', label: 'Modul ERP Farmasi', icon: '⚡' },
+  { number: '99.9%', label: 'Akurasi Stok FEFO', icon: '🎯' },
   { number: 'Rp 12,4jt+', label: 'Profit Terlindungi', icon: '💰' },
-  { number: 'Multi', label: 'Cabang Apotek', icon: '🏪' },
+  { number: 'Multi', label: 'Cabang & Public Store', icon: '🏪' },
 ]
 
 const testimonials = [
   {
     name: 'Apotek Mitra Syifa',
     quote:
-      'HPP Intelligence menyelamatkan kami dari markup supplier. Dalam sebulan pertama saja kami sudah terhindar dari kerugian jutaan rupiah.',
-    role: 'Apotek Mitra',
+      'HPP Intelligence menyelamatkan kami dari markup supplier. Dalam sebulan pertama saja kami sudah terhindar dari kerugian jutaan rupiah dan klaim BPJS jadi 100% akurat.',
+    role: 'Apotek Mitra — Srengat, Blitar',
   },
   {
-    name: 'Apotek E Tiga 2',
+    name: 'Apotek E 32',
     quote:
-      'Transfer stok antar cabang jadi sangat mudah. Tidak ada lagi cabang yang kekurangan obat sementara cabang lain overstock.',
-    role: 'Apotek Mitra',
+      'Fitur alokasi stok FEFO dan reservasi online Click & Collect membuat pasien kami sangat senang. Pengambilan obat jadi instan dan tidak ada lagi obat expired di gudang.',
+    role: 'Apotek Mitra — Garum, Blitar',
   },
 ]
 
 const whyChoose = [
   {
-    icon: '🔐',
+    icon: '🧠',
     title: 'Satu-satunya HPP Intelligence',
-    desc: 'Tidak ada ERP apotek lain yang mampu mendeteksi anomali harga supplier secara otomatis seperti ApotekApp.',
+    desc: 'Mendeteksi anomali harga supplier secara otomatis sehingga margin profit apotek Anda terlindungi 24/7.',
   },
   {
-    icon: '🚀',
-    title: 'Siap Pakai Hari Ini',
-    desc: 'Demo gratis tersedia. Tim onboarding kami siap membantu migrasi data dan pelatihan staf Anda.',
+    icon: '🏥',
+    title: 'BPJS Kapitasi & PRB Lengkap',
+    desc: 'Dirancang khusus untuk alur faskes Indonesia dengan fitur verifikasi klaim obat kronis dan arsip PDF resep.',
   },
   {
-    icon: '🏢',
-    title: 'Skalabel Multi-Cabang',
-    desc: 'Dari apotek tunggal hingga jaringan multi-cabang — sistem kami tumbuh bersama bisnis Anda.',
+    icon: '🌐',
+    title: 'Omnichannel Click & Collect',
+    desc: 'Pasien bisa mencari stok obat dan pesan online, apotek Anda mendapatkan tambahan omzet penjualan digital.',
   },
   {
     icon: '📊',
-    title: 'Laporan Mendalam',
-    desc: 'Laporan Laba/Rugi, analitik stok, KPI staf, dan dashboard manajerial dalam satu platform.',
+    title: 'Laporan Keuangan Otomatis',
+    desc: 'Laporan Laba/Rugi, Neraca, Moving Average HPP, dan KPI staf terbit otomatis dalam satu dashboard terpusat.',
   },
 ]
 
@@ -158,34 +246,34 @@ const automations = [
   },
   {
     icon: '📦',
-    title: 'Pemesanan Stok Otomatis',
+    title: 'Pemesanan Stok Otomatis (Defecta)',
     schedule: 'Setiap Jam',
     category: 'Inventori',
-    description: 'Memantau tingkat stok secara live. Menghasilkan draft Purchase Order (PO) otomatis dengan status auto_generated sewaktu stok obat vital mendekati reorder point.',
+    description: 'Memantau tingkat stok live dan menghasilkan draft Surat Pesanan (SP) otomatis saat stok mendekati reorder point minimum.',
     impact: 'Menjaga persediaan tetap aman tanpa harus melakukan pengecekan gudang secara manual.',
     gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
   },
   {
     icon: '💰',
-    title: 'Penggajian Otomatis',
+    title: 'Penggajian Otomatis (Payroll)',
     schedule: 'Bulanan (Tgl 21)',
     category: 'Keuangan',
-    description: 'Mengkalkulasi penggajian dua tahap (tahap 1 tanggal 10, tahap 2 tanggal 25) termasuk bonus Balanced Scorecard (BPJS, Umum, Activities), pemotongan presensi pro-rata, denda keterlambatan, dan cicilan hutang staf.',
+    description: 'Mengkalkulasi penggajian dua tahap termasuk bonus Balanced Scorecard (BPJS, Umum), potongan pro-rata, dan denda keterlambatan.',
     impact: 'Proses payroll sekali klik persetujuan oleh manager, menghemat waktu administrasi bulanan.',
     gradient: 'linear-gradient(135deg, #10b981, #059669)',
   },
   {
     icon: '📱',
-    title: 'Pengingat Tagihan Pasien',
+    title: 'Pengingat Piutang & Jatuh Tempo',
     schedule: 'Harian (09:00 WIB)',
     category: 'Piutang',
-    description: 'Memantau jatuh tempo tempo pembayaran pasien. Membuat log pengingat pembayaran pada hari ke-7, 14, dan 30 secara mandiri.',
-    impact: 'Meningkatkan kelancaran cash flow & meminimalisir risiko piutang macet terabaikan.',
+    description: 'Memantau jatuh tempo pembayaran tempo pasien dan membuat log pengingat pada hari ke-7, 14, dan 30 secara mandiri.',
+    impact: 'Meningkatkan kelancaran arus kas & meminimalisir risiko piutang macet terabaikan.',
     gradient: 'linear-gradient(135deg, #eab308, #ca8a04)',
   },
   {
     icon: '📈',
-    title: 'Klasifikasi ABC Terlaris',
+    title: 'Klasifikasi Paretop / ABC Terlaris',
     schedule: 'Mingguan (Senin)',
     category: 'Analitik',
     description: 'Menganalisis volume transaksi mingguan untuk mengelompokkan obat ke kelas A (terlaris), B, dan C secara matematis.',
@@ -197,7 +285,7 @@ const automations = [
     title: 'Jadwal Shift Mingguan',
     schedule: 'Mingguan (Minggu)',
     category: 'SDM',
-    description: 'Menyusun slot kosong secara otomatis berdasarkan ketersediaan staf, memfasilitasi tukar shift (swap) secara seret-lepas (drag-and-drop), dan mengunci jadwal sebelum hari Senin.',
+    description: 'Menyusun slot kosong secara otomatis berdasarkan ketersediaan staf dan memfasilitasi tukar shift (swap) secara drag-and-drop.',
     impact: 'Distribusi shift kerja staf yang adil, merata, dan terjadwal otomatis di latar belakang.',
     gradient: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
   },
@@ -206,16 +294,16 @@ const automations = [
     title: 'Deteksi HPP Anomali',
     schedule: 'Harian (03:00 WIB)',
     category: 'Keamanan',
-    description: 'Memindai database HPP setiap dini hari untuk mendeteksi ketidakwajaran harga beli, markup supplier nakal, dan ketidakcocokan konversi satuan.',
+    description: 'Memindai database HPP setiap dini hari untuk mendeteksi ketidakwajaran harga beli dan markup supplier nakal.',
     impact: 'Melindungi margin profit apotek secara proaktif saat Anda tertidur.',
     gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
   },
   {
     icon: '🧹',
-    title: 'Pembersihan Data Otomatis',
+    title: 'Pembersihan Data & Debt Netting',
     schedule: 'Harian & Bulanan',
     category: 'Database',
-    description: 'Menjalankan program harian untuk melunasi hutang stok minus (debt netting), menyatukan duplikasi batch fisik obat yang identik, dan membersihkan rekam data sampah.',
+    description: 'Menjalankan program harian untuk melunasi hutang stok minus (debt netting) dan menyatukan duplikasi batch fisik obat yang identik.',
     impact: 'Menjaga kinerja database ERP tetap kencang dan akurasi stok tetap 99.9%.',
     gradient: 'linear-gradient(135deg, #64748b, #475569)',
   },
@@ -226,9 +314,9 @@ const roles = [
     role: 'owner',
     title: 'Pimpinan & Pemilik Apotek',
     icon: '👑',
-    tagline: 'Manajemen & Pemantauan',
+    tagline: 'Manajemen & Pemantauan Laba',
     benefits: [
-      'Akses laporan bisnis & laba rugi real-time di ujung jari tanpa perlu meminta laporan manual dari admin.',
+      'Akses laporan laba rugi real-time di ujung jari tanpa perlu meminta laporan manual dari staf kasir.',
       'Mendapatkan notifikasi instan HPP Anomali jika terdeteksi supplier menaikkan harga secara tidak wajar.',
       'Sistem payroll bulanan terhitung otomatis, siap bayar hanya dengan persetujuan akhir sekali klik.',
     ],
@@ -236,25 +324,25 @@ const roles = [
   },
   {
     role: 'staff',
-    title: 'Staf Apoteker & Kasir',
+    title: 'Staf Apoteker & Kasir POS',
     icon: '🧑‍⚕️',
-    tagline: 'Kemudahan Kerja Harian',
+    tagline: 'Pelayanan Cepat & Presisi',
     benefits: [
-      'Pencatatan absensi yang transparan dengan fitur auto-checkout jika lupa checkout saat pulang.',
-      'Kalkulasi komisi bonus tiering (Bronze → Diamond) yang adil dan dapat dipantau langsung di dashboard.',
-      'Jadwal shift mingguan terbit otomatis dan rapi, meminimalisir konflik jam kerja antar staf.',
+      'Pencarian obat barcode instan dengan alokasi otomatis batch kedaluwarsa terdekat (FEFO).',
+      'Input resep racikan puyer/kapsul langsung menghitung tuslah dan embalase tanpa hitung manual.',
+      'Pencatatan absensi geofencing GPS transparan dan pemantauan bonus tiering langsung di dashboard.',
     ],
     gradient: 'linear-gradient(135deg, #10b981, #14b8a6)',
   },
   {
     role: 'warehouse',
-    title: 'Staf Gudang & Logistik',
+    title: 'Staf Gudang & Logistik PBF',
     icon: '📦',
-    tagline: 'Logistik & Persediaan',
+    tagline: 'Kontrol Stok & Surat Pesanan',
     benefits: [
-      'Mendapatkan notifikasi persediaan kritis sebelum obat benar-benar habis di rak penyimpanan.',
-      'Draft Purchase Order (PO) terisi otomatis ke supplier resmi terpilih untuk disetujui manager.',
-      'Batch stok terkelola rapi dengan otomasi FEFO/FIFO, bebas dari penumpukan obat kedaluwarsa.',
+      'Mendapatkan notifikasi otomatis saat stok mendekati Reorder Point (ROP) minimum.',
+      'Draft Surat Pesanan (SP) ter-generate otomatis terpisah sesuai izin edar distributor PBF resmi.',
+      'Stock opname cepat per rak dengan deteksi selisih fisik vs sistem (shrinkage) secara instan.',
     ],
     gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
   },
@@ -262,24 +350,24 @@ const roles = [
 
 const faqs = [
   {
-    question: 'Apakah saya perlu melakukan sesuatu agar fitur otomatis ini berjalan?',
-    answer: 'Tidak. Seluruh 18+ otomatisasi berjalan 24/7 di latar belakang server cloud ApotekApp. Pengguna hanya perlu melakukan tindakan bernilai tinggi seperti konfirmasi akhir draft PO atau persetujuan penggajian bulanan.',
+    question: 'Apa keunggulan ApotekApp dibandingkan software apotek konvensional?',
+    answer: 'ApotekApp menyediakan lebih dari 20 modul farmasi lengkap tanpa biaya tersembunyi. Mencakup POS Kasir FEFO otomatis, Rekonsiliasi BPJS Kapitasi & PRB, Terminal Racikan & Komisi Dokter, Defecta Otomatis ke PBF, HPP Intelligence, hingga Reservasi Obat Online Click & Collect.',
   },
   {
-    question: 'Apakah sistem bisa salah mengambil keputusan pembelian?',
-    answer: 'Sistem dirancang dengan keamanan berlapis. Untuk tindakan krusial (seperti kirim PO atau transfer uang), sistem TIDAK melakukannya langsung, melainkan menyiapkannya dalam bentuk DRAFT untuk ditinjau dan disetujui terlebih dahulu oleh Manager.',
+    question: 'Bagaimana cara kerja reservasi obat online (Click & Collect) bagi pasien?',
+    answer: 'Pasien dapat mencari stok obat di apotek mitra resmi, memesan obat bebas atau mengunggah foto resep dokter, lalu mengambil langsung di kasir apotek tanpa perlu mengantre lama.',
   },
   {
-    question: 'Di mana saya bisa melihat hasil kerja sistem otomatisasi ini?',
-    answer: 'Seluruh log aktivitas otomatisasi tercatat sangat transparan di panel admin. Anda bisa melihat riwayat draft PO yang dibuat, log komisi staf, deteksi anomali HPP, dan log perapian database kapan saja.',
+    question: 'Apakah ApotekApp mendukung transaksi BPJS Kesehatan Kapitasi & PRB?',
+    answer: 'Ya, mendukung penuh transaksi BPJS Kapitasi untuk FKTP serta BPJS PRB (Program Rujuk Balik) untuk obat penyakit kronis lengkap dengan spelling-tolerant matching, proteksi target klaim, dan impor CSV.',
   },
   {
-    question: 'Apakah semua cabang apotek mendapatkan fitur otomatisasi yang sama?',
-    answer: 'Ya. Sistem multi-cabang kami mendukung otomatisasi di setiap cabang secara independen. Data stok, shift staf, dan profitabilitas cabang diisolasi dengan aman demi kerahasiaan bisnis Anda.',
+    question: 'Bagaimana HPP Intelligence melindungi profit apotek kami?',
+    answer: 'Sistem secara berkala membandingkan harga beli obat saat ini dengan riwayat faktur sebelumnya serta harga pasar. Jika terdeteksi kenaikan harga tidak wajar dari supplier, sistem langsung menandai transaksi untuk ditinjau.',
   },
   {
-    question: 'Bagaimana HPP Intelligence mendeteksi kecurangan supplier?',
-    answer: 'Sistem secara berkala membandingkan harga beli obat saat ini dengan riwayat pembelian sebelumnya serta master referensi harga pasar. Jika terdeteksi kenaikan harga di luar batas wajar (anomali markup), sistem langsung menandai transaksi tersebut untuk ditinjau.',
+    question: 'Bagaimana cara mencoba atau mendaftarkan apotek kami ke ApotekApp?',
+    answer: 'Anda dapat langsung membuka live demo di https://apotek.kancio.com/ atau menghubungi tim kami melalui formulir konsultasi untuk pendampingan setup data awal secara gratis.',
   },
 ]
 
@@ -313,26 +401,44 @@ const ApotekAppPage: React.FC = () => {
   }, [])
 
   useSEO({
-    title: 'ApotekApp: Software Apotek Terbaik & Aplikasi Kasir Apotek',
-    description: 'Aplikasi kasir apotek terbaik & sistem inventori ERP apotek multi-cabang dengan kecerdasan AI HPP Intelligence, pengelolaan FEFO/FIFO, serta sinkronisasi data BPJS.',
+    title: 'Aplikasi Apotek Terbaik & Cek Stok Obat Online | Software Kasir Apotek FEFO ApotekApp',
+    description: 'Software aplikasi apotek terbaik di Indonesia: Kasir POS FEFO/FIFO, cek stok obat real-time, rekonsiliasi BPJS Kapitasi & PRB kronis, resep dokter, defecta PBF, & reservasi obat online Click & Collect di apotek.kancio.com.',
+    keywords: 'aplikasi apotek, software apotek terbaik, aplikasi kasir apotek, stok obat, cek stok obat, reservasi obat online, sistem inventori apotek, bpjs apotek, obat fefo, apotekapp',
+    canonicalUrl: 'https://kancio.com/products/apotekapp',
     schema: {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "ApotekApp",
-      "operatingSystem": "Web, Android, iOS",
-      "applicationCategory": "BusinessApplication",
-      "description": "Software Apotek Terbaik & Aplikasi Kasir Apotek dengan AI HPP Intelligence",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "IDR",
-        "description": "Free Demo Available"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Kancio Development",
-        "url": "https://kancio.com"
-      }
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "ApotekApp",
+          "operatingSystem": "All (Web Browser, Android, iOS, Windows, macOS)",
+          "applicationCategory": "BusinessApplication",
+          "url": "https://apotek.kancio.com",
+          "description": "Software ERP Apotek Terbaik & Aplikasi Kasir Apotek Terlengkap di Indonesia",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "IDR",
+            "description": "Free Live Demo Available"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Kancio Development",
+            "url": "https://kancio.com"
+          }
+        },
+        {
+          "@type": "HowTo",
+          "name": "Cara Melakukan Reservasi Obat Online (Click & Collect) di ApotekApp",
+          "description": "Panduan 6 langkah mudah mereservasi obat di apotek mitra resmi ApotekApp untuk diambil langsung tanpa antre.",
+          "step": clickCollectSteps.map((s, idx) => ({
+            "@type": "HowToStep",
+            "position": idx + 1,
+            "name": s.title,
+            "text": s.desc
+          }))
+        }
+      ]
     }
   })
 
@@ -346,17 +452,17 @@ const ApotekAppPage: React.FC = () => {
         <div className="container">
           <div className="apotek-hero__content">
             <div className="apotek-hero__eyebrow">
-              <span className="badge">💊 ApotekApp</span>
-              <span className="apotek-hero__tag">ERP Apotek Generasi Terbaru</span>
+              <span className="badge">💊 ApotekApp Farmasi ERP</span>
+              <span className="apotek-hero__tag">Sistem Informasi Apotek Terpadu #1</span>
             </div>
             <h1 className="apotek-hero__title">
-              Tingkatkan Profit <br />
-              <span className="text-gradient">Apotek Anda</span>
+              Software Apotek Modern <br />
+              <span className="text-gradient">POS FEFO, BPJS &amp; Online Store</span>
             </h1>
             <p className="apotek-hero__desc">
-              Platform manajemen apotek terpadu yang menggabungkan kecerdasan inventori,
-              otomasi pengadaan, dan analitik mendalam dalam satu dashboard premium.
-              Satu-satunya ERP apotek dengan AI HPP Intelligence.
+              Tingkatkan efisiensi operasional dan profit apotek Anda dengan sistem ERP farmasi terlengkap:
+              alokasi stok FEFO/FIFO otomatis, rekonsiliasi BPJS Kapitasi &amp; PRB, terminal resep dokter,
+              defecta multi-PBF, serta reservasi obat online Click &amp; Collect.
             </p>
             <div className="apotek-hero__stats">
               {stats.map((s, i) => (
@@ -374,13 +480,13 @@ const ApotekAppPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn--primary btn--large"
               >
-                Coba Demo Gratis <span className="btn__icon">→</span>
+                Buka Web App ApotekApp <span className="btn__icon">→</span>
               </a>
               <a
-                href="#dokumentasi-otomatisasi"
+                href="#reservasi-online"
                 className="btn btn--secondary btn--large"
               >
-                Dokumentasi Fitur
+                Cara Click &amp; Collect
               </a>
             </div>
           </div>
@@ -390,33 +496,33 @@ const ApotekAppPage: React.FC = () => {
                 <span className="apotek-stat-card__icon">🧠</span>
                 <div>
                   <div className="apotek-stat-card__label">HPP Intelligence</div>
-                  <div className="apotek-stat-card__value">Anomali Terdeteksi</div>
+                  <div className="apotek-stat-card__value">Anomali Markup Terdeteksi</div>
                 </div>
-                <span className="apotek-stat-card__badge">AI</span>
+                <span className="apotek-stat-card__badge">AI Protected</span>
               </div>
               <div className="apotek-hero__dashboard">
                 <div className="apotek-dashboard__row">
-                  <span>💰 Profit Hari Ini</span>
-                  <strong className="text-green">+Rp 4,2jt</strong>
+                  <span>🛒 Kasir POS FEFO</span>
+                  <strong className="text-green">Alokasi Otomatis</strong>
                 </div>
                 <div className="apotek-dashboard__row">
-                  <span>📦 Stok Akurasi</span>
-                  <strong>99.9%</strong>
+                  <span>🏥 Klaim BPJS PRB &amp; Kapitasi</span>
+                  <strong>100% Cocok</strong>
                 </div>
                 <div className="apotek-dashboard__row">
-                  <span>⚡ Admin Efisiensi</span>
-                  <strong className="text-gradient">50%+</strong>
+                  <span>📦 Defecta &amp; SP PBF</span>
+                  <strong className="text-gradient">Multi-Split Auto</strong>
                 </div>
                 <div className="apotek-dashboard__row">
-                  <span>🛒 Transaksi Hari Ini</span>
-                  <strong>247</strong>
+                  <span>🌐 Reservasi Click &amp; Collect</span>
+                  <strong className="text-green">Siap Ambil</strong>
                 </div>
               </div>
               <div className="apotek-stat-card apotek-stat-card--bottom">
                 <span className="apotek-stat-card__icon">✅</span>
                 <div>
-                  <div className="apotek-stat-card__label">BPJS Settlement</div>
-                  <div className="apotek-stat-card__value">Bulan ini selesai</div>
+                  <div className="apotek-stat-card__label">Stock Opname &amp; Shrinkage</div>
+                  <div className="apotek-stat-card__value">Akurasi Fisik 99.9%</div>
                 </div>
               </div>
             </div>
@@ -436,21 +542,21 @@ const ApotekAppPage: React.FC = () => {
         />
       </div>
 
-      {/* ===== 6 MODULES ===== */}
+      {/* ===== 8 INTEGRATED MODULES ===== */}
       <section
         ref={sectionRef}
         className={`section apotek-modules ${visible ? 'apotek-modules--visible' : ''}`}
       >
         <div className="container">
           <div className="section-header">
-            <div className="badge">6 Modul Terintegrasi</div>
+            <div className="badge">Modul ERP Farmasi Terpadu</div>
             <h2>
-              Semua yang Dibutuhkan Apotek,{' '}
-              <span className="text-gradient">Dalam Satu Platform</span>
+              Semua Fitur Farmasi,{' '}
+              <span className="text-gradient">Dalam Satu Platform Terintegrasi</span>
             </h2>
             <p>
-              Dari kasir harian hingga analitik manajerial — ApotekApp mengelola
-              seluruh operasional apotek Anda tanpa kompleksitas sistem terpisah.
+              Dari kasir POS harian, alur BPJS, manajemen defecta ke PBF, hingga reservasi online pasien —
+              ApotekApp mengelola seluruh operasional apotek Anda tanpa ribet.
             </p>
           </div>
 
@@ -493,7 +599,7 @@ const ApotekAppPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              {modules[activeModule].title === 'Manajemen Staff & KPI' && (
+              {modules[activeModule].title.includes('Presensi') || modules[activeModule].title.includes('Staff') ? (
                 <div style={{ marginTop: '24px' }}>
                   <Link 
                     to="/products/apotekapp/presensi-guide" 
@@ -501,15 +607,15 @@ const ApotekAppPage: React.FC = () => {
                     style={{ 
                       padding: '10px 20px', 
                       fontSize: '0.9rem',
-                      background: 'linear-gradient(135deg, #ec4899, #f97316)',
-                      boxShadow: '0 4px 15px rgba(236, 72, 153, 0.3)'
+                      background: 'linear-gradient(135deg, #10b981, #059669)',
+                      boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)'
                     }}
                   >
-                    📖 Buka Panduan Presensi Staff &raquo;
+                    📖 Buka Panduan Lengkap Presensi &raquo;
                   </Link>
                 </div>
-              )}
-              {modules[activeModule].title === 'BPJS Kapitasi' && (
+              ) : null}
+              {modules[activeModule].title.includes('BPJS') ? (
                 <div style={{ marginTop: '24px' }}>
                   <Link 
                     to="/products/apotekapp/bpjs-guide" 
@@ -521,10 +627,10 @@ const ApotekAppPage: React.FC = () => {
                       boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)'
                     }}
                   >
-                    📖 Buka Panduan BPJS &raquo;
+                    📖 Buka Panduan Lengkap BPJS &raquo;
                   </Link>
                 </div>
-              )}
+              ) : null}
             </div>
             <div className="apotek-module-detail__right">
               <div className="apotek-module-preview" style={{ borderColor: `rgba(99,102,241,0.2)` }}>
@@ -546,7 +652,7 @@ const ApotekAppPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Module Cards Grid (all 6) */}
+          {/* Module Cards Grid */}
           <div className="apotek-modules-grid">
             {modules.map((mod, i) => (
               <div
@@ -569,6 +675,52 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
+      {/* ===== CLICK & COLLECT HOW-TO SECTION ===== */}
+      <section id="reservasi-online" className="apotek-click-collect-section">
+        <div className="container">
+          <div className="section-header">
+            <div className="badge badge--accent">Click &amp; Collect Omnichannel</div>
+            <h2>
+              Cara Reservasi Obat Online <span className="text-gradient">Tanpa Perlu Antre</span>
+            </h2>
+            <p>
+              Pelajari 6 langkah mudah bagaimana pasien dapat mencari obat di apotek mitra resmi dan mengambilnya langsung di kasir.
+            </p>
+          </div>
+
+          <div className="click-collect-grid">
+            {clickCollectSteps.map((s, idx) => (
+              <div key={idx} className="cc-step-card">
+                <span className="cc-step-num">{s.step}</span>
+                <span className="cc-step-icon">{s.icon}</span>
+                <h3 className="cc-step-title">{s.title}</h3>
+                <p className="cc-step-desc">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Public Stores Directory Card */}
+          <div className="section-header" style={{ marginTop: '50px', marginBottom: '20px' }}>
+            <div className="badge">Direktori Cabang Mitra</div>
+            <h3>Jaringan Apotek Mitra Resmi</h3>
+          </div>
+
+          <div className="apotek-stores-grid">
+            {publicStores.map((store, idx) => (
+              <div key={idx} className="store-card">
+                <div className="store-card__header">
+                  <span className="store-name">{store.name}</span>
+                  {store.supportsBpjs && <span className="store-badge">✓ Support BPJS</span>}
+                </div>
+                <div className="store-info">📍 {store.address}, {store.city}</div>
+                <div className="store-info">📞 Telepon: {store.phone}</div>
+                <div className="store-info">⏰ Jam Buka: {store.hours}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== INTERACTIVE DOCUMENTATION SECTION ===== */}
       <section
         ref={docSectionRef}
@@ -577,13 +729,13 @@ const ApotekAppPage: React.FC = () => {
       >
         <div className="container">
           <div className="section-header">
-            <div className="badge">Dokumentasi & Otomatisasi</div>
+            <div className="badge">Dokumentasi &amp; Otomatisasi 24/7</div>
             <h2>
-              Sistem Cerdas Bekerja <span className="text-gradient">24/7 Tanpa Henti</span>
+              Sistem Cerdas Bekerja <span className="text-gradient">Di Latar Belakang</span>
             </h2>
             <p>
               Pelajari bagaimana ApotekApp memangkas intervensi manual dengan mengotomatisasi
-              18+ proses operasional harian di latar belakang apotek Anda.
+              18+ proses operasional harian apotek Anda.
             </p>
           </div>
 
@@ -605,7 +757,7 @@ const ApotekAppPage: React.FC = () => {
               className={`apotek-docs-tab ${activeDocTab === 'faq' ? 'apotek-docs-tab--active' : ''}`}
               onClick={() => setActiveDocTab('faq')}
             >
-              <span className="tab-icon">❓</span> FAQ Otomatisasi
+              <span className="tab-icon">❓</span> FAQ Farmasi ERP
             </button>
           </div>
 
@@ -722,7 +874,7 @@ const ApotekAppPage: React.FC = () => {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <div className="badge">Apotek Mitra</div>
+            <div className="badge">Apotek Mitra Terpercaya</div>
             <h2>
               Dipercaya Apotek-Apotek <span className="text-gradient">Terkemuka</span>
             </h2>
@@ -763,10 +915,10 @@ const ApotekAppPage: React.FC = () => {
             <div className="apotek-cta-banner__bg" />
             <div className="apotek-cta-banner__content">
               <div className="badge badge--accent">Mulai Sekarang</div>
-              <h2>Jadwalkan Demo Gratis Hari Ini</h2>
+              <h2>Coba Live Demo ApotekApp Hari Ini</h2>
               <p>
-                Lihat sendiri bagaimana ApotekApp mengubah cara Anda mengelola apotek.
-                Demo gratis, tanpa komitmen, dipandu tim ahli kami.
+                Lihat langsung bagaimana ApotekApp mengubah cara Anda mengelola kasir POS FEFO, klaim BPJS,
+                defecta ke PBF, dan penjualan online apotek Anda.
               </p>
               <div className="apotek-cta-banner__actions">
                 <a
@@ -775,10 +927,10 @@ const ApotekAppPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="btn btn--primary btn--large"
                 >
-                  Coba Demo Gratis <span className="btn__icon">→</span>
+                  Buka Web App ApotekApp <span className="btn__icon">→</span>
                 </a>
                 <Link to="/services/consulting" className="btn btn--secondary btn--large">
-                  Konsultasi Dulu
+                  Konsultasi Onboarding
                 </Link>
               </div>
             </div>
