@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoogleAdSense from '../components/GoogleAdSense'
@@ -25,442 +25,401 @@ interface ProductCategory {
   features: string[]
 }
 
+const categories: ProductCategory[] = [
+  {
+    id: 'pulsa',
+    name: 'Pulsa & Paket Data',
+    icon: '📱',
+    tag: 'Semua Operator',
+    badgeColor: '#0284c7',
+    description:
+      'Isi ulang pulsa reguler, paket kuota data internet cepat, paket nelpon & SMS, perpanjangan masa aktif, serta pulsa transfer.',
+    brands: [
+      { name: 'Telkomsel', icon: '🔴', color: '#e11d48', sub: 'SimPATI, By.U, Halo' },
+      { name: 'Indosat Ooredoo', icon: '🟡', color: '#eab308', sub: 'IM3, Freedom Data' },
+      { name: 'XL Axiata', icon: '🔵', color: '#2563eb', sub: 'Xtra Combo, Akrab' },
+      { name: 'Axis', icon: '🟣', color: '#9333ea', sub: 'Bronet, Warnet' },
+      { name: 'Tri (3)', icon: '🟠', color: '#ea580c', sub: 'AlwaysOn, Happy' },
+      { name: 'Smartfren', icon: '🔴', color: '#dc2626', sub: 'Kuota Nonstop, Unlimited' },
+    ],
+    features: [
+      'Harga grosir langsung distributor server 1',
+      'Auto-detect provider dari 4 digit nomor HP',
+      'Tersedia denom mikro Rp 1.000 hingga Rp 1.000.000',
+      'Kecepatan kirim 1-5 detik ke penerima',
+    ],
+  },
+  {
+    id: 'pln',
+    name: 'Token Listrik & PLN',
+    icon: '⚡',
+    tag: '24 Jam Nonstop',
+    badgeColor: '#eab308',
+    description:
+      'Beli token listrik prabayar instan tengah malam, bayar tagihan listrik bulanan, dan proses pembayaran PLN Non-Taglis.',
+    brands: [
+      { name: 'PLN Prabayar', icon: '⚡', color: '#eab308', sub: 'Token Listrik 24 Jam' },
+      { name: 'PLN Pascabayar', icon: '📄', color: '#3b82f6', sub: 'Cek & Bayar Tagihan Bulanan' },
+      { name: 'PLN Non-Taglis', icon: '🔌', color: '#10b981', sub: 'Pasang Baru & Tambah Daya' },
+    ],
+    features: [
+      'Nomor token 20 digit muncul instan di layar',
+      'Tersedia tombol copy token & struk PDF',
+      'Biaya admin termurah se-Indonesia',
+      'Transaksi tetap lancar di jam malam',
+    ],
+  },
+  {
+    id: 'emoney',
+    name: 'E-Money & Dompet Digital',
+    icon: '💳',
+    tag: 'Top Up Instan',
+    badgeColor: '#10b981',
+    description:
+      'Top-up saldo dompet digital konsumen dan mitra driver transportasi online terlengkap tanpa biaya admin memberatkan.',
+    brands: [
+      { name: 'DANA', icon: '🔷', color: '#0284c7', sub: 'Dompet Digital DANA' },
+      { name: 'GoPay & Driver', icon: '🟢', color: '#10b981', sub: 'Saldo Customer & Mitra' },
+      { name: 'OVO Cash', icon: '🟣', color: '#7c3aed', sub: 'OVO Premier' },
+      { name: 'ShopeePay', icon: '🟠', color: '#ea580c', sub: 'ShopeePay Instant' },
+      { name: 'E-Toll & TapCash', icon: '💳', color: '#0284c7', sub: 'Mandiri, BRI Brizzi, BNI' },
+    ],
+    features: [
+      'Verifikasi nama akun tujuan otomatis sebelum bayar',
+      'Saldo masuk 1-3 detik setelah diverifikasi',
+      'Support top up nominal bebas (custom denom)',
+      'Cocok untuk layanan loket top-up warung',
+    ],
+  },
+  {
+    id: 'game',
+    name: 'Voucher & Top-up Game',
+    icon: '🎮',
+    tag: 'Gamer Choice',
+    badgeColor: '#ec4899',
+    description:
+      'Top up diamond, UC, token, dan voucher game favorit dengan harga grosir langsung masuk ke User ID pemain.',
+    brands: [
+      { name: 'Mobile Legends', icon: '⚔️', color: '#2563eb', sub: 'Diamonds & Twilight Pass' },
+      { name: 'Free Fire', icon: '🔥', color: '#ea580c', sub: 'Diamonds FF & Membership' },
+      { name: 'PUBG Mobile', icon: '🪖', color: '#eab308', sub: 'UC Global & Indo' },
+      { name: 'Roblox & Steam', icon: '🕹️', color: '#475569', sub: 'Voucher Digital IDR' },
+    ],
+    features: [
+      'Auto-validasi User ID + Zone ID game',
+      'Tersedia paket mingguan & membership pass',
+      '100% Legal & aman langsung dari publisher',
+      'Server proses 24 jam nonstop',
+    ],
+  },
+]
+
+const partnerPlans = [
+  {
+    name: 'Mitra Basic',
+    tagline: 'Cocok untuk pengguna pribadi, warung kecil & konter pemula',
+    monthlyPrice: 0,
+    annualPrice: 0,
+    badge: 'Gratis Selamanya',
+    popular: false,
+    features: [
+      'Akses Web App & Android PulsaApp',
+      'Harga Modal Grosir 1000+ Produk Digital',
+      'Deposit Otomatis via QRIS & Virtual Account',
+      'Cetak Struk Transaksi PDF / Bluetooth Printer',
+      'Riwayat Mutasi Saldo Real-Time',
+    ],
+    notIncluded: ['Custom Nama Toko di Struk', 'Fitur Downline / Sub-Agen', 'Akses REST API H2H'],
+  },
+  {
+    name: 'Agen Pro & Konter',
+    tagline: 'Paling diminati untuk konter pulsa aktif & loket PPOB profesional',
+    monthlyPrice: 99000,
+    annualPrice: 79000,
+    badge: '⭐ Paling Populer',
+    popular: true,
+    features: [
+      'Semua fitur Mitra Basic',
+      'Harga Modal VIP (Lebih Murah Rp 50 - 300/trx)',
+      'Custom Header & Footer Logo Toko di Struk',
+      'Fitur Multi Sub-Agen / Downline (Komisi Pasif)',
+      'Kirim Bukti Struk Otomatis via WhatsApp',
+      'Priority Customer Support 24/7',
+    ],
+    notIncluded: ['Akses REST API H2H'],
+  },
+  {
+    name: 'H2H Enterprise API',
+    tagline: 'Untuk platform fintech, ecommerce, atau server pulsa beromzet besar',
+    monthlyPrice: 499000,
+    annualPrice: 399000,
+    badge: 'Solusi Developer',
+    popular: false,
+    features: [
+      'Semua fitur Agen Pro',
+      'High-Speed REST API & Webhook Real-time',
+      'Unlimited Throughput Request / Detik',
+      'Dedicated Balance IP Whitelist Security',
+      'Custom SLA 99.9% Server Uptime',
+      'Technical Account Manager Khusus',
+    ],
+    notIncluded: [],
+  },
+]
+
+const faqs = [
+  {
+    question: 'Berapa lama waktu yang dibutuhkan untuk transaksi pulsa atau token?',
+    answer:
+      'Transaksi diproses secara otomatis oleh server super cepat kami dalam 1 hingga 5 detik setelah pembayaran terverifikasi.',
+  },
+  {
+    question: 'Metode pembayaran apa saja yang didukung untuk deposit saldo?',
+    answer:
+      'Mendukung QRIS 24 Jam (GoPay, OVO, DANA, ShopeePay, LinkAja, BCA, Mandiri), Saldo Dompet Kancio bebas biaya admin, serta Virtual Account Bank Nasional (BCA, Mandiri, BRI, BNI, Permata).',
+  },
+  {
+    question: 'Apakah saya bisa mencetak struk transaksi dengan printer Bluetooth kasir?',
+    answer:
+      'Ya! PulsaApp mendukung cetak struk via Thermal Printer Bluetooth 58mm & 80mm, serta ekspor file struk digital format PDF dan kirim langsung ke WhatsApp pelanggan.',
+  },
+  {
+    question: 'Bagaimana jika transaksi mengalami gangguan dari pihak provider?',
+    answer:
+      'Sistem dilengkapi fitur Auto-Fallback dan Auto-Refund instan. Jika provider induk sedang gangguan, saldo akun Anda akan dikembalikan secara otomatis 100% tanpa potongan.',
+  },
+]
+
 const PulsaAppPage: React.FC = () => {
   const { userConsent } = useAds()
+  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isAnnual, setIsAnnual] = useState(true)
+  const [activeCategory, setActiveCategory] = useState('pulsa')
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
-  useSEO({
-    title: 'Pulsa Murah 24 Jam & Agen PPOB Terlengkap | PulsaApp Kancio',
-    description: 'Beli pulsa murah semua operator (Telkomsel, Indosat, XL, Tri, Axis, Smartfren), token listrik PLN 24 jam, paket kuota data, voucher game, eSIM roaming global, & tagihan PPOB instan 1-5 detik via QRIS & VA di PulsaApp & ppob.kancio.com.',
-    keywords: 'pulsa murah, agen pulsa murah, beli pulsa murah, token listrik murah, aplikasi pulsa murah, ppob terlengkap, pulsa telkomsel murah, deposit pulsa otomatis, esim indonesia, kancio ppob, pulsaapp',
-    canonicalUrl: 'https://kancio.com/products/pulsaapp',
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "SoftwareApplication",
-          "name": "PulsaApp",
-          "operatingSystem": "Android, Web Browser, iOS",
-          "applicationCategory": "FinanceApplication",
-          "url": "https://ppob.kancio.com",
-          "description": "Aplikasi Agen Pulsa Termurah & Pembayaran Tagihan Online 24 Jam Terlengkap di Indonesia",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "IDR",
-            "description": "Free Web & Mobile Access"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Kancio Development",
-            "url": "https://kancio.com"
-          }
-        },
-        {
-          "@type": "FinancialService",
-          "name": "Kancio PPOB",
-          "legalName": "Kancio PPOB Indonesia",
-          "url": "https://ppob.kancio.com",
-          "description": "Distributor resmi PPOB, agen pulsa murah semua operator, token listrik PLN 24 jam, pembayaran tagihan PDAM, BPJS, voucher game, dan layanan eSIM.",
-          "currenciesAccepted": "IDR",
-          "paymentAccepted": "Saldo Dompet Kancio, QRIS, Virtual Account, Bank Transfer",
-          "priceRange": "Rp 1.000 - Rp 10.000.000"
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://kancio.com" },
-            { "@type": "ListItem", "position": 2, "name": "PulsaApp & PPOB", "item": "https://kancio.com/products/pulsaapp" }
-          ]
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Bagaimana cara beli pulsa murah dan token listrik PLN di Kancio PPOB?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Pilih menu Pulsa atau Token Listrik, masukkan nomor handphone atau nomor meteran PLN Anda, tentukan nominal, dan bayar instan via QRIS, Virtual Account, atau Saldo Dompet Kancio (PulsaPay). Transaksi diproses otomatis 1-5 detik."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apakah transaksi PPOB di Kancio buka 24 jam nonstop?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ya, seluruh transaksi pembelian pulsa, kuota internet, token PLN, voucher game, dan pembayaran tagihan pascabayar di Kancio PPOB beroperasi otomatis 24 jam setiap hari tanpa henti."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Metode pembayaran apa saja yang didukung?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Mendukung Saldo Dompet Kancio (bebas biaya admin), QRIS 24 Jam (GoPay, OVO, DANA, ShopeePay, LinkAja, BCA, Mandiri), dan Virtual Account Bank Nasional (BCA, Mandiri, BRI, BNI, Permata)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Bagaimana jika pengisian pulsa atau token saya mengalami kendala?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sistem dilengkapi auto-routing dan auto-rekonsiliasi. Jika provider mengalami gangguan, saldo atau dana Anda dijamin 100% aman dan dikembalikan otomatis ke Saldo Dompet Kancio."
-              }
-            }
-          ]
-        }
-      ]
-    }
+  // Interactive Margin Calculator State
+  const [simProduct, setSimProduct] = useState('Pulsa Telkomsel 50.000')
+  const [basePrice, setBasePrice] = useState(49650)
+  const [sellPrice, setSellPrice] = useState(52000)
+  const [dailyTrx, setDailyTrx] = useState(35)
+  const [simCheckoutDone, setSimCheckoutDone] = useState(false)
+
+  // Lead / Partnership Form State
+  const [leadForm, setLeadForm] = useState({
+    name: '',
+    phone: '',
+    businessType: 'Konter Pulsa / Toko',
+    planInterest: 'Agen Pro & Konter',
+    notes: '',
   })
+  const [leadSubmitted, setLeadSubmitted] = useState(false)
 
-  // State
-  const [activeTab, setActiveTab] = useState<string>('pulsa')
-  const [visible, setVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  // Calculations
+  const profitPerTrx = Math.max(0, sellPrice - basePrice)
+  const monthlyEstimatedProfit = profitPerTrx * dailyTrx * 30
 
-  // Interactive Simulator State
-  const [simCategory, setSimCategory] = useState<'pulsa' | 'pln' | 'emoney' | 'game'>('pulsa')
-  const [simProvider, setSimProvider] = useState<string>('Telkomsel')
-  const [simTarget, setSimTarget] = useState<string>('081234567890')
-  const [simDenom, setSimDenom] = useState<number>(50000)
-  const [simPayment, setSimPayment] = useState<'wallet' | 'qris' | 'va'>('wallet')
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.05 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
-
-  const categories: ProductCategory[] = [
-    {
-      id: 'pulsa',
-      name: 'Pulsa & Paket Data',
-      icon: '📱',
-      tag: 'Semua Operator',
-      badgeColor: '#0284c7',
-      description: 'Isi ulang pulsa reguler, paket data kuota internet cepat, paket nelpon & SMS, perpanjangan masa aktif, serta pulsa transfer.',
-      brands: [
-        { name: 'Telkomsel', icon: '🔴', color: '#e11d48', sub: 'SimPATI, By.U, Halo' },
-        { name: 'Indosat Ooredoo', icon: '🟡', color: '#eab308', sub: 'IM3, Freedom Data' },
-        { name: 'XL Axiata', icon: '🔵', color: '#2563eb', sub: 'Xtra Combo, Akrab' },
-        { name: 'Axis', icon: '🟣', color: '#9333ea', sub: 'Bronet, Warnet' },
-        { name: 'Tri (3)', icon: '🟠', color: '#ea580c', sub: 'AlwaysOn, Happy' },
-        { name: 'Smartfren', icon: '🔴', color: '#dc2626', sub: 'Kuota Nonstop, Unlimited' }
-      ],
-      features: [
-        'Harga grosir langsung distributor resmi',
-        'Auto-detect nomor provider secara presisi',
-        'Tersedia denom mikro Rp 1.000 hingga Rp 1.000.000',
-        'Paket data bonus kuota lokal & streaming'
-      ]
-    },
-    {
-      id: 'pln',
-      name: 'Token Listrik & PLN',
-      icon: '⚡',
-      tag: '24 Jam Nonstop',
-      badgeColor: '#eab308',
-      description: 'Beli token listrik prabayar instan kapan saja tengah malam, bayar tagihan listrik bulanan, dan proses pembayaran PLN Non-Taglis.',
-      brands: [
-        { name: 'PLN Prabayar', icon: '⚡', color: '#eab308', sub: 'Token Listrik 24 Jam' },
-        { name: 'PLN Pascabayar', icon: '📄', color: '#3b82f6', sub: 'Cek & Bayar Tagihan Bulanan' },
-        { name: 'PLN Non-Taglis', icon: '🔌', color: '#10b981', sub: 'Pasang Baru & Tambah Daya' }
-      ],
-      features: [
-        'Nomor token 20 digit muncul instan di layar',
-        'Tersedia fitur copy token & simpan ID Pelanggan',
-        'Biaya admin termurah se-Indonesia',
-        'Bisa transaksi saat jam krusial 23:00 - 01:00 WIB'
-      ]
-    },
-    {
-      id: 'emoney',
-      name: 'E-Money & Dompet Digital',
-      icon: '💳',
-      tag: 'Top Up Instan',
-      badgeColor: '#10b981',
-      description: 'Top-up saldo dompet digital konsumen dan mitra driver transportasi online terlengkap tanpa biaya admin memberatkan.',
-      brands: [
-        { name: 'DANA', icon: '🔷', color: '#0284c7', sub: 'Dompet Digital DANA' },
-        { name: 'GoPay & Gojek Driver', icon: '🟢', color: '#10b981', sub: 'Saldo Customer & Mitra' },
-        { name: 'OVO', icon: '🟣', color: '#7c3aed', sub: 'OVO Cash' },
-        { name: 'ShopeePay', icon: '🟠', color: '#ea580c', sub: 'ShopeePay Instant' },
-        { name: 'LinkAja', icon: '🔴', color: '#e11d48', sub: 'LinkAja BUMN' },
-        { name: 'Grab & Maxim Driver', icon: '🛵', color: '#059669', sub: 'Top Up Saldo Driver' },
-        { name: 'E-Toll & TapCash', icon: '💳', color: '#0284c7', sub: 'Mandiri, BRI Brizzi, BNI TapCash' }
-      ],
-      features: [
-        'Verifikasi nama akun e-wallet otomatis sebelum bayar',
-        'Saldo langsung masuk 1-3 detik setelah verifikasi',
-        'Support top up nominal bebas (custom denom)',
-        'Mendukung isi ulang kartu e-toll & uang elektronik'
-      ]
-    },
-    {
-      id: 'game',
-      name: 'Voucher & Top-up Game',
-      icon: '🎮',
-      tag: 'Gamer Choice',
-      badgeColor: '#ec4899',
-      description: 'Top up diamond, cash, credit, dan voucher game favorit dengan harga miring langsung masuk ke User ID Anda.',
-      brands: [
-        { name: 'Mobile Legends', icon: '⚔️', color: '#2563eb', sub: 'Diamonds & Twilight Pass' },
-        { name: 'Free Fire', icon: '🔥', color: '#ea580c', sub: 'Diamonds FF & Membership' },
-        { name: 'PUBG Mobile', icon: '🪖', color: '#eab308', sub: 'UC Global & Indo' },
-        { name: 'Genshin Impact', icon: '✨', color: '#6366f1', sub: 'Genesis Crystals & Blessing' },
-        { name: 'Valorant Points', icon: '🎯', color: '#dc2626', sub: 'VP Riot Games' },
-        { name: 'Steam Wallet & Roblox', icon: '🕹️', color: '#475569', sub: 'Voucher Digital IDR' },
-        { name: 'Google Play Code', icon: '🛒', color: '#10b981', sub: 'Voucher Resmi Google Play' }
-      ],
-      features: [
-        'Auto-validasi User ID + Zone ID game',
-        'Tersedia paket mingguan, bulanan & season pass',
-        '100% Legal dan aman dari banned',
-        'Proses pengisian otomatis 24 jam'
-      ]
-    },
-    {
-      id: 'esim',
-      name: 'eSIM & Roaming Global',
-      icon: '🌐',
-      tag: '50+ Negara',
-      badgeColor: '#6366f1',
-      description: 'Solusi internet luar negeri tanpa repot ganti kartu fisik atau sewa modem wifi. Scan QR eSIM dan langsung aktif saat mendarat.',
-      brands: [
-        { name: 'eSIM Asia & ASEAN', icon: '🌏', color: '#0284c7', sub: 'Singapore, Malaysia, Japan, Thailand' },
-        { name: 'eSIM Europe & UK', icon: '🌍', color: '#4f46e5', sub: 'Netherlands, Belgium, Germany, France' },
-        { name: 'eSIM Americas', icon: '🌎', color: '#059669', sub: 'USA, Canada, Mexico, Brazil' },
-        { name: 'eSIM Middle East', icon: '🕌', color: '#eab308', sub: 'Saudi Arabia (Umroh/Haji), UAE' }
-      ],
-      features: [
-        'Aktivasi cepat via QR Code dalam 5 menit',
-        'Jaringan 4G/5G provider lokal terbaik di setiap negara',
-        'Tersedia paket data unlimited dan kuota harian',
-        'Hemat hingga 70% dibanding roaming konvensional'
-      ]
-    },
-    {
-      id: 'postpaid',
-      name: 'Pascabayar & Pajak (PPOB)',
-      icon: '📄',
-      tag: 'Tagihan Rutin',
-      badgeColor: '#059669',
-      description: 'Layanan terlengkap untuk mengecek dan melunasi seluruh tagihan rutin bulanan rumah tangga dan instansi.',
-      brands: [
-        { name: 'PDAM Nusantara', icon: '💧', color: '#0284c7', sub: 'Seluruh PDAM Kota & Kab Indonesia' },
-        { name: 'BPJS Kesehatan', icon: '🛡️', color: '#10b981', sub: 'Keluarga & Ketenagakerjaan' },
-        { name: 'Telkom & IndiHome', icon: '☎️', color: '#e11d48', sub: 'Tagihan Telepon & Wi-Fi' },
-        { name: 'Gas Negara (PGN)', icon: '🔥', color: '#ea580c', sub: 'Pelanggan PGN / PGAS' },
-        { name: 'E-Samsat & PBB', icon: '🚗', color: '#6366f1', sub: 'Pajak Kendaraan & Bangunan' },
-        { name: 'Internet & TV Kabel', icon: '📺', color: '#8b5cf6', sub: 'MNC Vision, First Media, MyRepublic' }
-      ],
-      features: [
-        'Cek tagihan gratis sebelum pembayaran',
-        'Cetak struk nota resmi dalam format PDF & Bluetooth printer',
-        'Pengingat otomatis tanggal jatuh tempo',
-        'Bukti pelunasan terdaftar valid di database instansi terkait'
-      ]
+  const handleProductChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const val = e.target.value
+    setSimProduct(val)
+    if (val.includes('Pulsa Telkomsel 50.000')) {
+      setBasePrice(49650)
+      setSellPrice(52000)
+    } else if (val.includes('Token PLN 100.000')) {
+      setBasePrice(100200)
+      setSellPrice(103000)
+    } else if (val.includes('Topup DANA 50.000')) {
+      setBasePrice(50100)
+      setSellPrice(52000)
+    } else if (val.includes('Mobile Legends 86 Diamonds')) {
+      setBasePrice(19800)
+      setSellPrice(23000)
     }
-  ]
-
-  const currentCategory = categories.find(c => c.id === activeTab) || categories[0]
-
-  const corePillars = [
-    {
-      icon: '⚡',
-      title: 'Auto-Routing 1-5 Detik',
-      desc: 'Didukung server multi-cluster dengan failover otomatis ke jalur distributor alternatif jika jalur utama sibuk.'
-    },
-    {
-      icon: '🛡️',
-      title: 'Garansi 100% Saldo Aman',
-      desc: 'Dilengkapi sistem auto-rekonsiliasi. Jika provider gangguan, dana Anda otomatis dikembalikan seketika tanpa ribet.'
-    },
-    {
-      icon: '💰',
-      title: 'Bebas Biaya Admin',
-      desc: 'Gunakan Saldo Dompet Kancio untuk menikmati transaksi tanpa potongan admin tambahan pada produk pilihan.'
-    },
-    {
-      icon: '🖨️',
-      title: 'Cetak Struk & Nota Digital',
-      desc: 'Atur margin keuntungan sendiri dan cetak struk profesional langsung via printer thermal Bluetooth atau bagikan PDF WhatsApp.'
-    },
-    {
-      icon: '🔄',
-      title: 'QRIS & Multi Virtual Account',
-      desc: 'Top up saldo dan bayar instan melalui QRIS 24 Jam (GoPay/DANA/OVO/ShopeePay) dan Virtual Account BCA, Mandiri, BRI, BNI.'
-    },
-    {
-      icon: '🧑‍💻',
-      title: 'Layanan Bantuan Sigap',
-      desc: 'Tim Customer Care siap mendampingi kebutuhan transaksi Anda setiap hari melalui live chat dan WhatsApp resmi.'
-    }
-  ]
-
-  const faqs = [
-    {
-      q: 'Bagaimana cara mulai bertransaksi di Kancio PPOB / PulsaApp?',
-      a: 'Anda dapat langsung membuka web app di https://ppob.kancio.com/ atau mengunduh aplikasi PulsaApp di Play Store. Masukkan nomor tujuan atau ID pelanggan, pilih denom yang diinginkan, dan selesaikan pembayaran via QRIS, Virtual Account, atau Saldo Dompet.'
-    },
-    {
-      q: 'Berapa lama waktu yang dibutuhkan hingga pulsa atau kuota masuk?',
-      a: 'Dalam kondisi normal, transaksi diproses otomatis oleh mesin server hanya dalam 1 hingga 5 detik setelah pembayaran terverifikasi.'
-    },
-    {
-      q: 'Apakah saya bisa menggunakan PulsaApp untuk membuka usaha konter pulsa?',
-      a: 'Sangat bisa! Anda mendapatkan harga distributor langsung (harga agen termurah) dan bebas menentukan harga jual sendiri saat mencetak struk nota digital kepada pelanggan.'
-    },
-    {
-      q: 'Bagaimana jika terjadi kegagalan transaksi karena nomor salah atau provider gangguan?',
-      a: 'Sistem kami memiliki auto-refund. Jika transaksi ditolak provider, saldo atau dana Anda dijamin 100% aman dan langsung dikembalikan secara otomatis ke Saldo Dompet Kancio.'
-    },
-    {
-      q: 'Apakah bisa beli eSIM untuk kebutuhan perjalanan ke luar negeri?',
-      a: 'Ya, kami menyediakan paket eSIM untuk 50+ negara tujuan (Eropa, Asia, Amerika, Timur Tengah/Umroh). Anda hanya perlu memindai QR Code eSIM yang dikirimkan untuk langsung terkoneksi internet tanpa ganti kartu fisik.'
-    }
-  ]
-
-  // Simulator helper
-  const getSimPrice = () => {
-    let fee = 0
-    if (simPayment === 'qris') fee = 300
-    if (simPayment === 'va') fee = 1000
-    return simDenom + fee
   }
 
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!leadForm.name || !leadForm.phone) return
+
+    const waMsg = encodeURIComponent(
+      `Halo Tim PulsaApp Kancio,\n\nSaya ingin mendaftar kemitraan agen / integrasi PPOB:\n- Nama: ${leadForm.name}\n- Bisnis: ${leadForm.businessType}\n- Pilihan Paket: ${leadForm.planInterest}\n- No WhatsApp: ${leadForm.phone}\n- Catatan: ${leadForm.notes || 'Mohon info aktivasi saldo & harga modal.'}`
+    )
+    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    setLeadSubmitted(true)
+  }
+
+  useSEO({
+    title: 'PulsaApp SaaS - Distributor Agen Pulsa Murah 24 Jam & PPOB Terlengkap',
+    description:
+      'Platform distributor agen pulsa termurah dan server PPOB 24 jam nonstop: token PLN, paket data kuota, e-money, voucher game, dan eSIM global dengan kecepatan transaksi 1-5 detik.',
+    keywords:
+      'pulsa murah, agen pulsa murah, server pulsa termurah, token listrik 24 jam, aplikasi ppob terbaik, distributor pulsa h2h, pulsaapp, kancio ppob',
+    canonicalUrl: 'https://kancio.com/products/pulsaapp',
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'SoftwareApplication',
+          name: 'PulsaApp',
+          operatingSystem: 'Android, Web Browser, iOS',
+          applicationCategory: 'FinanceApplication',
+          url: 'https://ppob.kancio.com',
+          description: 'Aplikasi Agen Pulsa Termurah & Server PPOB Terlengkap 24 Jam',
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'IDR',
+            lowPrice: '0',
+            highPrice: '399000',
+            offerCount: '3',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Kancio Development',
+            url: 'https://kancio.com',
+          },
+        },
+      ],
+    },
+  })
+
   return (
-    <div className="product-page pulsaapp-page">
+    <div className={`product-page pulsa-page ${isDarkMode ? 'pulsa-theme-dark' : 'pulsa-theme-light'}`}>
       <Header />
 
-      {/* Hero Section */}
-      <section className="pulsaapp-hero">
-        <div className="pulsaapp-hero__bg" />
+      {/* ===== HERO SECTION ===== */}
+      <section className="pulsa-hero">
+        <div className="pulsa-bg-glow" />
+        <div className="pulsa-grid-pattern" />
+
         <div className="container">
-          <div className="pulsaapp-hero__content">
-            <div className="pulsaapp-hero__eyebrow">
-              <span className="pulsa-pill-badge">⚡ Kancio PPOB & PulsaApp</span>
-              <span className="pulsa-pill-tag">Platform Transaksi Digital 24 Jam</span>
+          <div className="pulsa-hero__content">
+            <div className="pulsa-eyebrow">
+              <span className="pulsa-badge-pulse">
+                <span className="pulse-cyan" /> 24/7 TRANSACTION ENGINE
+              </span>
+              <span className="pulsa-tag-pill">⚡ Server Pulsa &amp; PPOB Terlengkap</span>
+
+              {/* Adaptive Light/Dark Theme Switch */}
+              <button
+                className="theme-switch-btn"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                title={`Ganti ke ${isDarkMode ? 'Mode Terang' : 'Mode Gelap'}`}
+              >
+                {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}
+              </button>
             </div>
-            <h1 className="pulsaapp-hero__title">
-              Solusi Pulsa, Paket Data <br />
-              <span className="pulsa-gradient-text">& Tagihan PPOB Termurah</span>
+
+            <h1 className="pulsa-hero__title">
+              Pusat Pulsa Murah &amp; PPOB <br />
+              <span className="text-gradient-cyan">Kecepatan Transaksi 1-5 Detik</span>
             </h1>
-            <p className="pulsaapp-hero__desc">
-              Nikmati kemudahan isi pulsa semua operator, kuota internet murah, token listrik PLN 24 jam,
-              top up voucher game, eSIM roaming global, hingga pembayaran PDAM & BPJS dengan proses otomatis 1-5 detik.
+
+            <p className="pulsa-hero__desc">
+              Solusi bisnis pembayaran digital terlengkap untuk konter pulsa, warung, loket PPOB, hingga integrasi API H2H developer. Dapatkan harga modal distributor langsung dengan jaminan uptime 99.9%.
             </p>
 
-            {/* Quick Stats Grid */}
-            <div className="pulsa-hero-stats">
-              <div className="pulsa-stat-box">
-                <span className="pulsa-stat-icon">⚡</span>
-                <span className="pulsa-stat-num">1-5 Detik</span>
-                <span className="pulsa-stat-lbl">Proses Instan</span>
+            <div className="pulsa-hero__stats glass-card">
+              <div className="stat-item">
+                <span className="stat-icon">⚡</span>
+                <strong>1-5 Detik</strong>
+                <span>Auto Transaksi Kilat</span>
               </div>
-              <div className="pulsa-stat-box">
-                <span className="pulsa-stat-icon">🏷️</span>
-                <span className="pulsa-stat-num">Grosir</span>
-                <span className="pulsa-stat-lbl">Harga Agen</span>
+              <div className="stat-item">
+                <span className="stat-icon">📦</span>
+                <strong>1.000+</strong>
+                <span>Produk Digital Aktif</span>
               </div>
-              <div className="pulsa-stat-box">
-                <span className="pulsa-stat-icon">🌐</span>
-                <span className="pulsa-stat-num">50+ Negara</span>
-                <span className="pulsa-stat-lbl">eSIM Global</span>
+              <div className="stat-item">
+                <span className="stat-icon">💳</span>
+                <strong>Auto QRIS</strong>
+                <span>Deposit Instan 24 Jam</span>
               </div>
-              <div className="pulsa-stat-box">
-                <span className="pulsa-stat-icon">🛡️</span>
-                <span className="pulsa-stat-num">100% Aman</span>
-                <span className="pulsa-stat-lbl">Auto-Refund</span>
+              <div className="stat-item">
+                <span className="stat-icon">🖨️</span>
+                <strong>Struk Custom</strong>
+                <span>Support Bluetooth Print</span>
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="pulsa-hero-actions">
+            <div className="pulsa-hero__cta">
               <a
                 href="https://ppob.kancio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pulsa-web"
+                className="btn btn--primary pulsa-btn-primary"
               >
-                <span>Buka Web App PPOB</span>
-                <span>🚀</span>
+                🚀 Buka Web App PulsaApp <span className="btn__icon">→</span>
               </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-pulsa-primary"
-              >
-                <span>Download Play Store</span>
-                <span>📱</span>
+              <a href="#simulator" className="btn btn--secondary pulsa-btn-secondary">
+                💰 Simulasi Keuntungan Agen
               </a>
-              <a href="#katalog-produk" className="btn-pulsa-outline">
-                <span>Lihat Katalog</span>
-                <span>↓</span>
+              <a href="#pricing" className="btn btn--outline pulsa-btn-outline">
+                Paket Kemitraan
               </a>
             </div>
           </div>
 
-          {/* Hero Terminal Card */}
-          <div className="pulsa-hero-visual">
-            <div className="pulsa-terminal-card">
-              <div className="pulsa-terminal-header">
-                <div className="pulsa-brand-badge">
-                  <span className="live-dot" />
-                  <span>Kancio PPOB Terminal</span>
+          {/* Hero Visual Live Transaction Frame */}
+          <div className="pulsa-hero__visual">
+            <div className="pulsa-mockup-frame glass-card">
+              <div className="mockup-top-bar">
+                <div className="window-dots">
+                  <span className="w-dot dot-red" />
+                  <span className="w-dot dot-yellow" />
+                  <span className="w-dot dot-green" />
                 </div>
-                <span className="pulsa-server-status">Server Online 24/7</span>
+                <span className="mockup-title-text">PulsaApp Engine — Gateway Server 1</span>
+                <span className="live-status-tag">● 24 Jam Aktif</span>
               </div>
 
-              <div className="pulsa-terminal-grid">
-                <div className="pulsa-quick-item">
-                  <span className="pulsa-quick-icon">📱</span>
-                  <div>
-                    <span className="pulsa-quick-title">Pulsa & Data</span>
-                    <span className="pulsa-quick-sub">Semua Operator</span>
+              <div className="mockup-body-pulsa">
+                <div className="live-trx-stream-card">
+                  <div className="stream-header-pulsa">
+                    <span>🔴 Live Transaction Stream</span>
+                    <span className="speed-badge">⚡ Avg 1.8s</span>
                   </div>
-                </div>
-                <div className="pulsa-quick-item">
-                  <span className="pulsa-quick-icon">⚡</span>
-                  <div>
-                    <span className="pulsa-quick-title">Token PLN</span>
-                    <span className="pulsa-quick-sub">24 Jam Nonstop</span>
-                  </div>
-                </div>
-                <div className="pulsa-quick-item">
-                  <span className="pulsa-quick-icon">💳</span>
-                  <div>
-                    <span className="pulsa-quick-title">Dompet Digital</span>
-                    <span className="pulsa-quick-sub">DANA, GoPay, OVO</span>
-                  </div>
-                </div>
-                <div className="pulsa-quick-item">
-                  <span className="pulsa-quick-icon">🎮</span>
-                  <div>
-                    <span className="pulsa-quick-title">Top-Up Game</span>
-                    <span className="pulsa-quick-sub">MLBB, FF, PUBG</span>
-                  </div>
-                </div>
-              </div>
 
-              <div className="pulsa-terminal-balance">
-                <div>
-                  <div className="pulsa-bal-label">Metode Transaksi</div>
-                  <div className="pulsa-bal-amount">QRIS & Dompet Kancio</div>
+                  <div className="trx-stream-item">
+                    <span className="trx-prov-badge prov-tsel">TSEL</span>
+                    <div className="trx-stream-info">
+                      <strong>Pulsa Reguler 25.000</strong>
+                      <span>0812-4912-XXXX • Selesai 1.2s</span>
+                    </div>
+                    <span className="trx-status-ok">✓ Sukses</span>
+                  </div>
+
+                  <div className="trx-stream-item">
+                    <span className="trx-prov-badge prov-pln">PLN</span>
+                    <div className="trx-stream-info">
+                      <strong>Token Listrik Rp 100.000</strong>
+                      <span>IDPEL: 53120984XXXX • Token Generated</span>
+                    </div>
+                    <span className="trx-status-ok">✓ Sukses</span>
+                  </div>
+
+                  <div className="trx-stream-item">
+                    <span className="trx-prov-badge prov-dana">DANA</span>
+                    <div className="trx-stream-info">
+                      <strong>Top Up DANA Rp 50.000</strong>
+                      <span>0857-9021-XXXX • Auto Validated</span>
+                    </div>
+                    <span className="trx-status-ok">✓ Sukses</span>
+                  </div>
                 </div>
-                <span className="pulsa-bal-badge">Bebas Biaya Admin</span>
+
+                <div className="qris-instant-box">
+                  <div className="qris-icon">📱</div>
+                  <div className="qris-text">
+                    <strong>QRIS Dynamic &amp; VA Otomatis</strong>
+                    <span>Deposit saldo langsung masuk tanpa perlu konfirmasi manual admin.</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* ===== ADVERTISEMENT ===== */}
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
@@ -472,28 +431,152 @@ const PulsaAppPage: React.FC = () => {
         />
       </div>
 
-      {/* =========================================================
-          Interactive Product Catalog Explorer
-          ========================================================= */}
-      <section id="katalog-produk" ref={sectionRef} className="pulsa-catalog-section">
+      {/* ===== INTERACTIVE PROFIT MARGIN CALCULATOR SIMULATOR ===== */}
+      <section className="section pulsa-simulator-section" id="simulator">
         <div className="container">
           <div className="section-header">
-            <div className="pulsa-pill-badge" style={{ marginBottom: '12px' }}>Katalog Produk Lengkap</div>
+            <div className="pulsa-badge-pulse">Live Profit Simulator</div>
             <h2>
-              Semua Kebutuhan Digital <span className="pulsa-gradient-text">Dalam Satu Akses</span>
+              Hitung Potensi Keuntungan <br />
+              <span className="text-gradient-cyan">Bisnis Konter &amp; Agen PPOB Anda</span>
             </h2>
             <p>
-              Tersedia ribuan produk digital prabayar dan pascabayar terhubung langsung ke server distributor utama.
+              Sesuaikan harga jual dan estimasi volume transaksi harian untuk melihat proyeksi keuntungan bulanan Anda bersama PulsaApp.
             </p>
           </div>
 
-          {/* Catalog Tab Navigation */}
-          <div className="pulsa-catalog-nav">
+          <div className="simulator-box-pulsa glass-card">
+            <div className="sim-pulsa-grid">
+              {/* Left Column: Product Selection & Controls */}
+              <div className="sim-pulsa-controls">
+                <h3 className="sim-title">⚙️ Parameter Simulasi Margin</h3>
+
+                <div className="form-group">
+                  <label>Pilih Produk Contoh</label>
+                  <select value={simProduct} onChange={handleProductChange}>
+                    <option value="Pulsa Telkomsel 50.000">📱 Pulsa Telkomsel 50.000</option>
+                    <option value="Token PLN 100.000">⚡ Token PLN 100.000</option>
+                    <option value="Topup DANA 50.000">💳 Top Up DANA 50.000</option>
+                    <option value="Mobile Legends 86 Diamonds">🎮 Mobile Legends 86 Diamonds</option>
+                  </select>
+                </div>
+
+                <div className="price-inputs-row">
+                  <div className="form-group">
+                    <label>Harga Modal Distributor (Rp)</label>
+                    <input type="number" readOnly value={basePrice} className="readonly-input" />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Harga Jual ke Konsumen (Rp)</label>
+                    <input
+                      type="number"
+                      value={sellPrice}
+                      onChange={(e) => setSellPrice(Number(e.target.value))}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>
+                    Estimasi Transaksi Harian: <strong>{dailyTrx} Transaksi / Hari</strong>
+                  </label>
+                  <input
+                    type="range"
+                    min={5}
+                    max={150}
+                    step={5}
+                    value={dailyTrx}
+                    onChange={(e) => setDailyTrx(Number(e.target.value))}
+                    className="slider-input"
+                  />
+                  <div className="slider-labels">
+                    <span>5 Trx</span>
+                    <span>50 Trx</span>
+                    <span>100 Trx</span>
+                    <span>150 Trx</span>
+                  </div>
+                </div>
+
+                <button
+                  className="btn btn--primary pulsa-btn-primary btn-block"
+                  onClick={() => setSimCheckoutDone(!simCheckoutDone)}
+                >
+                  {simCheckoutDone ? '🔄 Reset Simulasi Transaksi' : '⚡ Uji Simulasi Transaksi 1-Detik'}
+                </button>
+
+                {simCheckoutDone && (
+                  <div className="mock-receipt-card animate-fade-in">
+                    <div className="receipt-header">
+                      <span>✓ Transaksi Sukses #TRX-88219</span>
+                      <span className="text-cyan">1.4 detik</span>
+                    </div>
+                    <div className="receipt-details">
+                      <span>Produk: <strong>{simProduct}</strong></span>
+                      <span>Harga Modal: Rp {basePrice.toLocaleString('id-ID')}</span>
+                      <span>Harga Jual: Rp {sellPrice.toLocaleString('id-ID')}</span>
+                      <span className="text-emerald">Laba Bersih Transaksi: <strong>+Rp {profitPerTrx.toLocaleString('id-ID')}</strong></span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column: Profit Overview Display */}
+              <div className="sim-pulsa-results">
+                <div className="profit-spotlight-card">
+                  <span className="profit-title">Proyeksi Keuntungan Bersih Bulanan</span>
+                  <div className="profit-big-number">
+                    Rp {monthlyEstimatedProfit.toLocaleString('id-ID')}
+                    <span className="per-month">/ bulan</span>
+                  </div>
+                  <p className="profit-note">
+                    Dihitung dari {dailyTrx} transaksi/hari x 30 hari dengan rata-rata laba Rp {profitPerTrx.toLocaleString('id-ID')} per transaksi.
+                  </p>
+                </div>
+
+                <div className="profit-breakdown-grid">
+                  <div className="break-card">
+                    <span className="b-lbl">Margin Keuntungan Per Transaksi</span>
+                    <strong className="text-emerald">Rp {profitPerTrx.toLocaleString('id-ID')}</strong>
+                  </div>
+                  <div className="break-card">
+                    <span className="b-lbl">Estimasi Transaksi Per Bulan</span>
+                    <strong className="text-cyan">{(dailyTrx * 30).toLocaleString('id-ID')} Trx</strong>
+                  </div>
+                  <div className="break-card">
+                    <span className="b-lbl">Potensi Tambahan Bonus Pasif</span>
+                    <strong className="text-amber">+ Rp {(dailyTrx * 30 * 50).toLocaleString('id-ID')}</strong>
+                  </div>
+                </div>
+
+                <div className="sim-callout-box">
+                  💡 <em>Semakin banyak variasi produk yang Anda jual (Token PLN, Pulsa, E-Money, Game), semakin tinggi perputaran laba harian Anda.</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PRODUCT CATEGORIES SHOWCASE ===== */}
+      <section className="section pulsa-categories-section" id="kategori">
+        <div className="container">
+          <div className="section-header">
+            <div className="pulsa-badge-pulse">1.000+ Produk Digital</div>
+            <h2>
+              Semua Kategori Produk,{' '}
+              <span className="text-gradient-cyan">Harga Grosir Paling Bersaing</span>
+            </h2>
+            <p>Pilih kategori produk digital untuk melihat daftar provider dan fitur unggulannya.</p>
+          </div>
+
+          {/* Category Tabs */}
+          <div className="pulsa-category-tabs">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                className={`pulsa-cat-btn ${activeTab === cat.id ? 'pulsa-cat-btn--active' : ''}`}
-                onClick={() => setActiveTab(cat.id)}
+                className={`cat-tab-btn ${activeCategory === cat.id ? 'cat-tab-btn--active' : ''}`}
+                onClick={() => setActiveCategory(cat.id)}
               >
                 <span>{cat.icon}</span>
                 <span>{cat.name}</span>
@@ -501,256 +584,132 @@ const PulsaAppPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Active Category Display */}
-          <div className="pulsa-catalog-card">
-            <div className="pulsa-catalog-header">
-              <div className="pulsa-catalog-info">
-                <h3>{currentCategory.icon} {currentCategory.name}</h3>
-                <p>{currentCategory.description}</p>
-              </div>
-              <span className="pulsa-catalog-badge">
-                {currentCategory.tag}
-              </span>
-            </div>
-
-            {/* Brands Grid */}
-            <div className="pulsa-brands-grid">
-              {currentCategory.brands.map((b, idx) => (
-                <div key={idx} className="pulsa-brand-card">
-                  <div className="pulsa-brand-icon" style={{ background: `${b.color}15`, color: b.color }}>
-                    {b.icon}
+          {/* Active Category Details */}
+          {categories
+            .filter((cat) => cat.id === activeCategory)
+            .map((cat) => (
+              <div key={cat.id} className="category-detail-card glass-card animate-fade-in">
+                <div className="cat-detail-header">
+                  <div className="cat-title-wrap">
+                    <span className="cat-big-icon">{cat.icon}</span>
+                    <div>
+                      <h3>{cat.name}</h3>
+                      <p>{cat.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="pulsa-brand-name">{b.name}</span>
-                    <span className="pulsa-brand-sub">{b.sub}</span>
-                  </div>
+                  <span className="cat-tag-badge">{cat.tag}</span>
                 </div>
-              ))}
-            </div>
 
-            {/* Feature Checkpoints */}
-            <div className="pulsa-features-list">
-              {currentCategory.features.map((feat, idx) => (
-                <div key={idx} className="pulsa-feat-item">
-                  <span className="pulsa-feat-check">✓</span>
-                  <span>{feat}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          Interactive Transaction Simulator Widget
-          ========================================================= */}
-      <section className="pulsa-simulator-section">
-        <div className="container">
-          <div className="section-header">
-            <div className="pulsa-pill-badge" style={{ marginBottom: '12px' }}>Simulasi Transaksi Real-Time</div>
-            <h2>
-              Uji Coba Kemudahan <span className="pulsa-gradient-text">Transaksi PulsaApp</span>
-            </h2>
-            <p>
-              Simulasikan proses pengisian pulsa atau produk digital dan lihat rincian struk transaksi yang siap dicetak.
-            </p>
-          </div>
-
-          <div className="pulsa-sim-container">
-            {/* Form Side */}
-            <div className="pulsa-sim-form-card">
-              <div className="pulsa-form-group">
-                <label className="pulsa-form-label">1. Pilih Jenis Layanan</label>
-                <div className="pulsa-denom-grid">
-                  <button
-                    className={`pulsa-denom-pill ${simCategory === 'pulsa' ? 'pulsa-denom-pill--active' : ''}`}
-                    onClick={() => { setSimCategory('pulsa'); setSimProvider('Telkomsel'); }}
-                  >
-                    📱 Pulsa / Data
-                  </button>
-                  <button
-                    className={`pulsa-denom-pill ${simCategory === 'pln' ? 'pulsa-denom-pill--active' : ''}`}
-                    onClick={() => { setSimCategory('pln'); setSimProvider('PLN Prabayar'); }}
-                  >
-                    ⚡ Token PLN
-                  </button>
-                  <button
-                    className={`pulsa-denom-pill ${simCategory === 'emoney' ? 'pulsa-denom-pill--active' : ''}`}
-                    onClick={() => { setSimCategory('emoney'); setSimProvider('DANA'); }}
-                  >
-                    💳 Dompet E-Money
-                  </button>
-                  <button
-                    className={`pulsa-denom-pill ${simCategory === 'game' ? 'pulsa-denom-pill--active' : ''}`}
-                    onClick={() => { setSimCategory('game'); setSimProvider('Mobile Legends'); }}
-                  >
-                    🎮 Top-Up Game
-                  </button>
-                </div>
-              </div>
-
-              <div className="pulsa-form-group">
-                <label className="pulsa-form-label">2. Nomor Tujuan / ID Pelanggan</label>
-                <input
-                  type="text"
-                  className="pulsa-form-input"
-                  value={simTarget}
-                  onChange={(e) => setSimTarget(e.target.value)}
-                  placeholder="Contoh: 081234567890 atau 14234567890"
-                />
-              </div>
-
-              <div className="pulsa-form-group">
-                <label className="pulsa-form-label">3. Pilih Denominasi / Nominal</label>
-                <div className="pulsa-denom-grid">
-                  {[10000, 25000, 50000, 100000, 200000].map((d) => (
-                    <button
-                      key={d}
-                      className={`pulsa-denom-pill ${simDenom === d ? 'pulsa-denom-pill--active' : ''}`}
-                      onClick={() => setSimDenom(d)}
-                    >
-                      Rp {d.toLocaleString('id-ID')}
-                    </button>
+                <div className="cat-brands-grid">
+                  {cat.brands.map((brand, idx) => (
+                    <div key={idx} className="brand-chip">
+                      <span className="brand-icon">{brand.icon}</span>
+                      <div className="brand-info">
+                        <strong>{brand.name}</strong>
+                        <span>{brand.sub}</span>
+                      </div>
+                    </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="pulsa-form-group">
-                <label className="pulsa-form-label">4. Metode Pembayaran</label>
-                <select
-                  className="pulsa-form-select"
-                  value={simPayment}
-                  onChange={(e) => setSimPayment(e.target.value as any)}
-                >
-                  <option value="wallet">Saldo Dompet Kancio (Bebas Biaya Admin)</option>
-                  <option value="qris">QRIS 24 Jam (GoPay, DANA, OVO, ShopeePay)</option>
-                  <option value="va">Virtual Account Bank (BCA, Mandiri, BRI, BNI)</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Simulated Receipt Preview */}
-            <div className="pulsa-receipt-card">
-              <div className="receipt-header">
-                <div className="receipt-title">STRUK TRANSAKSI DIGITAL</div>
-                <div className="receipt-sub">Kancio PPOB Indonesia — Transaksi ID #{Math.floor(100000 + Math.random() * 900000)}</div>
-              </div>
-
-              <div className="receipt-row">
-                <span>Layanan</span>
-                <strong>{simProvider} ({simCategory.toUpperCase()})</strong>
-              </div>
-              <div className="receipt-row">
-                <span>Tujuan</span>
-                <strong>{simTarget || '081234567890'}</strong>
-              </div>
-              <div className="receipt-row">
-                <span>Waktu Proses</span>
-                <span>{new Date().toLocaleDateString('id-ID')} {new Date().toLocaleTimeString('id-ID')}</span>
-              </div>
-              <div className="receipt-row">
-                <span>Nominal Produk</span>
-                <span>Rp {simDenom.toLocaleString('id-ID')}</span>
-              </div>
-              <div className="receipt-row">
-                <span>Biaya Admin</span>
-                <span>{simPayment === 'wallet' ? 'Rp 0 (GRATIS)' : (simPayment === 'qris' ? 'Rp 300' : 'Rp 1.000')}</span>
-              </div>
-              <div className="receipt-row receipt-row-total">
-                <span>Total Bayar</span>
-                <strong style={{ color: '#0284c7' }}>Rp {getSimPrice().toLocaleString('id-ID')}</strong>
-              </div>
-
-              <div style={{ textAlign: 'center' }}>
-                <span className="receipt-success-badge">
-                  <span>✓</span> Transaksi Terverifikasi Otomatis (1-5 Detik)
-                </span>
-              </div>
-
-              <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                <a
-                  href="https://ppob.kancio.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-pulsa-web"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                >
-                  Beli Sekarang di ppob.kancio.com →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          6 Core Pillars Section
-          ========================================================= */}
-      <section className="section" style={{ background: 'rgba(2, 132, 199, 0.03)' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="pulsa-pill-badge" style={{ marginBottom: '12px' }}>Keunggulan Utama</div>
-            <h2>
-              Mengapa Jutaan Transaksi <span className="pulsa-gradient-text">Memilih PulsaApp?</span>
-            </h2>
-            <p>
-              Infrastruktur teknologi handal yang dirancang untuk kecepatan, keamanan, dan kepuasan pelanggan.
-            </p>
-          </div>
-
-          <div className="features-grid">
-            {corePillars.map((p, idx) => (
-              <div key={idx} className="feature-card">
-                <div className="feature-icon">{p.icon}</div>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
+                <div className="cat-features-list">
+                  <span className="feat-title">Keunggulan Transaksi:</span>
+                  <div className="feat-chips-wrap">
+                    {cat.features.map((feat, idx) => (
+                      <span key={idx} className="feat-chip-item">
+                        ✓ {feat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
         </div>
       </section>
 
-      {/* Ad Placement */}
-      <div className="content-break-ad">
-        <GoogleAdSense
-          userConsent={userConsent}
-          adFormat="rectangle"
-          variant="premium"
-          adLabel="Sponsored"
-          showLoadingAnimation={true}
-          className="product-page-ad-footer"
-        />
-      </div>
-
-      {/* =========================================================
-          FAQ Section
-          ========================================================= */}
-      <section className="pulsa-faq-section">
+      {/* ===== SAAS & PARTNER PRICING TIERS ===== */}
+      <section className="section pulsa-pricing-section" id="pricing">
         <div className="container">
           <div className="section-header">
-            <div className="pulsa-pill-badge" style={{ marginBottom: '12px' }}>Tanya Jawab</div>
+            <div className="pulsa-badge-pulse">Paket Kemitraan &amp; SaaS</div>
             <h2>
-              Pertanyaan yang <span className="pulsa-gradient-text">Sering Diajukan</span>
+              Pilih Paket Sesuai <span className="text-gradient-cyan">Skala Bisnis Anda</span>
             </h2>
-            <p>
-              Segala hal yang perlu Anda ketahui mengenai transaksi di Kancio PPOB dan PulsaApp.
-            </p>
+            <p>Mulai gratis atau gunakan fitur Agen Pro dan REST API untuk ekspansi bisnis Anda.</p>
+
+            {/* Monthly / Annual Toggle */}
+            <div className="pricing-toggle-box glass-card">
+              <span className={`toggle-lbl ${!isAnnual ? 'toggle-lbl--active' : ''}`}>
+                Bulanan
+              </span>
+              <button
+                className={`switch-toggle ${isAnnual ? 'switch-toggle--annual' : ''}`}
+                onClick={() => setIsAnnual(!isAnnual)}
+                aria-label="Toggle Billing Frequency"
+              >
+                <span className="switch-thumb" />
+              </button>
+              <span className={`toggle-lbl ${isAnnual ? 'toggle-lbl--active' : ''}`}>
+                Tahunan <span className="savings-badge">Hemat 20%</span>
+              </span>
+            </div>
           </div>
 
-          <div className="pulsa-faq-accordion">
-            {faqs.map((f, idx) => {
-              const isOpen = openFaq === idx
+          <div className="pricing-cards-grid">
+            {partnerPlans.map((plan, i) => {
+              const currentPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice
               return (
-                <div key={idx} className={`pulsa-faq-item ${isOpen ? 'pulsa-faq-item--open' : ''}`}>
-                  <button
-                    className="pulsa-faq-question"
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  >
-                    <span>{f.q}</span>
-                    <span className="pulsa-faq-chevron">{isOpen ? '−' : '+'}</span>
-                  </button>
-                  <div className="pulsa-faq-answer">
-                    <p>{f.a}</p>
+                <div
+                  key={i}
+                  className={`pricing-box glass-card ${plan.popular ? 'pricing-box--popular' : ''}`}
+                >
+                  {plan.popular && <div className="popular-ribbon">{plan.badge}</div>}
+
+                  <div className="pricing-box__head">
+                    <h3 className="plan-title">{plan.name}</h3>
+                    <p className="plan-sub">{plan.tagline}</p>
+                  </div>
+
+                  <div className="pricing-box__price">
+                    <span className="cur">Rp</span>
+                    <strong className="amt">{currentPrice.toLocaleString('id-ID')}</strong>
+                    <span className="per">/ bulan</span>
+                  </div>
+
+                  {isAnnual && currentPrice > 0 && (
+                    <span className="annual-note">
+                      Ditagih tahunan (Rp {(currentPrice * 12).toLocaleString('id-ID')}/thn)
+                    </span>
+                  )}
+
+                  <div className="pricing-box__cta">
+                    <a
+                      href="#lead-form"
+                      onClick={() =>
+                        setLeadForm((prev) => ({ ...prev, planInterest: plan.name }))
+                      }
+                      className={`btn btn--large btn-block ${plan.popular ? 'pulsa-btn-primary' : 'pulsa-btn-secondary'}`}
+                    >
+                      {currentPrice === 0 ? 'Daftar Gratis Sekarang' : `Pilih ${plan.name}`}
+                    </a>
+                  </div>
+
+                  <div className="pricing-box__features">
+                    <span className="list-title">Fitur Termasuk:</span>
+                    <ul className="plan-feat-list">
+                      {plan.features.map((feat, idx) => (
+                        <li key={idx} className="feat-line feat-line--yes">
+                          <span className="icon-check">✓</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                      {plan.notIncluded.map((feat, idx) => (
+                        <li key={idx} className="feat-line feat-line--no">
+                          <span className="icon-cross">✕</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               )
@@ -759,41 +718,171 @@ const PulsaAppPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section">
+      {/* ===== LEAD CAPTURE & PARTNERSHIP FORM ===== */}
+      <section className="section pulsa-lead-section" id="lead-form">
         <div className="container">
-          <div className="apotek-cta-banner">
-            <div
-              className="apotek-cta-banner__bg"
-              style={{ background: 'linear-gradient(135deg, #0284c7 0%, #e6007e 100%)' }}
-            />
-            <div className="apotek-cta-banner__content">
-              <div className="badge badge--accent">Mulai Sekarang</div>
-              <h2>Mulai Bertransaksi Digital Lebih Murah</h2>
-              <p>
-                Akses web app Kancio PPOB langsung dari browser Anda atau pasang aplikasi PulsaApp di smartphone Anda.
-                Transaksi cepat, harga distributor langsung, dan garansi aman 100%.
-              </p>
-              <div className="apotek-cta-banner__actions">
-                <a
-                  href="https://ppob.kancio.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--primary btn--large"
-                  style={{ background: '#ffffff', color: '#0284c7' }}
-                >
-                  Buka Web App PPOB <span className="btn__icon">→</span>
-                </a>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.kancio.indonesia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--secondary btn--large"
-                >
-                  Download di Play Store
-                </a>
+          <div className="lead-card glass-card">
+            <div className="lead-grid">
+              <div className="lead-intro">
+                <div className="pulsa-badge-pulse">🤝 Kemitraan Resmi</div>
+                <h2>Daftar Jadi Agen &amp; Mitra PulsaApp</h2>
+                <p>
+                  Dapatkan bimbingan setup, aktivasi deposit kilat, dan harga modal terendah langsung dari distributor server 1 Kancio.
+                </p>
+
+                <div className="lead-benefits">
+                  <div className="benefit-row">
+                    <span className="b-icon">⚡</span>
+                    <div>
+                      <strong>Aktivasi Akun Instan</strong>
+                      <span>Langsung bisa transaksi dalam 5 menit setelah registrasi.</span>
+                    </div>
+                  </div>
+                  <div className="benefit-row">
+                    <span className="b-icon">💰</span>
+                    <div>
+                      <strong>Bebas Biaya Pendaftaran</strong>
+                      <span>Tidak ada biaya keanggotaan tersembunyi untuk paket Basic.</span>
+                    </div>
+                  </div>
+                  <div className="benefit-row">
+                    <span className="b-icon">💬</span>
+                    <div>
+                      <strong>Customer Support WhatsApp 24 Jam</strong>
+                      <span>Bantuan kendala transaksi &amp; deposit dipandu ramah.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lead-form-wrap">
+                {leadSubmitted ? (
+                  <div className="lead-success-card animate-fade-in">
+                    <div className="success-emoji">🎉</div>
+                    <h3>Pendaftaran Diterima!</h3>
+                    <p>
+                      Terima kasih! Kami telah mengarahkan Anda ke WhatsApp Customer Support PulsaApp. Tim kami siap mengaktifkan akun dan memandu pengisian saldo awal Anda.
+                    </p>
+                    <button
+                      className="btn btn--secondary pulsa-btn-secondary"
+                      onClick={() => setLeadSubmitted(false)}
+                    >
+                      Kirim Data Lain
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleLeadSubmit} className="lead-form-inner">
+                    <h3 className="form-head">Formulir Kemitraan Agen</h3>
+
+                    <div className="form-group">
+                      <label>Nama Lengkap</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Contoh: Hendra Wijaya"
+                        value={leadForm.name}
+                        onChange={(e) => setLeadForm({ ...leadForm, name: e.target.value })}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label>Nomor WhatsApp Aktif</label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Contoh: 0812-3456-7890"
+                        value={leadForm.phone}
+                        onChange={(e) => setLeadForm({ ...leadForm, phone: e.target.value })}
+                      />
+                    </div>
+
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label>Tipe Usaha</label>
+                        <select
+                          value={leadForm.businessType}
+                          onChange={(e) =>
+                            setLeadForm({ ...leadForm, businessType: e.target.value })
+                          }
+                        >
+                          <option value="Konter Pulsa / Toko HP">Konter Pulsa / Toko HP</option>
+                          <option value="Warung / Toko Kelontong">Warung / Toko Kelontong</option>
+                          <option value="Loket PPOB / Agen Tagihan">Loket PPOB / Tagihan</option>
+                          <option value="Pengguna Pribadi">Pengguna Pribadi</option>
+                          <option value="Developer / Platform H2H">Developer / Platform H2H</option>
+                        </select>
+                      </div>
+
+                      <div className="form-group">
+                        <label>Pilihan Paket</label>
+                        <select
+                          value={leadForm.planInterest}
+                          onChange={(e) =>
+                            setLeadForm({ ...leadForm, planInterest: e.target.value })
+                          }
+                        >
+                          <option value="Mitra Basic">Mitra Basic (Gratis)</option>
+                          <option value="Agen Pro & Konter">Agen Pro (Rp 79rb/bln)</option>
+                          <option value="H2H Enterprise API">H2H Enterprise API (Rp 399rb/bln)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label>Catatan Tambahan (Opsional)</label>
+                      <textarea
+                        rows={2}
+                        placeholder="Contoh: Ingin integrasi API H2H untuk website saya..."
+                        value={leadForm.notes}
+                        onChange={(e) => setLeadForm({ ...leadForm, notes: e.target.value })}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="btn btn--primary pulsa-btn-primary btn-block"
+                    >
+                      ⚡ Hubungkan ke WhatsApp &amp; Mulai Jualan
+                    </button>
+                    <span className="privacy-text">🔒 Data Anda aman dan terenkripsi.</span>
+                  </form>
+                )}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FAQ SECTION ===== */}
+      <section className="section pulsa-faq-section">
+        <div className="container">
+          <div className="section-header">
+            <div className="pulsa-badge-pulse">Tanya Jawab</div>
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+            <p>Pelajari lebih lanjut tentang kecepatan, deposit, dan transaksi di PulsaApp.</p>
+          </div>
+
+          <div className="faq-accordion-box">
+            {faqs.map((faq, i) => {
+              const isOpen = openFaqIndex === i
+              return (
+                <div
+                  key={i}
+                  className={`faq-item-card glass-card ${isOpen ? 'faq-item-card--open' : ''}`}
+                >
+                  <button
+                    className="faq-q-btn"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                  >
+                    <span>{faq.question}</span>
+                    <span className="chevron-icon">{isOpen ? '−' : '+'}</span>
+                  </button>
+                  <div className="faq-a-content">
+                    <p>{faq.answer}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

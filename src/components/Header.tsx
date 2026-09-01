@@ -11,10 +11,8 @@ interface DropdownItem {
 }
 
 const products: DropdownItem[] = [
-  { label: 'PulsaApp', path: '/products/pulsaapp', icon: '📱', description: 'Digital payment & top-up' },
-  { label: 'QuranMind', path: '/products/quranmind', icon: '📖', description: 'AI-powered Quran learning' },
-  { label: 'ApotekApp', path: '/products/apotekapp', icon: '💊', description: 'Pharmacy management system' },
-  { label: 'Catet Uang', path: '/products/catetUang', icon: '💰', description: 'Personal finance manager' },
+  { label: 'PulsaApp', path: '/products/pulsaapp', icon: '📱', description: 'Digital payment & top-up 24 jam' },
+  { label: 'ApotekApp', path: '/products/apotekapp', icon: '💊', description: 'Pharmacy ERP & POS FEFO' },
 ]
 
 const services: DropdownItem[] = [
@@ -165,6 +163,18 @@ const Header: React.FC = () => {
                         </span>
                       </Link>
                     ))}
+                    <Link
+                      to="/services"
+                      className="dropdown__item dropdown__item--all"
+                      onClick={handleLinkClick}
+                      style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '6px', paddingTop: '8px' }}
+                    >
+                      <span className="dropdown__item-icon">✨</span>
+                      <span className="dropdown__item-content">
+                        <span className="dropdown__item-label" style={{ color: '#38bdf8' }}>Semua Layanan (What We Offer)</span>
+                        <span className="dropdown__item-desc">Estimator proyek &amp; alur pengerjaan</span>
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </li>

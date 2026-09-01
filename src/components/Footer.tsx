@@ -6,13 +6,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
 
   const products = [
-    { name: 'PulsaApp', description: 'Digital Payment Solution', icon: '📱', link: '/products/pulsaapp', category: 'FinTech' },
-    { name: 'QuranMind', description: 'AI-Powered Quran Learning', icon: '📖', link: '/products/quranmind', category: 'Education' },
-    { name: 'ApotekApp', description: 'Pharmacy Management', icon: '💊', link: '/products/apotekapp', category: 'Healthcare' },
-    { name: 'Catet Uang', description: 'Personal Finance Manager', icon: '💰', link: '/products/catetUang', category: 'Finance' },
+    { name: 'PulsaApp', description: 'Digital Payment & PPOB 24 Jam', icon: '📱', link: '/products/pulsaapp', category: 'FinTech' },
+    { name: 'ApotekApp', description: 'Pharmacy ERP & POS FEFO', icon: '💊', link: '/products/apotekapp', category: 'Healthcare' },
   ]
 
   const servicesList = [
+    { name: 'What We Offer (Overview)', path: '/services', icon: '✨' },
     { name: 'Custom Solution', path: '/services/custom-solution', icon: '🚀' },
     { name: 'AI Integration', path: '/services/ai-integration', icon: '🤖' },
     { name: 'Digital Consulting', path: '/services/consulting', icon: '💡' },

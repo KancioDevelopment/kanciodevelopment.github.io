@@ -27,6 +27,7 @@ import CustomAppsPage from './pages/CustomAppsPage'
 import AIIntegrationPage from './pages/AIIntegrationPage'
 
 // Service Pages
+import ServicesPage from './pages/ServicesPage'
 import CustomSolutionPage from './pages/services/CustomSolutionPage'
 import AIServicePage from './pages/services/AIServicePage'
 import ConsultingPage from './pages/services/ConsultingPage'
@@ -157,6 +158,7 @@ function App() {
             <Route path="/products/ai-integration" element={<AIIntegrationPage />} />
 
             {/* Service Pages */}
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/custom-solution" element={<CustomSolutionPage />} />
             <Route path="/services/ai-integration" element={<AIServicePage />} />
             <Route path="/services/consulting" element={<ConsultingPage />} />
