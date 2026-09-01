@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+
 import GoogleAdSense from '../../components/GoogleAdSense'
 import { useAds } from '../../hooks/useAds'
 import { useSEO } from '../../hooks/useSEO'
@@ -70,7 +69,6 @@ const CustomSolutionPage: React.FC = () => {
   const [booking, setBooking] = useState({
     name: '',
     company: '',
-    phone: '',
     preferredDate: '',
     preferredTime: '10:00 WIB',
     topic: 'Konsultasi Arsitektur Web & Mobile App',
@@ -79,12 +77,12 @@ const CustomSolutionPage: React.FC = () => {
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!booking.name || !booking.phone) return
+    if (!booking.name) return
 
     const waMsg = encodeURIComponent(
-      `Halo Tim Kancio Development,\n\nSaya ingin menjadwalkan 30-Minute Discovery Call:\n- Nama: ${booking.name}\n- Perusahaan: ${booking.company || '-'}\n- No WhatsApp: ${booking.phone}\n- Tanggal Pilihan: ${booking.preferredDate || 'Segera (Fleksibel)'}\n- Waktu: ${booking.preferredTime}\n- Topik: ${booking.topic}\n- Stack Konfigurasi: ${stackOptions.frontend[selectedFe].name} + ${stackOptions.backend[selectedBe].name} + ${stackOptions.database[selectedDb].name}`
+      `Halo Tim Kancio Development,\n\nSaya ingin menjadwalkan 30-Minute Discovery Call:\n- Nama: ${booking.name}\n- Perusahaan: ${booking.company || '-'}\n- Tanggal Pilihan: ${booking.preferredDate || 'Segera (Fleksibel)'}\n- Waktu: ${booking.preferredTime}\n- Topik: ${booking.topic}\n- Stack Konfigurasi: ${stackOptions.frontend[selectedFe].name} + ${stackOptions.backend[selectedBe].name} + ${stackOptions.database[selectedDb].name}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setBookingSent(true)
   }
 
@@ -99,8 +97,6 @@ const CustomSolutionPage: React.FC = () => {
 
   return (
     <div className="product-page services-page cyber-services-theme">
-      <Header />
-
       {/* ===== HERO ===== */}
       <section className="services-hero">
         <div className="services-hero__bg" />
@@ -335,27 +331,14 @@ const CustomSolutionPage: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label>Perusahaan / Startup</label>
-                        <input
-                          type="text"
-                          placeholder="Contoh: PT Surya Niaga"
-                          value={booking.company}
-                          onChange={(e) => setBooking({ ...booking, company: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="form-group">
-                        <label>Nomor WhatsApp</label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="Contoh: 0812-3456-7890"
-                          value={booking.phone}
-                          onChange={(e) => setBooking({ ...booking, phone: e.target.value })}
-                        />
-                      </div>
+                    <div className="form-group">
+                      <label>Perusahaan / Startup</label>
+                      <input
+                        type="text"
+                        placeholder="Contoh: PT Surya Niaga"
+                        value={booking.company}
+                        onChange={(e) => setBooking({ ...booking, company: e.target.value })}
+                      />
                     </div>
 
                     <div className="form-row">
@@ -397,7 +380,6 @@ const CustomSolutionPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

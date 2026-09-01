@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -199,8 +198,6 @@ const CustomAppsPage: React.FC = () => {
 
   return (
     <div className="product-page">
-      <Header />
-
       {/* Hero Section */}
       <section className="product-hero custom-apps-hero">
         <div className="container">
@@ -441,7 +438,6 @@ const CustomAppsPage: React.FC = () => {
         <div style={{ position: 'absolute', bottom: '-100px', right: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(0,0,0,0.1)', filter: 'blur(70px)' }}></div>
       </section>
 
-      <Footer />
     </div>
   )
 }

@@ -58,7 +58,6 @@ const ProductsSection: React.FC = () => {
   // Lead Form
   const [globalLead, setGlobalLead] = useState({
     name: '',
-    phone: '',
     businessType: 'Apotek & Faskes',
     interestedProduct: 'ApotekApp ERP',
     notes: '',
@@ -83,12 +82,12 @@ const ProductsSection: React.FC = () => {
 
   const handleGlobalLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!globalLead.name || !globalLead.phone) return
+    if (!globalLead.name) return
 
     const waMsg = encodeURIComponent(
-      `Halo Tim Kancio Development,\n\nSaya ingin konsultasi kebutuhan produk digital untuk bisnis saya:\n- Nama: ${globalLead.name}\n- Tipe Bisnis: ${globalLead.businessType}\n- Produk Diminati: ${globalLead.interestedProduct}\n- No WhatsApp: ${globalLead.phone}\n- Catatan: ${globalLead.notes || 'Mohon info setup & penawaran paket.'}`
+      `Halo Tim Kancio Development,\n\nSaya ingin konsultasi kebutuhan produk digital untuk bisnis saya:\n- Nama: ${globalLead.name}\n- Tipe Bisnis: ${globalLead.businessType}\n- Produk Diminati: ${globalLead.interestedProduct}\n- Catatan: ${globalLead.notes || 'Mohon info setup & penawaran paket.'}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setLeadSent(true)
   }
 
@@ -232,17 +231,6 @@ const ProductsSection: React.FC = () => {
                       placeholder="Contoh: Rian Pratama"
                       value={globalLead.name}
                       onChange={(e) => setGlobalLead({ ...globalLead, name: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Nomor WhatsApp</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="Contoh: 0812-3456-7890"
-                      value={globalLead.phone}
-                      onChange={(e) => setGlobalLead({ ...globalLead, phone: e.target.value })}
                     />
                   </div>
 

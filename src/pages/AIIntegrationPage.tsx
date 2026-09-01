@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -158,8 +157,6 @@ const AIIntegrationPage: React.FC = () => {
 
   return (
     <div className="product-page">
-      <Header />
-      
       {/* Hero Section */}
       <section className="product-hero ai-hero">
         <div className="container">
@@ -379,7 +376,6 @@ const AIIntegrationPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

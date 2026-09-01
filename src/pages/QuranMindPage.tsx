@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -152,8 +151,6 @@ const QuranMindPage: React.FC = () => {
 
   return (
     <div className={`product-page apotek-page quranmind-page ${scrolled ? 'page--scrolled' : ''}`}>
-      <Header />
-
       {/* ===== HERO SECTION ===== */}
       <section className="apotek-hero quranmind-hero">
         {/* Decorative background elements */}
@@ -437,9 +434,6 @@ const QuranMindPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
-
 
     </div>
   )

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -191,7 +190,7 @@ const publicStores = [
     name: 'Apotek Mitra Syifa',
     city: 'Kab. Blitar, Jawa Timur',
     address: 'Jl. Mastrip, RT.02/RW.01, Togogan, Kec. Srengat',
-    phone: '0856-4200-7123',
+    phone: '0823-2560-0996',
     hours: '07:30 - 21:00 WIB (Buka Setiap Hari)',
     supportsBpjs: true,
   },
@@ -212,35 +211,7 @@ const stats = [
   { number: '0 Antrean', label: 'Click & Collect Ready', icon: '🏪' },
 ]
 
-const testimonials = [
-  {
-    name: 'Apotek Mitra Syifa',
-    city: 'Srengat, Blitar',
-    avatar: '🏥',
-    rating: 5,
-    quote:
-      'HPP Intelligence benar-benar menyelamatkan kami dari kenaikan harga sepihak distributor. Dalam 1 bulan pertama, kami langsung terhindar dari kerugian jutaan rupiah. Klaim BPJS PRB juga 100% cocok tanpa selisih!',
-    highlight: 'Klaim BPJS 100% Cocok & HPP Terproteksi',
-  },
-  {
-    name: 'Apotek E 32',
-    city: 'Garum, Blitar',
-    avatar: '💊',
-    rating: 5,
-    quote:
-      'Alokasi stok FEFO otomatis memangkas risiko obat expired hingga 0%. Pasien kami sangat terbantu dengan fitur Click & Collect online, datang tinggal ambil tanpa perlu antre di kasir!',
-    highlight: 'Zero Obat Expired & Pasien Puas',
-  },
-  {
-    name: 'Apotek Medika Sejahtera',
-    city: 'Kediri, Jawa Timur',
-    avatar: '🔬',
-    rating: 5,
-    quote:
-      'Sistem defecta otomatis yang langsung memisahkan Surat Pesanan reguler, prekursor, dan OOT sangat mempercepat kerja bagian pengadaan ke PBF resmi. Super praktis!',
-    highlight: 'Pengadaan PBF 5x Lebih Cepat',
-  },
-]
+
 
 const whyChoose = [
   {
@@ -389,66 +360,7 @@ const roles = [
   },
 ]
 
-const pricingPlans = [
-  {
-    name: 'Starter Mitra',
-    tagline: 'Untuk 1 Apotek Mandiri atau Klinik Pratama baru',
-    monthlyPrice: 249000,
-    annualPrice: 199000,
-    badge: 'Mulai Cepat',
-    popular: false,
-    gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-    features: [
-      '1 Outlet Apotek & 2 Akun Kasir POS',
-      'Manajemen Stok FEFO/FIFO Otomatis',
-      'Katalog Obat Publik & Click & Collect',
-      'Defecta & Cetak Surat Pesanan (SP)',
-      'Laporan Penjualan & Stok Harian',
-      'Panduan Setup & Support WhatsApp',
-    ],
-    notIncluded: ['BPJS PRB & Kapitasi Faskes', 'AI HPP Anomaly Detection', 'Multi-Cabang & Gudang Terpusat'],
-  },
-  {
-    name: 'Pro Pharmacy',
-    tagline: 'Paling diminati untuk apotek aktif, faskes mitra & BPJS',
-    monthlyPrice: 499000,
-    annualPrice: 399000,
-    badge: '⭐ Paling Populer',
-    popular: true,
-    gradient: 'linear-gradient(135deg, #6366f1, #ec4899)',
-    features: [
-      'Semua fitur Starter Mitra',
-      'Unlimited Akun Kasir POS & Apoteker',
-      'AI HPP Intelligence & Anti-Markup Anomaly',
-      'Modul BPJS Kapitasi FKTP & BPJS PRB Kronis',
-      'Terminal Resep Racikan, Embalase & Komisi Dokter',
-      'Presensi Geofencing GPS & Payroll Otomatis',
-      'Analitik Pareto ABC & Notifikasi Piutang Tempo',
-      'Priority Customer Support 24/7',
-    ],
-    notIncluded: ['Multi-Cabang & Gudang Terpusat'],
-  },
-  {
-    name: 'Enterprise Multi-Outlet',
-    tagline: 'Untuk jaringan apotek berantai (Chain Pharmacy) & distributor',
-    monthlyPrice: 999000,
-    annualPrice: 799000,
-    badge: 'Solusi Jaringan',
-    popular: false,
-    gradient: 'linear-gradient(135deg, #10b981, #06b6d4)',
-    features: [
-      'Semua fitur Pro Pharmacy',
-      'Hingga 5 Cabang Terintegrasi (Bisa Tambah)',
-      'Gudang Utama Terpusat (Central Warehouse)',
-      'Transfer Stok Antar-Cabang (Inter-Branch)',
-      'Laporan Konsolidasi Finansial Laba Rugi Multi-Outlet',
-      'Custom Domain / Subdomain Apotek Sendiri',
-      'Dedicated Account Manager & On-Site Training',
-      'Service Level Agreement (SLA) 99.9%',
-    ],
-    notIncluded: [],
-  },
-]
+
 
 const faqs = [
   {
@@ -491,6 +403,18 @@ const ApotekAppPage: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
   const [isAnnual, setIsAnnual] = useState(true)
 
+  // Dark / Light Theme Toggle State
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const saved = localStorage.getItem('apotek_theme')
+    return saved ? saved === 'dark' : true
+  })
+
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode
+    setIsDarkMode(newTheme)
+    localStorage.setItem('apotek_theme', newTheme ? 'dark' : 'light')
+  }
+
   // Interactive Live Demo Simulator State
   const [demoTab, setDemoTab] = useState<'pos' | 'hpp' | 'bpjs' | 'omnichannel'>('pos')
   const [simulatedScan, setSimulatedScan] = useState(false)
@@ -501,10 +425,9 @@ const ApotekAppPage: React.FC = () => {
   // Contact / Lead Form State
   const [formState, setFormState] = useState({
     name: '',
-    phone: '',
     pharmacyName: '',
     branchCount: '1 Cabang',
-    planInterest: 'Pro Pharmacy',
+    interestFocus: 'Full ERP & Kasir POS FEFO',
     message: '',
   })
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -537,13 +460,12 @@ const ApotekAppPage: React.FC = () => {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formState.name || !formState.phone || !formState.pharmacyName) return
+    if (!formState.name || !formState.pharmacyName) return
 
-    // Open WhatsApp with pre-filled message
-    const waText = encodeURIComponent(
-      `Halo Tim ApotekApp SaaS,\n\nSaya ingin konsultasi & demo gratis untuk sistem apotek kami:\n- Nama: ${formState.name}\n- Apotek: ${formState.pharmacyName} (${formState.branchCount})\n- Paket Pilihan: ${formState.planInterest}\n- No. Kontak: ${formState.phone}\n- Catatan: ${formState.message || 'Mohon info setup & live demo.'}`
+    const waMsg = encodeURIComponent(
+      `Halo Tim ApotekApp Kancio,\n\nSaya ingin konsultasi & demo ApotekApp ERP untuk apotek saya:\n- Nama: ${formState.name}\n- Apotek / Klinik: ${formState.pharmacyName}\n- Jumlah Cabang: ${formState.branchCount}\n- Kebutuhan Utama: ${formState.interestFocus}\n- Catatan: ${formState.message || 'Mohon info jadwal demo & setup awal.'}\n\nMohon pendampingan migrasi data dan demo sistem.`
     )
-    window.open(`https://wa.me/6285642007123?text=${waText}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setFormSubmitted(true)
   }
 
@@ -594,8 +516,17 @@ const ApotekAppPage: React.FC = () => {
   })
 
   return (
-    <div className="product-page apotek-page cyber-saas-theme">
-      <Header />
+    <div className={`product-page apotek-page cyber-saas-theme ${isDarkMode ? 'apotek-theme-dark' : 'apotek-theme-light'}`}>
+      {/* Floating / Sticky Theme Switcher */}
+      <div className="apotek-theme-toggle-bar">
+        <button
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          aria-label={isDarkMode ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap'}
+        >
+          {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}
+        </button>
+      </div>
 
       {/* ===== HERO SECTION ===== */}
       <section className="apotek-hero cyber-hero">
@@ -639,11 +570,8 @@ const ApotekAppPage: React.FC = () => {
               >
                 🚀 Buka Web App ApotekApp <span className="btn__icon">→</span>
               </a>
-              <a href="#pricing" className="btn btn--secondary btn--large cyber-btn-secondary">
-                Lihat Paket Harga
-              </a>
-              <a href="#lead-form" className="btn btn--outline btn--large cyber-btn-glow">
-                Konsultasi &amp; Demo Gratis
+              <a href="#lead-form" className="btn btn--secondary btn--large cyber-btn-secondary">
+                💬 Konsultasi &amp; Demo Gratis
               </a>
             </div>
 
@@ -992,9 +920,9 @@ const ApotekAppPage: React.FC = () => {
                 key={i}
                 className={`apotek-module-tab ${activeModule === i ? 'apotek-module-tab--active' : ''}`}
                 onClick={() => setActiveModule(i)}
-                style={activeModule === i ? { background: modules[i].gradient } : {}}
+                aria-label={`Buka modul ${m.title}`}
               >
-                <span>{m.icon}</span>
+                <span className="tab-icon">{m.icon}</span>
                 <span className="apotek-module-tab__name">{m.title.split(' ')[0]}</span>
               </button>
             ))}
@@ -1102,107 +1030,7 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== SAAS PRICING TIERS SECTION ===== */}
-      <section className="section cyber-pricing-section" id="pricing">
-        <div className="container">
-          <div className="section-header">
-            <div className="cyber-pulse-badge">Paket Harga Transparan</div>
-            <h2>
-              Investasi Terjangkau,{' '}
-              <span className="text-gradient cyber-gradient-text">Hasil Maksimal Tanpa Biaya Tersembunyi</span>
-            </h2>
-            <p>
-              Pilih paket yang sesuai dengan skala apotek Anda. Tidak perlu instalasi server mahal — semua berjalan instan di cloud.
-            </p>
 
-            {/* Billing Toggle (Monthly / Annual) */}
-            <div className="billing-toggle-wrapper">
-              <span className={`billing-label ${!isAnnual ? 'billing-label--active' : ''}`}>
-                Bulanan
-              </span>
-              <button
-                className={`billing-switch ${isAnnual ? 'billing-switch--annual' : ''}`}
-                onClick={() => setIsAnnual(!isAnnual)}
-                aria-label="Toggle Billing Frequency"
-              >
-                <span className="switch-thumb" />
-              </button>
-              <span className={`billing-label ${isAnnual ? 'billing-label--active' : ''}`}>
-                Tahunan <span className="discount-badge">Hemat 20% + Gratis Setup</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Pricing Grid */}
-          <div className="pricing-cards-grid">
-            {pricingPlans.map((plan, i) => {
-              const currentPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice
-              return (
-                <div
-                  key={i}
-                  className={`pricing-card glass-panel ${plan.popular ? 'pricing-card--popular' : ''}`}
-                >
-                  {plan.popular && <div className="popular-badge-ribbon">{plan.badge}</div>}
-
-                  <div className="pricing-card__header">
-                    <h3 className="plan-name">{plan.name}</h3>
-                    <p className="plan-tagline">{plan.tagline}</p>
-                  </div>
-
-                  <div className="pricing-card__price-box">
-                    <span className="currency">Rp</span>
-                    <strong className="amount">{currentPrice.toLocaleString('id-ID')}</strong>
-                    <span className="period">/ bulan</span>
-                  </div>
-                  {isAnnual && (
-                    <div className="annual-billed-note">
-                      Ditagih tahunan (Rp {(currentPrice * 12).toLocaleString('id-ID')}/tahun)
-                    </div>
-                  )}
-
-                  <div className="pricing-card__cta">
-                    <a
-                      href="#lead-form"
-                      onClick={() =>
-                        setFormState((prev) => ({ ...prev, planInterest: plan.name }))
-                      }
-                      className={`btn btn--large btn-block ${plan.popular ? 'cyber-btn-primary' : 'cyber-btn-secondary'}`}
-                    >
-                      Pilih Paket {plan.name}
-                    </a>
-                  </div>
-
-                  <div className="pricing-card__features">
-                    <div className="features-title">Fitur Termasuk:</div>
-                    <ul className="features-list">
-                      {plan.features.map((feat, idx) => (
-                        <li key={idx} className="feat-item feat-item--included">
-                          <span className="feat-check">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                      {plan.notIncluded.map((feat, idx) => (
-                        <li key={idx} className="feat-item feat-item--excluded">
-                          <span className="feat-cross">✕</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          <div className="pricing-guarantee-banner glass-panel">
-            <div className="guarantee-icon">🛡️</div>
-            <div className="guarantee-text">
-              <strong>Garansi Onboarding &amp; Bantuan Migrasi Data Stok 100%</strong>
-              <p>Tim support kami akan membantu proses upload database obat, setup batch awal, dan pelatihan staf kasir Anda sampai lancar digunakan.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ===== WHY CHOOSE & ADVANTAGES ===== */}
       <section className="section cyber-why-section" style={{ background: 'rgba(99,102,241,0.02)' }}>
@@ -1398,36 +1226,7 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS & SOCIAL PROOF ===== */}
-      <section className="section cyber-testimonials-section">
-        <div className="container">
-          <div className="section-header">
-            <div className="badge cyber-badge">Testimoni Apotek Mitra</div>
-            <h2>
-              Dipercaya Apotek &amp; Faskes <span className="text-gradient cyber-gradient-text">Terkemuka</span>
-            </h2>
-            <p>Dengarkan langsung cerita bagaimana ApotekApp menyelamatkan margin dan mempercepat layanan resep.</p>
-          </div>
-          <div className="apotek-testimonials">
-            {testimonials.map((t, i) => (
-              <div key={i} className="apotek-testimonial card glass-panel">
-                <div className="testimonial-rating">
-                  {'★'.repeat(t.rating)}
-                  <span className="rating-tag">{t.highlight}</span>
-                </div>
-                <div className="apotek-testimonial__quote">"{t.quote}"</div>
-                <div className="apotek-testimonial__author">
-                  <div className="apotek-testimonial__avatar">{t.avatar}</div>
-                  <div>
-                    <strong>{t.name}</strong>
-                    <span>{t.city}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ===== INTERACTIVE LEAD CAPTURE / DEMO FORM ===== */}
       <section className="section cyber-lead-section" id="lead-form">
@@ -1497,18 +1296,6 @@ const ApotekAppPage: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-group">
-                      <label htmlFor="phone">Nomor WhatsApp Aktif</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        required
-                        placeholder="Contoh: 0812-3456-7890"
-                        value={formState.phone}
-                        onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      />
-                    </div>
-
                     <div className="form-row">
                       <div className="form-group">
                         <label htmlFor="pharmacyName">Nama Apotek / Klinik</label>
@@ -1541,18 +1328,19 @@ const ApotekAppPage: React.FC = () => {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="planInterest">Pilihan Paket Tertarik</label>
+                      <label htmlFor="interestFocus">Kebutuhan Utama</label>
                       <select
-                        id="planInterest"
-                        value={formState.planInterest}
+                        id="interestFocus"
+                        value={formState.interestFocus}
                         onChange={(e) =>
-                          setFormState({ ...formState, planInterest: e.target.value })
+                          setFormState({ ...formState, interestFocus: e.target.value })
                         }
                       >
-                        <option value="Starter Mitra">Starter Mitra (Rp 199rb/bln)</option>
-                        <option value="Pro Pharmacy">Pro Pharmacy (Rp 399rb/bln) — Rekomendasi</option>
-                        <option value="Enterprise Multi-Outlet">Enterprise Multi-Outlet (Rp 799rb/bln)</option>
-                        <option value="Custom Enterprise">Custom Solusi Farmasi</option>
+                        <option value="Full ERP & Kasir POS FEFO">Full ERP Farmasi &amp; Kasir POS FEFO</option>
+                        <option value="Deteksi HPP & Anti-Markup AI">AI Deteksi HPP &amp; Audit Faktur Masuk</option>
+                        <option value="Modul Klaim BPJS PRB & Kapitasi">Modul Resep &amp; Klaim BPJS PRB/Kapitasi</option>
+                        <option value="Defecta & Pengadaan Multi-PBF">Defecta Otomatis &amp; Pemisahan SP PBF</option>
+                        <option value="Multi-Cabang & Jaringan">Sistem Multi-Cabang &amp; Gudang Terpusat</option>
                       </select>
                     </div>
 
@@ -1608,7 +1396,6 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

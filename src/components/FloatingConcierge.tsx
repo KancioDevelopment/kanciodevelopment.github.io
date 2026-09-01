@@ -69,7 +69,6 @@ const FloatingConcierge: React.FC = () => {
   // Booking Form State
   const [booking, setBooking] = useState({
     name: '',
-    phone: '',
     preferredDate: '',
     preferredTime: '10:00 WIB',
     topic: 'Konsultasi Ekosistem Kancio',
@@ -107,15 +106,15 @@ const FloatingConcierge: React.FC = () => {
   }
 
   const handleSendWhatsApp = (customMsg: string) => {
-    const url = `https://wa.me/6285642007123?text=${encodeURIComponent(customMsg)}`
+    const url = `https://wa.me/6282325600996?text=${encodeURIComponent(customMsg)}`
     window.open(url, '_blank')
   }
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!booking.name || !booking.phone) return
+    if (!booking.name) return
 
-    const msg = `Halo Tim Rekayasa Kancio Development,\n\nSaya ingin booking 30-Minute Discovery Call via Concierge:\n- Nama: ${booking.name}\n- No WhatsApp: ${booking.phone}\n- Tanggal Pilihan: ${booking.preferredDate || 'Segera (Fleksibel)'}\n- Jam: ${booking.preferredTime}\n- Topik: ${booking.topic}`
+    const msg = `Halo Tim Rekayasa Kancio Development,\n\nSaya ingin booking 30-Minute Discovery Call via Concierge:\n- Nama: ${booking.name}\n- Tanggal Pilihan: ${booking.preferredDate || 'Segera (Fleksibel)'}\n- Jam: ${booking.preferredTime}\n- Topik: ${booking.topic}`
     handleSendWhatsApp(msg)
     setBookingSent(true)
   }
@@ -254,17 +253,6 @@ const FloatingConcierge: React.FC = () => {
                       placeholder="Contoh: Rian Pratama"
                       value={booking.name}
                       onChange={(e) => setBooking({ ...booking, name: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group-mini">
-                    <label>Nomor WhatsApp</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="Contoh: 0812-3456-7890"
-                      value={booking.phone}
-                      onChange={(e) => setBooking({ ...booking, phone: e.target.value })}
                     />
                   </div>
 

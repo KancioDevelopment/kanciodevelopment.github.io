@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -114,58 +113,7 @@ const categories: ProductCategory[] = [
   },
 ]
 
-const partnerPlans = [
-  {
-    name: 'Mitra Basic',
-    tagline: 'Cocok untuk pengguna pribadi, warung kecil & konter pemula',
-    monthlyPrice: 0,
-    annualPrice: 0,
-    badge: 'Gratis Selamanya',
-    popular: false,
-    features: [
-      'Akses Web App & Android PulsaApp',
-      'Harga Modal Grosir 1000+ Produk Digital',
-      'Deposit Otomatis via QRIS & Virtual Account',
-      'Cetak Struk Transaksi PDF / Bluetooth Printer',
-      'Riwayat Mutasi Saldo Real-Time',
-    ],
-    notIncluded: ['Custom Nama Toko di Struk', 'Fitur Downline / Sub-Agen', 'Akses REST API H2H'],
-  },
-  {
-    name: 'Agen Pro & Konter',
-    tagline: 'Paling diminati untuk konter pulsa aktif & loket PPOB profesional',
-    monthlyPrice: 99000,
-    annualPrice: 79000,
-    badge: '⭐ Paling Populer',
-    popular: true,
-    features: [
-      'Semua fitur Mitra Basic',
-      'Harga Modal VIP (Lebih Murah Rp 50 - 300/trx)',
-      'Custom Header & Footer Logo Toko di Struk',
-      'Fitur Multi Sub-Agen / Downline (Komisi Pasif)',
-      'Kirim Bukti Struk Otomatis via WhatsApp',
-      'Priority Customer Support 24/7',
-    ],
-    notIncluded: ['Akses REST API H2H'],
-  },
-  {
-    name: 'H2H Enterprise API',
-    tagline: 'Untuk platform fintech, ecommerce, atau server pulsa beromzet besar',
-    monthlyPrice: 499000,
-    annualPrice: 399000,
-    badge: 'Solusi Developer',
-    popular: false,
-    features: [
-      'Semua fitur Agen Pro',
-      'High-Speed REST API & Webhook Real-time',
-      'Unlimited Throughput Request / Detik',
-      'Dedicated Balance IP Whitelist Security',
-      'Custom SLA 99.9% Server Uptime',
-      'Technical Account Manager Khusus',
-    ],
-    notIncluded: [],
-  },
-]
+
 
 const faqs = [
   {
@@ -207,9 +155,8 @@ const PulsaAppPage: React.FC = () => {
   // Lead / Partnership Form State
   const [leadForm, setLeadForm] = useState({
     name: '',
-    phone: '',
     businessType: 'Konter Pulsa / Toko',
-    planInterest: 'Agen Pro & Konter',
+    serviceInterest: 'Pulsa & Paket Data',
     notes: '',
   })
   const [leadSubmitted, setLeadSubmitted] = useState(false)
@@ -238,12 +185,12 @@ const PulsaAppPage: React.FC = () => {
 
   const handleLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!leadForm.name || !leadForm.phone) return
+    if (!leadForm.name) return
 
     const waMsg = encodeURIComponent(
-      `Halo Tim PulsaApp Kancio,\n\nSaya ingin mendaftar kemitraan agen / integrasi PPOB:\n- Nama: ${leadForm.name}\n- Bisnis: ${leadForm.businessType}\n- Pilihan Paket: ${leadForm.planInterest}\n- No WhatsApp: ${leadForm.phone}\n- Catatan: ${leadForm.notes || 'Mohon info aktivasi saldo & harga modal.'}`
+      `Halo Tim PulsaApp Kancio,\n\nSaya ingin mendaftar kemitraan agen / integrasi PPOB:\n- Nama: ${leadForm.name}\n- Bisnis: ${leadForm.businessType}\n- Layanan Diminati: ${leadForm.serviceInterest}\n- Catatan: ${leadForm.notes || 'Mohon info aktivasi saldo & harga modal.'}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setLeadSubmitted(true)
   }
 
@@ -283,8 +230,6 @@ const PulsaAppPage: React.FC = () => {
 
   return (
     <div className={`product-page pulsa-page ${isDarkMode ? 'pulsa-theme-dark' : 'pulsa-theme-light'}`}>
-      <Header />
-
       {/* ===== HERO SECTION ===== */}
       <section className="pulsa-hero">
         <div className="pulsa-bg-glow" />
@@ -352,8 +297,8 @@ const PulsaAppPage: React.FC = () => {
               <a href="#simulator" className="btn btn--secondary pulsa-btn-secondary">
                 💰 Simulasi Keuntungan Agen
               </a>
-              <a href="#pricing" className="btn btn--outline pulsa-btn-outline">
-                Paket Kemitraan
+              <a href="#lead-form" className="btn btn--outline pulsa-btn-outline">
+                🤝 Daftar Kemitraan
               </a>
             </div>
           </div>
@@ -627,96 +572,7 @@ const PulsaAppPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== SAAS & PARTNER PRICING TIERS ===== */}
-      <section className="section pulsa-pricing-section" id="pricing">
-        <div className="container">
-          <div className="section-header">
-            <div className="pulsa-badge-pulse">Paket Kemitraan &amp; SaaS</div>
-            <h2>
-              Pilih Paket Sesuai <span className="text-gradient-cyan">Skala Bisnis Anda</span>
-            </h2>
-            <p>Mulai gratis atau gunakan fitur Agen Pro dan REST API untuk ekspansi bisnis Anda.</p>
 
-            {/* Monthly / Annual Toggle */}
-            <div className="pricing-toggle-box glass-card">
-              <span className={`toggle-lbl ${!isAnnual ? 'toggle-lbl--active' : ''}`}>
-                Bulanan
-              </span>
-              <button
-                className={`switch-toggle ${isAnnual ? 'switch-toggle--annual' : ''}`}
-                onClick={() => setIsAnnual(!isAnnual)}
-                aria-label="Toggle Billing Frequency"
-              >
-                <span className="switch-thumb" />
-              </button>
-              <span className={`toggle-lbl ${isAnnual ? 'toggle-lbl--active' : ''}`}>
-                Tahunan <span className="savings-badge">Hemat 20%</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="pricing-cards-grid">
-            {partnerPlans.map((plan, i) => {
-              const currentPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice
-              return (
-                <div
-                  key={i}
-                  className={`pricing-box glass-card ${plan.popular ? 'pricing-box--popular' : ''}`}
-                >
-                  {plan.popular && <div className="popular-ribbon">{plan.badge}</div>}
-
-                  <div className="pricing-box__head">
-                    <h3 className="plan-title">{plan.name}</h3>
-                    <p className="plan-sub">{plan.tagline}</p>
-                  </div>
-
-                  <div className="pricing-box__price">
-                    <span className="cur">Rp</span>
-                    <strong className="amt">{currentPrice.toLocaleString('id-ID')}</strong>
-                    <span className="per">/ bulan</span>
-                  </div>
-
-                  {isAnnual && currentPrice > 0 && (
-                    <span className="annual-note">
-                      Ditagih tahunan (Rp {(currentPrice * 12).toLocaleString('id-ID')}/thn)
-                    </span>
-                  )}
-
-                  <div className="pricing-box__cta">
-                    <a
-                      href="#lead-form"
-                      onClick={() =>
-                        setLeadForm((prev) => ({ ...prev, planInterest: plan.name }))
-                      }
-                      className={`btn btn--large btn-block ${plan.popular ? 'pulsa-btn-primary' : 'pulsa-btn-secondary'}`}
-                    >
-                      {currentPrice === 0 ? 'Daftar Gratis Sekarang' : `Pilih ${plan.name}`}
-                    </a>
-                  </div>
-
-                  <div className="pricing-box__features">
-                    <span className="list-title">Fitur Termasuk:</span>
-                    <ul className="plan-feat-list">
-                      {plan.features.map((feat, idx) => (
-                        <li key={idx} className="feat-line feat-line--yes">
-                          <span className="icon-check">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                      {plan.notIncluded.map((feat, idx) => (
-                        <li key={idx} className="feat-line feat-line--no">
-                          <span className="icon-cross">✕</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ===== LEAD CAPTURE & PARTNERSHIP FORM ===== */}
       <section className="section pulsa-lead-section" id="lead-form">
@@ -785,17 +641,6 @@ const PulsaAppPage: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-group">
-                      <label>Nomor WhatsApp Aktif</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="Contoh: 0812-3456-7890"
-                        value={leadForm.phone}
-                        onChange={(e) => setLeadForm({ ...leadForm, phone: e.target.value })}
-                      />
-                    </div>
-
                     <div className="form-row">
                       <div className="form-group">
                         <label>Tipe Usaha</label>
@@ -814,16 +659,17 @@ const PulsaAppPage: React.FC = () => {
                       </div>
 
                       <div className="form-group">
-                        <label>Pilihan Paket</label>
+                        <label>Layanan Diminati</label>
                         <select
-                          value={leadForm.planInterest}
+                          value={leadForm.serviceInterest}
                           onChange={(e) =>
-                            setLeadForm({ ...leadForm, planInterest: e.target.value })
+                            setLeadForm({ ...leadForm, serviceInterest: e.target.value })
                           }
                         >
-                          <option value="Mitra Basic">Mitra Basic (Gratis)</option>
-                          <option value="Agen Pro & Konter">Agen Pro (Rp 79rb/bln)</option>
-                          <option value="H2H Enterprise API">H2H Enterprise API (Rp 399rb/bln)</option>
+                          <option value="Pulsa & Paket Data">Pulsa &amp; Paket Data</option>
+                          <option value="Token Listrik PLN">Token Listrik PLN</option>
+                          <option value="Top Up E-Money & Games">Top Up E-Money &amp; Games</option>
+                          <option value="Integrasi API H2H">Integrasi API H2H</option>
                         </select>
                       </div>
                     </div>
@@ -887,7 +733,6 @@ const PulsaAppPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

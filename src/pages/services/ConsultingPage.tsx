@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+
 import GoogleAdSense from '../../components/GoogleAdSense'
 import { useAds } from '../../hooks/useAds'
 import { useSEO } from '../../hooks/useSEO'
@@ -73,7 +72,6 @@ const ConsultingPage: React.FC = () => {
   const [booking, setBooking] = useState({
     name: '',
     company: '',
-    phone: '',
     preferredDate: '',
     preferredTime: '10:00 WIB',
     topic: 'Tech Audit & Strategic Consulting',
@@ -95,12 +93,12 @@ const ConsultingPage: React.FC = () => {
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!booking.name || !booking.phone) return
+    if (!booking.name) return
 
     const waMsg = encodeURIComponent(
-      `Halo Tim Konsultan Kancio Development,\n\nSaya ingin konsultasi Tech Audit & Roadmap:\n- Nama: ${booking.name}\n- Perusahaan: ${booking.company || '-'}\n- No WhatsApp: ${booking.phone}\n- Tanggal Pilihan: ${booking.preferredDate || 'Fleksibel'}\n- Waktu: ${booking.preferredTime}\n- Skor Audit: ${scorePercent}/100 (${maturityLevel})\n- Topik: ${booking.topic}`
+      `Halo Tim Konsultan Kancio Development,\n\nSaya ingin konsultasi Tech Audit & Roadmap:\n- Nama: ${booking.name}\n- Perusahaan: ${booking.company || '-'}\n- Tanggal Pilihan: ${booking.preferredDate || 'Fleksibel'}\n- Waktu: ${booking.preferredTime}\n- Skor Audit: ${scorePercent}/100 (${maturityLevel})\n- Topik: ${booking.topic}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setBookingSent(true)
   }
 
@@ -115,8 +113,6 @@ const ConsultingPage: React.FC = () => {
 
   return (
     <div className="product-page services-page cyber-services-theme">
-      <Header />
-
       {/* ===== HERO ===== */}
       <section className="services-hero">
         <div className="services-hero__bg" />
@@ -316,27 +312,14 @@ const ConsultingPage: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label>Nama Perusahaan</label>
-                        <input
-                          type="text"
-                          placeholder="Contoh: PT Surya Logistik"
-                          value={booking.company}
-                          onChange={(e) => setBooking({ ...booking, company: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="form-group">
-                        <label>Nomor WhatsApp</label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="Contoh: 0812-3456-7890"
-                          value={booking.phone}
-                          onChange={(e) => setBooking({ ...booking, phone: e.target.value })}
-                        />
-                      </div>
+                    <div className="form-group">
+                      <label>Nama Perusahaan</label>
+                      <input
+                        type="text"
+                        placeholder="Contoh: PT Surya Logistik"
+                        value={booking.company}
+                        onChange={(e) => setBooking({ ...booking, company: e.target.value })}
+                      />
                     </div>
 
                     <div className="form-row">
@@ -378,7 +361,6 @@ const ConsultingPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

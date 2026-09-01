@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../../../components/Header'
-import Footer from '../../../components/Footer'
+
 import GoogleAdSense from '../../../components/GoogleAdSense'
 import { useAds } from '../../../hooks/useAds'
 import { useSEO } from '../../../hooks/useSEO'
@@ -213,7 +212,6 @@ const ApotekAppPresensiGuidePage: React.FC = () => {
 
   return (
     <div className="product-page apotek-presensi-docs-page">
-      <Header />
       <div className="container">
         
         {/* Breadcrumbs */}
@@ -491,7 +489,6 @@ const ApotekAppPresensiGuidePage: React.FC = () => {
 
         </div>
       </div>
-      <Footer />
 
       {/* Premium Zoomable & Draggable Lightbox Modal */}
       {lightboxOpen && (

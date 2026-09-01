@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -227,7 +226,7 @@ const CatetUangPage: React.FC = () => {
     const waMsg = encodeURIComponent(
       `Halo Tim CatetUang SaaS,\n\nSaya tertarik dengan software manajemen keuangan CatetUang:\n- Nama: ${leadForm.name}\n- Jenis Usaha: ${leadForm.businessType}\n- Pilihan Paket: ${leadForm.planInterest}\n- No WhatsApp: ${leadForm.phone}\n- Catatan: ${leadForm.notes || 'Mohon panduan registrasi & promo.'}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setLeadSubmitted(true)
   }
 
@@ -267,8 +266,6 @@ const CatetUangPage: React.FC = () => {
 
   return (
     <div className={`product-page catetuang-page ${isDarkMode ? 'catetuang-theme-dark' : 'catetuang-theme-light'}`}>
-      <Header />
-
       {/* ===== HERO SECTION ===== */}
       <section className="catetuang-hero">
         <div className="catetuang-bg-glow" />
@@ -872,7 +869,6 @@ const CatetUangPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

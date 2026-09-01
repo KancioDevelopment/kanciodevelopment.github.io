@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
@@ -169,7 +168,6 @@ const ServicesPage: React.FC = () => {
   const [rfqForm, setRfqForm] = useState({
     name: '',
     company: '',
-    phone: '',
     email: '',
     serviceType: 'Custom Digital Solution',
     budgetRange: 'Rp 20jt - Rp 50jt',
@@ -198,12 +196,12 @@ const ServicesPage: React.FC = () => {
 
   const handleRfqSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!rfqForm.name || !rfqForm.phone) return
+    if (!rfqForm.name) return
 
     const waMsg = encodeURIComponent(
-      `Halo Tim Rekayasa Kancio Development,\n\nSaya ingin mengajukan Request for Quote (RFQ) / Konsultasi Proyek:\n- Nama: ${rfqForm.name}\n- Perusahaan: ${rfqForm.company || '-'}\n- Layanan: ${rfqForm.serviceType}\n- Kisaran Budget: ${rfqForm.budgetRange}\n- No WhatsApp: ${rfqForm.phone}\n- Deskripsi Proyek: ${rfqForm.projectDescription || 'Mohon jadwal konsultasi dan proposal teknis.'}`
+      `Halo Tim Rekayasa Kancio Development,\n\nSaya ingin mengajukan Request for Quote (RFQ) / Konsultasi Proyek:\n- Nama: ${rfqForm.name}\n- Perusahaan: ${rfqForm.company || '-'}\n- Layanan: ${rfqForm.serviceType}\n- Kisaran Budget: ${rfqForm.budgetRange}\n- Deskripsi Proyek: ${rfqForm.projectDescription || 'Mohon jadwal konsultasi dan proposal teknis.'}`
     )
-    window.open(`https://wa.me/6285642007123?text=${waMsg}`, '_blank')
+    window.open(`https://wa.me/6282325600996?text=${waMsg}`, '_blank')
     setRfqSent(true)
   }
 
@@ -231,8 +229,6 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div className="product-page services-page cyber-services-theme">
-      <Header />
-
       {/* ===== HERO SECTION ===== */}
       <section className="services-hero">
         <div className="services-hero__bg" />
@@ -631,27 +627,14 @@ const ServicesPage: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label>Nama Perusahaan / Organisasi</label>
-                        <input
-                          type="text"
-                          placeholder="Contoh: PT Medika Farma Digital"
-                          value={rfqForm.company}
-                          onChange={(e) => setRfqForm({ ...rfqForm, company: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="form-group">
-                        <label>Nomor WhatsApp Aktif</label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="Contoh: 0812-3456-7890"
-                          value={rfqForm.phone}
-                          onChange={(e) => setRfqForm({ ...rfqForm, phone: e.target.value })}
-                        />
-                      </div>
+                    <div className="form-group">
+                      <label>Nama Perusahaan / Organisasi</label>
+                      <input
+                        type="text"
+                        placeholder="Contoh: PT Medika Farma Digital"
+                        value={rfqForm.company}
+                        onChange={(e) => setRfqForm({ ...rfqForm, company: e.target.value })}
+                      />
                     </div>
 
                     <div className="form-row">
@@ -740,7 +723,6 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }
