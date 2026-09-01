@@ -14,6 +14,7 @@ import TermsOfService from './components/TermsOfService'
 import SyaratLayanan from './components/SyaratLayanan'
 import KebijakanPrivasi from './components/KebijakanPrivasi'
 import AdManager from './components/AdManager'
+import FloatingConcierge from './components/FloatingConcierge'
 
 // Product Pages
 import PulsaAppPage from './pages/PulsaAppPage'
@@ -174,6 +175,7 @@ function App() {
             <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
           </Routes>
           <Footer />
+          <FloatingConcierge />
         </div>
       </Router>
     </AuthProvider>

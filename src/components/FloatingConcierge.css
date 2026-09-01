@@ -1,0 +1,443 @@
+/* =========================================================
+   FLOATING CONCIERGE & SPEED DIAL STYLES (Cyberpunk Dark)
+   ========================================================= */
+
+.floating-concierge-wrapper {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: inherit;
+}
+
+/* Floating Trigger Button */
+.concierge-floating-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0284c7, #6366f1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 12px 20px 12px 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.concierge-floating-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);
+}
+
+.concierge-floating-btn--active {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.floating-btn-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8, #f472b6);
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+  animation: floatGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+  0% { opacity: 0.4; filter: blur(6px); }
+  100% { opacity: 0.8; filter: blur(12px); }
+}
+
+.floating-btn-icon {
+  font-size: 1.25rem;
+}
+
+.floating-btn-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.floating-unread-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #020617;
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Expanded Concierge Panel */
+.concierge-panel {
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  max-height: 580px;
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 14px;
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Header */
+.concierge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(2, 6, 23, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.concierge-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.concierge-avatar {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.avatar-online-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #0f172a;
+}
+
+.concierge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.concierge-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.concierge-subtitle {
+  font-size: 0.7rem;
+  color: #34d399;
+  font-weight: 600;
+}
+
+.concierge-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.concierge-close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tabs */
+.concierge-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 8px 12px;
+  gap: 6px;
+  background: rgba(2, 6, 23, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.concierge-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 7px 4px;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.concierge-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.concierge-tab--active {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38bdf8 !important;
+}
+
+/* Body */
+.concierge-body {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.concierge-intro-text {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Intent List */
+.intent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intent-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.intent-card:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateX(3px);
+}
+
+.intent-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.intent-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.intent-text strong {
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.intent-text span {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.intent-arrow {
+  color: #38bdf8;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Demo List */
+.demo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-item-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 10px 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.demo-item-card:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateX(3px);
+}
+
+.demo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.demo-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.demo-meta strong {
+  font-size: 0.78rem;
+  color: #fff;
+}
+
+.demo-action {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Booking Mini Form */
+.concierge-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.form-group-mini label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.form-group-mini input,
+.form-group-mini select {
+  background: rgba(2, 6, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-group-mini input:focus,
+.form-group-mini select:focus {
+  border-color: #38bdf8;
+}
+
+.form-row-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.concierge-success-state {
+  text-align: center;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.succ-icon {
+  font-size: 2rem;
+}
+
+.concierge-success-state h4 {
+  font-size: 1.1rem;
+  color: #34d399;
+  margin: 0;
+}
+
+.concierge-success-state p {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* Footer */
+.concierge-footer {
+  padding: 10px 16px;
+  background: rgba(2, 6, 23, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.68rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+  .floating-concierge-wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
+  .concierge-panel {
+    width: calc(100vw - 32px);
+    max-height: 520px;
+  }
+}
