@@ -60,6 +60,60 @@
   --transition-slow: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Light Theme Variables */
+[data-theme='light'],
+.theme-light {
+  color-scheme: light;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-glass-light: rgba(15, 23, 42, 0.03);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-light: #334155;
+  --text-muted: #64748b;
+
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-highlight: rgba(15, 23, 42, 0.16);
+
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 15px -1px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+  --primary-glow: rgba(99, 102, 241, 0.2);
+  --accent-glow: rgba(6, 182, 212, 0.2);
+}
+
+body.theme-light {
+  background-color: #f8fafc;
+  color: #0f172a;
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 1) 0%, transparent 100%);
+}
+
+.theme-light .glass-panel,
+.theme-light .card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(226, 232, 240, 0.9) !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.theme-light .btn--secondary {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #0f172a !important;
+}
+
+.theme-light .btn--secondary:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--primary-color) !important;
+}
+
 * {
   margin: 0;
   padding: 0;

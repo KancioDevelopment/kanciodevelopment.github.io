@@ -426,3 +426,83 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================================
+   LIGHT THEME OVERRIDES FOR HERO
+   ============================================================================ */
+[data-theme='light'] .hero,
+.theme-light .hero {
+  background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.08), transparent 70%);
+}
+
+[data-theme='light'] .hero__title,
+.theme-light .hero__title {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .hero__subtitle,
+.theme-light .hero__subtitle {
+  color: #475569;
+}
+
+[data-theme='light'] .hero__app-card,
+.theme-light .hero__app-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='light'] .hero__app-title,
+.theme-light .hero__app-title {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .hero__app-desc,
+.theme-light .hero__app-desc {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .hero__app-feat,
+.theme-light .hero__app-feat {
+  color: #334155 !important;
+}
+
+[data-theme='light'] .hero__app-metrics,
+.theme-light .hero__app-metrics {
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme='light'] .hero__metric-val,
+.theme-light .hero__metric-val {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .hero__service-mini,
+.theme-light .hero__service-mini {
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] .hero__service-mini:hover,
+.theme-light .hero__service-mini:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .hero-app-tab,
+.theme-light .hero-app-tab {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #475569 !important;
+}
+
+[data-theme='light'] .hero-app-tab--active,
+.theme-light .hero-app-tab--active {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}

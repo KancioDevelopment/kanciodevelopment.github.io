@@ -1216,3 +1216,119 @@
         padding: 24px 16px;
     }
 }
+
+/* ============================================================================
+   LIGHT THEME OVERRIDES FOR SERVICES PAGES
+   ============================================================================ */
+[data-theme='light'] .cyber-services-theme,
+.theme-light .cyber-services-theme {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .services-hero__title,
+.theme-light .services-hero__title {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .services-hero__subtitle,
+.theme-light .services-hero__subtitle {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .cyber-card,
+[data-theme='light'] .pillar-card,
+[data-theme='light'] .estimator-container,
+[data-theme='light'] .rfq-card,
+[data-theme='light'] .sandbox-card,
+[data-theme='light'] .audit-quiz-card,
+[data-theme='light'] .timeline-step-card,
+.theme-light .cyber-card,
+.theme-light .pillar-card,
+.theme-light .estimator-container,
+.theme-light .rfq-card,
+.theme-light .sandbox-card,
+.theme-light .audit-quiz-card,
+.theme-light .timeline-step-card {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .pillar-title,
+[data-theme='light'] .estimator-card-title,
+[data-theme='light'] .rfq-title,
+[data-theme='light'] .form-label,
+[data-theme='light'] .timeline-step-title,
+.theme-light .pillar-title,
+.theme-light .estimator-card-title,
+.theme-light .rfq-title,
+.theme-light .form-label,
+.theme-light .timeline-step-title {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .pillar-desc,
+[data-theme='light'] .timeline-step-desc,
+.theme-light .pillar-desc,
+.theme-light .timeline-step-desc {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .option-pill,
+.theme-light .option-pill {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #334155 !important;
+}
+
+[data-theme='light'] .option-pill:hover,
+.theme-light .option-pill:hover {
+    background: #f1f5f9 !important;
+    border-color: #6366f1 !important;
+}
+
+[data-theme='light'] .option-pill--selected,
+.theme-light .option-pill--selected {
+    background: rgba(99, 102, 241, 0.08) !important;
+    border-color: #6366f1 !important;
+    color: #4f46e5 !important;
+}
+
+[data-theme='light'] .summary-box,
+.theme-light .summary-box {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='light'] .summary-total-val,
+.theme-light .summary-total-val {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .cyber-input,
+[data-theme='light'] .cyber-select,
+[data-theme='light'] .cyber-textarea,
+.theme-light .cyber-input,
+.theme-light .cyber-select,
+.theme-light .cyber-textarea {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .services-faq-item,
+.theme-light .services-faq-item {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='light'] .services-faq-question,
+.theme-light .services-faq-question {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .faq-answer-box p,
+.theme-light .faq-answer-box p {
+    color: #475569 !important;
+}

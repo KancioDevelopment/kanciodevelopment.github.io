@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
+import { useTheme } from '../contexts/ThemeContext'
 import './ProductPage.css'
 import './ApotekAppPage.css'
 
@@ -404,16 +405,7 @@ const ApotekAppPage: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true)
 
   // Dark / Light Theme Toggle State
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem('apotek_theme')
-    return saved ? saved === 'dark' : true
-  })
-
-  const toggleTheme = () => {
-    const newTheme = !isDarkMode
-    setIsDarkMode(newTheme)
-    localStorage.setItem('apotek_theme', newTheme ? 'dark' : 'light')
-  }
+  const { isDarkMode, toggleTheme } = useTheme()
 
   // Interactive Live Demo Simulator State
   const [demoTab, setDemoTab] = useState<'pos' | 'hpp' | 'bpjs' | 'omnichannel'>('pos')

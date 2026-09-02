@@ -116,6 +116,8 @@ const HomePage: React.FC = () => {
   )
 }
 
+import { ThemeProvider } from './contexts/ThemeContext'
+
 function App() {
   React.useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -134,51 +136,53 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider>
-      <Router>
-        <div className="App">
-          <AdManager />
-          <Header />
-          <Routes>
-            {/* Home */}
-            <Route path="/" element={<HomePage />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <AdManager />
+            <Header />
+            <Routes>
+              {/* Home */}
+              <Route path="/" element={<HomePage />} />
 
-            {/* Blog */}
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+              {/* Blog */}
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
 
-            {/* Product Pages */}
-            <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
-            <Route path="/products/quranmind" element={<QuranMindPage />} />
-            <Route path="/products/apotekapp" element={<ApotekAppPage />} />
-            <Route path="/products/apotekapp/bpjs-guide" element={<ApotekAppBpjsGuidePage />} />
-            <Route path="/products/apotekapp/presensi-guide" element={<ApotekAppPresensiGuidePage />} />
+              {/* Product Pages */}
+              <Route path="/products/pulsaapp" element={<PulsaAppPage />} />
+              <Route path="/products/quranmind" element={<QuranMindPage />} />
+              <Route path="/products/apotekapp" element={<ApotekAppPage />} />
+              <Route path="/products/apotekapp/bpjs-guide" element={<ApotekAppBpjsGuidePage />} />
+              <Route path="/products/apotekapp/presensi-guide" element={<ApotekAppPresensiGuidePage />} />
 
-            <Route path="/products/catetUang" element={<CatetUangPage />} />
-            <Route path="/products/custom-apps" element={<CustomAppsPage />} />
-            <Route path="/products/ai-integration" element={<AIIntegrationPage />} />
+              <Route path="/products/catetUang" element={<CatetUangPage />} />
+              <Route path="/products/custom-apps" element={<CustomAppsPage />} />
+              <Route path="/products/ai-integration" element={<AIIntegrationPage />} />
 
-            {/* Service Pages */}
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/custom-solution" element={<CustomSolutionPage />} />
-            <Route path="/services/ai-integration" element={<AIServicePage />} />
-            <Route path="/services/consulting" element={<ConsultingPage />} />
+              {/* Service Pages */}
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/custom-solution" element={<CustomSolutionPage />} />
+              <Route path="/services/ai-integration" element={<AIServicePage />} />
+              <Route path="/services/consulting" element={<ConsultingPage />} />
 
-            {/* Admin */}
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/news-editor" element={<NewsEditorPage />} />
+              {/* Admin */}
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/news-editor" element={<NewsEditorPage />} />
 
-            {/* Legal */}
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/syarat-layanan" element={<SyaratLayanan />} />
-            <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
-          </Routes>
-          <Footer />
-          <FloatingConcierge />
-        </div>
-      </Router>
-    </AuthProvider>
+              {/* Legal */}
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/syarat-layanan" element={<SyaratLayanan />} />
+              <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
+            </Routes>
+            <Footer />
+            <FloatingConcierge />
+          </div>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 

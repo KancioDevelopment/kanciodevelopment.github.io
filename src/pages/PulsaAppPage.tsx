@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
+import { useTheme } from '../contexts/ThemeContext'
 import './ProductPage.css'
 import './PulsaAppPage.css'
 
@@ -140,7 +141,7 @@ const faqs = [
 
 const PulsaAppPage: React.FC = () => {
   const { userConsent } = useAds()
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const { isDarkMode, toggleTheme } = useTheme()
   const [isAnnual, setIsAnnual] = useState(true)
   const [activeCategory, setActiveCategory] = useState('pulsa')
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
@@ -245,8 +246,8 @@ const PulsaAppPage: React.FC = () => {
 
               {/* Adaptive Light/Dark Theme Switch */}
               <button
-                className="theme-switch-btn"
-                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="pulsa-theme-btn"
+                onClick={toggleTheme}
                 title={`Ganti ke ${isDarkMode ? 'Mode Terang' : 'Mode Gelap'}`}
               >
                 {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}

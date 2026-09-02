@@ -356,3 +356,87 @@
   .nav { padding: 16px 0; }
   .header--scrolled .nav { padding: 10px 0; }
 }
+
+/* ============================================================================
+   THEME TOGGLE BUTTON & LIGHT MODE OVERRIDES
+   ============================================================================ */
+.theme-toggle-header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: var(--text-primary);
+}
+
+.theme-toggle-header-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.08);
+}
+
+[data-theme='light'] .header--scrolled,
+.theme-light .header--scrolled {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme='light'] .logo__text,
+.theme-light .logo__text {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .nav__link,
+.theme-light .nav__link {
+  color: #334155 !important;
+}
+
+[data-theme='light'] .nav__link:hover,
+.theme-light .nav__link:hover {
+  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .dropdown__inner,
+.theme-light .dropdown__inner {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme='light'] .dropdown__item-label,
+.theme-light .dropdown__item-label {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .dropdown__item-desc,
+.theme-light .dropdown__item-desc {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .dropdown__item:hover,
+.theme-light .dropdown__item:hover {
+  background: rgba(99, 102, 241, 0.08) !important;
+}
+
+[data-theme='light'] .theme-toggle-header-btn,
+.theme-light .theme-toggle-header-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme='light'] .nav__toggle span,
+.theme-light .nav__toggle span {
+  background: #0f172a !important;
+}
+
+[data-theme='light'] .nav__menu,
+.theme-light .nav__menu {
+  background: rgba(255, 255, 255, 0.98);
+}

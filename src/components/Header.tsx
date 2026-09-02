@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTheme } from '../contexts/ThemeContext'
 import './Header.css'
 import logoImage from '../assets/logo.png'
 
@@ -22,6 +23,7 @@ const services: DropdownItem[] = [
 ]
 
 const Header: React.FC = () => {
+  const { theme, toggleTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<'products' | 'services' | null>(null)
@@ -187,6 +189,15 @@ const Header: React.FC = () => {
             </ul>
 
             <div className="nav__cta">
+              <button
+                className="theme-toggle-header-btn"
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? 'Ganti ke Mode Terang' : 'Ganti ke Mode Gelap'}
+                title={theme === 'dark' ? 'Mode Terang' : 'Mode Gelap'}
+              >
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
+
               <a
                 href="#contact"
                 className="btn btn--primary btn--sm"
