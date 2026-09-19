@@ -96,11 +96,10 @@
 }
 
 .docs-sidebar-link--active {
-    color: #white !important;
+    color: #ffffff !important;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
     border-color: rgba(99, 102, 241, 0.2);
     font-weight: 600;
-    color: white;
 }
 
 /* Content Area */
@@ -785,4 +784,161 @@
         min-width: 50px;
         padding: 0 4px;
     }
+}
+
+/* ============================================================================
+   LIGHT MODE OVERRIDES FOR APOTEKAPP BPJS GUIDE PAGE
+   ============================================================================ */
+[data-theme='light'] .apotek-docs-page,
+.theme-light .apotek-docs-page {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-header-card,
+.theme-light .docs-header-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-header-card h1,
+.theme-light .docs-header-card h1 {
+    background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+[data-theme='light'] .docs-description,
+.theme-light .docs-description {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-sidebar,
+.theme-light .docs-sidebar {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-sidebar-title,
+.theme-light .docs-sidebar-title {
+    color: #0f172a;
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-sidebar-link,
+.theme-light .docs-sidebar-link {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-sidebar-link:hover,
+.theme-light .docs-sidebar-link:hover {
+    color: #4f46e5;
+    background: rgba(99, 102, 241, 0.08);
+}
+
+[data-theme='light'] .docs-sidebar-link--active,
+.theme-light .docs-sidebar-link--active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+    border-color: #4f46e5 !important;
+}
+
+[data-theme='light'] .docs-tabs-container,
+.theme-light .docs-tabs-container {
+    background: #e2e8f0;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-tab-btn,
+.theme-light .docs-tab-btn {
+    color: #64748b;
+}
+
+[data-theme='light'] .docs-tab-btn:hover,
+.theme-light .docs-tab-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='light'] .docs-tab-btn--active,
+.theme-light .docs-tab-btn--active {
+    background: #ffffff !important;
+    color: #4f46e5 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .docs-bpjs-step-card,
+.theme-light .docs-bpjs-step-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-step-title,
+.theme-light .docs-step-title {
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-step-desc,
+.theme-light .docs-step-desc {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-step-callout,
+.theme-light .docs-step-callout {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-callout-warning,
+.theme-light .docs-callout-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+[data-theme='light'] .docs-callout-warning .callout-text,
+.theme-light .docs-callout-warning .callout-text {
+    color: #92400e;
+}
+
+[data-theme='light'] .docs-callout-tip,
+.theme-light .docs-callout-tip {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+[data-theme='light'] .docs-callout-tip .callout-text,
+.theme-light .docs-callout-tip .callout-text {
+    color: #166534;
+}
+
+[data-theme='light'] .docs-step-img-box,
+.theme-light .docs-step-img-box {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-related-card,
+.theme-light .docs-related-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-related-title,
+.theme-light .docs-related-title {
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-breadcrumb a,
+.theme-light .docs-breadcrumb a {
+    color: #64748b;
+}
+
+[data-theme='light'] .docs-breadcrumb a:hover,
+.theme-light .docs-breadcrumb a:hover {
+    color: #4f46e5;
 }

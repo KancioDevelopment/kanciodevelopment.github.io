@@ -560,7 +560,7 @@ const ApotekAppPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn--primary btn--large cyber-btn-primary"
               >
-                🚀 Buka Web App ApotekApp <span className="btn__icon">→</span>
+                🚀 Pelajari Lebih Lanjut di Web App ApotekApp <span className="btn__icon">↗</span>
               </a>
               <a href="#lead-form" className="btn btn--secondary btn--large cyber-btn-secondary">
                 💬 Konsultasi &amp; Demo Gratis
@@ -583,9 +583,16 @@ const ApotekAppPage: React.FC = () => {
                   <span className="dot dot-yellow" />
                   <span className="dot dot-green" />
                 </div>
-                <div className="mockup-url-bar">
-                  <span className="lock-icon">🔒</span> https://apotek.kancio.com/dashboard/live
-                </div>
+                <a
+                  href="https://apotek.kancio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mockup-url-bar"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  title="Pelajari lebih lanjut & buka portal https://apotek.kancio.com/"
+                >
+                  <span className="lock-icon">🔒</span> https://apotek.kancio.com/
+                </a>
                 <div className="mockup-status-pill">
                   <span className="live-indicator" /> Online
                 </div>
@@ -1377,7 +1384,7 @@ const ApotekAppPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="btn btn--primary btn--large cyber-btn-primary"
                 >
-                  Buka Web App ApotekApp <span className="btn__icon">→</span>
+                  Pelajari Lebih Lanjut di Web App ApotekApp <span className="btn__icon">↗</span>
                 </a>
                 <a href="#lead-form" className="btn btn--secondary btn--large cyber-btn-secondary">
                   Konsultasi Onboarding

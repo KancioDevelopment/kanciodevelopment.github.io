@@ -848,3 +848,161 @@
         padding: 0 4px;
     }
 }
+
+/* ============================================================================
+   LIGHT MODE OVERRIDES FOR APOTEKAPP ATTENDANCE (PRESENSI) GUIDE PAGE
+   ============================================================================ */
+[data-theme='light'] .apotek-presensi-docs-page,
+.theme-light .apotek-presensi-docs-page {
+    background: linear-gradient(135deg, #fdfbf7 0%, #f8fafc 100%);
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-header-card,
+.theme-light .docs-header-card {
+    background: #ffffff;
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-header-card h1,
+.theme-light .docs-header-card h1 {
+    background: linear-gradient(135deg, #321e1e 0%, #b45309 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+[data-theme='light'] .docs-description,
+.theme-light .docs-description {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-sidebar,
+.theme-light .docs-sidebar {
+    background: #ffffff;
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-sidebar-title,
+.theme-light .docs-sidebar-title {
+    color: #321e1e;
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-sidebar-link,
+.theme-light .docs-sidebar-link {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-sidebar-link:hover,
+.theme-light .docs-sidebar-link:hover {
+    color: #b45309;
+    background: rgba(212, 175, 55, 0.08);
+}
+
+[data-theme='light'] .docs-sidebar-link--active,
+.theme-light .docs-sidebar-link--active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #4F3232, #b45309) !important;
+    border-color: #b45309 !important;
+}
+
+[data-theme='light'] .docs-tabs-container,
+.theme-light .docs-tabs-container {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-tab-btn,
+.theme-light .docs-tab-btn {
+    color: #64748b;
+}
+
+[data-theme='light'] .docs-tab-btn:hover,
+.theme-light .docs-tab-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='light'] .docs-tab-btn--active,
+.theme-light .docs-tab-btn--active {
+    background: #ffffff !important;
+    color: #b45309 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .docs-bpjs-step-card,
+.theme-light .docs-bpjs-step-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-step-title,
+.theme-light .docs-step-title {
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-step-desc,
+.theme-light .docs-step-desc {
+    color: #475569;
+}
+
+[data-theme='light'] .docs-step-callout,
+.theme-light .docs-step-callout {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-callout-warning,
+.theme-light .docs-callout-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+[data-theme='light'] .docs-callout-warning .callout-text,
+.theme-light .docs-callout-warning .callout-text {
+    color: #92400e;
+}
+
+[data-theme='light'] .docs-callout-tip,
+.theme-light .docs-callout-tip {
+    background: #fdfbf7;
+    border-color: #fed7aa;
+}
+
+[data-theme='light'] .docs-callout-tip .callout-text,
+.theme-light .docs-callout-tip .callout-text {
+    color: #9a3412;
+}
+
+[data-theme='light'] .docs-step-img-box,
+.theme-light .docs-step-img-box {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .docs-related-card,
+.theme-light .docs-related-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .docs-related-title,
+.theme-light .docs-related-title {
+    color: #0f172a;
+}
+
+[data-theme='light'] .docs-breadcrumb a,
+.theme-light .docs-breadcrumb a {
+    color: #64748b;
+}
+
+[data-theme='light'] .docs-breadcrumb a:hover,
+.theme-light .docs-breadcrumb a:hover {
+    color: #b45309;
+}
+

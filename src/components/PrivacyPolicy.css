@@ -203,3 +203,41 @@
     padding: 25px;
   }
 }
+
+/* Light Theme Overrides */
+[data-theme='light'] .privacy-policy,
+.theme-light .privacy-policy {
+  background: #f8fafc;
+}
+
+[data-theme='light'] .privacy-policy__title,
+.theme-light .privacy-policy__title {
+  background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .legal-sidebar,
+.theme-light .legal-sidebar {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .policy-section,
+.theme-light .policy-section {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .toc-link,
+.theme-light .toc-link {
+  color: #475569;
+}
+
+[data-theme='light'] .toc-link:hover,
+.theme-light .toc-link:hover {
+  color: #4f46e5;
+}

@@ -169,20 +169,30 @@ const ProductsSection: React.FC = () => {
               </ul>
 
               <div className="product-card__actions">
-                <Link to={product.path} className="product-card__cta btn btn--primary btn--sm">
-                  Buka Landing Page
-                  <span className="btn__icon">→</span>
-                </Link>
-                {product.liveUrl && (
+                {product.liveUrl ? (
                   <a
                     href={product.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn--outline btn--sm"
+                    className="product-card__cta btn btn--primary btn--sm"
+                    title={`Pelajari Lebih Lanjut & Buka Portal ${product.name}`}
                   >
-                    Live Demo
+                    Pelajari Selengkapnya
+                    <span className="btn__icon">↗</span>
                   </a>
+                ) : (
+                  <Link to={product.path} className="product-card__cta btn btn--primary btn--sm">
+                    Pelajari Selengkapnya
+                    <span className="btn__icon">→</span>
+                  </Link>
                 )}
+                <Link
+                  to={product.path}
+                  className="btn btn--outline btn--sm"
+                  title="Lihat Spesifikasi & Dokumentasi Lengkap"
+                >
+                  Panduan &amp; Fitur
+                </Link>
               </div>
             </div>
           ))}

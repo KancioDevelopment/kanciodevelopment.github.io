@@ -293,7 +293,7 @@ const PulsaAppPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn--primary pulsa-btn-primary"
               >
-                🚀 Buka Web App PulsaApp <span className="btn__icon">→</span>
+                🚀 Pelajari Lebih Lanjut di Web App PulsaApp <span className="btn__icon">↗</span>
               </a>
               <a href="#simulator" className="btn btn--secondary pulsa-btn-secondary">
                 💰 Simulasi Keuntungan Agen
@@ -313,7 +313,16 @@ const PulsaAppPage: React.FC = () => {
                   <span className="w-dot dot-yellow" />
                   <span className="w-dot dot-green" />
                 </div>
-                <span className="mockup-title-text">PulsaApp Engine — Gateway Server 1</span>
+                <a
+                  href="https://ppob.kancio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mockup-title-text"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  title="Pelajari lebih lanjut & buka portal https://ppob.kancio.com/"
+                >
+                  PulsaApp Engine — ppob.kancio.com ↗
+                </a>
                 <span className="live-status-tag">● 24 Jam Aktif</span>
               </div>
 
@@ -730,6 +739,53 @@ const PulsaAppPage: React.FC = () => {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BOTTOM CTA BANNER ===== */}
+      <section className="section">
+        <div className="container">
+          <div
+            className="glass-card"
+            style={{
+              padding: '44px 32px',
+              textAlign: 'center',
+              background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(16, 185, 129, 0.12))',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '24px',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div className="pulsa-badge-pulse" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>
+              🚀 Mulai Sekarang
+            </div>
+            <h2 style={{ fontSize: '2.1rem', marginBottom: '16px' }}>
+              Akses Web App PulsaApp &amp; Transaksi Kilat 24 Jam
+            </h2>
+            <p style={{ maxWidth: '650px', margin: '0 auto 28px', color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.6 }}>
+              Buka platform web PulsaApp sekarang untuk menikmati harga pulsa murah, token PLN instan tengah malam, top up e-money terlengkap, dan voucher game grosir.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <a
+                href="https://ppob.kancio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary pulsa-btn-primary"
+                style={{ padding: '14px 28px', fontSize: '1rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <span>Pelajari Lebih Lanjut di Web App PulsaApp</span>
+                <span style={{ fontSize: '1.1em' }}>↗</span>
+              </a>
+              <a
+                href="#lead-form"
+                className="btn btn--secondary pulsa-btn-secondary"
+                style={{ padding: '14px 28px', fontSize: '1rem', textDecoration: 'none' }}
+              >
+                Daftar Kemitraan Agen
+              </a>
+            </div>
           </div>
         </div>
       </section>

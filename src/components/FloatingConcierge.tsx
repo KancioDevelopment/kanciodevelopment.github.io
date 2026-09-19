@@ -31,17 +31,19 @@ const quickIntents = [
 
 const quickDemos = [
   {
-    name: 'ApotekApp POS & FEFO Demo',
-    badge: 'Live ERP Demo',
+    name: 'ApotekApp Web App (apotek.kancio.com)',
+    badge: 'Portal Resmi ERP',
     icon: '💊',
-    path: '/products/apotekapp#simulator',
+    url: 'https://apotek.kancio.com/',
+    isExternal: true,
     color: '#06b6d4',
   },
   {
-    name: 'PulsaApp Margin Calculator',
-    badge: 'Live Calculator',
+    name: 'PulsaApp Web App (ppob.kancio.com)',
+    badge: 'Portal Resmi PPOB',
     icon: '⚡',
-    path: '/products/pulsaapp#simulator',
+    url: 'https://ppob.kancio.com/',
+    isExternal: true,
     color: '#f472b6',
   },
   {
@@ -170,8 +172,34 @@ const FloatingConcierge: React.FC = () => {
           {/* Tab 1: WhatsApp Quick Intents */}
           {activeTab === 'chat' && (
             <div className="concierge-body animate-fade-in">
+              <div className="concierge-portal-shortcuts">
+                <span className="portal-shortcut-label">🌐 Akses Portal Web App Resmi:</span>
+                <div className="portal-shortcut-btns">
+                  <a
+                    href="https://apotek.kancio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="portal-quick-btn portal-quick-btn--apotek"
+                    title="Buka Web App Resmi ApotekApp"
+                  >
+                    <span>💊 ApotekApp Web</span>
+                    <span>↗</span>
+                  </a>
+                  <a
+                    href="https://ppob.kancio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="portal-quick-btn portal-quick-btn--pulsa"
+                    title="Buka Web App Resmi PulsaApp"
+                  >
+                    <span>⚡ PulsaApp Web</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </div>
+
               <p className="concierge-intro-text">
-                Pilih topik kebutuhan Anda untuk terhubung langsung dengan Solution Architect Kancio:
+                Atau pilih topik kebutuhan Anda untuk terhubung langsung dengan Solution Architect Kancio:
               </p>
               <div className="intent-list">
                 {quickIntents.map((item, idx) => (
@@ -200,23 +228,45 @@ const FloatingConcierge: React.FC = () => {
               </p>
               <div className="demo-list">
                 {quickDemos.map((demo, idx) => (
-                  <Link
-                    key={idx}
-                    to={demo.path}
-                    className="demo-item-card"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <span className="demo-icon" style={{ borderColor: demo.color }}>
-                      {demo.icon}
-                    </span>
-                    <div className="demo-meta">
-                      <span className="demo-badge" style={{ color: demo.color }}>
-                        {demo.badge}
+                  demo.isExternal ? (
+                    <a
+                      key={idx}
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="demo-item-card"
+                      title={`Buka ${demo.name}`}
+                    >
+                      <span className="demo-icon" style={{ borderColor: demo.color }}>
+                        {demo.icon}
                       </span>
-                      <strong>{demo.name}</strong>
-                    </div>
-                    <span className="demo-action">Coba ⚡</span>
-                  </Link>
+                      <div className="demo-meta">
+                        <span className="demo-badge" style={{ color: demo.color }}>
+                          {demo.badge}
+                        </span>
+                        <strong>{demo.name}</strong>
+                      </div>
+                      <span className="demo-action">Buka ↗</span>
+                    </a>
+                  ) : (
+                    <Link
+                      key={idx}
+                      to={demo.path || '#'}
+                      className="demo-item-card"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="demo-icon" style={{ borderColor: demo.color }}>
+                        {demo.icon}
+                      </span>
+                      <div className="demo-meta">
+                        <span className="demo-badge" style={{ color: demo.color }}>
+                          {demo.badge}
+                        </span>
+                        <strong>{demo.name}</strong>
+                      </div>
+                      <span className="demo-action">Coba ⚡</span>
+                    </Link>
+                  )
                 ))}
               </div>
             </div>

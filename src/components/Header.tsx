@@ -9,11 +9,24 @@ interface DropdownItem {
   path: string
   icon: string
   description: string
+  externalUrl?: string
 }
 
 const products: DropdownItem[] = [
-  { label: 'PulsaApp', path: '/products/pulsaapp', icon: '📱', description: 'Digital payment & top-up 24 jam' },
-  { label: 'ApotekApp', path: '/products/apotekapp', icon: '💊', description: 'Pharmacy ERP & POS FEFO' },
+  { 
+    label: 'PulsaApp', 
+    path: '/products/pulsaapp', 
+    externalUrl: 'https://ppob.kancio.com/', 
+    icon: '📱', 
+    description: 'Digital payment & server PPOB 24 jam' 
+  },
+  { 
+    label: 'ApotekApp', 
+    path: '/products/apotekapp', 
+    externalUrl: 'https://apotek.kancio.com/', 
+    icon: '💊', 
+    description: 'Pharmacy ERP & POS kasir FEFO' 
+  },
 ]
 
 const services: DropdownItem[] = [
@@ -119,18 +132,32 @@ const Header: React.FC = () => {
                   <div className="dropdown__inner">
                     <p className="dropdown__label">Our Applications</p>
                     {products.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="dropdown__item"
-                        onClick={handleLinkClick}
-                      >
-                        <span className="dropdown__item-icon">{item.icon}</span>
-                        <span className="dropdown__item-content">
-                          <span className="dropdown__item-label">{item.label}</span>
-                          <span className="dropdown__item-desc">{item.description}</span>
-                        </span>
-                      </Link>
+                      <div key={item.path} className="dropdown__product-group">
+                        <Link
+                          to={item.path}
+                          className="dropdown__item"
+                          onClick={handleLinkClick}
+                        >
+                          <span className="dropdown__item-icon">{item.icon}</span>
+                          <span className="dropdown__item-content">
+                            <span className="dropdown__item-label">{item.label}</span>
+                            <span className="dropdown__item-desc">{item.description}</span>
+                          </span>
+                        </Link>
+                        {item.externalUrl && (
+                          <a
+                            href={item.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="dropdown__portal-tag"
+                            title={`Buka Web App Resmi ${item.label}`}
+                            onClick={handleLinkClick}
+                          >
+                            <span>Buka Portal Resmi</span>
+                            <span className="portal-arrow">↗</span>
+                          </a>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>

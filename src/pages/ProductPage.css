@@ -275,28 +275,29 @@
 /* Features Section */
 .product-features {
   padding: 100px 0;
-  background: white;
+  background: var(--bg-primary);
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
 }
 
 .feature-card {
-  background: white;
-  padding: 40px 30px;
+  background: var(--bg-tertiary);
+  padding: 36px 28px;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
   text-align: center;
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 
 .feature-icon {
@@ -305,7 +306,7 @@
 }
 
 .feature-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 15px;
@@ -381,17 +382,19 @@
 }
 
 .product-card {
-  background: white;
+  background: var(--bg-tertiary);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
   text-align: center;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .product-icon {
@@ -562,7 +565,7 @@
 /* Benefits Section */
 .product-benefits {
   padding: 100px 0;
-  background: white;
+  background: var(--bg-primary);
 }
 
 .benefits-grid {
@@ -572,17 +575,18 @@
 }
 
 .benefit-card {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, white 100%);
+  background: var(--bg-tertiary);
   padding: 30px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
   text-align: center;
   transition: all var(--transition-normal);
 }
 
 .benefit-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .benefit-icon {
@@ -593,8 +597,10 @@
 /* AI Features Section */
 .ai-features {
   padding: 100px 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .ai-features-grid {
@@ -604,17 +610,18 @@
 }
 
 .ai-feature-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-tertiary);
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
   text-align: center;
   transition: all var(--transition-normal);
 }
 
 .ai-feature-card:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--bg-glass);
+  border-color: rgba(99, 102, 241, 0.4);
   transform: translateY(-4px);
 }
 
@@ -636,16 +643,17 @@
 }
 
 .screenshot-card {
-  background: white;
+  background: var(--bg-tertiary);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
 }
 
 .screenshot-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .screenshot-image {
@@ -674,7 +682,7 @@
 /* Specifications Section */
 .product-specs {
   padding: 100px 0;
-  background: white;
+  background: var(--bg-primary);
 }
 
 .specs-grid {
@@ -1886,4 +1894,102 @@
   .mini-insights-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================================================
+   LIGHT MODE OVERRIDES FOR GENERIC PRODUCT, CUSTOM APPS & AI PAGES
+   ============================================================================ */
+[data-theme='light'] .product-page,
+.theme-light .product-page {
+  background: #f8fafc;
+}
+
+[data-theme='light'] .feature-card,
+.theme-light .feature-card,
+[data-theme='light'] .product-card,
+.theme-light .product-card,
+[data-theme='light'] .screenshot-card,
+.theme-light .screenshot-card,
+[data-theme='light'] .benefit-card,
+.theme-light .benefit-card {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .custom-feature-card,
+.theme-light .custom-feature-card {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .custom-feature-card h3,
+.theme-light .custom-feature-card h3,
+[data-theme='light'] .feature-card h3,
+.theme-light .feature-card h3,
+[data-theme='light'] .product-card h3,
+.theme-light .product-card h3 {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .custom-feature-card p,
+.theme-light .custom-feature-card p,
+[data-theme='light'] .feature-card p,
+.theme-light .feature-card p,
+[data-theme='light'] .product-card p,
+.theme-light .product-card p {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .ai-feature-card,
+.theme-light .ai-feature-card {
+  background: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08) !important;
+}
+
+[data-theme='light'] .ai-feature-card h3,
+.theme-light .ai-feature-card h3 {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .tech-tool,
+.theme-light .tech-tool {
+  background: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] .custom-apps-hero,
+.theme-light .custom-apps-hero {
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, #f1f5f9 100%) !important;
+}
+
+[data-theme='light'] .custom-apps-hero h1,
+.theme-light .custom-apps-hero h1 {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+[data-theme='light'] .custom-apps-hero .hero-description,
+.theme-light .custom-apps-hero .hero-description {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .custom-apps-hero .hero-stats,
+.theme-light .custom-apps-hero .hero-stats {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .custom-apps-hero .stat-number,
+.theme-light .custom-apps-hero .stat-number {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .custom-apps-hero .stat-label,
+.theme-light .custom-apps-hero .stat-label {
+  color: #64748b !important;
 }

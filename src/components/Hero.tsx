@@ -99,19 +99,24 @@ const Hero: React.FC = () => {
 
             {/* Action CTAs */}
             <div className="hero__cta">
-              <Link to={current.path} className="btn btn--primary btn--large hero-btn-glow">
-                Buka Landing Page {current.name} <span className="btn__icon">→</span>
+              {current.liveUrl ? (
+                <a
+                  href={current.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--large hero-btn-glow"
+                  title={`Pelajari Lebih Lanjut & Kunjungi Portal Resmi ${current.name}`}
+                >
+                  Pelajari Lebih Lanjut {current.name} <span className="btn__icon">↗</span>
+                </a>
+              ) : (
+                <Link to={current.path} className="btn btn--primary btn--large hero-btn-glow">
+                  Buka {current.name} <span className="btn__icon">→</span>
+                </Link>
+              )}
+              <Link to={current.path} className="btn btn--secondary btn--large">
+                Panduan &amp; Spesifikasi
               </Link>
-              <a
-                href="#solution-finder"
-                className="btn btn--secondary btn--large"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.querySelector('#solution-finder')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                Pilih Solusi Bisnis Anda
-              </a>
             </div>
           </div>
 
@@ -159,19 +164,20 @@ const Hero: React.FC = () => {
               </div>
 
               <div className="hero-card-actions">
-                <Link to={current.path} className="hero-explore-link">
-                  Lihat Fitur Lengkap &amp; Demo <span>→</span>
-                </Link>
                 {current.liveUrl && (
                   <a
                     href={current.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hero-live-badge"
+                    title={`Pelajari Lebih Lanjut di Web App ${current.name}`}
                   >
-                    🚀 Buka Web App
+                    🚀 Pelajari di {current.id === 'apotekapp' ? 'apotek.kancio.com' : 'ppob.kancio.com'} ↗
                   </a>
                 )}
+                <Link to={current.path} className="hero-explore-link">
+                  Detail Panduan Fitur <span>→</span>
+                </Link>
               </div>
             </div>
 

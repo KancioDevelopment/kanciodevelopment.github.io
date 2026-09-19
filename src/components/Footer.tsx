@@ -7,8 +7,22 @@ const Footer: React.FC = () => {
   const navigate = useNavigate()
 
   const products = [
-    { name: 'PulsaApp', description: 'Digital Payment & PPOB 24 Jam', icon: '📱', link: '/products/pulsaapp', category: 'FinTech' },
-    { name: 'ApotekApp', description: 'Pharmacy ERP & POS FEFO', icon: '💊', link: '/products/apotekapp', category: 'Healthcare' },
+    { 
+      name: 'PulsaApp', 
+      description: 'Digital Payment & PPOB 24 Jam', 
+      icon: '📱', 
+      link: '/products/pulsaapp', 
+      externalUrl: 'https://ppob.kancio.com/',
+      category: 'FinTech' 
+    },
+    { 
+      name: 'ApotekApp', 
+      description: 'Pharmacy ERP & POS FEFO', 
+      icon: '💊', 
+      link: '/products/apotekapp', 
+      externalUrl: 'https://apotek.kancio.com/',
+      category: 'Healthcare' 
+    },
   ]
 
   const servicesList = [
@@ -171,19 +185,33 @@ const Footer: React.FC = () => {
             <h4 className="footer__section-title">Our Products</h4>
             <div className="footer__products-grid">
               {products.map((product, index) => (
-                <Link
-                  key={index}
-                  to={product.link}
-                  className="footer__product-item"
-                  onClick={(e) => handleFooterNavClick(e, product.link)}
-                >
-                  <div className="footer__product-icon">{product.icon}</div>
-                  <div className="footer__product-info">
-                    <h5 className="footer__product-name">{product.name}</h5>
-                    <span className="footer__product-category">{product.category}</span>
-                  </div>
-                  <span className="footer__product-arrow">→</span>
-                </Link>
+                <div key={index} className="footer__product-card-wrap">
+                  <a
+                    href={product.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer__product-item"
+                    title={`Pelajari lebih lanjut & Buka ${product.name} di ${product.externalUrl}`}
+                  >
+                    <div className="footer__product-icon">{product.icon}</div>
+                    <div className="footer__product-info">
+                      <div className="footer__product-heading">
+                        <h5 className="footer__product-name">{product.name}</h5>
+                        <span className="footer__product-pill">Web App ↗</span>
+                      </div>
+                      <span className="footer__product-category">{product.category}</span>
+                    </div>
+                    <span className="footer__product-arrow">↗</span>
+                  </a>
+                  <Link
+                    to={product.link}
+                    className="footer__product-doc-link"
+                    onClick={(e) => handleFooterNavClick(e, product.link)}
+                    title={`Lihat dokumentasi & panduan ${product.name}`}
+                  >
+                    Dokumentasi &amp; Panduan →
+                  </Link>
+                </div>
               ))}
             </div>
           </div>

@@ -284,8 +284,8 @@ const ApotekAppShowcase: React.FC = () => {
                 rel="noopener noreferrer"
                 className="cta-button"
               >
-                Buka Web App ApotekApp Sekarang
-                <span className="cta-arrow">→</span>
+                Pelajari Lebih Lanjut di Web App ApotekApp
+                <span className="cta-arrow">↗</span>
               </a>
             </div>
           </div>

@@ -198,3 +198,31 @@
     padding: 25px;
   }
 }
+
+/* Light Theme Overrides */
+[data-theme='light'] .syarat-layanan,
+.theme-light .syarat-layanan {
+  background: #f8fafc;
+}
+
+[data-theme='light'] .syarat-layanan__title,
+.theme-light .syarat-layanan__title {
+  background: linear-gradient(135deg, #0f172a 0%, #4f46e5 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .syarat-section,
+.theme-light .syarat-section {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .terms-highlight,
+.theme-light .terms-highlight {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+

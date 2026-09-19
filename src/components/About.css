@@ -133,3 +133,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Light Theme Overrides */
+[data-theme='light'] .about__stat-card,
+.theme-light .about__stat-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='light'] .about__stat-card:hover,
+.theme-light .about__stat-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08);
+}
