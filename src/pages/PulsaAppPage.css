@@ -708,4 +708,23 @@
   .cat-brands-grid {
     grid-template-columns: 1fr;
   }
+  .pulsa-category-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 2px 12px;
+    margin-bottom: 20px;
+  }
+  .pulsa-category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .cat-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-height: 44px;
+    font-size: 0.82rem;
+    padding: 8px 16px;
+  }
 }

@@ -437,5 +437,19 @@
   .download-btn {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
+  }
+
+  .showcase__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .showcase__actions .learn-more-btn,
+  .showcase__actions .portal-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
   }
 }

@@ -269,8 +269,22 @@
     flex-direction: column;
   }
 
+  .close-button {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .form-group input {
+    font-size: 16px !important;
+    min-height: 48px;
+  }
+
   .btn {
     width: 100%;
+    min-height: 48px;
   }
 }
 

@@ -1204,6 +1204,7 @@
 @media (max-width: 640px) {
     .services-hero__stats {
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
     .options-pill-grid {
         grid-template-columns: 1fr;
@@ -1214,6 +1215,46 @@
     .rfq-card,
     .estimator-container {
         padding: 24px 16px;
+    }
+    .solution-filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        border-radius: 16px;
+        padding: 6px 12px;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .solution-filter-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .filter-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+        min-height: 44px;
+        font-size: 0.82rem;
+        padding: 8px 16px;
+    }
+    .services-hero__cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .services-hero__cta .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+    .opt-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    .addon-chip {
+        min-height: 44px;
     }
 }
 

@@ -218,21 +218,60 @@
 @media (max-width: 1024px) {
   .syarat-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .syarat-layanan {
     padding-top: 100px;
   }
+
+  .legal-sidebar {
+    position: static;
+    padding: 20px;
+    border-radius: 16px;
+  }
 }
 
 @media (max-width: 768px) {
+  .syarat-layanan {
+    padding: 85px 0 50px;
+  }
+
   .syarat-layanan__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .syarat-section {
-    padding: 25px;
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .legal-sidebar {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .legal-sidebar h3 {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .toc-link {
+    padding: 10px 12px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .feature-list-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .feature-list-item {
+    padding: 18px 16px;
   }
 }
 

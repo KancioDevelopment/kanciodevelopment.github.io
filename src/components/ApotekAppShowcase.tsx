@@ -115,7 +115,7 @@ const ApotekAppShowcase: React.FC = () => {
                   <span>Click &amp; Collect Pasien</span>
                 </div>
               </div>
-              <div className="showcase__actions" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <div className="showcase__actions">
                 <a
                   href="https://apotek.kancio.com/"
                   target="_blank"

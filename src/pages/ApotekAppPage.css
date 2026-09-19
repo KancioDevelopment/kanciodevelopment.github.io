@@ -1856,50 +1856,8 @@
     }
 }
 
-@media (max-width: 640px) {
-    .cyber-glass-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .mockup-stat-row {
-        grid-template-columns: 1fr;
-    }
-
-    .click-collect-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .apotek-stores-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .apotek-modules-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .apotek-auto-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .lead-capture-card {
-        padding: 24px 18px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .sim-audit-details {
-        grid-template-columns: 1fr;
-    }
-
-    .sim-bpjs-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* =========================================================
-   MODULE SELECTOR TABS (FIXED & POLISHED)
+   MODULE SELECTOR TABS (BASE DESKTOP)
    ========================================================= */
 .apotek-modules__tabs {
     display: flex;
@@ -1950,12 +1908,122 @@
     transform: translateY(-2px);
 }
 
+@media (max-width: 640px) {
+    .cyber-glass-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px 10px;
+        gap: 10px;
+    }
+
+    .apotek-hero__cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .apotek-hero__cta .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .mockup-stat-row {
+        grid-template-columns: 1fr;
+    }
+
+    .click-collect-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apotek-stores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apotek-modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apotek-auto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-capture-card {
+        padding: 24px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .sim-audit-details {
+        grid-template-columns: 1fr;
+    }
+
+    .sim-bpjs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Modul tabs: horizontal smooth scrollable chips on mobile */
+    .apotek-modules__tabs {
+        border-radius: 16px !important;
+        padding: 8px 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        margin: 20px 0 28px !important;
+    }
+
+    .apotek-modules__tabs::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .apotek-module-tab {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        padding: 8px 14px !important;
+        min-height: 44px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .cyber-glow-bg,
+    .cyber-grid-overlay {
+        opacity: 0.35;
+    }
+}
+
+@media (max-width: 480px) {
+    .cyber-glass-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 8px;
+        gap: 8px;
+    }
+
+    .apotek-hero__stat strong {
+        font-size: 0.98rem;
+    }
+
+    .apotek-hero__stat span {
+        font-size: 0.68rem;
+    }
+}
+
 /* Theme Toggle Bar */
 .apotek-theme-toggle-bar {
     position: fixed;
     top: 90px;
     right: 24px;
     z-index: 900;
+}
+
+/* Sembunyikan floating bar tema duplikat di mobile karena navbar header sudah memfasilitasi toggle tema */
+@media (max-width: 768px) {
+    .apotek-theme-toggle-bar {
+        display: none !important;
+    }
 }
 
 .apotek-theme-toggle-bar .theme-toggle-btn {

@@ -428,15 +428,61 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero__orb {
+    display: none !important;
+  }
+}
+
 @media (max-width: 640px) {
+  .hero {
+    padding-top: 75px;
+  }
+  .hero__content {
+    padding: 40px 0 60px;
+    gap: 32px;
+  }
+  .hero__title {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+  .hero__subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 22px;
+  }
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
+    padding: 14px;
+    gap: 10px;
   }
   .hero-app-switcher-tabs {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .app-switch-btn {
+    min-height: 44px;
+    padding: 8px 12px;
   }
   .hero__services-mini {
     grid-template-columns: 1fr;
+  }
+  .hero__service-mini {
+    min-height: 44px;
+  }
+  .hero__app-card {
+    padding: 18px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero__cta .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 50px;
   }
 }
 

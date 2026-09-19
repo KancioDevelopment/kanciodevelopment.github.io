@@ -135,7 +135,7 @@ const ProductsSection: React.FC = () => {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="products-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', maxWidth: '960px', margin: '0 auto 50px' }}>
+        <div className="products-grid">
           {filteredProducts.map((product, i) => (
             <div
               key={product.name}

@@ -217,7 +217,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Services Section */}
-          <div className="footer__section">
+          <div className="footer__section footer__section--services">
             <h4 className="footer__section-title">Services</h4>
             <div className="footer__nav-grid">
               {servicesList.map((s, i) => (

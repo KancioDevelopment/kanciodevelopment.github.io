@@ -11,6 +11,14 @@
   flex-direction: column;
   align-items: flex-end;
   font-family: inherit;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Hide concierge when mobile menu drawer is open to prevent visual collision */
+body.menu-open .floating-concierge-wrapper {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 /* Floating Trigger Button */
@@ -503,12 +511,44 @@
 /* Mobile Adjustments */
 @media (max-width: 640px) {
   .floating-concierge-wrapper {
-    bottom: 20px;
-    right: 20px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(16px + env(safe-area-inset-right, 0px));
+  }
+  .concierge-floating-btn {
+    padding: 10px 16px 10px 14px;
+    min-height: 48px;
+  }
+  /* Matikan animasi glow blur tak berujung untuk menghemat GPU & baterai mobile */
+  .floating-btn-glow {
+    display: none !important;
+    animation: none !important;
   }
   .concierge-panel {
-    width: calc(100vw - 32px);
-    max-height: 520px;
+    width: calc(100vw - 28px);
+    max-height: min(520px, 80vh);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(15, 23, 42, 0.98) !important;
+    border-radius: 18px;
+  }
+  .form-group-mini input,
+  .form-group-mini select {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+  .concierge-tab {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .concierge-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
   }
 }
 

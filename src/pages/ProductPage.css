@@ -918,13 +918,21 @@
   }
 
   .btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 15px;
   }
 
   .btn-large {
-    padding: 14px 28px;
+    min-height: 50px;
+    padding: 14px 24px;
     font-size: 16px;
+  }
+
+  .hero-actions .btn,
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .feature-card,
@@ -1887,12 +1895,33 @@
 @media (max-width: 640px) {
   .catetuang-hero__stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .sim-summary-cards {
     grid-template-columns: 1fr;
   }
   .mini-insights-row {
     grid-template-columns: 1fr;
+  }
+  .catetuang-hero__cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .catetuang-hero__cta .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+  .pricing-box {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catetuang-hero__stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
 

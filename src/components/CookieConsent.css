@@ -178,11 +178,12 @@ body:not(.theme-light) .cookie-btn-decline:hover,
 /* ===== Mobile Responsiveness ===== */
 @media (max-width: 480px) {
     .cookie-consent-overlay {
-        padding: 12px;
+        padding: 12px 12px calc(16px + env(safe-area-inset-bottom, 0px));
+        align-items: flex-end;
     }
 
     .cookie-consent-banner {
-        border-radius: 16px;
+        border-radius: 20px;
     }
 
     .cookie-consent-content {

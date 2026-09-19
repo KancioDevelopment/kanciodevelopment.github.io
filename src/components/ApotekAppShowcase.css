@@ -556,9 +556,33 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+    min-height: 48px;
   }
   
   .dashboard-summary {
     grid-template-columns: 1fr;
+  }
+
+  .showcase__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .showcase__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+  .cta-button {
+    max-width: 100%;
   }
 }

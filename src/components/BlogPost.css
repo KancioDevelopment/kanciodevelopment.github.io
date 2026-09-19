@@ -320,7 +320,9 @@
 .content-wrapper pre {
   padding: 20px;
   border-radius: 12px;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin: 24px 0;
 }
 
@@ -331,11 +333,14 @@
 }
 
 .content-wrapper table {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   margin: 28px 0;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .content-wrapper th,
@@ -344,6 +349,7 @@
   border: 1px solid;
   text-align: left;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .content-wrapper img {
@@ -1300,6 +1306,18 @@ body:not(.theme-light) .error-content p {
   .content-wrapper h3 {
     font-size: 1.2rem;
     margin: 22px 0 10px;
+  }
+
+  .content-wrapper th,
+  .content-wrapper td {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .content-wrapper pre {
+    padding: 14px 12px;
+    font-size: 0.88em;
+    margin: 18px 0;
   }
 
   .post-footer {

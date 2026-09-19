@@ -630,6 +630,7 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+    min-height: 48px;
   }
   
   .quick-stats {
@@ -644,5 +645,21 @@
   
   .action-buttons {
     grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    max-width: 100%;
+  }
+
+  .showcase__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .showcase__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
   }
 }
