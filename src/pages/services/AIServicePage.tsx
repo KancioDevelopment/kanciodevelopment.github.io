@@ -196,24 +196,13 @@ const AIServicePage: React.FC = () => {
               <div className="estimator-config">
                 <h3 className="config-title">1. Input Data Operasional</h3>
                 <span className="config-lbl">{sim.inputDesc}</span>
-                <div
-                  style={{
-                    background: 'rgba(2, 6, 23, 0.8)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '12px',
-                    padding: '16px',
-                    color: '#94a3b8',
-                    fontFamily: 'monospace',
-                    fontSize: '0.85rem',
-                    lineHeight: '1.6',
-                  }}
-                >
+                <div className="sim-sample-input">
                   {sim.inputSample}
                 </div>
 
                 <div style={{ marginTop: '16px' }}>
                   <span className="config-lbl">Kecepatan Inferensi Model:</span>
-                  <div style={{ color: '#34d399', fontSize: '0.85rem', fontWeight: '700', marginTop: '4px' }}>
+                  <div style={{ color: '#10b981', fontSize: '0.85rem', fontWeight: '700', marginTop: '4px' }}>
                     ⚡ Sub-Second Latency (0.4 - 0.9 Detik)
                   </div>
                 </div>
@@ -232,25 +221,25 @@ const AIServicePage: React.FC = () => {
                   </div>
 
                   {activeSim === 0 && (
-                    <div style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
+                    <div className="sim-output-details">
                       <p><strong>Supplier:</strong> {sim.outputData.supplier}</p>
                       <p><strong>Items Terdeteksi:</strong> 2 Produk ({sim.outputData.grandTotal})</p>
-                      <p style={{ color: '#38bdf8' }}>✓ {sim.outputData.action}</p>
+                      <p style={{ color: '#0284c7', fontWeight: '600' }}>✓ {sim.outputData.action}</p>
                     </div>
                   )}
 
                   {activeSim === 1 && (
-                    <div style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
+                    <div className="sim-output-details">
                       <p><strong>Respon Bot:</strong> {sim.outputData.reply}</p>
-                      <p><strong>Klasifikasi Intent:</strong> <span style={{ color: '#34d399' }}>{sim.outputData.intent}</span></p>
+                      <p><strong>Klasifikasi Intent:</strong> <span style={{ color: '#059669', fontWeight: '600' }}>{sim.outputData.intent}</span></p>
                     </div>
                   )}
 
                   {activeSim === 2 && (
-                    <div style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
-                      <p style={{ color: '#f87171' }}><strong>Peringatan:</strong> {sim.outputData.alert}</p>
+                    <div className="sim-output-details">
+                      <p style={{ color: '#dc2626' }}><strong>Peringatan:</strong> {sim.outputData.alert}</p>
                       <p><strong>Rekomendasi:</strong> {sim.outputData.recommendation}</p>
-                      <p style={{ color: '#34d399' }}><strong>Potensi Efisiensi:</strong> {sim.outputData.potentialSavings}</p>
+                      <p style={{ color: '#059669', fontWeight: '600' }}><strong>Potensi Efisiensi:</strong> {sim.outputData.potentialSavings}</p>
                     </div>
                   )}
 

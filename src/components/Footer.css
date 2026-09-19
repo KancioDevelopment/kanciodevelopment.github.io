@@ -6,7 +6,7 @@
 .footer {
   position: relative;
   background: var(--bg-primary);
-  color: white;
+  color: var(--text-primary);
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -92,7 +92,7 @@
 .footer__social-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0 0 var(--spacing-lg);
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -189,7 +189,7 @@
 .footer__section-title {
   font-size: 0.85rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0 0 var(--spacing-xl);
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -278,7 +278,7 @@
 .footer__product-name {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -405,7 +405,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
-  color: #fff;
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   font-size: 0.9rem;
@@ -557,35 +557,65 @@
 [data-theme='light'] .footer,
 .theme-light .footer {
   background: #ffffff !important;
-  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
   color: #0f172a !important;
 }
 
-[data-theme='light'] .footer__col-title,
-[data-theme='light'] .footer__brand-text,
-.theme-light .footer__col-title,
-.theme-light .footer__brand-text {
-  color: #0f172a !important;
+[data-theme='light'] .footer__hero,
+.theme-light .footer__hero {
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
 }
 
-[data-theme='light'] .footer__brand-desc,
-[data-theme='light'] .footer__link,
-[data-theme='light'] .footer__copyright,
-.theme-light .footer__brand-desc,
-.theme-light .footer__link,
-.theme-light .footer__copyright {
+[data-theme='light'] .footer__brand-name,
+.theme-light .footer__brand-name {
+  background: linear-gradient(135deg, #0f172a 0%, #4338ca 50%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+[data-theme='light'] .footer__brand-description,
+.theme-light .footer__brand-description {
   color: #475569 !important;
 }
 
-[data-theme='light'] .footer__link:hover,
-.theme-light .footer__link:hover {
-  color: #6366f1 !important;
+[data-theme='light'] .footer__social-title,
+.theme-light .footer__social-title {
+  color: #0f172a !important;
+  opacity: 1 !important;
+}
+
+[data-theme='light'] .footer__social-link,
+.theme-light .footer__social-link {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] .footer__social-link:hover,
+.theme-light .footer__social-link:hover {
+  background: #f1f5f9 !important;
+  border-color: #6366f1 !important;
+  color: #4338ca !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.12) !important;
+}
+
+[data-theme='light'] .footer__section-title,
+.theme-light .footer__section-title {
+  color: #0f172a !important;
 }
 
 [data-theme='light'] .footer__product-item,
 .theme-light .footer__product-item {
   background: #f8fafc !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme='light'] .footer__product-item:hover,
+.theme-light .footer__product-item:hover {
+  background: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
 }
 
 [data-theme='light'] .footer__product-name,
@@ -593,22 +623,89 @@
   color: #0f172a !important;
 }
 
-[data-theme='light'] .footer__product-desc,
-.theme-light .footer__product-desc {
+[data-theme='light'] .footer__product-category,
+.theme-light .footer__product-category {
   color: #64748b !important;
+}
+
+[data-theme='light'] .footer__product-pill,
+.theme-light .footer__product-pill {
+  background: rgba(79, 70, 229, 0.08) !important;
+  color: #4338ca !important;
 }
 
 [data-theme='light'] .footer__product-doc-link,
 .theme-light .footer__product-doc-link {
-  color: #64748b !important;
+  color: #4338ca !important;
 }
 
 [data-theme='light'] .footer__product-doc-link:hover,
-.theme-light .footer__product-doc-link {
+.theme-light .footer__product-doc-link:hover {
+  color: #312e81 !important;
+}
+
+[data-theme='light'] .footer__nav-link,
+.theme-light .footer__nav-link {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .footer__nav-link:hover,
+.theme-light .footer__nav-link:hover {
   color: #4f46e5 !important;
+}
+
+[data-theme='light'] .footer__contact-item,
+.theme-light .footer__contact-item {
+  background: #f8fafc !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme='light'] .footer__contact-item:hover,
+.theme-light .footer__contact-item:hover {
+  background: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+[data-theme='light'] .footer__contact-label,
+.theme-light .footer__contact-label {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .footer__contact-value,
+.theme-light .footer__contact-value {
+  color: #0f172a !important;
 }
 
 [data-theme='light'] .footer__bottom,
 .theme-light .footer__bottom {
-  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme='light'] .footer__copyright,
+.theme-light .footer__copyright {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .footer__legal-link,
+.theme-light .footer__legal-link {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .footer__legal-link:hover,
+.theme-light .footer__legal-link:hover {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .footer__back-to-top,
+.theme-light .footer__back-to-top {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] .footer__back-to-top:hover,
+.theme-light .footer__back-to-top:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #6366f1 !important;
 }

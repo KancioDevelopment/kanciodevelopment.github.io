@@ -3,7 +3,7 @@
   <!-- Home -->
   <url>
     <loc>https://kancio.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,69 +11,75 @@
   <!-- Core Products Targeted for Search Dominance -->
   <url>
     <loc>https://kancio.com/products/pulsaapp</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/apotekapp</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/apotekapp/bpjs-guide</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/apotekapp/presensi-guide</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/quranmind</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/catetUang</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/custom-apps</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://kancio.com/products/ai-integration</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Services -->
+  <!-- Services Hub & Offerings -->
+  <url>
+    <loc>https://kancio.com/services</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://kancio.com/services/custom-solution</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kancio.com/services/ai-integration</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kancio.com/services/consulting</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -81,7 +87,7 @@
   <!-- Blog Index -->
   <url>
     <loc>https://kancio.com/blogs</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
@@ -89,25 +95,25 @@
   <!-- High-Authority SEO Pillar Articles -->
   <url>
     <loc>https://kancio.com/blog/panduan-beli-pulsa-murah-dan-token-listrik-online-terpercaya</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kancio.com/blog/aplikasi-apotek-terbaik-untuk-kelola-kasir-dan-stok-obat-fefo</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kancio.com/blog/cara-cek-stok-obat-dan-reservasi-online-apotek-tanpa-antre</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kancio.com/blog/ai-integration-future</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -115,25 +121,25 @@
   <!-- Legal & Policies -->
   <url>
     <loc>https://kancio.com/privacy-policy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://kancio.com/terms-of-service</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://kancio.com/syarat-layanan</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://kancio.com/kebijakan-privasi</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

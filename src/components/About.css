@@ -147,3 +147,32 @@
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08);
 }
+
+[data-theme='light'] .about__stat-number,
+.theme-light .about__stat-number {
+  background: linear-gradient(135deg, #4338ca, #0284c7) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+[data-theme='light'] .about__stat-label,
+.theme-light .about__stat-label {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .about__value-card,
+.theme-light .about__value-card {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='light'] .about__value-title,
+.theme-light .about__value-title {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .about__value-desc,
+.theme-light .about__value-desc {
+  color: #475569 !important;
+}

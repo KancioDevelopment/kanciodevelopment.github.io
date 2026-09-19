@@ -110,54 +110,244 @@
   }
 }
 
+/* Typography & Hero Styles - Adaptive Dark/Light */
+.quranmind-hero__title {
+  color: #f8fafc;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.quranmind-gradient-text {
+  background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block;
+}
+
+.quranmind-hero__desc {
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.quranmind-badge {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.quranmind-tag {
+  background: rgba(217, 119, 6, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.quranmind-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  transition: all 0.25s ease;
+}
+
+.quranmind-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.quranmind-badge--ecosystem {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.quranmind-check {
+  color: #34d399;
+  font-weight: 800;
+}
+
 /* Light Theme Overrides for QuranMind */
+[data-theme='light'] .quranmind-page,
+.theme-light .quranmind-page,
+.quranmind-theme-light {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .quranmind-hero__title,
+.theme-light .quranmind-hero__title,
+.quranmind-theme-light .quranmind-hero__title {
+  color: #064e3b !important;
+}
+
+[data-theme='light'] .quranmind-gradient-text,
+.theme-light .quranmind-gradient-text,
+.quranmind-theme-light .quranmind-gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+[data-theme='light'] .quranmind-hero__desc,
+.theme-light .quranmind-hero__desc,
+.quranmind-theme-light .quranmind-hero__desc {
+  color: #334155 !important;
+}
+
+[data-theme='light'] .quranmind-badge,
+.theme-light .quranmind-badge,
+.quranmind-theme-light .quranmind-badge {
+  background: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #059669 !important;
+}
+
+[data-theme='light'] .quranmind-tag,
+.theme-light .quranmind-tag,
+.quranmind-theme-light .quranmind-tag {
+  background: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #b45309 !important;
+}
+
+[data-theme='light'] .quranmind-theme-btn,
+.theme-light .quranmind-theme-btn,
+.quranmind-theme-light .quranmind-theme-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .quranmind-badge--ecosystem,
+.theme-light .quranmind-badge--ecosystem,
+.quranmind-theme-light .quranmind-badge--ecosystem {
+  background: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #059669 !important;
+}
+
+[data-theme='light'] .quranmind-check,
+.theme-light .quranmind-check,
+.quranmind-theme-light .quranmind-check {
+  color: #059669 !important;
+}
+
 [data-theme='light'] .stat-glass-card,
-.theme-light .stat-glass-card {
-  background: rgba(255, 255, 255, 0.8);
+.theme-light .stat-glass-card,
+.quranmind-theme-light .stat-glass-card {
+  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(5, 150, 105, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme='light'] .stat-glass-info strong,
-.theme-light .stat-glass-info strong {
+.theme-light .stat-glass-info strong,
+.quranmind-theme-light .stat-glass-info strong {
   color: #064e3b;
 }
 
 [data-theme='light'] .stat-glass-info span,
-.theme-light .stat-glass-info span {
-  color: #64748b;
+.theme-light .stat-glass-info span,
+.quranmind-theme-light .stat-glass-info span {
+  color: #475569;
 }
 
 [data-theme='light'] .glass-card,
-.theme-light .glass-card {
-  background: rgba(255, 255, 255, 0.9);
+.theme-light .glass-card,
+.quranmind-theme-light .glass-card {
+  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(5, 150, 105, 0.2);
   box-shadow: 0 15px 35px rgba(5, 150, 105, 0.08);
 }
 
 [data-theme='light'] .card-header-quran,
-.theme-light .card-header-quran {
+.theme-light .card-header-quran,
+.quranmind-theme-light .card-header-quran {
   background: #f8fafc;
   border-bottom-color: #e2e8f0;
+  color: #475569;
 }
 
 [data-theme='light'] .arabic-line,
-.theme-light .arabic-line {
+.theme-light .arabic-line,
+.quranmind-theme-light .arabic-line {
   color: #064e3b;
 }
 
 [data-theme='light'] .translation-line,
-.theme-light .translation-line {
-  color: #64748b;
+.theme-light .translation-line,
+.quranmind-theme-light .translation-line {
+  color: #475569;
 }
 
 [data-theme='light'] .ai-insight-snip,
-.theme-light .ai-insight-snip {
+.theme-light .ai-insight-snip,
+.quranmind-theme-light .ai-insight-snip {
   background: #f0fdf4;
 }
 
 [data-theme='light'] .ai-insight-snip p,
-.theme-light .ai-insight-snip p {
+.theme-light .ai-insight-snip p,
+.quranmind-theme-light .ai-insight-snip p {
   color: #065f46;
+}
+
+[data-theme='light'] .badge-ai,
+.theme-light .badge-ai,
+.quranmind-theme-light .badge-ai {
+  color: #047857 !important;
+}
+
+[data-theme='light'] .apotek-module-detail,
+.theme-light .apotek-module-detail,
+.quranmind-theme-light .apotek-module-detail {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .apotek-module-detail__title,
+.theme-light .apotek-module-detail__title,
+.quranmind-theme-light .apotek-module-detail__title {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .apotek-module-detail__desc,
+.theme-light .apotek-module-detail__desc,
+.quranmind-theme-light .apotek-module-detail__desc {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .apotek-module-detail__features li,
+.theme-light .apotek-module-detail__features li,
+.quranmind-theme-light .apotek-module-detail__features li {
+  color: #334155 !important;
+}
+
+[data-theme='light'] .apotek-module-tab,
+.theme-light .apotek-module-tab,
+.quranmind-theme-light .apotek-module-tab {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #475569 !important;
+}
+
+[data-theme='light'] .apotek-module-tab:hover,
+.theme-light .apotek-module-tab:hover,
+.quranmind-theme-light .apotek-module-tab:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: #0f172a !important;
 }
 
 /* Philosophy Redesign Styles */

@@ -345,3 +345,44 @@
     color: #94a3b8;
   }
 }
+
+/* App Theme Dark Selectors */
+body:not(.theme-light) .admin-login-container,
+[data-theme='dark'] .admin-login-container,
+.theme-dark .admin-login-container {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body:not(.theme-light) .admin-login-form h3,
+[data-theme='dark'] .admin-login-form h3,
+.theme-dark .admin-login-form h3 {
+  color: #f8fafc;
+}
+
+body:not(.theme-light) .admin-login-form > p,
+[data-theme='dark'] .admin-login-form > p,
+.theme-dark .admin-login-form > p {
+  color: #94a3b8;
+}
+
+body:not(.theme-light) .form-group label,
+[data-theme='dark'] .form-group label,
+.theme-dark .form-group label {
+  color: #cbd5e1;
+}
+
+body:not(.theme-light) .form-group input,
+[data-theme='dark'] .form-group input,
+.theme-dark .form-group input {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body:not(.theme-light) .security-notice,
+[data-theme='dark'] .security-notice,
+.theme-dark .security-notice {
+  background: #0f172a;
+  border-color: #334155;
+}

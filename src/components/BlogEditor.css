@@ -506,3 +506,46 @@
     color: #f8fafc;
   }
 }
+
+/* App Theme Dark Selectors */
+body:not(.theme-light) .blog-editor .form-group label,
+[data-theme='dark'] .blog-editor .form-group label,
+.theme-dark .blog-editor .form-group label {
+  color: #cbd5e1;
+}
+
+body:not(.theme-light) .blog-editor .form-group input,
+body:not(.theme-light) .blog-editor .form-group select,
+body:not(.theme-light) .blog-editor .form-group textarea,
+[data-theme='dark'] .blog-editor .form-group input,
+[data-theme='dark'] .blog-editor .form-group select,
+[data-theme='dark'] .blog-editor .form-group textarea,
+.theme-dark .blog-editor .form-group input,
+.theme-dark .blog-editor .form-group select,
+.theme-dark .blog-editor .form-group textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body:not(.theme-light) .blog-editor .tags-input,
+[data-theme='dark'] .blog-editor .tags-input,
+.theme-dark .blog-editor .tags-input {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body:not(.theme-light) .blog-editor #content-editor,
+[data-theme='dark'] .blog-editor #content-editor,
+.theme-dark .blog-editor #content-editor {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+body:not(.theme-light) .blog-editor .content-preview,
+[data-theme='dark'] .blog-editor .content-preview,
+.theme-dark .blog-editor .content-preview {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}

@@ -196,11 +196,10 @@ const Header: React.FC = () => {
                       to="/services"
                       className="dropdown__item dropdown__item--all"
                       onClick={handleLinkClick}
-                      style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '6px', paddingTop: '8px' }}
                     >
                       <span className="dropdown__item-icon">✨</span>
                       <span className="dropdown__item-content">
-                        <span className="dropdown__item-label" style={{ color: '#38bdf8' }}>Semua Layanan (What We Offer)</span>
+                        <span className="dropdown__item-label">Semua Layanan (What We Offer)</span>
                         <span className="dropdown__item-desc">Estimator proyek &amp; alur pengerjaan</span>
                       </span>
                     </Link>

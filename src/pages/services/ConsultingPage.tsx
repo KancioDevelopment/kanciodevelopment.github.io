@@ -176,7 +176,7 @@ const ConsultingPage: React.FC = () => {
               <div className="estimator-config">
                 {auditQuestions.map((q) => (
                   <div key={q.id} className="config-group" style={{ marginBottom: '14px' }}>
-                    <label className="config-lbl" style={{ color: '#fff', fontSize: '0.85rem' }}>
+                    <label className="config-lbl quiz-question-lbl">
                       {q.question}
                     </label>
                     <div className="options-pill-grid" style={{ gridTemplateColumns: '1fr', marginTop: '6px' }}>
@@ -209,7 +209,7 @@ const ConsultingPage: React.FC = () => {
 
                   <div className="deliverables-summary">
                     <span className="deliv-title">Rekomendasi Roadmap Teknis:</span>
-                    <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: '1.55', margin: 0 }}>
+                    <p className="quiz-recommendation-desc">
                       {recommendation}
                     </p>
                   </div>

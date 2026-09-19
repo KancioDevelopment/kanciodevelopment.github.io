@@ -2011,6 +2011,53 @@
     color: #0f172a !important;
 }
 
+.apotek-theme-light .cyber-gradient-text {
+    background: linear-gradient(135deg, #0284c7 0%, #4338ca 50%, #db2777 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    filter: none !important;
+}
+
+.apotek-theme-light .cyber-glass-stats {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(203, 213, 225, 0.9) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.apotek-theme-light .apotek-hero__stat strong {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .apotek-hero__stat span {
+    color: #64748b !important;
+}
+
+.apotek-theme-light .cyber-pulse-badge,
+.apotek-theme-light .apotek-hero__tag {
+    background: #ede9fe !important;
+    color: #6d28d9 !important;
+    border-color: #c4b5fd !important;
+}
+
+.apotek-theme-light .cyber-mockup-frame {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.apotek-theme-light .mockup-stat-mini {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .cyber-trust-badges span {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
 .apotek-theme-light .apotek-hero__subtitle,
 .apotek-theme-light p {
     color: #475569 !important;
@@ -2040,9 +2087,25 @@
 .apotek-theme-light .apotek-mod-card__name,
 .apotek-theme-light .sim-hero-title,
 .apotek-theme-light .pricing-card__title,
+.apotek-theme-light .plan-name,
 .apotek-theme-light .faq-question,
 .apotek-theme-light .form-title {
     color: #0f172a !important;
+}
+
+.apotek-theme-light .apotek-mod-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+.apotek-theme-light .apotek-mod-card:hover {
+    border-color: #0284c7 !important;
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.1) !important;
+}
+
+.apotek-theme-light .card-link-text {
+    color: #0284c7 !important;
 }
 
 .apotek-theme-light .apotek-module-preview {
@@ -2052,6 +2115,12 @@
 
 .apotek-theme-light .apotek-preview-row {
     color: #334155 !important;
+}
+
+.apotek-theme-light .lead-capture-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
 }
 
 .apotek-theme-light .lead-capture-form-box,
@@ -2065,6 +2134,48 @@
     background: #ffffff !important;
     border-color: #cbd5e1 !important;
     color: #0f172a !important;
+}
+
+.apotek-theme-light .pricing-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.apotek-theme-light .pricing-card--popular {
+    border-color: #6366f1 !important;
+    background: linear-gradient(180deg, #fdf4ff 0%, #ffffff 100%) !important;
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.12) !important;
+}
+
+.apotek-theme-light .pricing-card__price-box .amount {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .pricing-feature-item {
+    color: #334155 !important;
+}
+
+.apotek-theme-light .pricing-guarantee-banner {
+    background: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+}
+
+.apotek-theme-light .guarantee-text strong {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .apotek-faq-item {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.apotek-theme-light .apotek-faq-question {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .apotek-faq-answer {
+    color: #475569 !important;
 }
 
 .apotek-theme-light .apotek-theme-toggle-bar .theme-toggle-btn {

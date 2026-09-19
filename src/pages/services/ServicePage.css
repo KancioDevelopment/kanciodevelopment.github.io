@@ -1218,6 +1218,72 @@
 }
 
 /* ============================================================================
+   CYBER SERVICES TAB & SIMULATION HELPERS
+   ============================================================================ */
+.solution-filter-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+}
+
+.filter-tab {
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.6);
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.filter-tab--active {
+    background: linear-gradient(135deg, #06b6d4, #6366f1) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.sim-sample-input {
+    background: rgba(2, 6, 23, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    color: #94a3b8;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.sim-output-details {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+}
+
+.quiz-question-lbl {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.quiz-recommendation-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ============================================================================
    LIGHT THEME OVERRIDES FOR SERVICES PAGES
    ============================================================================ */
 [data-theme='light'] .cyber-services-theme,
@@ -1231,9 +1297,31 @@
     color: #0f172a !important;
 }
 
+[data-theme='light'] .services-hero__desc,
+.theme-light .services-hero__desc {
+    color: #475569 !important;
+}
+
 [data-theme='light'] .services-hero__subtitle,
 .theme-light .services-hero__subtitle {
     color: #475569 !important;
+}
+
+[data-theme='light'] .services-hero__stats,
+.theme-light .services-hero__stats {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='light'] .stat-box strong,
+.theme-light .stat-box strong {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .stat-box span,
+.theme-light .stat-box span {
+    color: #64748b !important;
 }
 
 [data-theme='light'] .cyber-card,
@@ -1243,13 +1331,15 @@
 [data-theme='light'] .sandbox-card,
 [data-theme='light'] .audit-quiz-card,
 [data-theme='light'] .timeline-step-card,
+[data-theme='light'] .process-step-card,
 .theme-light .cyber-card,
 .theme-light .pillar-card,
 .theme-light .estimator-container,
 .theme-light .rfq-card,
 .theme-light .sandbox-card,
 .theme-light .audit-quiz-card,
-.theme-light .timeline-step-card {
+.theme-light .timeline-step-card,
+.theme-light .process-step-card {
     background: #ffffff !important;
     border-color: rgba(0, 0, 0, 0.08) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
@@ -1260,19 +1350,229 @@
 [data-theme='light'] .rfq-title,
 [data-theme='light'] .form-label,
 [data-theme='light'] .timeline-step-title,
+[data-theme='light'] .step-title,
+[data-theme='light'] .config-title,
+[data-theme='light'] .form-heading,
 .theme-light .pillar-title,
 .theme-light .estimator-card-title,
 .theme-light .rfq-title,
 .theme-light .form-label,
-.theme-light .timeline-step-title {
+.theme-light .timeline-step-title,
+.theme-light .step-title,
+.theme-light .config-title,
+.theme-light .form-heading {
     color: #0f172a !important;
 }
 
 [data-theme='light'] .pillar-desc,
 [data-theme='light'] .timeline-step-desc,
+[data-theme='light'] .step-desc,
 .theme-light .pillar-desc,
-.theme-light .timeline-step-desc {
+.theme-light .timeline-step-desc,
+.theme-light .step-desc {
     color: #475569 !important;
+}
+
+[data-theme='light'] .pillar-tagline,
+.theme-light .pillar-tagline {
+    color: #0284c7 !important;
+}
+
+[data-theme='light'] .pillar-deliverables,
+.theme-light .pillar-deliverables {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme='light'] .deliv-label,
+.theme-light .deliv-label {
+    color: #1e293b !important;
+}
+
+[data-theme='light'] .pillar-list li,
+.theme-light .pillar-list li {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .pillar-ideal,
+.theme-light .pillar-ideal {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .pillar-ideal strong,
+.theme-light .pillar-ideal strong {
+    color: #0f172a !important;
+}
+
+/* Estimator Simulator Light Controls */
+[data-theme='light'] .opt-btn,
+.theme-light .opt-btn {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    color: #334155 !important;
+}
+
+[data-theme='light'] .opt-btn:hover,
+.theme-light .opt-btn:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #6366f1 !important;
+}
+
+[data-theme='light'] .opt-btn--active,
+.theme-light .opt-btn--active {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(99, 102, 241, 0.15)) !important;
+    border-color: #6366f1 !important;
+    color: #4338ca !important;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.15) !important;
+}
+
+[data-theme='light'] .addon-chip,
+.theme-light .addon-chip {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: #475569 !important;
+}
+
+[data-theme='light'] .addon-chip--active,
+.theme-light .addon-chip--active {
+    border-color: #6366f1 !important;
+    background: rgba(99, 102, 241, 0.08) !important;
+    color: #4338ca !important;
+}
+
+[data-theme='light'] .output-card,
+.theme-light .output-card {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .output-timeline-box,
+.theme-light .output-timeline-box {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='light'] .output-timeline-box .lbl,
+.theme-light .output-timeline-box .lbl {
+    color: #64748b !important;
+}
+
+[data-theme='light'] .timeline-val,
+.theme-light .timeline-val {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .output-timeline-box .sub,
+.theme-light .output-timeline-box .sub {
+    color: #64748b !important;
+}
+
+[data-theme='light'] .team-title,
+.theme-light .team-title,
+[data-theme='light'] .deliv-title,
+.theme-light .deliv-title,
+[data-theme='light'] .config-lbl,
+.theme-light .config-lbl {
+    color: #1e293b !important;
+}
+
+[data-theme='light'] .team-chip,
+.theme-light .team-chip {
+    color: #047857 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+[data-theme='light'] .deliv-list li,
+.theme-light .deliv-list li {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .filter-tab,
+.theme-light .filter-tab {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #475569;
+}
+
+[data-theme='light'] .filter-tab:hover,
+.theme-light .filter-tab:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+[data-theme='light'] .filter-tab--active,
+.theme-light .filter-tab--active {
+    background: linear-gradient(135deg, #06b6d4, #6366f1) !important;
+    color: #ffffff !important;
+}
+
+[data-theme='light'] .sim-sample-input,
+.theme-light .sim-sample-input {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: #334155 !important;
+}
+
+[data-theme='light'] .sim-output-details,
+.theme-light .sim-output-details {
+    color: #334155 !important;
+}
+
+[data-theme='light'] .quiz-question-lbl,
+.theme-light .quiz-question-lbl {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .quiz-recommendation-desc,
+.theme-light .quiz-recommendation-desc {
+    color: #475569 !important;
+}
+
+/* RFQ Light Form Styling */
+[data-theme='light'] .rfq-intro h2,
+.theme-light .rfq-intro h2 {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .rfq-intro p,
+.theme-light .rfq-intro p {
+    color: #475569 !important;
+}
+
+[data-theme='light'] .perk-row strong,
+.theme-light .perk-row strong {
+    color: #0f172a !important;
+}
+
+[data-theme='light'] .perk-row span,
+.theme-light .perk-row span {
+    color: #64748b !important;
+}
+
+[data-theme='light'] .rfq-form-wrap,
+.theme-light .rfq-form-wrap {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='light'] .rfq-form label,
+.theme-light .rfq-form label {
+    color: #334155 !important;
+}
+
+[data-theme='light'] .rfq-form input,
+[data-theme='light'] .rfq-form select,
+[data-theme='light'] .rfq-form textarea,
+.theme-light .rfq-form input,
+.theme-light .rfq-form select,
+.theme-light .rfq-form textarea {
+    background: #f8fafc !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    color: #0f172a !important;
 }
 
 [data-theme='light'] .option-pill,

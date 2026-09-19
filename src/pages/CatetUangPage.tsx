@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
+import { useTheme } from '../contexts/ThemeContext'
 import './ProductPage.css'
 
 interface TransactionItem {
@@ -164,7 +165,7 @@ const faqs = [
 
 const CatetUangPage: React.FC = () => {
   const { userConsent } = useAds()
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const { isDarkMode, toggleTheme } = useTheme()
   const [isAnnual, setIsAnnual] = useState(true)
   const [transactions, setTransactions] = useState<TransactionItem[]>(initialTransactions)
   const [newTitle, setNewTitle] = useState('')
@@ -193,8 +194,13 @@ const CatetUangPage: React.FC = () => {
   const netCashflow = totalIncome - totalExpense
   const savingsRate = totalIncome > 0 ? Math.max(0, Math.round((netCashflow / totalIncome) * 100)) : 0
 
-  // Calculate Health Score
-  const healthScore = Math.min(100, Math.max(20, Math.round(50 + savingsRate * 0.5)))
+  // Financial health gauge calculation (0 - 100)
+  const healthScore =
+    totalIncome === 0
+      ? 50
+      : netCashflow < 0
+      ? Math.max(15, Math.round(50 + (netCashflow / (totalExpense || 1)) * 30))
+      : Math.min(100, Math.round(50 + (netCashflow / totalIncome) * 50))
 
   const handleAddTransaction = (e: React.FormEvent) => {
     e.preventDefault()
@@ -282,7 +288,7 @@ const CatetUangPage: React.FC = () => {
               {/* Adaptive Theme Toggle Button */}
               <button
                 className="theme-switch-btn"
-                onClick={() => setIsDarkMode(!isDarkMode)}
+                onClick={toggleTheme}
                 title={`Ganti ke ${isDarkMode ? 'Mode Terang' : 'Mode Gelap'}`}
               >
                 {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}

@@ -12,6 +12,43 @@
   align-items: start;
 }
 
+/* Sticky TOC */
+.legal-sidebar {
+  position: sticky;
+  top: 100px;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.legal-sidebar h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.toc-link:hover {
+  color: var(--primary-light);
+  transform: translateX(5px);
+}
+
 .syarat-layanan__header {
   margin-bottom: 60px;
   text-align: left;
@@ -225,4 +262,50 @@
   background: #f8fafc;
   border-color: rgba(15, 23, 42, 0.08);
 }
+
+[data-theme='light'] .legal-sidebar,
+.theme-light .legal-sidebar {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .legal-sidebar h3,
+.theme-light .legal-sidebar h3 {
+  color: #0f172a;
+}
+
+[data-theme='light'] .toc-link,
+.theme-light .toc-link {
+  color: #475569;
+}
+
+[data-theme='light'] .toc-link:hover,
+.theme-light .toc-link:hover {
+  color: #0284c7;
+}
+
+[data-theme='light'] .prohibited-list,
+.theme-light .prohibited-list {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .feature-list-item,
+.theme-light .feature-list-item {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .disclaimer-box,
+.theme-light .disclaimer-box {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+[data-theme='light'] .disclaimer-box h4,
+.theme-light .disclaimer-box h4 {
+  color: #dc2626;
+}
+
 

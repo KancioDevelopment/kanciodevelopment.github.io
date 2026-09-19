@@ -39,12 +39,11 @@ const Blogs: React.FC = () => {
 
   // Create slug from post ID or title
   const createSlug = useCallback((post: PostData): string => {
-    return post.id
+    return (post.slug || post.id)
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')
       .replace(/[\s_-]+/g, '-')
       .replace(/^-+|-+$/g, '')
-      .substring(0, 50)
   }, [])
 
   // Navigate to individual post page

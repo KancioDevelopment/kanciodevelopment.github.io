@@ -245,52 +245,39 @@ const BlogPost: React.FC = () => {
   return (
     <div className="blog-post-page">
       <div className="container">
-        {/* Breadcrumb Navigation */}
-        <nav className="breadcrumb" aria-label="breadcrumb">
-          <ol className="breadcrumb-list">
-            <li className="breadcrumb-item">
-              <button onClick={() => navigate('/')} className="breadcrumb-link" title="Go to homepage">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '6px' }}>
-                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9,22 9,12 15,12 15,22"></polyline>
-                </svg>
-                Home
-              </button>
-            </li>
-            <li className="breadcrumb-separator" aria-hidden="true">›</li>
-            <li className="breadcrumb-item">
-              <button onClick={() => navigate('/blogs')} className="breadcrumb-link" title="Go to blog listing">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '6px' }}>
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14,2 14,8 20,8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10,9 9,9 8,9"></polyline>
-                </svg>
-                Blog
-              </button>
-            </li>
-            <li className="breadcrumb-separator" aria-hidden="true">›</li>
-            <li className="breadcrumb-item">
-              <span className="breadcrumb-current" aria-current="page" title={post?.title}>
-                {post?.category && (
-                  <span style={{ marginRight: '8px', fontSize: '12px', opacity: 0.7 }}>
-                    {post.category}
-                  </span>
-                )}
-                {post?.title}
-              </span>
-            </li>
-          </ol>
-        </nav>
+        {/* Top Navigation Bar */}
+        <div className="blog-top-bar">
+          <nav className="breadcrumb" aria-label="breadcrumb">
+            <ol className="breadcrumb-list">
+              <li className="breadcrumb-item">
+                <button onClick={() => navigate('/')} className="breadcrumb-link" title="Ke Beranda">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '6px' }}>
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                  </svg>
+                  Home
+                </button>
+              </li>
+              <li className="breadcrumb-separator" aria-hidden="true">›</li>
+              <li className="breadcrumb-item">
+                <button onClick={() => navigate('/blogs')} className="breadcrumb-link" title="Daftar Blog">
+                  Blog
+                </button>
+              </li>
+              <li className="breadcrumb-separator" aria-hidden="true">›</li>
+              <li className="breadcrumb-item">
+                <span className="breadcrumb-current" aria-current="page" title={post?.title}>
+                  {post?.title}
+                </span>
+              </li>
+            </ol>
+          </nav>
 
-        {/* Back Navigation */}
-        <div className="blog-nav">
-          <button onClick={() => navigate('/blogs')} className="back-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <button onClick={() => navigate('/blogs')} className="back-btn" title="Kembali ke semua artikel">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15,18 9,12 15,6"></polyline>
             </svg>
-            <span>Back to Blog</span>
+            <span>Semua Artikel</span>
           </button>
         </div>
 

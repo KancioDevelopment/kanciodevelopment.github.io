@@ -3,12 +3,14 @@ import React, { useState, useEffect, useRef } from 'react'
 import GoogleAdSense from '../components/GoogleAdSense'
 import { useAds } from '../hooks/useAds'
 import { useSEO } from '../hooks/useSEO'
+import { useTheme } from '../contexts/ThemeContext'
 import './ProductPage.css'
 import './ApotekAppPage.css'
 import './QuranMindPage.css'
 
 const QuranMindPage: React.FC = () => {
   const { userConsent } = useAds()
+  const { isDarkMode, toggleTheme } = useTheme()
 
   useSEO({
     title: 'QuranMind: Aplikasi Tafsir Al-Quran AI & Murottal Sheikh Mishary',
@@ -58,87 +60,59 @@ const QuranMindPage: React.FC = () => {
   const features = [
     {
       icon: '📖',
-      title: 'Teks Al-Quran Premium',
-      badge: 'Visual Jernih',
-      badgeColor: 'green',
-      description: 'Membaca Al-Quran menjadi lebih nyaman dengan dukungan font Mushaf Madinah (KFGQPC) yang jernih dan otentik.',
+      title: 'Tafsir Tematik per Ruku',
+      badge: 'Core Feature',
+      badgeColor: 'emerald',
+      description: 'Pahami Al-Quran tidak sekadar membaca ayat per ayat. QuranMind mengelompokkan ayat berdasarkan tema (Ruku) agar hikmah dan korelasi makna tersampaikan utuh.',
       details: [
-        'Font KFGQPC Mushaf Madinah',
-        'Terjemahan Kemenag RI akurat',
-        'Dukungan Dark/Light Mode',
-        'Navigasi Surah & Ayat super cepat'
+        'Ringkasan konteks historis Ruku',
+        'Intisari pesan moral dan akidah',
+        'Analisis korelasi antar ayat',
+        'Tanya makna via AI Assistant'
       ],
-      gradient: 'linear-gradient(135deg, #10b981, #059669)'
+      gradient: 'linear-gradient(135deg, #059669, #10b981)'
     },
     {
-      icon: '🤖',
-      title: 'Analisis AI (Ruku)',
-      badge: 'Smart Engine',
-      badgeColor: 'indigo',
-      description: 'Kupas tuntas makna ayat per kelompok (Ruku) dengan bantuan kecerdasan buatan untuk pemahaman lebih dalam.',
-      details: [
-        'Konteks sejarah (Asbabunnuzul)',
-        'Ringkasan tema per Ruku',
-        'Analisis nilai-nilai universal',
-        'Relevansi dengan kehidupan modern'
-      ],
-      gradient: 'linear-gradient(135deg, #6366f1, #4f46e5)'
-    },
-    {
-      icon: '🎵',
-      title: 'Murottal Berkualitas',
-      badge: 'Sheikh Mishary',
+      icon: '🎙️',
+      title: 'Murottal Sheikh Mishary',
+      badge: 'Audio HD',
       badgeColor: 'blue',
-      description: 'Dengarkan lantunan ayat suci dari Qori terkemuka dengan fitur sinkronisasi teks otomatis.',
+      description: 'Lantunan ayat suci yang syahdu dan jernih oleh Qari terkemuka dunia, Sheikh Mishary Rashid Al-Afasy, dapat diakses offline setelah diunduh.',
       details: [
-        'Audio Sheikh Mishary Rashid Al-Afasy',
-        'Auto-scroll sinkronisasi ayat',
-        'Download untuk diderngar offline',
-        'Kontrol playback yang intuitif'
+        'Audio berkualitas 128 kbps jernih',
+        'Dukungan download per Surah',
+        'Background audio playback',
+        'Sinkronisasi highlight ayat real-time'
       ],
-      gradient: 'linear-gradient(135deg, #3b82f6, #2563eb)'
+      gradient: 'linear-gradient(135deg, #0284c7, #38bdf8)'
     },
     {
-      icon: '🔖',
-      title: 'Bookmark & Catatan',
-      badge: 'Studi Mandiri',
-      badgeColor: 'teal',
-      description: 'Kelola bahan belajar Anda dengan fitur penanda dan catatan pribadi yang aman.',
+      icon: '⚡',
+      title: 'Pencarian Semantik Cerdas',
+      badge: 'Smart Search',
+      badgeColor: 'purple',
+      description: 'Cari ayat bukan hanya berdasarkan kata kunci persis, melainkan topik atau pertanyaan hidup (misal: "ayat tentang sabar menghadapi cobaan").',
       details: [
-        'Bookmark per Ruku atau Ayat',
-        'Catatan refleksi pribadi',
+        'Pencarian berbasis topik kehidupan',
+        'Transliterasi Latin & Terjemahan Kemenag',
+        'Pencarian nomor ayat dan juz instan',
+        'Riwayat pencarian tersimpan aman'
+      ],
+      gradient: 'linear-gradient(135deg, #7c3aed, #a855f7)'
+    },
+    {
+      icon: '🏷️',
+      title: 'Catatan Tadabbur Pribadi',
+      badge: 'Personalisasi',
+      badgeColor: 'teal',
+      description: 'Sematkan catatan refleksi pribadi, tandai ayat favorit, dan kelompokkan inspirasi tadabbur harian Anda.',
+      details: [
+        'Tag warna kustom untuk bookmark',
+        'Catatan renungan pribadi terenkripsi',
         'Kelompokkan bahan tadabbur',
         'Akses cepat dari dashboard'
       ],
       gradient: 'linear-gradient(135deg, #14b8a6, #0d9488)'
-    },
-    {
-      icon: '🔄',
-      title: 'Sinkronisasi Cloud',
-      badge: 'Multi-Device',
-      badgeColor: 'yellow',
-      description: 'Jangan takut kehilangan data. Semua bookmark dan catatan Anda tersimpan aman di cloud.',
-      details: [
-        'Sinkronisasi antar perangkat',
-        'Backup otomatis ke akun Kancio',
-        'Akses di mana saja kapan saja',
-        'Data aman dan terenkripsi'
-      ],
-      gradient: 'linear-gradient(135deg, #eab308, #d97706)'
-    },
-    {
-      icon: '📜',
-      title: 'Tafsir Modern',
-      badge: 'Pemahaman Dalam',
-      badgeColor: 'pink',
-      description: 'Akses berbagai literatur tafsir yang disajikan dengan bahasa yang mudah dipahami.',
-      details: [
-        'Tafsir Ringkas & Mendalam',
-        'Penjelasan istilah sulit',
-        'Struktur pembelajaran tematik',
-        'Dilengkapi kutipan hadits relevan'
-      ],
-      gradient: 'linear-gradient(135deg, #ec4899, #db2777)'
     }
   ]
 
@@ -150,7 +124,7 @@ const QuranMindPage: React.FC = () => {
   ]
 
   return (
-    <div className={`product-page apotek-page quranmind-page ${scrolled ? 'page--scrolled' : ''}`}>
+    <div className={`product-page apotek-page quranmind-page ${isDarkMode ? 'quranmind-theme-dark' : 'quranmind-theme-light'} ${scrolled ? 'page--scrolled' : ''}`}>
       {/* ===== HERO SECTION ===== */}
       <section className="apotek-hero quranmind-hero">
         {/* Decorative background elements */}
@@ -160,22 +134,29 @@ const QuranMindPage: React.FC = () => {
         <div className="container">
           <div className="apotek-hero__content">
             <div className="apotek-hero__eyebrow">
-              <span className="badge glass-badge" style={{ background: 'rgba(16, 185, 129, 0.2)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981' }}>
+              <span className="badge glass-badge quranmind-badge">
                 <span className="pulse-dot" /> QuranMind AI
               </span>
-              <span className="apotek-hero__tag" style={{ background: 'rgba(217, 119, 6, 0.1)', color: '#d97706', borderColor: 'rgba(217, 119, 6, 0.2)' }}>
+              <span className="apotek-hero__tag quranmind-tag">
                 Teknologi Tafsir Masa Depan
               </span>
+              <button
+                className="theme-switch-btn quranmind-theme-btn"
+                onClick={toggleTheme}
+                title={`Ganti ke ${isDarkMode ? 'Mode Terang' : 'Mode Gelap'}`}
+              >
+                {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}
+              </button>
             </div>
 
-            <h1 className="apotek-hero__title" style={{ color: '#064e3b' }}>
+            <h1 className="apotek-hero__title quranmind-hero__title">
               Selami Kedalaman <br />
-              <span className="text-gradient" style={{ background: 'linear-gradient(to right)' }}>Makna Al-Quran</span>
+              <span className="text-gradient quranmind-gradient-text">Makna Al-Quran</span>
             </h1>
 
-            <p className="apotek-hero__desc" style={{ color: '#374151' }}>
+            <p className="apotek-hero__desc quranmind-hero__desc">
               Gabungan harmonis antara <strong>Sains Data</strong> dan <strong>Tafsir Klasik</strong>.
-              QuranMind membantu Anda tadabbur lebih dalam with analisis Ruku cerdas
+              QuranMind membantu Anda tadabbur lebih dalam dengan analisis Ruku cerdas
               untuk pemahaman spiritual yang modern.
             </p>
 
@@ -315,7 +296,7 @@ const QuranMindPage: React.FC = () => {
       >
         <div className="container">
           <div className="section-header">
-            <div className="badge glass-badge" style={{ color: '#059669' }}>Ekosistem Belajar</div>
+            <div className="badge glass-badge quranmind-badge--ecosystem">Ekosistem Belajar</div>
             <h2>Fitur Unggulan <span className="text-gradient">Profesional</span></h2>
             <p>Dirancang dengan standar UI/UX modern untuk menjaga kekhusyukan dan kenyamanan belajar Anda.</p>
           </div>
@@ -349,7 +330,7 @@ const QuranMindPage: React.FC = () => {
               <ul className="apotek-module-detail__features">
                 {features[activeFeature].details.map((d, i) => (
                   <li key={i}>
-                    <span className="apotek-check" style={{ color: '#059669' }}>✓</span>
+                    <span className="apotek-check quranmind-check">✓</span>
                     {d}
                   </li>
                 ))}
