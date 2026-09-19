@@ -212,11 +212,11 @@ const AIIntegrationPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* Display Ad — section break between hero and services */}
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
-          adFormat="horizontal"
+          unitType="display"
           variant="minimal"
           adLabel="Advertisement"
           showLoadingAnimation={true}
@@ -346,13 +346,13 @@ const AIIntegrationPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* Multiplex Recommendation Ad — footer before CTA */}
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
-          adFormat="rectangle"
-          variant="premium"
-          adLabel="Sponsored"
+          unitType="multiplex"
+          variant="minimal"
+          adLabel="Advertisement"
           showLoadingAnimation={true}
           className="product-page-ad-footer"
         />

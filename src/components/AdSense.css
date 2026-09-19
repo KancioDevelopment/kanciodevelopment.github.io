@@ -16,24 +16,40 @@
 }
 
 .adsense-container:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.25);
+    /* Google AdSense Policy Compliance: Zero transform/scale to eliminate accidental click hazard */
+    border-color: rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .adsense-container.ad-loaded {
-    animation: adLoadComplete 0.6s ease-out;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-@keyframes adLoadComplete {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Gracefully hide container when Google returns unfilled inventory */
+.adsense-container:has(ins[data-ad-status="unfilled"]) {
+    display: none !important;
+}
+
+/* Zero CLS Shimmer Placeholder */
+.ad-skeleton-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(240, 243, 246, 0.6) 25%, rgba(226, 232, 240, 0.8) 50%, rgba(240, 243, 246, 0.6) 75%);
+    background-size: 200% 100%;
+    animation: adShimmer 2s infinite ease-in-out;
+    border-radius: 12px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes adShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.adsense-container.ad-loaded .ad-skeleton-placeholder {
+    display: none;
 }
 
 /* Ad label overlay (replaces ::before) */
@@ -592,29 +608,44 @@
     }
 }
 
-/* Dark mode support */
+/* Dark mode support (media query + data-theme attribute) */
 @media (prefers-color-scheme: dark) {
     .adsense-container {
-        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-        border-color: rgba(75, 85, 99, 0.3);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.7) 100%);
+        border-color: rgba(255, 255, 255, 0.08);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     
     .ad-label-overlay {
-        background: rgba(31, 41, 55, 0.95);
-        color: #e5e7eb;
-        border-color: rgba(75, 85, 99, 0.3);
-    }
-    
-    .ad-placeholder.loading-state {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        background: rgba(15, 23, 42, 0.85);
         color: #94a3b8;
+        border-color: rgba(255, 255, 255, 0.1);
     }
-    
-    .ad-placeholder.error-state {
-        background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
-        color: #fca5a5;
+
+    .ad-skeleton-placeholder {
+        background: linear-gradient(90deg, rgba(30, 41, 59, 0.4) 25%, rgba(51, 65, 85, 0.6) 50%, rgba(30, 41, 59, 0.4) 75%);
+        background-size: 200% 100%;
     }
+}
+
+[data-theme='dark'] .adsense-container,
+:root:not([data-theme='light']) .adsense-container {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.7) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .ad-label-overlay,
+:root:not([data-theme='light']) .ad-label-overlay {
+    background: rgba(15, 23, 42, 0.85);
+    color: #94a3b8;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .ad-skeleton-placeholder,
+:root:not([data-theme='light']) .ad-skeleton-placeholder {
+    background: linear-gradient(90deg, rgba(30, 41, 59, 0.4) 25%, rgba(51, 65, 85, 0.6) 50%, rgba(30, 41, 59, 0.4) 75%);
+    background-size: 200% 100%;
 }
 
 /* Reduced motion support */

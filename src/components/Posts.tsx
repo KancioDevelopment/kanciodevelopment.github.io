@@ -413,8 +413,9 @@ const Posts: React.FC = () => {
                     </div>
                     <GoogleAdSense
                       userConsent={userConsent}
-                      adFormat="horizontal"
+                      unitType="display"
                       style={{ margin: '20px 0' }}
+                      adLabel="Advertisement"
                       className="blog-grid-ad optimized-grid-ad"
                     />
                   </div>
@@ -434,7 +435,8 @@ const Posts: React.FC = () => {
                   </div>
                   <GoogleAdSense
                     userConsent={userConsent}
-                    adFormat="rectangle"
+                    unitType="multiplex"
+                    adLabel="Advertisement"
                     style={{ margin: '40px 0' }}
                     className="blog-footer-ad optimized-footer-ad"
                   />

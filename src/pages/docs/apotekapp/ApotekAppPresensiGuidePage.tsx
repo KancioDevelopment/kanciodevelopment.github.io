@@ -278,13 +278,13 @@ const ApotekAppPresensiGuidePage: React.FC = () => {
               </p>
             </div>
 
-            {/* Google AdSense Inline Content Break Ad */}
-            <div className="content-break-ad" style={{ margin: '10px 0' }}>
+            {/* Google AdSense Inline In-Article Native Ad */}
+            <div className="content-break-ad" style={{ margin: '32px 0' }}>
               <GoogleAdSense
                 userConsent={userConsent}
-                adFormat="horizontal"
-                variant="premium"
-                adLabel="Sponsor Resmi ApotekApp"
+                unitType="in-article"
+                variant="minimal"
+                adLabel="Advertisement"
                 showLoadingAnimation={true}
               />
             </div>
@@ -458,13 +458,13 @@ const ApotekAppPresensiGuidePage: React.FC = () => {
               )}
             </div>
 
-            {/* Google AdSense Footer Context Ad */}
-            <div className="content-break-ad" style={{ margin: '20px 0 10px' }}>
+            {/* Google AdSense Footer Multiplex Recommendation Ad */}
+            <div className="content-break-ad" style={{ margin: '36px 0 20px' }}>
               <GoogleAdSense
                 userConsent={userConsent}
-                adFormat="horizontal"
+                unitType="multiplex"
                 variant="minimal"
-                adLabel="Sponsor Resmi ApotekApp"
+                adLabel="Advertisement"
                 showLoadingAnimation={true}
               />
             </div>

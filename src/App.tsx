@@ -100,11 +100,12 @@ const HomePage: React.FC = () => {
         <div className="ad-wrapper">
           <GoogleAdSense
             userConsent={userConsent}
-            adFormat="horizontal"
+            unitType="display"
+            adFormat="auto"
             style={{ margin: '40px 0' }}
             className="home-middle-ad"
             variant="premium"
-            adLabel="Partnership"
+            adLabel="Advertisement"
             showLoadingAnimation={true}
           />
         </div>

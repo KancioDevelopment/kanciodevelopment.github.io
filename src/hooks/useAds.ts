@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 
 // Google AdSense configuration
 export const ADSENSE_CLIENT_ID = 'ca-pub-6469211032618440';
+export const ADSENSE_DISPLAY_SLOT_ID = import.meta.env.VITE_ADSENSE_DISPLAY_SLOT_ID || '4948504347';
 export const ADSENSE_SLOT_ID = import.meta.env.VITE_ADSENSE_SLOT_ID || '4948504347';
-export const ADSENSE_ARTICLE_SLOT_ID = import.meta.env.VITE_ADSENSE_ARTICLE_SLOT_ID || '8479920548';
+export const ADSENSE_ARTICLE_SLOT_ID = import.meta.env.VITE_ADSENSE_ARTICLE_SLOT_ID || '2988786928';
+export const ADSENSE_MULTIPLEX_SLOT_ID = import.meta.env.VITE_ADSENSE_MULTIPLEX_SLOT_ID || '7705253668';
 export const ANALYTICS_ID = 'G-EEVT7MW5MC';
 export const FBS_SCRIPT_ID = '16877ddb93aa3967ed413ac6c4c849e9c4131f50a597b2e1b5535b6deeb5172a';
 

@@ -385,14 +385,14 @@ const Blogs: React.FC = () => {
                 ))}
               </div>
 
-              {/* Strategic Ad Placement */}
+              {/* Display Ad \u2014 between blog grid and pagination */}
               <div className="blog-ad-wrapper">
                 <GoogleAdSense
                   userConsent={userConsent}
-                  adFormat="horizontal"
+                  unitType="display"
                   className="blog-grid-ad"
-                  variant="featured"
-                  adLabel="Sponsored"
+                  variant="minimal"
+                  adLabel="Advertisement"
                 />
               </div>
 

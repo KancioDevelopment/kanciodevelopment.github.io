@@ -256,12 +256,12 @@ const CustomAppsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* Display Ad — after hero section */}
       <div className="content-break-ad">
         <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
           <GoogleAdSense
             userConsent={userConsent}
-            adFormat="horizontal"
+            unitType="display"
             variant="minimal"
             adLabel="Advertisement"
             showLoadingAnimation={true}
@@ -397,14 +397,14 @@ const CustomAppsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placement */}
+      {/* Multiplex Recommendation Ad — before CTA */}
       <div className="content-break-ad">
         <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
           <GoogleAdSense
             userConsent={userConsent}
-            adFormat="rectangle"
-            variant="premium"
-            adLabel="Sponsored"
+            unitType="multiplex"
+            variant="minimal"
+            adLabel="Advertisement"
             showLoadingAnimation={true}
             className="product-page-ad-footer"
           />

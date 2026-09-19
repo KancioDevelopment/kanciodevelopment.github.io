@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import './BlogPost.css'
 import GoogleAdSense from './GoogleAdSense'
-import { useAds, ADSENSE_ARTICLE_SLOT_ID } from '../hooks/useAds'
+import { useAds } from '../hooks/useAds'
 import { BlogService, BlogPost as BlogPostType } from '../services/blogService'
 import { PostData } from './Blogs'
 
@@ -328,7 +328,7 @@ const BlogPost: React.FC = () => {
               <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
 
-            {/* Mid-content Ad */}
+            {/* In-Article Native Ad — blends organically into reading flow */}
             <div className="post-ad-section">
               <div className="ad-separator">
                 <div className="separator-line"></div>
@@ -337,10 +337,8 @@ const BlogPost: React.FC = () => {
               </div>
               <GoogleAdSense
                 userConsent={userConsent}
-                adSlot={ADSENSE_ARTICLE_SLOT_ID}
-                adFormat="fluid"
-                adLayout="in-article"
-                style={{ margin: '30px 0' }}
+                unitType="in-article"
+                style={{ margin: '36px 0' }}
                 className="post-content-ad"
               />
             </div>
@@ -370,6 +368,16 @@ const BlogPost: React.FC = () => {
             </div>
           </footer>
         </article>
+
+        {/* Multiplex Recommendation Grid — after article, before related posts */}
+        <div className="post-multiplex-section" style={{ margin: '0 0 24px' }}>
+          <GoogleAdSense
+            userConsent={userConsent}
+            unitType="multiplex"
+            className="post-multiplex-ad"
+            adLabel="Advertisement"
+          />
+        </div>
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (

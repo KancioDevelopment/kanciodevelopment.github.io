@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './PostDetail.css'
 import GoogleAdSense from './GoogleAdSense'
-import { useAds, ADSENSE_ARTICLE_SLOT_ID } from '../hooks/useAds'
+import { useAds } from '../hooks/useAds'
 import { BlogService } from '../services/blogService'
 
 interface PostDetailProps {
@@ -315,20 +315,28 @@ const PostDetail: React.FC<PostDetailProps> = ({ postId, onClose }) => {
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
 
-          {/* Optimized ad placement: After user finishes reading content */}
+          {/* In-Article Native Ad — integrated with content reading flow */}
           <div className="post-end-ad-section">
             <div className="content-separator">
               <div className="separator-line"></div>
-              <span className="separator-text">Continue Reading</span>
+              <span className="separator-text">Advertisement</span>
               <div className="separator-line"></div>
             </div>
             <GoogleAdSense
               userConsent={userConsent}
-              adSlot={ADSENSE_ARTICLE_SLOT_ID}
-              adFormat="fluid"
-              adLayout="in-article"
-              style={{ margin: '30px 0' }}
+              unitType="in-article"
+              style={{ margin: '36px 0' }}
               className="post-content-ad optimized-post-ad"
+            />
+          </div>
+
+          {/* Multiplex Recommendation Grid — after article completion */}
+          <div className="post-multiplex-section" style={{ margin: '16px 0 0' }}>
+            <GoogleAdSense
+              userConsent={userConsent}
+              unitType="multiplex"
+              className="post-multiplex-ad"
+              adLabel="Advertisement"
             />
           </div>
 

@@ -276,11 +276,11 @@ const QuranMindPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== AD ===== */}
+      {/* ===== Display Ad — section break ===== */}
       <div className="content-break-ad container">
         <GoogleAdSense
           userConsent={userConsent}
-          adFormat="horizontal"
+          unitType="display"
           variant="minimal"
           adLabel="Advertisement"
           showLoadingAnimation={true}
@@ -380,13 +380,13 @@ const QuranMindPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== AD ===== */}
+      {/* ===== Multiplex Recommendation Ad — before CTA ===== */}
       <div className="content-break-ad container">
         <GoogleAdSense
           userConsent={userConsent}
-          adFormat="rectangle"
-          variant="premium"
-          adLabel="Sponsored"
+          unitType="multiplex"
+          variant="minimal"
+          adLabel="Advertisement"
           showLoadingAnimation={true}
           className="product-page-ad-footer"
         />

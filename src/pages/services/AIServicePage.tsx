@@ -157,7 +157,7 @@ const AIServicePage: React.FC = () => {
       <div className="content-break-ad">
         <GoogleAdSense
           userConsent={userConsent}
-          adFormat="horizontal"
+          unitType="display"
           variant="minimal"
           adLabel="Advertisement"
           showLoadingAnimation={true}
