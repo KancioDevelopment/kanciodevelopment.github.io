@@ -296,6 +296,17 @@ const Header: React.FC = () => {
                   <span>Blog</span>
                 </Link>
               </li>
+
+              <li className="nav__item">
+                <Link 
+                  to="/support" 
+                  className={`nav__link ${location.pathname === '/support' ? 'nav__link--active' : ''}`} 
+                  onClick={handleLinkClick}
+                >
+                  <span className="nav__link-icon-mobile">🛡️</span>
+                  <span>Support</span>
+                </Link>
+              </li>
             </ul>
 
             {/* Mobile Drawer Theme Selector Box */}

@@ -37,6 +37,9 @@ import ConsultingPage from './pages/services/ConsultingPage'
 import AdminPage from './pages/AdminPage'
 import NewsEditorPage from './pages/NewsEditorPage'
 
+// Support Page
+import SupportPage from './pages/SupportPage'
+
 import './App.css'
 import GoogleAdSense from './components/GoogleAdSense'
 import { useAds } from './hooks/useAds'
@@ -186,6 +189,9 @@ function App() {
               {/* Admin */}
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/news-editor" element={<NewsEditorPage />} />
+
+              {/* Support */}
+              <Route path="/support" element={<SupportPage />} />
 
               {/* Legal */}
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

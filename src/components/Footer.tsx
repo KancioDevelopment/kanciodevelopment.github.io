@@ -92,6 +92,7 @@ const Footer: React.FC = () => {
     { name: 'About Us', path: '/#about' },
     { name: 'Our Products', path: '/#products' },
     { name: 'Blog', path: '/blogs' },
+    { name: 'Pusat Bantuan (Support)', path: '/support' },
     { name: 'Privacy Policy', path: '/privacy-policy' },
     { name: 'Terms of Service', path: '/terms-of-service' },
     { name: 'Syarat Layanan', path: '/syarat-layanan' },
