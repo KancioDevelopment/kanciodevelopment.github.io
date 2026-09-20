@@ -95,8 +95,16 @@
 }
 
 .about__value-icon {
-  font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
   margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .about__value-title {

@@ -11,7 +11,6 @@ import './ApotekAppPage.css'
 const modules = [
   {
     id: 'hpp-ai',
-    icon: '🧠',
     title: 'AI-Powered HPP Intelligence',
     badge: 'Keunggulan Eksklusif',
     badgeColor: 'indigo',
@@ -28,7 +27,6 @@ const modules = [
   },
   {
     id: 'pos-fefo',
-    icon: '🛒',
     title: 'Kasir POS & Alokasi FEFO/FIFO',
     badge: 'Inti Operasional',
     badgeColor: 'green',
@@ -45,7 +43,6 @@ const modules = [
   },
   {
     id: 'bpjs-prb',
-    icon: '🏥',
     title: 'BPJS Kapitasi & PRB (Kronis)',
     badge: 'Layanan Faskes',
     badgeColor: 'teal',
@@ -62,7 +59,6 @@ const modules = [
   },
   {
     id: 'racikan',
-    icon: '📋',
     title: 'Terminal Resep & Komisi Dokter',
     badge: 'Klinis & Kemitraan',
     badgeColor: 'pink',
@@ -79,7 +75,6 @@ const modules = [
   },
   {
     id: 'defecta',
-    icon: '📦',
     title: 'Defecta & Surat Pesanan (SP) ke PBF',
     badge: 'Pengadaan Cerdas',
     badgeColor: 'blue',
@@ -96,7 +91,6 @@ const modules = [
   },
   {
     id: 'opname',
-    icon: '🔍',
     title: 'Stock Opname & Deteksi Shrinkage',
     badge: 'Audit & Keamanan',
     badgeColor: 'yellow',
@@ -113,7 +107,6 @@ const modules = [
   },
   {
     id: 'omnichannel',
-    icon: '🌐',
     title: 'Reservasi Obat Online (Click & Collect)',
     badge: 'Omnichannel Pasien',
     badgeColor: 'indigo',
@@ -130,7 +123,6 @@ const modules = [
   },
   {
     id: 'hr-payroll',
-    icon: '👥',
     title: 'Presensi GPS & KPI Staf Apotek',
     badge: 'SDM & Payroll',
     badgeColor: 'green',
@@ -150,98 +142,65 @@ const modules = [
 const clickCollectSteps = [
   {
     step: '01',
-    icon: '🏪',
     title: 'Pilih Apotek Mitra',
     desc: 'Buka direktori cabang apotek mitra resmi terdekat di kota Anda.',
   },
   {
     step: '02',
-    icon: '🔍',
     title: 'Cari Obat & Cek Stok',
     desc: 'Ketik nama obat atau kategori klinis dengan status ketersediaan live.',
   },
   {
     step: '03',
-    icon: '💊',
     title: 'Pilih Satuan & Jumlah',
     desc: 'Tentukan satuan sediaan (strip, botol, tube, tablet) ke keranjang.',
   },
   {
     step: '04',
-    icon: '📸',
     title: 'Upload Resep Dokter',
     desc: 'Lampirkan foto resep dokter untuk obat etiket keras / daftar G.',
   },
   {
     step: '05',
-    icon: '🎟️',
     title: 'Kode Booking WhatsApp',
     desc: 'Sistem soft-reserve stok dan kirim notifikasi ringkasan instan ke WA.',
   },
   {
     step: '06',
-    icon: '⚡',
     title: 'Ambil Tanpa Antre',
     desc: 'Tunjukkan kode booking ke kasir apotek dan bawa pulang obat Anda.',
   },
 ]
 
-const publicStores = [
-  {
-    name: 'Apotek Mitra Syifa',
-    city: 'Kab. Blitar, Jawa Timur',
-    address: 'Jl. Mastrip, RT.02/RW.01, Togogan, Kec. Srengat',
-    phone: '0823-2560-0996',
-    hours: '07:30 - 21:00 WIB (Buka Setiap Hari)',
-    supportsBpjs: true,
-  },
-  {
-    name: 'Apotek E 32',
-    city: 'Kab. Blitar, Jawa Timur',
-    address: 'Jl. Raya Garum No.14, Ngebra, Tawangsari, Kec. Garum',
-    phone: '0882-2616-7200',
-    hours: '07:00 - 21:00 WIB (Buka Setiap Hari)',
-    supportsBpjs: false,
-  },
-]
-
 const stats = [
-  { number: '20+', label: 'Modul ERP Farmasi', icon: '⚡' },
-  { number: '99.9%', label: 'Akurasi Stok FEFO', icon: '🎯' },
-  { number: 'Rp 12,4jt+', label: 'Profit Rata-rata Terlindungi', icon: '💰' },
-  { number: '0 Antrean', label: 'Click & Collect Ready', icon: '🏪' },
+  { number: '20+', label: 'Modul ERP Farmasi' },
+  { number: '99.9%', label: 'Akurasi Stok FEFO' },
+  { number: 'Rp 12,4jt+', label: 'Profit Rata-rata Terlindungi' },
+  { number: '0 Antrean', label: 'Click & Collect Ready' },
 ]
-
-
 
 const whyChoose = [
   {
-    icon: '🧠',
     title: 'AI HPP Intelligence',
     desc: 'Audit real-time harga beli obat vs historis invoice. Sistem otomatis menandai anomali markup distributor.',
   },
   {
-    icon: '🏥',
     title: 'BPJS Kapitasi & PRB Lengkap',
     desc: 'Resep obat kronis dan klaim faskes dengan spelling-tolerant matching dan ekspor CSV siap audit.',
   },
   {
-    icon: '🌐',
     title: 'Omnichannel Click & Collect',
     desc: 'Katalog online publik dan booking WhatsApp terintegrasi yang mendatangkan omzet digital baru.',
   },
   {
-    icon: '📦',
     title: 'Defecta & Multi-Split SP',
     desc: 'Auto-reorder obat saat menyentuh ROP dan pisahkan draft SP reguler, prekursor, dan OOT ke distributor resmi.',
   },
   {
-    icon: '👥',
     title: 'GPS Geofencing & Payroll Otomatis',
     desc: 'Presensi presisi staf apotek, auto-checkout 7 jam, dan kalkulasi komisi Balanced Scorecard sekali klik.',
   },
   {
-    icon: '⚡',
     title: 'Performa Cloud Real-Time',
     desc: 'Akses dari perangkat apa pun (Laptop kasir, Tablet, Smartphone) tanpa instalasi server lokal yang rumit.',
   },
@@ -249,7 +208,6 @@ const whyChoose = [
 
 const automations = [
   {
-    icon: '⏱️',
     title: 'Absensi Geofencing GPS',
     schedule: 'Setiap Jam',
     category: 'SDM & Shift',
@@ -258,7 +216,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
   },
   {
-    icon: '📦',
     title: 'Pemesanan Stok (Defecta ROP)',
     schedule: 'Setiap Jam',
     category: 'Inventori',
@@ -267,7 +224,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
   },
   {
-    icon: '💰',
     title: 'Penggajian Otomatis (Payroll)',
     schedule: 'Bulanan (Tgl 21)',
     category: 'Keuangan',
@@ -276,7 +232,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #10b981, #059669)',
   },
   {
-    icon: '📱',
     title: 'Pengingat Piutang & Tempo',
     schedule: 'Harian (09:00 WIB)',
     category: 'Piutang',
@@ -285,7 +240,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #eab308, #ca8a04)',
   },
   {
-    icon: '📈',
     title: 'Klasifikasi ABC / Pareto',
     schedule: 'Mingguan (Senin)',
     category: 'Analitik',
@@ -294,7 +248,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
   },
   {
-    icon: '🔍',
     title: 'Deteksi HPP Anomali Dini Hari',
     schedule: 'Harian (03:00 WIB)',
     category: 'Keamanan Laba',
@@ -303,7 +256,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
   },
   {
-    icon: '🧹',
     title: 'Debt Netting & Merge Batch',
     schedule: 'Harian & Bulanan',
     category: 'Database ERP',
@@ -312,7 +264,6 @@ const automations = [
     gradient: 'linear-gradient(135deg, #64748b, #475569)',
   },
   {
-    icon: '📅',
     title: 'Jadwal Shift & Swap Mandiri',
     schedule: 'Mingguan',
     category: 'SDM',
@@ -326,7 +277,6 @@ const roles = [
   {
     role: 'owner',
     title: 'Pimpinan & Pemilik Apotek',
-    icon: '👑',
     tagline: 'Kontrol Penuh & Proteksi Margin',
     benefits: [
       'Dashboard Laba Rugi real-time & laporan neraca tanpa perlu menunggu rekapan manual staf.',
@@ -338,7 +288,6 @@ const roles = [
   {
     role: 'staff',
     title: 'Staf Apoteker & Kasir POS',
-    icon: '🧑‍⚕️',
     tagline: 'Pelayanan Cepat & Akurat',
     benefits: [
       'Barcode POS cepat dengan alokasi otomatis batch FEFO (First Expired First Out).',
@@ -350,7 +299,6 @@ const roles = [
   {
     role: 'warehouse',
     title: 'Staf Gudang & Pengadaan',
-    icon: '📦',
     tagline: 'Manajemen Stok & SP PBF',
     benefits: [
       'Buku Defecta otomatis berdasarkan Reorder Point (ROP) minimum safety stock.',
@@ -406,13 +354,6 @@ const ApotekAppPage: React.FC = () => {
 
   // Dark / Light Theme Toggle State
   const { isDarkMode, toggleTheme } = useTheme()
-
-  // Interactive Live Demo Simulator State
-  const [demoTab, setDemoTab] = useState<'pos' | 'hpp' | 'bpjs' | 'omnichannel'>('pos')
-  const [simulatedScan, setSimulatedScan] = useState(false)
-  const [simulatedHppCheck, setSimulatedHppCheck] = useState(false)
-  const [simulatedBpjsMatch, setSimulatedBpjsMatch] = useState(false)
-  const [simulatedOrderSent, setSimulatedOrderSent] = useState(false)
 
   // Contact / Lead Form State
   const [formState, setFormState] = useState({
@@ -516,12 +457,12 @@ const ApotekAppPage: React.FC = () => {
           onClick={toggleTheme}
           aria-label={isDarkMode ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap'}
         >
-          {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}
+          {isDarkMode ? 'Mode Terang' : 'Mode Gelap'}
         </button>
       </div>
 
       {/* ===== HERO SECTION ===== */}
-      <section className="apotek-hero cyber-hero">
+      <section className="apotek-hero cyber-hero" id="overview">
         <div className="cyber-glow-bg" />
         <div className="cyber-grid-overlay" />
 
@@ -531,7 +472,7 @@ const ApotekAppPage: React.FC = () => {
               <span className="cyber-pulse-badge">
                 <span className="pulse-dot" /> LIVE CLOUD ERP V3.4
               </span>
-              <span className="apotek-hero__tag cyber-tag-glow">⚡ #1 SaaS Farmasi Modern</span>
+              <span className="apotek-hero__tag cyber-tag-glow">#1 SaaS Farmasi Modern</span>
             </div>
 
             <h1 className="apotek-hero__title">
@@ -546,7 +487,6 @@ const ApotekAppPage: React.FC = () => {
             <div className="apotek-hero__stats cyber-glass-stats">
               {stats.map((s, i) => (
                 <div key={i} className="apotek-hero__stat">
-                  <span className="apotek-hero__stat-icon">{s.icon}</span>
                   <strong>{s.number}</strong>
                   <span>{s.label}</span>
                 </div>
@@ -560,17 +500,17 @@ const ApotekAppPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn--primary btn--large cyber-btn-primary"
               >
-                🚀 Pelajari Lebih Lanjut di Web App ApotekApp <span className="btn__icon">↗</span>
+                Pelajari Lebih Lanjut di Web App ApotekApp <span className="btn__icon">↗</span>
               </a>
               <a href="#lead-form" className="btn btn--secondary btn--large cyber-btn-secondary">
-                💬 Konsultasi &amp; Demo Gratis
+                Konsultasi &amp; Demo Gratis
               </a>
             </div>
 
             <div className="cyber-trust-badges">
-              <span className="trust-item">🛡️ Cloud Backup 24/7</span>
-              <span className="trust-item">⚡ Setup Cepat &lt; 15 Menit</span>
-              <span className="trust-item">🏥 Support Standar Kemenkes &amp; BPJS</span>
+              <span className="trust-item">Cloud Backup 24/7</span>
+              <span className="trust-item">Setup Cepat &lt; 15 Menit</span>
+              <span className="trust-item">Standar Kemenkes &amp; BPJS</span>
             </div>
           </div>
 
@@ -591,7 +531,7 @@ const ApotekAppPage: React.FC = () => {
                   style={{ textDecoration: 'none', color: 'inherit' }}
                   title="Pelajari lebih lanjut & buka portal https://apotek.kancio.com/"
                 >
-                  <span className="lock-icon">🔒</span> https://apotek.kancio.com/
+                  <span className="mockup-protocol">https://</span>apotek.kancio.com/
                 </a>
                 <div className="mockup-status-pill">
                   <span className="live-indicator" /> Online
@@ -621,7 +561,7 @@ const ApotekAppPage: React.FC = () => {
                 {/* Simulated POS Live Stream */}
                 <div className="mockup-stream-card">
                   <div className="stream-header">
-                    <span className="stream-title">🛒 Kasir POS — Live Transaction #TRX-9481</span>
+                    <span className="stream-title">Kasir POS — Live Transaction #TRX-9481</span>
                     <span className="stream-badge">FEFO AUTO-ASSIGNED</span>
                   </div>
                   <div className="stream-item">
@@ -648,7 +588,7 @@ const ApotekAppPage: React.FC = () => {
 
                 {/* Live Action Ticker */}
                 <div className="mockup-live-ticker">
-                  <div className="ticker-badge">⚡ Live Sync</div>
+                  <div className="ticker-badge"><span className="pulse-dot" /> Live Sync</div>
                   <div className="ticker-content">
                     <span>Resep BPJS PRB #PRB-108 terverifikasi otomatis</span>
                     <span className="ticker-time">12 dtk lalu</span>
@@ -659,6 +599,18 @@ const ApotekAppPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== STICKY IN-PAGE NAVIGATION BAR ===== */}
+      <nav className="apotek-inpage-nav" aria-label="Navigasi Halaman ApotekApp">
+        <div className="container apotek-inpage-nav__inner">
+          <a href="#overview" className="inpage-nav-pill">Ringkasan</a>
+          <a href="#modul-lengkap" className="inpage-nav-pill">8 Modul ERP</a>
+          <a href="#keunggulan" className="inpage-nav-pill">Keunggulan</a>
+          <a href="#reservasi-online" className="inpage-nav-pill">Click &amp; Collect</a>
+          <a href="#dokumentasi-otomatisasi" className="inpage-nav-pill">Otomatisasi 24/7</a>
+          <a href="#lead-form" className="inpage-nav-pill">Konsultasi &amp; Demo</a>
+        </div>
+      </nav>
 
       {/* ===== ADVERTISEMENT ===== */}
       <div className="content-break-ad">
@@ -672,227 +624,6 @@ const ApotekAppPage: React.FC = () => {
         />
       </div>
 
-      {/* ===== INTERACTIVE LIVE DEMO SIMULATOR ===== */}
-      <section className="section cyber-simulator-section" id="interactive-demo">
-        <div className="container">
-          <div className="section-header">
-            <div className="cyber-pulse-badge">Live Interactive Simulator</div>
-            <h2>
-              Rasakan Kemudahan ApotekApp <br />
-              <span className="text-gradient cyber-gradient-text">Uji Coba Fitur Kunci Langsung Di Sini</span>
-            </h2>
-            <p>
-              Klik dan coba langsung simulasi fitur unggulan ApotekApp untuk melihat bagaimana sistem mengotomatisasi pekerjaan apoteker dan kasir Anda.
-            </p>
-          </div>
-
-          <div className="simulator-container glass-panel">
-            {/* Simulator Tabs */}
-            <div className="simulator-tabs">
-              <button
-                className={`sim-tab ${demoTab === 'pos' ? 'sim-tab--active' : ''}`}
-                onClick={() => setDemoTab('pos')}
-              >
-                🛒 Kasir POS FEFO
-              </button>
-              <button
-                className={`sim-tab ${demoTab === 'hpp' ? 'sim-tab--active' : ''}`}
-                onClick={() => setDemoTab('hpp')}
-              >
-                🧠 AI HPP Anomaly
-              </button>
-              <button
-                className={`sim-tab ${demoTab === 'bpjs' ? 'sim-tab--active' : ''}`}
-                onClick={() => setDemoTab('bpjs')}
-              >
-                🏥 BPJS PRB Verifier
-              </button>
-              <button
-                className={`sim-tab ${demoTab === 'omnichannel' ? 'sim-tab--active' : ''}`}
-                onClick={() => setDemoTab('omnichannel')}
-              >
-                🌐 Click &amp; Collect
-              </button>
-            </div>
-
-            {/* Simulator Interactive Screen */}
-            <div className="simulator-screen">
-              {demoTab === 'pos' && (
-                <div className="sim-view sim-view--pos">
-                  <div className="sim-header-bar">
-                    <h4>Simulasi Kasir POS Cepat — First Expired First Out</h4>
-                    <span className="sim-tag">Barcode &amp; FEFO Engine</span>
-                  </div>
-                  <p className="sim-desc">
-                    Saat kasir mengetik atau scan barcode obat, sistem secara otomatis memilih nomor batch dengan tanggal expired terdekat agar tidak ada obat kedaluwarsa di gudang.
-                  </p>
-
-                  <div className="sim-interactive-box">
-                    <button
-                      className="btn btn--primary cyber-btn-primary"
-                      onClick={() => setSimulatedScan(!simulatedScan)}
-                    >
-                      {simulatedScan ? '🔄 Reset Simulasi Scan' : '⚡ Klik Simulasi Scan Barcode: "Cefixime 100mg"'}
-                    </button>
-
-                    {simulatedScan && (
-                      <div className="sim-result-card animate-fade-in">
-                        <div className="sim-result-header">
-                          <span className="success-badge">✓ Obat Ditemukan via Barcode 8991234567</span>
-                          <span className="batch-priority">Auto FEFO Priority: 1</span>
-                        </div>
-                        <div className="sim-batch-table">
-                          <div className="batch-row batch-row--selected">
-                            <span>Batch <strong>#A-2401</strong> (Exp: Nov 2026)</span>
-                            <span className="badge-highlight">DIALOKASIKAN SISTEM</span>
-                            <span>Sisa: 40 Kapsul</span>
-                          </div>
-                          <div className="batch-row batch-row--locked">
-                            <span>Batch <strong>#B-2508</strong> (Exp: Des 2027)</span>
-                            <span className="badge-secondary">Disimpan untuk Nanti</span>
-                            <span>Sisa: 120 Kapsul</span>
-                          </div>
-                        </div>
-                        <div className="sim-tip">
-                          💡 <em>Kasir tidak perlu mencari-cari manual tanggal kedaluwarsa. Sistem menjamin kepatuhan rotasi obat.</em>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {demoTab === 'hpp' && (
-                <div className="sim-view sim-view--hpp">
-                  <div className="sim-header-bar">
-                    <h4>Simulasi AI HPP Intelligence &amp; Anti-Markup Supplier</h4>
-                    <span className="sim-tag sim-tag--pink">Margin Shield AI</span>
-                  </div>
-                  <p className="sim-desc">
-                    Saat staf memasukkan faktur pembelian baru dari distributor PBF, AI membandingkan harga beli dengan riwayat sebelumnya untuk mendeteksi lonjakan tidak wajar.
-                  </p>
-
-                  <div className="sim-interactive-box">
-                    <button
-                      className="btn btn--secondary cyber-btn-secondary"
-                      onClick={() => setSimulatedHppCheck(!simulatedHppCheck)}
-                    >
-                      {simulatedHppCheck ? '🔄 Reset Simulasi Faktur' : '🔍 Klik Simulasi Audit Faktur Masuk PBF'}
-                    </button>
-
-                    {simulatedHppCheck && (
-                      <div className="sim-result-card animate-fade-in alert-border">
-                        <div className="sim-result-header">
-                          <span className="warning-badge">⚠️ Anomali Markup HPP Terdeteksi (+28.5%)</span>
-                          <span className="status-hold">Transaksi Ditahan untuk Approval Manager</span>
-                        </div>
-                        <div className="sim-audit-details">
-                          <div className="audit-col">
-                            <span className="lbl">Produk:</span>
-                            <strong>Atorvastatin 20mg Box 30</strong>
-                          </div>
-                          <div className="audit-col">
-                            <span className="lbl">HPP Faktur Lalu:</span>
-                            <strong className="text-green">Rp 120.000 / box</strong>
-                          </div>
-                          <div className="audit-col">
-                            <span className="lbl">HPP Faktur Ini:</span>
-                            <strong className="text-pink">Rp 154.200 / box (+Rp 34.200)</strong>
-                          </div>
-                        </div>
-                        <div className="sim-action-row">
-                          <span className="action-note">🛡️ Manajer dapat langsung konfirmasi ke salesman PBF sebelum membayar.</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {demoTab === 'bpjs' && (
-                <div className="sim-view sim-view--bpjs">
-                  <div className="sim-header-bar">
-                    <h4>Simulasi BPJS PRB (Program Rujuk Balik) &amp; Rekonsiliasi</h4>
-                    <span className="sim-tag sim-tag--cyan">Faskes BPJS Compliance</span>
-                  </div>
-                  <p className="sim-desc">
-                    Resep obat kronis pasien PRB dicocokkan otomatis dengan Master Formularium Nasional, target nilai klaim, dan spelling-tolerant search untuk mencegah resep ditolak.
-                  </p>
-
-                  <div className="sim-interactive-box">
-                    <button
-                      className="btn btn--primary cyber-btn-primary"
-                      onClick={() => setSimulatedBpjsMatch(!simulatedBpjsMatch)}
-                    >
-                      {simulatedBpjsMatch ? '🔄 Reset Simulasi Resep' : '🏥 Klik Simulasi Verifikasi Resep BPJS PRB'}
-                    </button>
-
-                    {simulatedBpjsMatch && (
-                      <div className="sim-result-card animate-fade-in">
-                        <div className="sim-result-header">
-                          <span className="success-badge">✓ Resep Pasien PRB Valid &amp; Siap Cetak</span>
-                          <span className="claim-match">Target Klaim: 100% Cocok</span>
-                        </div>
-                        <div className="sim-bpjs-grid">
-                          <div className="bpjs-card">
-                            <span className="title">Pasien: Bpk. Bambang S.</span>
-                            <span>Diagnosa: Hipertensi Primer (I10)</span>
-                            <span>Amlodipine 10mg — 30 Tab</span>
-                          </div>
-                          <div className="bpjs-card">
-                            <span className="title">Status Klaim Faskes</span>
-                            <span className="text-green">Tarif Klaim: Sesuai Plafon BPJS</span>
-                            <span className="text-cyan">Auto-Generate CSV &amp; PDF Resep</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {demoTab === 'omnichannel' && (
-                <div className="sim-view sim-view--omnichannel">
-                  <div className="sim-header-bar">
-                    <h4>Simulasi Reservasi Pasien Online (Click &amp; Collect)</h4>
-                    <span className="sim-tag sim-tag--green">WhatsApp Integrated</span>
-                  </div>
-                  <p className="sim-desc">
-                    Pasien mencari obat di katalog apotek online Anda, memesan atau upload foto resep, dan stok di-lock sementara hingga pasien mengambil di kasir.
-                  </p>
-
-                  <div className="sim-interactive-box">
-                    <button
-                      className="btn btn--outline cyber-btn-glow"
-                      onClick={() => setSimulatedOrderSent(!simulatedOrderSent)}
-                    >
-                      {simulatedOrderSent ? '🔄 Reset Simulasi Booking' : '📱 Klik Simulasi Reservasi dari Pasien Online'}
-                    </button>
-
-                    {simulatedOrderSent && (
-                      <div className="sim-result-card animate-fade-in">
-                        <div className="sim-result-header">
-                          <span className="success-badge">🎟️ Kode Booking #APT-9042 Diterbitkan</span>
-                          <span className="wa-status">Notifikasi WhatsApp Terkirim</span>
-                        </div>
-                        <div className="sim-order-preview">
-                          <div className="order-msg">
-                            <strong>Pesan WhatsApp Pasien:</strong>
-                            <p>
-                              "Halo Ibu Siti, pesanan Vitamin C 500mg (1 Botol) di Apotek Mitra telah disiapkan. Tunjukkan Kode: <strong>APT-9042</strong> ke kasir untuk ambil langsung tanpa antre."
-                            </p>
-                          </div>
-                          <span className="stock-reserve-alert">🔒 Stok fisik dikunci selama 3 jam di sistem kasir POS.</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ===== 8 INTEGRATED MODULES SHOWCASE ===== */}
       <section
@@ -921,8 +652,7 @@ const ApotekAppPage: React.FC = () => {
                 onClick={() => setActiveModule(i)}
                 aria-label={`Buka modul ${m.title}`}
               >
-                <span className="tab-icon">{m.icon}</span>
-                <span className="apotek-module-tab__name">{m.title.split(' ')[0]}</span>
+                <span className="apotek-module-tab__name">{m.title}</span>
               </button>
             ))}
           </div>
@@ -931,12 +661,6 @@ const ApotekAppPage: React.FC = () => {
           <div className="apotek-module-detail card glass-panel cyber-spotlight-card">
             <div className="apotek-module-detail__left">
               <div className="apotek-module-detail__header">
-                <div
-                  className="apotek-module-detail__icon"
-                  style={{ background: modules[activeModule].gradient }}
-                >
-                  {modules[activeModule].icon}
-                </div>
                 <span className={`apotek-badge apotek-badge--${modules[activeModule].badgeColor}`}>
                   {modules[activeModule].badge}
                 </span>
@@ -963,7 +687,7 @@ const ApotekAppPage: React.FC = () => {
                       background: 'linear-gradient(135deg, #10b981, #059669)',
                     }}
                   >
-                    📖 Buka Panduan Lengkap Presensi &raquo;
+                    Buka Panduan Lengkap Presensi &raquo;
                   </Link>
                 ) : null}
                 {modules[activeModule].title.includes('BPJS') ? (
@@ -976,7 +700,7 @@ const ApotekAppPage: React.FC = () => {
                       background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
                     }}
                   >
-                    📖 Buka Panduan Lengkap BPJS &raquo;
+                    Buka Panduan Lengkap BPJS &raquo;
                   </Link>
                 ) : null}
               </div>
@@ -993,7 +717,7 @@ const ApotekAppPage: React.FC = () => {
                 <div className="apotek-module-preview__body">
                   {modules[activeModule].features.map((f, i) => (
                     <div key={i} className="apotek-preview-row">
-                      <span className="apotek-preview-row__icon">⚡</span>
+                      <span className="apotek-check">✓</span>
                       <span>{f}</span>
                     </div>
                   ))}
@@ -1015,10 +739,8 @@ const ApotekAppPage: React.FC = () => {
                 style={{ cursor: 'pointer', animationDelay: `${i * 0.08}s` }}
               >
                 <div className="apotek-mod-card__top">
-                  <div className="apotek-mod-card__icon" style={{ background: mod.gradient }}>
-                    {mod.icon}
-                  </div>
                   <span className={`apotek-badge apotek-badge--${mod.badgeColor}`}>{mod.badge}</span>
+                  <span className="apotek-mod-card__index">0{i + 1}</span>
                 </div>
                 <h4 className="apotek-mod-card__name">{mod.title}</h4>
                 <p className="apotek-mod-card__desc">{mod.description.split('.')[0]}.</p>
@@ -1029,10 +751,8 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
-
-
       {/* ===== WHY CHOOSE & ADVANTAGES ===== */}
-      <section className="section cyber-why-section" style={{ background: 'rgba(99,102,241,0.02)' }}>
+      <section className="section cyber-why-section" id="keunggulan" style={{ background: 'rgba(99,102,241,0.02)' }}>
         <div className="container">
           <div className="section-header">
             <div className="badge cyber-badge">Keunggulan Arsitektur</div>
@@ -1043,7 +763,7 @@ const ApotekAppPage: React.FC = () => {
           <div className="apotek-why-grid">
             {whyChoose.map((w, i) => (
               <div key={i} className="apotek-why-card card glass-panel">
-                <div className="apotek-why-card__icon">{w.icon}</div>
+                <div className="apotek-why-card__num">0{i + 1}</div>
                 <h4>{w.title}</h4>
                 <p>{w.desc}</p>
               </div>
@@ -1069,29 +789,8 @@ const ApotekAppPage: React.FC = () => {
             {clickCollectSteps.map((s, idx) => (
               <div key={idx} className="cc-step-card glass-panel">
                 <span className="cc-step-num">{s.step}</span>
-                <span className="cc-step-icon">{s.icon}</span>
                 <h3 className="cc-step-title">{s.title}</h3>
                 <p className="cc-step-desc">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Public Stores Directory Card */}
-          <div className="section-header" style={{ marginTop: '50px', marginBottom: '20px' }}>
-            <div className="badge">Direktori Jaringan Mitra</div>
-            <h3>Contoh Outlet Apotek Mitra Terkoneksi</h3>
-          </div>
-
-          <div className="apotek-stores-grid">
-            {publicStores.map((store, idx) => (
-              <div key={idx} className="store-card glass-panel">
-                <div className="store-card__header">
-                  <span className="store-name">{store.name}</span>
-                  {store.supportsBpjs && <span className="store-badge">✓ Support BPJS</span>}
-                </div>
-                <div className="store-info">📍 {store.address}, {store.city}</div>
-                <div className="store-info">📞 Telepon: {store.phone}</div>
-                <div className="store-info">⏰ Jam Buka: {store.hours}</div>
               </div>
             ))}
           </div>
@@ -1121,19 +820,19 @@ const ApotekAppPage: React.FC = () => {
               className={`apotek-docs-tab ${activeDocTab === 'automation' ? 'apotek-docs-tab--active' : ''}`}
               onClick={() => setActiveDocTab('automation')}
             >
-              <span className="tab-icon">⏱️</span> 8 Otomatisasi Background
+              8 Otomatisasi Background
             </button>
             <button
               className={`apotek-docs-tab ${activeDocTab === 'role' ? 'apotek-docs-tab--active' : ''}`}
               onClick={() => setActiveDocTab('role')}
             >
-              <span className="tab-icon">👥</span> Alur Kerja Berbasis Peran
+              Alur Kerja Berbasis Peran
             </button>
             <button
               className={`apotek-docs-tab ${activeDocTab === 'faq' ? 'apotek-docs-tab--active' : ''}`}
               onClick={() => setActiveDocTab('faq')}
             >
-              <span className="tab-icon">❓</span> FAQ Farmasi ERP
+              FAQ Farmasi ERP
             </button>
           </div>
 
@@ -1148,9 +847,6 @@ const ApotekAppPage: React.FC = () => {
                     style={{ animationDelay: `${i * 0.05}s` }}
                   >
                     <div className="apotek-auto-card__top">
-                      <div className="apotek-auto-card__icon" style={{ background: auto.gradient }}>
-                        {auto.icon}
-                      </div>
                       <div className="apotek-auto-card__badges">
                         <span className="auto-badge auto-badge--schedule">{auto.schedule}</span>
                         <span className="auto-badge auto-badge--category">{auto.category}</span>
@@ -1159,7 +855,7 @@ const ApotekAppPage: React.FC = () => {
                     <h3 className="apotek-auto-card__title">{auto.title}</h3>
                     <p className="apotek-auto-card__desc">{auto.description}</p>
                     <div className="apotek-auto-card__impact">
-                      <span className="impact-label">🔑 Dampak Utama:</span>
+                      <span className="impact-label">Dampak Utama:</span>
                       <p className="impact-text">{auto.impact}</p>
                     </div>
                   </div>
@@ -1176,9 +872,6 @@ const ApotekAppPage: React.FC = () => {
                     style={{ animationDelay: `${i * 0.1}s` }}
                   >
                     <div className="apotek-role-card__header">
-                      <div className="apotek-role-card__icon" style={{ background: r.gradient }}>
-                        {r.icon}
-                      </div>
                       <div>
                         <h3 className="apotek-role-card__title">{r.title}</h3>
                         <span className="apotek-role-card__tagline">{r.tagline}</span>
@@ -1225,15 +918,13 @@ const ApotekAppPage: React.FC = () => {
         </div>
       </section>
 
-
-
       {/* ===== INTERACTIVE LEAD CAPTURE / DEMO FORM ===== */}
       <section className="section cyber-lead-section" id="lead-form">
         <div className="container">
           <div className="lead-capture-card glass-panel">
             <div className="lead-capture-grid">
               <div className="lead-capture-info">
-                <div className="cyber-pulse-badge">🚀 Mulai Transformasi Digital</div>
+                <div className="cyber-pulse-badge">Mulai Transformasi Digital</div>
                 <h2>Jadwalkan Live Demo &amp; Konsultasi Gratis</h2>
                 <p>
                   Diskusikan kebutuhan apotek Anda dengan spesialis sistem ERP farmasi kami. Dapatkan pendampingan langsung, live walkthrough fitur, dan simulasi migrasi database.
@@ -1241,21 +932,18 @@ const ApotekAppPage: React.FC = () => {
 
                 <div className="lead-perks-list">
                   <div className="perk-item">
-                    <span className="perk-icon">⚡</span>
                     <div>
                       <strong>Free Trial &amp; Demo Walkthrough</strong>
                       <span>Akses akun demo lengkap tanpa komitmen.</span>
                     </div>
                   </div>
                   <div className="perk-item">
-                    <span className="perk-icon">📦</span>
                     <div>
                       <strong>Bantuan Migrasi Data Stok Master</strong>
                       <span>Impor master obat dari file Excel / sistem lama.</span>
                     </div>
                   </div>
                   <div className="perk-item">
-                    <span className="perk-icon">💬</span>
                     <div>
                       <strong>Direct Support WhatsApp</strong>
                       <span>Konsultasi instan dengan tim teknis kami.</span>
@@ -1267,7 +955,7 @@ const ApotekAppPage: React.FC = () => {
               <div className="lead-capture-form-box">
                 {formSubmitted ? (
                   <div className="form-success-state animate-fade-in">
-                    <div className="success-icon">🎉</div>
+                    <div className="success-icon">✓</div>
                     <h3>Permintaan Terkirim!</h3>
                     <p>
                       Terima kasih! Kami telah mengarahkan Anda ke WhatsApp tim spesialis ApotekApp. Tim kami akan segera menghubungi Anda untuk setup akun demo.
@@ -1355,9 +1043,9 @@ const ApotekAppPage: React.FC = () => {
                     </div>
 
                     <button type="submit" className="btn btn--primary btn-block cyber-btn-primary">
-                      ⚡ Ajukan Demo &amp; Terhubung ke WhatsApp
+                      Ajukan Demo &amp; Terhubung ke WhatsApp
                     </button>
-                    <span className="privacy-note">🔒 Privasi data aman. Tidak ada spam.</span>
+                    <span className="privacy-note">Privasi data aman. Tidak ada spam.</span>
                   </form>
                 )}
               </div>

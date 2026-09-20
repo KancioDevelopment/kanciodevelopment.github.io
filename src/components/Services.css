@@ -152,6 +152,14 @@
   font-weight: 500;
 }
 
+.industry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  display: inline-block;
+}
+
 /* ===== CTA Banner ===== */
 .services__cta-banner {
   display: flex;

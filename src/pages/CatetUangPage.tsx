@@ -283,7 +283,7 @@ const CatetUangPage: React.FC = () => {
               <span className="catetuang-badge-pulse">
                 <span className="pulse-emerald" /> SMART FINANCIAL ERP 2.0
               </span>
-              <span className="catetuang-tag-pill">💰 Pencatat Keuangan &amp; Arus Kas Bisnis</span>
+              <span className="catetuang-tag-pill">Pencatat Keuangan &amp; Arus Kas Bisnis</span>
               
               {/* Adaptive Theme Toggle Button */}
               <button
@@ -291,7 +291,7 @@ const CatetUangPage: React.FC = () => {
                 onClick={toggleTheme}
                 title={`Ganti ke ${isDarkMode ? 'Mode Terang' : 'Mode Gelap'}`}
               >
-                {isDarkMode ? '☀️ Mode Terang' : '🌙 Mode Gelap'}
+                {isDarkMode ? 'Mode Terang' : 'Mode Gelap'}
               </button>
             </div>
 
@@ -306,22 +306,18 @@ const CatetUangPage: React.FC = () => {
 
             <div className="catetuang-hero__stats glass-card">
               <div className="stat-item">
-                <span className="stat-icon">📈</span>
                 <strong>Rp 2,4 M+</strong>
                 <span>Arus Kas Tercatat</span>
               </div>
               <div className="stat-item">
-                <span className="stat-icon">⚡</span>
                 <strong>&lt; 3 Detik</strong>
                 <span>Input Cepat Transaksi</span>
               </div>
               <div className="stat-item">
-                <span className="stat-icon">🛡️</span>
                 <strong>100% Aman</strong>
                 <span>Enkripsi Cloud 256-Bit</span>
               </div>
               <div className="stat-item">
-                <span className="stat-icon">📱</span>
                 <strong>Multi-Platform</strong>
                 <span>Android, Web &amp; iOS</span>
               </div>
@@ -334,10 +330,10 @@ const CatetUangPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn--primary catetuang-btn-primary"
               >
-                📲 Download Gratis di Play Store <span className="btn__icon">→</span>
+                Download Gratis di Play Store <span className="btn__icon">→</span>
               </a>
               <a href="#simulator" className="btn btn--secondary catetuang-btn-secondary">
-                🧪 Coba Live Simulator Kas
+                Coba Live Simulator Kas
               </a>
               <a href="#pricing" className="btn btn--outline catetuang-btn-outline">
                 Lihat Paket SaaS
@@ -495,7 +491,7 @@ const CatetUangPage: React.FC = () => {
                   </div>
 
                   <button type="submit" className="btn btn--primary catetuang-btn-primary btn-block">
-                    ⚡ Tambah ke Simulasi Kas
+                    Tambah ke Simulasi Kas
                   </button>
                 </form>
 
@@ -509,10 +505,10 @@ const CatetUangPage: React.FC = () => {
                     <strong>Skor Kesehatan Arus Kas</strong>
                     <p>
                       {healthScore >= 75
-                        ? '🔥 Arus kas sangat sehat! Margin operasional aman untuk ekspansi usaha.'
+                        ? 'Arus kas sangat sehat! Margin operasional aman untuk ekspansi usaha.'
                         : healthScore >= 50
-                        ? '⚠️ Cukup seimbang. Disarankan menekan pos biaya operasional tidak wajib.'
-                        : '🚨 Peringatan defisit! Pengeluaran melebihi pemasukan bulan ini.'}
+                        ? 'Cukup seimbang. Disarankan menekan pos biaya operasional tidak wajib.'
+                        : 'Peringatan defisit! Pengeluaran melebihi pemasukan bulan ini.'}
                     </p>
                   </div>
                 </div>
@@ -544,7 +540,7 @@ const CatetUangPage: React.FC = () => {
                       className="reset-btn"
                       onClick={() => setTransactions(initialTransactions)}
                     >
-                      🔄 Reset Data Awal
+                      Reset Data Awal
                     </button>
                   </div>
 
@@ -713,7 +709,7 @@ const CatetUangPage: React.FC = () => {
           <div className="lead-card glass-card">
             <div className="lead-grid">
               <div className="lead-intro">
-                <div className="catetuang-badge-pulse">🚀 Konsultasi Gratis</div>
+                <div className="catetuang-badge-pulse">Konsultasi Gratis</div>
                 <h2>Siap Rencanakan Pembukuan Bisnis Anda?</h2>
                 <p>
                   Konsultasikan kebutuhan pencatatan keuangan dan pembukuan toko Anda bersama tim spesialis CatetUang. Kami siap membantu setup awal akun hingga siap digunakan.
@@ -721,21 +717,21 @@ const CatetUangPage: React.FC = () => {
 
                 <div className="lead-benefits">
                   <div className="benefit-row">
-                    <span className="b-icon">💡</span>
+                    <span className="b-icon">✓</span>
                     <div>
                       <strong>Bimbingan Setup Kategori &amp; Kas</strong>
                       <span>Disesuaikan dengan jenis bisnis retail, jasa, atau online shop.</span>
                     </div>
                   </div>
                   <div className="benefit-row">
-                    <span className="b-icon">📱</span>
+                    <span className="b-icon">✓</span>
                     <div>
                       <strong>Demo Live Fitur Pro &amp; Multi-User</strong>
                       <span>Coba seluruh fitur premium tanpa komitmen awal.</span>
                     </div>
                   </div>
                   <div className="benefit-row">
-                    <span className="b-icon">💬</span>
+                    <span className="b-icon">✓</span>
                     <div>
                       <strong>Dukungan Langsung WhatsApp</strong>
                       <span>Terhubung langsung ke tim teknis support Kancio.</span>
@@ -747,7 +743,7 @@ const CatetUangPage: React.FC = () => {
               <div className="lead-form-wrap">
                 {leadSubmitted ? (
                   <div className="lead-success-card animate-fade-in">
-                    <div className="success-emoji">🎉</div>
+                    <div className="success-emoji">✓</div>
                     <h3>Permintaan Terkirim!</h3>
                     <p>
                       Terima kasih! Kami telah mengarahkan Anda ke WhatsApp tim CatetUang. Kami akan segera membantu setup dan demo fitur terbaik untuk bisnis Anda.
@@ -830,9 +826,9 @@ const CatetUangPage: React.FC = () => {
                       type="submit"
                       className="btn btn--primary catetuang-btn-primary btn-block"
                     >
-                      ⚡ Hubungkan ke WhatsApp &amp; Mulai Demo
+                      Hubungkan ke WhatsApp &amp; Mulai Demo
                     </button>
-                    <span className="privacy-text">🔒 Data Anda terlindungi dan tidak akan disebarluaskan.</span>
+                    <span className="privacy-text">Data Anda terlindungi dan tidak akan disebarluaskan.</span>
                   </form>
                 )}
               </div>

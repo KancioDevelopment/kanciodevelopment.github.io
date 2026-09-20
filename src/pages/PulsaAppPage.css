@@ -153,25 +153,30 @@
 }
 
 /* Theme Switch Button */
-.theme-switch-btn {
+.theme-switch-btn,
+.pulsa-theme-btn {
   margin-left: auto;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   background: var(--p-card-bg);
   border: 1px solid var(--p-card-border);
   color: var(--p-text-primary);
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 100px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
+  z-index: 2;
 }
 
-.theme-switch-btn:hover {
+.theme-switch-btn:hover,
+.pulsa-theme-btn:hover {
   transform: translateY(-2px);
   border-color: var(--p-cyan);
+  box-shadow: 0 6px 20px var(--p-cyan-glow);
 }
 
 .pulsa-hero__title {
@@ -387,8 +392,42 @@
   padding: 12px;
 }
 
-.qris-icon {
-  font-size: 1.6rem;
+.qris-icon-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  background: var(--p-cyan);
+  color: #000;
+  border-radius: 6px;
+}
+
+.b-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  font-weight: 800;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.success-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
 }
 
 .qris-text strong {
@@ -682,6 +721,633 @@
   border-radius: 6px;
 }
 
+/* Sticky In-Page Navigation */
+.pulsa-inpage-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 95;
+  background: var(--p-card-bg);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--p-card-border);
+  border-bottom: 1px solid var(--p-card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.pulsa-inpage-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pulsa-inpage-nav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.inpage-nav-pill {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--p-text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--p-card-border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.inpage-nav-pill:hover {
+  color: var(--p-cyan);
+  border-color: var(--p-cyan);
+  background: rgba(6, 182, 212, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Slider Controls & Presets */
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.sub-calc-hint {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--p-cyan);
+}
+
+.slider-input {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--p-card-border);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--p-cyan);
+  box-shadow: 0 0 10px var(--p-cyan-glow);
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  transition: transform 0.15s ease;
+}
+
+.slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.preset-buttons-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.preset-title {
+  font-size: 0.75rem;
+  color: var(--p-text-muted);
+  font-weight: 600;
+}
+
+.preset-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--p-card-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--p-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-chip:hover {
+  border-color: var(--p-cyan);
+  color: var(--p-cyan);
+}
+
+.preset-chip--active {
+  background: var(--p-cyan) !important;
+  color: #ffffff !important;
+  border-color: var(--p-cyan) !important;
+  box-shadow: 0 2px 10px var(--p-cyan-glow);
+}
+
+/* Tier Badge & Copy Action */
+.tier-badge-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid currentColor;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.profit-action-buttons {
+  margin-top: 18px;
+}
+
+.copy-profit-btn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--p-card-border);
+  background: var(--p-card-bg);
+  color: var(--p-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.copy-profit-btn:hover {
+  border-color: var(--p-cyan);
+  color: var(--p-cyan);
+  transform: translateY(-1px);
+}
+
+/* ===== Thermal Struk 58mm Generator Styles ===== */
+.pulsa-receipt-section {
+  position: relative;
+  padding: 90px 0 60px;
+}
+
+.struk-simulator-container {
+  padding: 36px 32px;
+}
+
+.struk-sim-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.struk-sim-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.struk-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.struk-printer-compat {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--p-text-muted);
+}
+
+.printer-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.p-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--p-card-border);
+  color: var(--p-text-secondary);
+}
+
+/* Thermal Paper Styling */
+.thermal-paper-wrapper {
+  max-width: 330px;
+  margin: 0 auto;
+  filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.paper-tear-top {
+  height: 10px;
+  background: repeating-linear-gradient(45deg, #f8fafc, #f8fafc 6px, transparent 6px, transparent 12px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.paper-tear-bottom {
+  height: 10px;
+  background: repeating-linear-gradient(135deg, #f8fafc, #f8fafc 6px, transparent 6px, transparent 12px);
+  border-top: 1px solid #e2e8f0;
+}
+
+.thermal-paper {
+  background: #ffffff;
+  color: #1e293b;
+  padding: 24px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  border-left: 1px dashed #cbd5e1;
+  border-right: 1px dashed #cbd5e1;
+}
+
+.paper-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.paper-store-name {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.paper-store-sub {
+  font-size: 0.65rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.paper-divider {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  margin: 6px 0;
+  overflow: hidden;
+  letter-spacing: -1px;
+}
+
+.paper-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.paper-token-box {
+  background: #f1f5f9;
+  border: 1px dashed #64748b;
+  padding: 8px;
+  text-align: center;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.token-lbl {
+  display: block;
+  font-size: 0.65rem;
+  color: #475569;
+  font-weight: 700;
+}
+
+.token-num {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #0284c7;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+.paper-total {
+  font-size: 0.92rem;
+  font-weight: 900;
+  border-top: 1px dashed #475569;
+  padding-top: 6px;
+  margin-top: 6px;
+  color: #0f172a;
+}
+
+.paper-status {
+  text-align: center;
+  font-weight: 800;
+  color: #059669;
+  font-size: 0.82rem;
+  margin: 8px 0 4px;
+  letter-spacing: 0.04em;
+}
+
+.paper-barcode-sim {
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: #334155;
+  margin: 4px 0;
+  font-size: 1.1rem;
+}
+
+.paper-footer-msg {
+  text-align: center;
+  font-size: 0.62rem;
+  color: #64748b;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+
+@keyframes printFeed {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.printing-animation {
+  animation: printFeed 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* ===== Real-Time Denom Price Checker Styles ===== */
+.pulsa-denom-section {
+  padding: 80px 0 60px;
+}
+
+.denom-checker-box {
+  padding: 32px;
+}
+
+.denom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.denom-cat-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.denom-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--p-card-border);
+  color: var(--p-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.denom-pill:hover {
+  color: var(--p-cyan);
+  border-color: var(--p-cyan);
+}
+
+.denom-pill--active {
+  background: var(--p-cyan) !important;
+  color: #ffffff !important;
+  border-color: var(--p-cyan) !important;
+  box-shadow: 0 2px 10px var(--p-cyan-glow);
+}
+
+.denom-search-input input {
+  min-width: 250px;
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  border-radius: 100px;
+  border: 1px solid var(--p-card-border);
+  background: var(--p-input-bg);
+  color: var(--p-text-primary);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.denom-search-input input:focus {
+  border-color: var(--p-cyan);
+}
+
+.denom-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.denom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.denom-table th {
+  padding: 12px 16px;
+  font-size: 0.72rem;
+  color: var(--p-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--p-card-border);
+  font-weight: 700;
+}
+
+.denom-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--p-card-border);
+  vertical-align: middle;
+}
+
+.denom-prod-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.denom-prod-cell strong {
+  color: var(--p-text-primary);
+  font-size: 0.9rem;
+}
+
+.denom-provider-tag {
+  font-size: 0.72rem;
+  color: var(--p-cyan);
+  font-weight: 600;
+}
+
+.denom-popular-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.65rem;
+  background: rgba(236, 72, 153, 0.15);
+  color: #ec4899;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-weight: 700;
+}
+
+.denom-price-base {
+  color: var(--p-text-muted);
+  font-weight: 600;
+}
+
+.denom-price-sell {
+  color: var(--p-text-primary);
+  font-weight: 700;
+}
+
+.denom-margin-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.denom-speed {
+  font-size: 0.75rem;
+  color: var(--p-cyan);
+  font-weight: 600;
+}
+
+.denom-status-badge {
+  font-size: 0.72rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* ===== Deposit Channels Styles ===== */
+.pulsa-deposit-section {
+  padding: 80px 0 60px;
+}
+
+.deposit-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.deposit-card {
+  padding: 24px 20px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.deposit-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--p-cyan);
+}
+
+.deposit-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deposit-icon {
+  font-size: 1.6rem;
+}
+
+.deposit-fee-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 10px;
+  border-radius: 100px;
+}
+
+.deposit-card h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 4px 0 0;
+  color: var(--p-text-primary);
+}
+
+.deposit-card p {
+  font-size: 0.82rem;
+  color: var(--p-text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.deposit-card__status {
+  margin-top: auto;
+  font-size: 0.72rem;
+  color: var(--p-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 6px;
+}
+
+.status-dot-green {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+/* Light Theme Overrides for New PulsaApp Elements */
+.pulsa-theme-light .inpage-nav-pill {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.pulsa-theme-light .inpage-nav-pill:hover {
+  color: #0284c7;
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+.pulsa-theme-light .preset-chip {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.pulsa-theme-light .tier-badge-pill {
+  background: #ffffff;
+}
+
+.pulsa-theme-light .copy-profit-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.pulsa-theme-light .p-tag {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.pulsa-theme-light .denom-pill {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.pulsa-theme-light .denom-search-input input {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .pulsa-hero .container {
@@ -689,6 +1355,12 @@
   }
   .sim-pulsa-grid {
     grid-template-columns: 1fr;
+  }
+  .struk-sim-grid {
+    grid-template-columns: 1fr;
+  }
+  .deposit-channels-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .cat-brands-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -707,6 +1379,17 @@
   }
   .cat-brands-grid {
     grid-template-columns: 1fr;
+  }
+  .deposit-channels-grid {
+    grid-template-columns: 1fr;
+  }
+  .denom-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .denom-search-input input {
+    width: 100%;
+    min-width: 0;
   }
   .pulsa-category-tabs {
     flex-wrap: nowrap;

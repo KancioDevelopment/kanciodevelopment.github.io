@@ -7,7 +7,7 @@ import logoImage from '../assets/logo.png'
 interface DropdownItem {
   label: string
   path: string
-  icon: string
+  icon: React.ReactNode
   description: string
   externalUrl?: string
 }
@@ -17,22 +17,61 @@ const products: DropdownItem[] = [
     label: 'PulsaApp', 
     path: '/products/pulsaapp', 
     externalUrl: 'https://ppob.kancio.com/', 
-    icon: '📱', 
-    description: 'Digital payment & server PPOB 24 jam' 
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
+      </svg>
+    ), 
+    description: 'Server PPOB kilat & distributor pulsa 24 jam' 
   },
   { 
     label: 'ApotekApp', 
     path: '/products/apotekapp', 
     externalUrl: 'https://apotek.kancio.com/', 
-    icon: '💊', 
-    description: 'Pharmacy ERP & POS kasir FEFO' 
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    ), 
+    description: 'ERP farmasi terpadu & kasir POS FEFO' 
   },
 ]
 
 const services: DropdownItem[] = [
-  { label: 'Custom Solution', path: '/services/custom-solution', icon: '🚀', description: 'Tailored digital applications' },
-  { label: 'AI Integration', path: '/services/ai-integration', icon: '🤖', description: 'Smart AI for your systems' },
-  { label: 'Digital Consulting', path: '/services/consulting', icon: '💡', description: 'Strategic digital transformation' },
+  {
+    label: 'Custom Solution',
+    path: '/services/custom-solution',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    description: 'Aplikasi web & mobile bisnis terukur',
+  },
+  {
+    label: 'AI Integration',
+    path: '/services/ai-integration',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+      </svg>
+    ),
+    description: 'Otomasi cerdas & chatbot WhatsApp',
+  },
+  {
+    label: 'Digital Consulting',
+    path: '/services/consulting',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+      </svg>
+    ),
+    description: 'Audit arsitektur & roadmap teknologi',
+  },
 ]
 
 const Header: React.FC = () => {
@@ -176,7 +215,12 @@ const Header: React.FC = () => {
                   className={`nav__link ${location.pathname === '/' ? 'nav__link--active' : ''}`} 
                   onClick={handleLinkClick}
                 >
-                  <span className="nav__link-icon-mobile">🏠</span>
+                  <span className="nav__link-icon-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                  </span>
                   <span>Home</span>
                 </Link>
               </li>
@@ -193,7 +237,13 @@ const Header: React.FC = () => {
                   aria-expanded={activeDropdown === 'products'}
                   onClick={(e) => toggleDropdown(e, 'products')}
                 >
-                  <span className="nav__link-icon-mobile">📦</span>
+                  <span className="nav__link-icon-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                  </span>
                   <span className="nav__link-text">Products</span>
                   <span className="nav__badge-mobile">2 Apps</span>
                   <svg className="nav__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -247,7 +297,13 @@ const Header: React.FC = () => {
                   aria-expanded={activeDropdown === 'services'}
                   onClick={(e) => toggleDropdown(e, 'services')}
                 >
-                  <span className="nav__link-icon-mobile">⚡</span>
+                  <span className="nav__link-icon-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                      <polyline points="2 17 12 22 22 17" />
+                      <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                  </span>
                   <span className="nav__link-text">Services</span>
                   <span className="nav__badge-mobile">3 Layanan</span>
                   <svg className="nav__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -276,7 +332,14 @@ const Header: React.FC = () => {
                       className="dropdown__item dropdown__item--all"
                       onClick={handleLinkClick}
                     >
-                      <span className="dropdown__item-icon">✨</span>
+                      <span className="dropdown__item-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="3" y="3" width="7" height="7" />
+                          <rect x="14" y="3" width="7" height="7" />
+                          <rect x="14" y="14" width="7" height="7" />
+                          <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                      </span>
                       <span className="dropdown__item-content">
                         <span className="dropdown__item-label">Semua Layanan (What We Offer)</span>
                         <span className="dropdown__item-desc">Estimator proyek &amp; alur pengerjaan</span>
@@ -292,7 +355,14 @@ const Header: React.FC = () => {
                   className={`nav__link ${location.pathname.startsWith('/blogs') ? 'nav__link--active' : ''}`} 
                   onClick={handleLinkClick}
                 >
-                  <span className="nav__link-icon-mobile">📝</span>
+                  <span className="nav__link-icon-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                  </span>
                   <span>Blog</span>
                 </Link>
               </li>
@@ -303,7 +373,13 @@ const Header: React.FC = () => {
                   className={`nav__link ${location.pathname === '/support' ? 'nav__link--active' : ''}`} 
                   onClick={handleLinkClick}
                 >
-                  <span className="nav__link-icon-mobile">🛡️</span>
+                  <span className="nav__link-icon-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                      <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                  </span>
                   <span>Support</span>
                 </Link>
               </li>
@@ -319,7 +395,7 @@ const Header: React.FC = () => {
                   onClick={() => theme !== 'dark' && toggleTheme()}
                   aria-pressed={theme === 'dark'}
                 >
-                  🌙 Gelap
+                  Gelap
                 </button>
                 <button
                   type="button"
@@ -327,7 +403,7 @@ const Header: React.FC = () => {
                   onClick={() => theme !== 'light' && toggleTheme()}
                   aria-pressed={theme === 'light'}
                 >
-                  ☀️ Terang
+                  Terang
                 </button>
               </div>
             </div>
@@ -341,7 +417,23 @@ const Header: React.FC = () => {
                 aria-label={theme === 'dark' ? 'Ganti ke Mode Terang' : 'Ganti ke Mode Gelap'}
                 title={theme === 'dark' ? 'Mode Terang' : 'Mode Gelap'}
               >
-                {theme === 'dark' ? '☀️' : '🌙'}
+                {theme === 'dark' ? (
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                ) : (
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
               </button>
 
               <a
@@ -386,7 +478,23 @@ const Header: React.FC = () => {
               aria-label={theme === 'dark' ? 'Ganti ke Mode Terang' : 'Ganti ke Mode Gelap'}
               title={theme === 'dark' ? 'Mode Terang' : 'Mode Gelap'}
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              ) : (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              )}
             </button>
 
             <button

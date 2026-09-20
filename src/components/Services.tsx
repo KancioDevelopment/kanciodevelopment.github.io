@@ -4,42 +4,56 @@ import './Services.css'
 
 const services = [
   {
-    icon: '🚀',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
     title: 'Custom Digital Solution',
-    desc: 'We build web, mobile, and desktop applications tailored precisely to your unique business processes — from concept to deployment.',
+    desc: 'Kami membangun aplikasi web, mobile, dan desktop kustom yang disesuaikan secara presisi dengan alur proses bisnis Anda.',
     features: [
-      'Full-stack Web & Mobile Apps',
-      'Proven architecture (PulsaApp, ApotekApp)',
-      'Industry-specific workflows',
-      'Scalable & maintainable code',
+      'Aplikasi Web & Mobile Multi-Platform',
+      'Arsitektur Teruji (PulsaApp, ApotekApp)',
+      'Alur Kerja Spesifik Industri',
+      'Kode Bersih, Terukur & Mudah Dikelola',
     ],
     gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
     path: '/services/custom-solution',
     tag: 'Featured',
   },
   {
-    icon: '🤖',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+      </svg>
+    ),
     title: 'AI Integration',
-    desc: 'Supercharge your existing systems with intelligent automation, natural language processing, and data-driven AI models.',
+    desc: 'Tingkatkan efisiensi sistem Anda dengan otomasi cerdas, pemrosesan bahasa alami (NLP), dan pipeline kecerdasan buatan.',
     features: [
-      'LLM & Chatbot Integration',
-      'Computer Vision pipelines',
-      'Predictive analytics',
-      'Process automation',
+      'Integrasi Chatbot LLM WhatsApp & Web',
+      'Pipeline Dokumen OCR & Vision AI',
+      'Analitik Prediktif & Deteksi Anomali',
+      'Otomasi Alur Operasional Bisnis',
     ],
     gradient: 'linear-gradient(135deg, #06b6d4, #10b981)',
     path: '/services/ai-integration',
     tag: 'Trending',
   },
   {
-    icon: '💡',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+      </svg>
+    ),
     title: 'Digital Consulting',
-    desc: 'Strategic guidance for your digital transformation — technology audit, roadmap planning, and implementation oversight.',
+    desc: 'Panduan strategis untuk transformasi digital — audit teknologi, perencanaan roadmap, dan pengawasan implementasi sistem.',
     features: [
-      'Technology stack assessment',
-      'Digital transformation roadmap',
-      'Architecture consulting',
-      'Team training & workshops',
+      'Audit & Penilaian Arsitektur Sistem',
+      'Roadmap Transformasi Digital Bisnis',
+      'Konsultasi Skalabilitas & Keamanan',
+      'Pelatihan Tim & Transfer Teknologi',
     ],
     gradient: 'linear-gradient(135deg, #ec4899, #f97316)',
     path: '/services/consulting',
@@ -48,10 +62,10 @@ const services = [
 ]
 
 const industries = [
-  { icon: '🛒', label: 'E-Commerce & Retail' },
-  { icon: '💳', label: 'FinTech & PPOB' },
-  { icon: '💊', label: 'Healthcare' },
-  { icon: '📚', label: 'Education & EdTech' },
+  'E-Commerce & Retail',
+  'FinTech & Server PPOB',
+  'Farmasi & Fasilitas Kesehatan',
+  'Pendidikan & EdTech',
 ]
 
 const Services: React.FC = () => {
@@ -75,14 +89,13 @@ const Services: React.FC = () => {
     >
       <div className="container">
         <div className="section-header">
-          <div className="badge">Our Services</div>
+          <div className="badge">Layanan Kami</div>
           <h2>
-            End-to-End{' '}
-            <span className="text-gradient">Digital Services</span>
+            Solusi Rekayasa{' '}
+            <span className="text-gradient">Perangkat Lunak &amp; AI</span>
           </h2>
           <p>
-            From ideation to deployment — we provide the technology, expertise,
-            and support your business needs to thrive in the digital era.
+            Dari perencanaan arsitektur hingga implementasi produksi — kami menyediakan keahlian teknis dan teknologi mutakhir untuk percepatan bisnis Anda.
           </p>
         </div>
 
@@ -120,7 +133,7 @@ const Services: React.FC = () => {
                 </ul>
 
                 <Link to={service.path} className="service-card__cta btn btn--outline btn--sm">
-                  Learn More
+                  Lihat Detail Layanan
                   <span className="btn__icon">→</span>
                 </Link>
               </div>
@@ -130,12 +143,12 @@ const Services: React.FC = () => {
 
         {/* Industries */}
         <div className="services__industries">
-          <p className="services__industries-label">Industries We Serve</p>
+          <p className="services__industries-label">Sektor Industri Yang Kami Layani</p>
           <div className="services__industries-grid">
-            {industries.map((ind) => (
-              <div key={ind.label} className="industry-chip">
-                <span>{ind.icon}</span>
-                <span>{ind.label}</span>
+            {industries.map((label) => (
+              <div key={label} className="industry-chip">
+                <span className="industry-dot" />
+                <span>{label}</span>
               </div>
             ))}
           </div>
@@ -144,8 +157,8 @@ const Services: React.FC = () => {
         {/* CTA Banner */}
         <div className="services__cta-banner">
           <div className="services__cta-text">
-            <h3>Have a project in mind?</h3>
-            <p>Let's discuss how Kancio can bring your idea to life.</p>
+            <h3>Punya Kebutuhan Proyek Digital?</h3>
+            <p>Diskusikan bersama tim konsultan Kancio untuk rancangan arsitektur dan estimasi terbaik.</p>
           </div>
           <div className="services__cta-actions">
             <a
@@ -156,11 +169,11 @@ const Services: React.FC = () => {
                 document.querySelector('.footer')?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              Get a Free Quote
+              Konsultasi Sekarang
               <span className="btn__icon">→</span>
             </a>
             <Link to="/services/custom-solution" className="btn btn--secondary btn--large">
-              View All Services
+              Semua Layanan
             </Link>
           </div>
         </div>

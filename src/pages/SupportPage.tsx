@@ -82,7 +82,7 @@ const faqs: FAQItem[] = [
     badge: 'Kemitraan & Billing',
     question: 'Bagaimana cara mengajukan invoice resmi atau kerja sama kemitraan institusi?',
     answer:
-      'Untuk kebutuhan invoice perusahaan, nota dinas, penawaran harga (quotation), atau kerja sama kemitraan B2B, silakan hubungi tim administrasi kami melalui formulir tiket di bawah atau langsung via email ke support@kancio.com.',
+      'Untuk kebutuhan invoice perusahaan, nota dinas, penawaran harga (quotation), atau kerja sama kemitraan B2B, silakan hubungi tim administrasi kami melalui formulir tiket di bawah atau langsung via email ke kancio.indonesia@gmail.com.',
   },
 ]
 
@@ -239,7 +239,7 @@ const SupportPage: React.FC = () => {
 
             {/* Email Support */}
             <a
-              href="mailto:support@kancio.com?subject=Permintaan%20Bantuan%20Teknis%20Kancio"
+              href="mailto:kancio.indonesia@gmail.com?subject=Permintaan%20Bantuan%20Teknis%20Kancio"
               className="support-channel-card card channel-email"
               title="Kirim Email ke Helpdesk Kancio"
             >
@@ -249,7 +249,7 @@ const SupportPage: React.FC = () => {
                 <h3 className="channel-title">Email Helpdesk</h3>
                 <p className="channel-desc">Kirim dokumen teknis, pengajuan invoice institusi, atau laporan investigasi mendalam.</p>
                 <div className="channel-action-label">
-                  <span>support@kancio.com</span>
+                  <span>kancio.indonesia@gmail.com</span>
                   <span className="arrow-icon">↗</span>
                 </div>
               </div>

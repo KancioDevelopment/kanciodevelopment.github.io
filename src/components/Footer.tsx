@@ -10,7 +10,12 @@ const Footer: React.FC = () => {
     { 
       name: 'PulsaApp', 
       description: 'Digital Payment & PPOB 24 Jam', 
-      icon: '📱', 
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+          <line x1="12" y1="18" x2="12.01" y2="18" />
+        </svg>
+      ), 
       link: '/products/pulsaapp', 
       externalUrl: 'https://ppob.kancio.com/',
       category: 'FinTech' 
@@ -18,7 +23,12 @@ const Footer: React.FC = () => {
     { 
       name: 'ApotekApp', 
       description: 'Pharmacy ERP & POS FEFO', 
-      icon: '💊', 
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      ), 
       link: '/products/apotekapp', 
       externalUrl: 'https://apotek.kancio.com/',
       category: 'Healthcare' 
@@ -26,10 +36,47 @@ const Footer: React.FC = () => {
   ]
 
   const servicesList = [
-    { name: 'What We Offer (Overview)', path: '/services', icon: '✨' },
-    { name: 'Custom Solution', path: '/services/custom-solution', icon: '🚀' },
-    { name: 'AI Integration', path: '/services/ai-integration', icon: '🤖' },
-    { name: 'Digital Consulting', path: '/services/consulting', icon: '💡' },
+    { 
+      name: 'What We Offer (Overview)', 
+      path: '/services', 
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="7" height="7" />
+          <rect x="14" y="3" width="7" height="7" />
+          <rect x="14" y="14" width="7" height="7" />
+          <rect x="3" y="14" width="7" height="7" />
+        </svg>
+      ) 
+    },
+    { 
+      name: 'Custom Solution', 
+      path: '/services/custom-solution', 
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      ) 
+    },
+    { 
+      name: 'AI Integration', 
+      path: '/services/ai-integration', 
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+        </svg>
+      ) 
+    },
+    { 
+      name: 'Digital Consulting', 
+      path: '/services/consulting', 
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      ) 
+    },
   ]
 
   const socialLinks = [
@@ -149,7 +196,11 @@ const Footer: React.FC = () => {
         <div className="footer__hero">
           <div className="footer__brand">
             <div className="footer__logo">
-              <span className="footer__logo-icon">🚀</span>
+              <span className="footer__logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+                </svg>
+              </span>
               <h3 className="footer__brand-name">Kancio Development</h3>
             </div>
             <p className="footer__brand-description">
@@ -228,7 +279,8 @@ const Footer: React.FC = () => {
                   className="footer__nav-link"
                   onClick={(e) => handleFooterNavClick(e, s.path)}
                 >
-                  {s.icon} {s.name}
+                  <span style={{ marginRight: '6px', display: 'inline-flex', verticalAlign: 'middle' }}>{s.icon}</span>
+                  {s.name}
                 </Link>
               ))}
             </div>
@@ -256,7 +308,12 @@ const Footer: React.FC = () => {
             <h4 className="footer__section-title">Get In Touch</h4>
             <div className="footer__contact-list">
               <a href="mailto:kancio.indonesia@gmail.com" className="footer__contact-item">
-                <span className="footer__contact-icon">📧</span>
+                <span className="footer__contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </span>
                 <div className="footer__contact-details">
                   <span className="footer__contact-label">Email</span>
                   <span className="footer__contact-value">kancio.indonesia@gmail.com</span>
@@ -264,7 +321,12 @@ const Footer: React.FC = () => {
               </a>
 
               <a href="tel:+6282325600996" className="footer__contact-item">
-                <span className="footer__contact-icon">📱</span>
+                <span className="footer__contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                  </svg>
+                </span>
                 <div className="footer__contact-details">
                   <span className="footer__contact-label">Phone</span>
                   <span className="footer__contact-value">+62 823-2560-0996</span>
@@ -272,7 +334,13 @@ const Footer: React.FC = () => {
               </a>
 
               <div className="footer__contact-item">
-                <span className="footer__contact-icon">🌐</span>
+                <span className="footer__contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </span>
                 <div className="footer__contact-details">
                   <span className="footer__contact-label">Website</span>
                   <span className="footer__contact-value">kancio.com</span>

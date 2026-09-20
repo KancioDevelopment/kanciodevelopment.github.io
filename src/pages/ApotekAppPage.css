@@ -1407,14 +1407,21 @@
     align-items: center;
 }
 
-.apotek-mod-card__icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
+.apotek-mod-card__index {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    font-family: monospace;
+    letter-spacing: 0.05em;
+}
+
+.apotek-why-card__num {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--cyber-cyan);
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
 }
 
 .apotek-mod-card__name {
@@ -2047,9 +2054,121 @@
 }
 
 /* =========================================================
+/* =========================================================
+   STICKY IN-PAGE NAVIGATION FOR APOTEKAPP
+   ========================================================= */
+.apotek-inpage-nav {
+    position: sticky;
+    top: 72px;
+    z-index: 95;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.apotek-inpage-nav__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.apotek-inpage-nav__inner::-webkit-scrollbar {
+    display: none;
+}
+
+.apotek-inpage-nav .inpage-nav-pill {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.apotek-inpage-nav .inpage-nav-pill:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   STORE FILTER TOOLBAR & CHIPS
+   ========================================================= */
+.store-filter-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.store-city-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.store-city-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.store-city-pill:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+}
+
+.store-city-pill--active {
+    background: linear-gradient(135deg, #6366f1, #06b6d4) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+}
+
+.store-search-wrap input {
+    min-width: 260px;
+    padding: 9px 18px;
+    font-size: 0.85rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.6);
+    color: #f8fafc;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.store-search-wrap input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+/* =========================================================
    LIGHT MODE OVERRIDES FOR APOTEKAPP
    ========================================================= */
 .apotek-theme-light {
+    --cyber-dark-card: #ffffff;
+    --cyber-dark-border: rgba(15, 23, 42, 0.08);
     background: #f8fafc !important;
     color: #0f172a !important;
 }
@@ -2069,10 +2188,49 @@
 
 .apotek-theme-light .glass-panel,
 .apotek-theme-light .card {
-    background: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
     border-color: rgba(226, 232, 240, 0.9) !important;
     color: #0f172a !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.apotek-theme-light .apotek-inpage-nav {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(203, 213, 225, 0.8) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+.apotek-theme-light .apotek-inpage-nav .inpage-nav-pill {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
+.apotek-theme-light .apotek-inpage-nav .inpage-nav-pill:hover {
+    color: #0284c7 !important;
+    border-color: #0284c7 !important;
+    background: #f0f9ff !important;
+}
+
+.apotek-theme-light .store-city-pill {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
+.apotek-theme-light .store-city-pill:hover {
+    color: #0284c7 !important;
+    border-color: #0284c7 !important;
+}
+
+.apotek-theme-light .store-search-wrap input {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .store-search-wrap input:focus {
+    border-color: #0284c7 !important;
 }
 
 .apotek-theme-light .apotek-hero__title {
@@ -2181,8 +2339,15 @@
     border-color: #e2e8f0 !important;
 }
 
+.apotek-theme-light .apotek-module-preview__body {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
 .apotek-theme-light .apotek-preview-row {
     color: #334155 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
 }
 
 .apotek-theme-light .lead-capture-card {
@@ -2198,10 +2363,142 @@
 }
 
 .apotek-theme-light .lead-form input,
-.apotek-theme-light .lead-form select {
+.apotek-theme-light .lead-form select,
+.apotek-theme-light .lead-form textarea {
     background: #ffffff !important;
     border-color: #cbd5e1 !important;
     color: #0f172a !important;
+}
+
+/* Light mode for all content cards */
+.apotek-theme-light .apotek-auto-card,
+.apotek-theme-light .apotek-role-card,
+.apotek-theme-light .apotek-why-card,
+.apotek-theme-light .cc-step-card,
+.apotek-theme-light .store-card,
+.apotek-theme-light .store-empty-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+.apotek-theme-light .apotek-auto-card__title,
+.apotek-theme-light .apotek-role-card__title,
+.apotek-theme-light .apotek-why-card h4,
+.apotek-theme-light .cc-step-title,
+.apotek-theme-light .store-name {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .apotek-auto-card__desc,
+.apotek-theme-light .apotek-why-card p,
+.apotek-theme-light .cc-step-desc,
+.apotek-theme-light .store-info,
+.apotek-theme-light .benefit-text {
+    color: #475569 !important;
+}
+
+.apotek-theme-light .apotek-auto-card__impact {
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.apotek-theme-light .impact-label {
+    color: #0284c7 !important;
+}
+
+.apotek-theme-light .impact-text {
+    color: #334155 !important;
+}
+
+.apotek-theme-light .apotek-docs-tabs {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.apotek-theme-light .apotek-docs-tab {
+    color: #64748b !important;
+}
+
+.apotek-theme-light .apotek-docs-tab--active {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light mode for live simulators */
+.apotek-theme-light .sim-result-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+.apotek-theme-light .batch-row--selected {
+    background: #eff6ff !important;
+    border-color: #bfdbfe !important;
+    color: #1e3a8a !important;
+}
+
+.apotek-theme-light .batch-row--locked {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #64748b !important;
+}
+
+.apotek-theme-light .audit-col,
+.apotek-theme-light .bpjs-card {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .audit-col .lbl {
+    color: #64748b !important;
+}
+
+.apotek-theme-light .order-msg {
+    background: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+    color: #166534 !important;
+}
+
+.apotek-theme-light .order-msg strong {
+    color: #14532d !important;
+}
+
+.apotek-theme-light .mockup-stream-card {
+    background: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.apotek-theme-light .stream-header {
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .stream-item {
+    border-color: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+
+.apotek-theme-light .item-info strong {
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .item-info span {
+    color: #64748b !important;
+}
+
+.apotek-theme-light .stream-footer {
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.apotek-theme-light .mockup-live-ticker {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #334155 !important;
 }
 
 .apotek-theme-light .pricing-card {

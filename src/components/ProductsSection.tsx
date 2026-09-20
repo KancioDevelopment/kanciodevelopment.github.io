@@ -8,7 +8,6 @@ interface Product {
   shortDesc: string
   category: string
   businessType: 'pharmacy' | 'ppob' | 'all'
-  icon: string
   gradient: string
   features: string[]
   path: string
@@ -25,7 +24,6 @@ const products: Product[] = [
       'Sistem ERP farmasi terpadu #1 — kasir POS FEFO otomatis, rekonsiliasi klaim BPJS Kapitasi & PRB kronis, deteksi markup HPP AI, dan reservasi obat online Click & Collect.',
     category: 'Healthcare ERP',
     businessType: 'pharmacy',
-    icon: '💊',
     gradient: 'linear-gradient(135deg, #06b6d4, #6366f1)',
     features: ['Alokasi Stok FEFO / FIFO Otomatis', 'Klaim BPJS PRB & Kapitasi 100% Cocok', 'Deteksi Anomali HPP Supplier AI', 'Toko Online Click & Collect'],
     path: '/products/apotekapp',
@@ -40,7 +38,6 @@ const products: Product[] = [
       'Distributor pulsa termurah dan server PPOB 24 jam nonstop — transaksi 1-5 detik, 1.000+ produk digital, token PLN, e-money, voucher game, dan eSIM global 50+ negara.',
     category: 'FinTech & PPOB',
     businessType: 'ppob',
-    icon: '⚡',
     gradient: 'linear-gradient(135deg, #0284c7, #e6007e)',
     features: ['Auto-Routing Kilat 1-5 Detik', '1.000+ Produk Digital & Game', 'QRIS & Virtual Account Otomatis', 'Cetak Struk Bluetooth & PDF'],
     path: '/products/pulsaapp',
@@ -117,19 +114,19 @@ const ProductsSection: React.FC = () => {
               className={`filter-tab ${selectedFilter === 'all' ? 'filter-tab--active' : ''}`}
               onClick={() => setSelectedFilter('all')}
             >
-              🌐 Semua Produk ({products.length})
+              Semua Solusi ({products.length})
             </button>
             <button
               className={`filter-tab ${selectedFilter === 'pharmacy' ? 'filter-tab--active' : ''}`}
               onClick={() => setSelectedFilter('pharmacy')}
             >
-              💊 Farmasi &amp; Apotek ERP
+              Farmasi &amp; Apotek ERP
             </button>
             <button
               className={`filter-tab ${selectedFilter === 'ppob' ? 'filter-tab--active' : ''}`}
               onClick={() => setSelectedFilter('ppob')}
             >
-              ⚡ Konter &amp; Server PPOB 24 Jam
+              Konter &amp; Server PPOB 24 Jam
             </button>
           </div>
         </div>
@@ -144,7 +141,16 @@ const ProductsSection: React.FC = () => {
             >
               <div className="product-card__header">
                 <div className="product-card__icon" style={{ background: product.gradient }}>
-                  {product.icon}
+                  {product.id === 'apotekapp' ? (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  ) : (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  )}
                 </div>
                 <div className="product-card__meta">
                   <span className="product-card__category">{product.category}</span>
@@ -202,7 +208,9 @@ const ProductsSection: React.FC = () => {
         <div className="home-lead-section glass-panel" style={{ marginTop: '60px' }}>
           <div className="home-lead-grid">
             <div className="home-lead-text">
-              <div className="badge cyber-pulse-badge">🚀 Konsultasi Gratis</div>
+              <div className="badge cyber-pulse-badge">
+                <span className="pulse-dot" /> Konsultasi &amp; Kemitraan Bisnis
+              </div>
               <h3>Belum Yakin Solusi Mana yang Tepat?</h3>
               <p>
                 Diskusikan alur operasional dan target bisnis Anda bersama tim konsultan teknologi Kancio. Kami siap memberikan rekomendasi produk dan simulasi implementasi terbaik.
@@ -217,7 +225,12 @@ const ProductsSection: React.FC = () => {
             <div className="home-lead-form-wrap">
               {leadSent ? (
                 <div className="lead-success-state animate-fade-in">
-                  <div className="success-icon">🎉</div>
+                  <div className="success-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="9 12 11 14 15 10" />
+                    </svg>
+                  </div>
                   <h4>Permintaan Terkirim!</h4>
                   <p>
                     Anda telah dialihkan ke WhatsApp Customer Service Kancio. Kami akan segera menghubungi Anda untuk penjadwalan demo.
@@ -276,7 +289,7 @@ const ProductsSection: React.FC = () => {
                   </div>
 
                   <button type="submit" className="btn btn--primary btn-block">
-                    ⚡ Hubungkan ke WhatsApp Kancio
+                    Hubungkan ke WhatsApp Kancio →
                   </button>
                 </form>
               )}

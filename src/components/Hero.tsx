@@ -8,7 +8,6 @@ const apps = [
     name: 'ApotekApp ERP',
     tagline: 'Sistem Informasi & POS Apotek Terpadu #1',
     shortDesc: 'Otomasi alokasi stok FEFO terdekat, rekonsiliasi resep BPJS Kapitasi & PRB kronis, deteksi markup HPP AI, dan reservasi obat online Click & Collect.',
-    icon: '💊',
     gradient: 'linear-gradient(135deg, #06b6d4, #6366f1)',
     category: 'Healthcare ERP',
     path: '/products/apotekapp',
@@ -24,7 +23,6 @@ const apps = [
     name: 'PulsaApp SaaS',
     tagline: 'Distributor Pulsa Murah & Server PPOB 24 Jam',
     shortDesc: 'Platform transaksi digital kilat 1-5 detik: pulsa semua operator, token PLN nonstop, top up e-money, voucher game, dan eSIM global 50+ negara.',
-    icon: '⚡',
     gradient: 'linear-gradient(135deg, #0284c7, #e6007e)',
     category: 'FinTech & PPOB',
     path: '/products/pulsaapp',
@@ -38,10 +36,10 @@ const apps = [
 ]
 
 const stats = [
-  { number: '1.000+', label: 'Produk Digital', icon: '⚡' },
-  { number: '99.9%', label: 'Akurasi Stok FEFO', icon: '🎯' },
-  { number: '1-5 Dtk', label: 'Kecepatan Server', icon: '🚀' },
-  { number: '24/7', label: 'Cloud Uptime', icon: '🛡️' },
+  { number: '1.000+', label: 'Produk Digital' },
+  { number: '99.9%', label: 'Akurasi Stok FEFO' },
+  { number: '1-5 Dtk', label: 'Kecepatan Server' },
+  { number: '24/7', label: 'Cloud Uptime' },
 ]
 
 const Hero: React.FC = () => {
@@ -88,11 +86,8 @@ const Hero: React.FC = () => {
             <div className="hero__stats glass-card">
               {stats.map((stat, i) => (
                 <div key={i} className="hero__stat">
-                  <span className="hero__stat-icon">{stat.icon}</span>
-                  <div>
-                    <div className="hero__stat-number">{stat.number}</div>
-                    <div className="hero__stat-label">{stat.label}</div>
-                  </div>
+                  <div className="hero__stat-number">{stat.number}</div>
+                  <div className="hero__stat-label">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -130,7 +125,6 @@ const Hero: React.FC = () => {
                   className={`app-switch-btn ${i === activeApp ? 'app-switch-btn--active' : ''}`}
                   onClick={() => setActiveApp(i)}
                 >
-                  <span className="btn-icon">{app.icon}</span>
                   <span className="btn-label">{app.name}</span>
                 </button>
               ))}
@@ -140,7 +134,16 @@ const Hero: React.FC = () => {
             <div className="hero__app-card glass-panel animate-fade-in" key={current.id}>
               <div className="hero__app-header">
                 <div className="hero__app-icon" style={{ background: current.gradient }}>
-                  {current.icon}
+                  {current.id === 'apotekapp' ? (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  ) : (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  )}
                 </div>
                 <div className="hero__app-meta">
                   <div className="hero__app-name">{current.name}</div>
@@ -172,7 +175,7 @@ const Hero: React.FC = () => {
                     className="hero-live-badge"
                     title={`Pelajari Lebih Lanjut di Web App ${current.name}`}
                   >
-                    🚀 Pelajari di {current.id === 'apotekapp' ? 'apotek.kancio.com' : 'ppob.kancio.com'} ↗
+                    Buka Portal Web {current.id === 'apotekapp' ? 'apotek.kancio.com' : 'ppob.kancio.com'} ↗
                   </a>
                 )}
                 <Link to={current.path} className="hero-explore-link">
@@ -184,15 +187,23 @@ const Hero: React.FC = () => {
             {/* Quick Service Links */}
             <div className="hero__services-mini">
               <Link to="/services/custom-solution" className="hero__service-mini glass-panel">
-                <span>🚀</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
                 <span>Custom Solution</span>
               </Link>
               <Link to="/services/ai-integration" className="hero__service-mini glass-panel">
-                <span>🤖</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+                </svg>
                 <span>AI Integration</span>
               </Link>
               <Link to="/services/consulting" className="hero__service-mini glass-panel">
-                <span>💬</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
                 <span>Consulting</span>
               </Link>
             </div>

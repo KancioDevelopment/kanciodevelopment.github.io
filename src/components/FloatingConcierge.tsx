@@ -4,25 +4,43 @@ import './FloatingConcierge.css'
 
 const quickIntents = [
   {
-    icon: '💊',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    ),
     title: 'Konsultasi ApotekApp ERP',
     desc: 'Otomasi POS FEFO & Rekonsiliasi BPJS PRB',
     message: 'Halo Tim Kancio, saya ingin konsultasi demo & implementasi ApotekApp ERP untuk apotek/klinik saya.',
   },
   {
-    icon: '⚡',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
     title: 'Distributor Pulsa & Server PPOB',
     desc: 'Transaksi 1-5 detik, QRIS 24 jam & API H2H',
     message: 'Halo Tim Kancio, saya ingin daftar kemitraan Agen PulsaApp / integrasi Server PPOB H2H.',
   },
   {
-    icon: '🚀',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
     title: 'Jasa Pembuatan Aplikasi Kustom',
     desc: 'Web portal enterprise, mobile app iOS/Android',
     message: 'Halo Tim Kancio, saya memiliki ide proyek aplikasi kustom dan ingin mendiskusikan estimasi biaya & timeline.',
   },
   {
-    icon: '🤖',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+      </svg>
+    ),
     title: 'Integrasi AI & Otomasi Alur Kerja',
     desc: 'Chatbot WhatsApp pintar & ekstraksi dokumen OCR',
     message: 'Halo Tim Kancio, saya tertarik mengintegrasikan teknologi AI (Chatbot/OCR) ke dalam sistem operasional kami.',
@@ -33,7 +51,12 @@ const quickDemos = [
   {
     name: 'ApotekApp Web App (apotek.kancio.com)',
     badge: 'Portal Resmi ERP',
-    icon: '💊',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    ),
     url: 'https://apotek.kancio.com/',
     isExternal: true,
     color: '#06b6d4',
@@ -41,7 +64,11 @@ const quickDemos = [
   {
     name: 'PulsaApp Web App (ppob.kancio.com)',
     badge: 'Portal Resmi PPOB',
-    icon: '⚡',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
     url: 'https://ppob.kancio.com/',
     isExternal: true,
     color: '#f472b6',
@@ -49,14 +76,23 @@ const quickDemos = [
   {
     name: 'Project Scope & Timeline Estimator',
     badge: 'Interactive Estimator',
-    icon: '🧪',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="m9 8 6 4-6 4Z" />
+      </svg>
+    ),
     path: '/services#estimator',
     color: '#818cf8',
   },
   {
     name: 'AI Pipeline & OCR Simulator',
     badge: 'Live AI Simulator',
-    icon: '🤖',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+      </svg>
+    ),
     path: '/services/ai-integration#ai-sim',
     color: '#34d399',
   },
@@ -130,7 +166,9 @@ const FloatingConcierge: React.FC = () => {
           <div className="concierge-header">
             <div className="concierge-profile">
               <div className="concierge-avatar">
-                <span>🚀</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+                </svg>
                 <span className="avatar-online-dot" />
               </div>
               <div className="concierge-info">
@@ -153,19 +191,19 @@ const FloatingConcierge: React.FC = () => {
               className={`concierge-tab ${activeTab === 'chat' ? 'concierge-tab--active' : ''}`}
               onClick={() => setActiveTab('chat')}
             >
-              💬 WhatsApp
+              WhatsApp
             </button>
             <button
               className={`concierge-tab ${activeTab === 'demos' ? 'concierge-tab--active' : ''}`}
               onClick={() => setActiveTab('demos')}
             >
-              🧪 Demo Live
+              Demo Produk
             </button>
             <button
               className={`concierge-tab ${activeTab === 'schedule' ? 'concierge-tab--active' : ''}`}
               onClick={() => setActiveTab('schedule')}
             >
-              📅 Booking Call
+              Jadwal Call
             </button>
           </div>
 
@@ -173,7 +211,7 @@ const FloatingConcierge: React.FC = () => {
           {activeTab === 'chat' && (
             <div className="concierge-body animate-fade-in">
               <div className="concierge-portal-shortcuts">
-                <span className="portal-shortcut-label">🌐 Akses Portal Web App Resmi:</span>
+                <span className="portal-shortcut-label">Akses Portal Web App Resmi:</span>
                 <div className="portal-shortcut-btns">
                   <a
                     href="https://apotek.kancio.com/"
@@ -182,7 +220,7 @@ const FloatingConcierge: React.FC = () => {
                     className="portal-quick-btn portal-quick-btn--apotek"
                     title="Buka Web App Resmi ApotekApp"
                   >
-                    <span>💊 ApotekApp Web</span>
+                    <span>ApotekApp Web</span>
                     <span>↗</span>
                   </a>
                   <a
@@ -192,7 +230,7 @@ const FloatingConcierge: React.FC = () => {
                     className="portal-quick-btn portal-quick-btn--pulsa"
                     title="Buka Web App Resmi PulsaApp"
                   >
-                    <span>⚡ PulsaApp Web</span>
+                    <span>PulsaApp Web</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -334,7 +372,7 @@ const FloatingConcierge: React.FC = () => {
                   </div>
 
                   <button type="submit" className="btn btn--primary btn-block cyber-btn-primary">
-                    ⚡ Konfirmasi Jadwal via WhatsApp
+                    Konfirmasi Jadwal via WhatsApp →
                   </button>
                 </form>
               )}
@@ -343,7 +381,7 @@ const FloatingConcierge: React.FC = () => {
 
           {/* Panel Footer */}
           <div className="concierge-footer">
-            <span>🛡️ Respon Cepat &lt; 2 Jam • Kancio Development</span>
+            <span>Respon Cepat &lt; 2 Jam • Kancio Development</span>
           </div>
         </div>
       )}
@@ -356,7 +394,15 @@ const FloatingConcierge: React.FC = () => {
         aria-label="Buka Kancio Concierge"
       >
         <span className="floating-btn-glow" />
-        <span className="floating-btn-icon">{isOpen ? '✕' : '💬'}</span>
+        <span className="floating-btn-icon">
+          {isOpen ? (
+            '✕'
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          )}
+        </span>
         <span className="floating-btn-label">Tanya Kancio</span>
 
         {hasUnread && !isOpen && <span className="floating-unread-badge">1</span>}
